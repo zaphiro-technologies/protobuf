@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package task.v1;
+option go_package = "./task/v1";
+
+enum TaskType {
+	TASK_TYPE_UNSPECIFIED = 0;
+	TASK_TYPE_COLLECTION = 1;
+	TASK_TYPE_TOPOLOGY = 2;
+	TASK_TYPE_STATE = 3;
+	TASK_TYPE_FAULT = 4;
+}
+
+enum NotificationType {
+	NOTIFICATION_TYPE_UNSPECIFIED = 0;
+	NOTIFICATION_TYPE_DATA_COMPLETE = 1;
+	NOTIFICATION_TYPE_DATA_TIMEOUT_1 = 2;
+	NOTIFICATION_TYPE_DATA_TIMEOUT_2 = 3;
+}
+
+
+message Task {
+	string id = 1;
+	TaskType taskType = 2;
+	int64 createdAt = 3;
+	optional string 	measurementID = 4;
+	optional int64 	timestampID = 5;
+}
+
+message Notification {
+	string id = 1;
+	NotificationType notificationType = 2;
+	int64 createdAt = 3;
+	string message = 4;
+	optional string 	measurementID = 5;
+	optional int64 	timestampID = 6;
+}

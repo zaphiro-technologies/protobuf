@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package conf.v1;
+option go_package = "./conf/v1";
+
+message Conf2Frame {
+  Conf2Header header = 1  ;
+  repeated Config configs = 2;
+  uint32 DATA_RATE = 3;
+}
+
+message Conf2Header {
+  uint32 SYNC = 1;
+  uint32 FRAMESIZE = 2;
+  uint32 IDCODE = 3;
+  uint32 SOC = 4;
+  uint32 FRACSEC = 5;
+  uint32 TIME_BASE = 6;
+  uint32 NUM_PMU = 7;
+}
+
+message Config {
+  string STN = 1;
+  uint32 IDCODE = 2;
+  uint32 FORMAT = 3;
+  uint32 PHNMR = 4;
+  uint32 ANNMR = 5;
+  uint32 DGNMR = 6;
+  string CHNAM = 7;
+  repeated uint32 PHUNIT = 8;
+  repeated uint32 ANUNIT = 9;
+  repeated uint32 DIGUNIT = 10;
+  uint32 FNOM = 11;
+  uint32 CFGCNT = 12;
+}

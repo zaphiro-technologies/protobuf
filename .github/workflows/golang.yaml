@@ -18,18 +18,39 @@ on:
   push:
     branches:
       - main
-    paths:
-      - ".github/workflows/**"
-      - "go.mod"
-      - "go.sum"
-      - "cmd/**"
-      - "internal/**"
-      - "pkg/**"
-      - "vendor/**"
-      - ".golangci.yaml"
 
 jobs:
+  proto:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        if: ${{ github.event_name == 'pull_request' }}
+        with:
+          ref: ${{github.event.pull_request.head.ref}}
+      - uses: actions/checkout@v4
+        if: ${{ github.event_name != 'pull_request' }}
+      - run: git config --global url.https://$GH_ACCESS_TOKEN@github.com/.insteadOf https://github.com/
+      - uses: bufbuild/buf-setup-action@v1
+      - uses: bufbuild/buf-lint-action@v1
+        with:
+          input: "proto"
+      # on main there are no protos... so it cannot work for now
+      # - uses: bufbuild/buf-breaking-action@v1
+      #   with:
+      #     # The 'main' branch of the GitHub repository that defines the module.
+      #     against: "https://github.com/${GITHUB_REPOSITORY}.git#branch=main"   
+      #     input: "proto"
+      - name: Generating protos
+        run: |
+          buf generate
+      - name: Commit buf changes
+        run: |
+          git config --global user.name 'Bot'
+          git config --global user.email 'bot@zaphiro.ch'
+          git commit -am "Buf re-generated protos" || echo "No changes to commit"
+          git push
   lint:
+    needs: proto
     runs-on: ubuntu-latest
     strategy:
       matrix:
