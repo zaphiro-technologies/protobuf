@@ -1,0 +1,159 @@
+name: Golang
+
+concurrency:
+  group: ${{ github.ref_name }}-go
+  cancel-in-progress: true
+
+permissions:
+  # Give the default GITHUB_TOKEN write permission to commit and push the
+  # updated CHANGELOG back to the repository.
+  # https://github.blog/changelog/2023-02-02-github-actions-updating-the-default-github_token-permissions-to-read-only/
+  contents: write
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/**"
+      - "go.mod"
+      - "go.sum"
+      - "cmd/**"
+      - "internal/**"
+      - "pkg/**"
+      - "vendor/**"
+      - ".golangci.yaml"
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        go-version: ["1.21"]
+    env:
+      GOPRIVATE: github.com/zaphiro-technologies/*
+      GH_ACCESS_TOKEN: ${{ secrets.REPO_PRIVATE_READ_PAT }}
+    steps:
+      - uses: actions/checkout@v4
+        if: ${{ github.event_name == 'pull_request' }}
+        with:
+          ref: ${{github.event.pull_request.head.ref}}
+      - uses: actions/checkout@v4
+        if: ${{ github.event_name != 'pull_request' }}
+      - run: git config --global url.https://$GH_ACCESS_TOKEN@github.com/.insteadOf https://github.com/
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: ${{ matrix.go-version }}
+      - name: Golines
+        if: ${{ github.event_name == 'pull_request' }}
+        run: |
+          go install github.com/segmentio/golines@latest
+          golines . -w
+
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@v3
+        with:
+          args: --fix
+          version: latest
+          skip-pkg-cache: true
+      - name: Commit golines & golangci-lint changes
+        if: ${{ github.event_name == 'pull_request' }}
+        run: |
+          git config --global user.name 'Bot'
+          git config --global user.email 'bot@zaphiro.ch'
+          git commit -am "Automated lint fixes" || echo "No changes to commit"
+          git push
+  test:
+    needs: lint
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        go-version: ["1.21"]
+    env:
+      GOPRIVATE: github.com/zaphiro-technologies/*
+      GH_ACCESS_TOKEN: ${{ secrets.REPO_PRIVATE_READ_PAT }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: git config --global url.https://$GH_ACCESS_TOKEN@github.com/.insteadOf https://github.com/
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: ${{ matrix.go-version }}
+      - name: Install gcov2lcov
+        run: |
+          go install github.com/jandelgado/gcov2lcov@latest
+      - name: Test
+        run: |
+          mkdir coverage 
+          go test ./... -coverprofile=./coverage/coverage.out && \
+          gcov2lcov -infile=./coverage/coverage.out -outfile=./coverage/lcov.info
+      - name: Test main
+        run: |
+          git fetch origin main --depth 1
+          git checkout origin/main
+          export myarray=(`find ./ -maxdepth 3 -name "*.go"`)
+          if [ ${#myarray[@]} -gt 0 ]; then 
+              go test ./... -coverprofile=./coverage/base-coverage.out && \
+              gcov2lcov -infile=./coverage/base-coverage.out -outfile=./coverage/base-lcov.info
+          else 
+              touch ./coverage/base-lcov.info
+              echo "end_of_record" >> ./coverage/base-lcov.info
+          fi
+      - name: Generate Code Coverage report
+        id: code-coverage
+        uses: barecheck/code-coverage-action@v1
+        with:
+          barecheck-github-app-token: ${{ secrets.BARECHECK_GITHUB_APP_TOKEN }}
+          lcov-file: "./coverage/lcov.info"
+          base-lcov-file: "./coverage/base-lcov.info"
+          minimum-ratio: 70
+          send-summary-comment: true
+          show-annotations: "warning"
+  benchmark:
+    needs: test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        go-version: ["1.21"]
+    env:
+      GOPRIVATE: github.com/zaphiro-technologies/*
+      GH_ACCESS_TOKEN: ${{ secrets.REPO_PRIVATE_READ_PAT }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: git config --global url.https://$GH_ACCESS_TOKEN@github.com/.insteadOf https://github.com/
+      - uses: actions/setup-go@v4
+        with:
+          go-version: ${{ matrix.go-version }}
+      # Run benchmark with `go test -bench` and stores the output to a file
+      - name: Run benchmark
+        run: |
+          set -euxo pipefail
+          go test ./... -bench 'Benchmark' -run ^$  | tee output.txt
+      # Download previous benchmark result from cache (if exists)
+      - name: Download previous benchmark data
+        uses: actions/cache@v3
+        with:
+          path: ./cache
+          key: ${{ runner.os }}-benchmark
+      # Run `github-action-benchmark` action
+      - name: Store benchmark result
+        uses: benchmark-action/github-action-benchmark@v1
+        with:
+          # What benchmark tool the output.txt came from
+          tool: "go"
+          # Where the output from the benchmark tool is stored
+          output-file-path: output.txt
+          # Where the previous data file is stored
+          external-data-json-path: ./cache/benchmark-data.json
+          # Workflow will fail when an alert happens
+          fail-on-alert: true
+          # Enable alert commit comment
+          comment-on-alert: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          alert-threshold: 150%
+          summary-always: true
