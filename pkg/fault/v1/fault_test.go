@@ -11,7 +11,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 )
 
-func generateFault(faultId string, faultKind int, phaseCode int, occurredDateTime int64) *Fault {
+func generateFault(faultId string, faultKind, phaseCode int, occurredDateTime int64) *Fault {
 	return &Fault{
 		ID:               faultId,
 		Kind:             PhaseConnectedFaultKind(faultKind).Enum(),
