@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+package fault.v1;
+option go_package = "./fault/v1";
+
+//https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/PhaseConnectedFaultKind
+enum PhaseConnectedFaultKind {
+    PHASE_CONNECTED_FAULT_KIND_UNSPECIFIED = 0;
+    PHASE_CONNECTED_FAULT_KIND_LINE_TO_GROUND = 1;
+    /* The fault connects the indicated phases to ground. The line to line fault impedance is not used and assumed infinite. The full ground impedance is connected between each phase specified in the fault and ground, but not between the phases. */
+    PHASE_CONNECTED_FAULT_KIND_LINE_TO_LINE = 2;
+    /* The fault connects the specified phases together without a connection to ground. The ground impedance of this fault is ignored. The line to line impedance is connected between each of the phases specified in the fault. For example three times for a three phase fault, one time for a two phase fault. A single phase fault should not be specified. */
+    PHASE_CONNECTED_FAULT_KIND_LINE_TO_LINE_TO_GROUND = 3;
+    /* The fault connects the indicated phases to ground and to each other. The line to line impedance is connected between each of the phases specified in the fault in a full mesh. For example three times for a three phase fault, one time for a two phase fault. A single phase fault should not be specified. The full ground impedance is connected between each phase specified in the fault and ground. */
+    PHASE_CONNECTED_FAULT_KIND_LINE_OPEN = 4;
+    /* The fault is when the conductor path is broken between two terminals. Additional coexisting faults may be required if the broken conductor also causes connections to grounds or other lines or phases. */
+}
+
+// https://zepben.github.io/evolve/docs/cim/evolve/IEC61970/Base/Core/PhaseCode/
+enum PhaseCode {
+    PHASE_CODE_UNSPECIFIED = 0; //No phases specified.
+    PHASE_CODE_A = 1; //Phase A.
+    PHASE_CODE_B = 2; //Phase B.
+    PHASE_CODE_C = 3; //Phase C.
+    PHASE_CODE_N = 4; //Neutral phase.
+    PHASE_CODE_AB = 5; //Phases A and B.
+    PHASE_CODE_AC = 6; //Phases A and C.
+    PHASE_CODE_BC = 7; //Phases B and C.
+    PHASE_CODE_AN = 8; //Phases A and neutral.
+    PHASE_CODE_BN = 9; //Phases B and neutral.
+    PHASE_CODE_CN = 10; //Phases C and neutral.
+    PHASE_CODE_ABC = 11; //Phases A, B, and C.
+    PHASE_CODE_ABN = 12; //Phases A, B, and neutral.
+    PHASE_CODE_ACN = 13; //Phases A, C and neutral.
+    PHASE_CODE_BCN = 14; //Phases B, C, and neutral.
+    PHASE_CODE_ABCN = 15; //Phases A, B, C, and N.
+    PHASE_CODE_S1N = 16; //Secondary phase 1 and neutral.
+    PHASE_CODE_S2N = 17; //Secondary phase 2 and neutral.
+    PHASE_CODE_S12N = 18; //Secondary phases 1, 2, and neutral.
+    PHASE_CODE_S1 = 19; //Secondary phase 1.
+    PHASE_CODE_S2 = 20; //Secondary phase 2.
+    PHASE_CODE_S12 = 21; //Secondary phase 1 and 2.
+    PHASE_CODE_X = 22; //Unknown non-neutral phase.
+    PHASE_CODE_XY = 23; //Two unknown non-neutral phases.
+    PHASE_CODE_XN = 24; //Unknown non-neutral phase plus neutral.
+    PHASE_CODE_XYN = 25; //Two unknown non-neutral phases plus neutral.
+}
+
+// https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/Fault
+// https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures
+message Fault {
+    string ID = 1;
+    optional string description = 2;
+    optional PhaseConnectedFaultKind kind = 3; //The kind of phase fault.
+    optional PhaseCode phases = 4; //The phases participating in the fault. The fault connections into these phases are further specified by the type of fault.
+    int64 occurredDateTime = 5; //The date and time at which the fault occurred.
+    optional string faultyEquipmentId = 6;
+    optional int64 locationTime = 7;
+    optional float faulCurrent = 8;
+    optional bool located = 9;
+    repeated string impactedEquipmentId = 10;
+}
+
+// https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/LineFault
+// https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures
+message LineFault {
+    Fault fault = 1;
+    optional float lengthFromTerminal1 = 2; //The length to the place where the fault is located starting from terminal with sequence number 1 of the faulted line segment.
+    optional string acLineSegmentID = 3; //The line segment of this line fault.
+}
+
+// https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/EquipmentFault
+// https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures
+message EquipmentFault {
+    Fault fault = 1;
+    optional string terminalID = 2; //The terminal connecting to the bus to which the fault is applied.
+}
