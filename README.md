@@ -18,7 +18,7 @@ At the time being this repository includes the following Protocol Buffer:
   [`proto/data`](./proto/data), which currently include:
   - `Data`: a single data defined by a `value`, a type of data (`dataType`) -
     which can be `DIGITAL` or `PHASOR` -, and the time when the data was
-    measured (`measuredAt`)
+    measured (`measuredAt`).
   - `DataSet`: a collection of data defined by a producer(`producerId`) and a
     map of `Data` (where the key is the `uuid` of that `Data`).
 - _Task_ used to manage tasks in the platform, defined in
@@ -33,6 +33,8 @@ At the time being this repository includes the following Protocol Buffer:
   - `Conf2Frame`: a Protocol Buffer used to store PMU configuration frames.
 
 ## Protocol Buffers Management
+
+All protocol buffers are documented in [docs](./docs).
 
 ### Generate Code from Protos
 
