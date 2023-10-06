@@ -60,7 +60,7 @@ jobs:
           mkdir -p docs
           ls -la
           ls -la docs
-          mv -f proto/**/*.md docs
+          mv -f ./proto/**/*.md docs
           ls -la docs
       - name: Generating protos
         run: |
