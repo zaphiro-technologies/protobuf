@@ -54,6 +54,7 @@ jobs:
         run: |
           cd ..
           cd protobuf
+          ls -la
           ../proto-gen-md-diagrams/proto-gen-md-diagrams -d proto
           mkdir -p docs
           mv -f proto/**/*.md docs
