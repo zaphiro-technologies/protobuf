@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+/** Messages describing faults. */
+
 package fault.v1;
 option go_package = "./fault/v1";
 

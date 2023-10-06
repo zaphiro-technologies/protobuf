@@ -40,15 +40,33 @@ jobs:
       #     # The 'main' branch of the GitHub repository that defines the module.
       #     against: "https://github.com/${GITHUB_REPOSITORY}.git#branch=main"   
       #     input: "proto"
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: 1.21
+      - name: Clone and build proto-gen-md-diagrams
+        run: |
+          cd ..
+          git clone https://github.com/GoogleCloudPlatform/proto-gen-md-diagrams
+          cd proto-gen-md-diagrams
+          go build
+      - name: Generate docs
+        run: |
+          cd ..
+          cd protobuf
+          ../proto-gen-md-diagrams/proto-gen-md-diagrams -d proto
+          mkdir -p docs
+          mv -f proto/**/*.md docs
+          ls -la docs
       - name: Generating protos
         run: |
           buf generate
-      - name: Commit buf changes
-        run: |
-          git config --global user.name 'Bot'
-          git config --global user.email 'bot@zaphiro.ch'
-          git add --all && git commit -m "Buf re-generated protos" || echo "No changes to commit"
-          git push
+      # - name: Commit buf changes
+      #   run: |
+      #     git config --global user.name 'Bot'
+      #     git config --global user.email 'bot@zaphiro.ch'
+      #     git add --all && git commit -m "Buf re-generated protos" || echo "No changes to commit"
+      #     git push
   lint:
     needs: proto
     runs-on: ubuntu-latest
