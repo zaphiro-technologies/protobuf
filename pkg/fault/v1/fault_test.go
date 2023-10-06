@@ -14,9 +14,9 @@ import (
 func generateFault(faultId string, faultKind, phaseCode int, occurredDateTime int64) *Fault {
 	return &Fault{
 		ID:               faultId,
-		Kind:             PhaseConnectedFaultKind(faultKind).Enum(),
+		Kind:             PhaseConnectedFaultKind(faultKind),
 		OccurredDateTime: occurredDateTime,
-		Phases:           PhaseCode(phaseCode).Enum(),
+		Phases:           PhaseCode(phaseCode),
 	}
 }
 
