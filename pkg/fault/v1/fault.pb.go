@@ -4,6 +4,8 @@
 // 	protoc        (unknown)
 // source: proto/fault/v1/fault.proto
 
+//* Messages describing faults.
+
 package v1
 
 import (
