@@ -58,16 +58,15 @@ jobs:
           mkdir -p docs
           # mv -f proto/**/*.md docs #why it works on my mac but not in the action?
           mv -f proto/*/v1/*.md docs
-          ls -la docs
       - name: Generating protos
         run: |
           buf generate
-      # - name: Commit buf changes
-      #   run: |
-      #     git config --global user.name 'Bot'
-      #     git config --global user.email 'bot@zaphiro.ch'
-      #     git add --all && git commit -m "Buf re-generated protos" || echo "No changes to commit"
-      #     git push
+      - name: Commit buf changes
+        run: |
+          git config --global user.name 'Bot'
+          git config --global user.email 'bot@zaphiro.ch'
+          git add --all && git commit -m "Buf re-generated protos" || echo "No changes to commit"
+          git push
   lint:
     needs: proto
     runs-on: ubuntu-latest
