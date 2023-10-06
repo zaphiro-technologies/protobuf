@@ -54,9 +54,12 @@ jobs:
         run: |
           cd ..
           cd protobuf
-          ls -la
           ../proto-gen-md-diagrams/proto-gen-md-diagrams -d proto
+          ls -la
+          ls -la proto/fault/v1
           mkdir -p docs
+          ls -la
+          ls -la docs
           mv -f proto/**/*.md docs
           ls -la docs
       - name: Generating protos
