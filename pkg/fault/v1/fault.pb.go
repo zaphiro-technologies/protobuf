@@ -4,7 +4,8 @@
 // 	protoc        (unknown)
 // source: proto/fault/v1/fault.proto
 
-//* Messages describing faults.
+// <!-- markdownlint-disable -->
+//Messages describing faults.
 
 package v1
 
@@ -22,10 +23,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// *
-// The type of fault connection among phases.
-//
-// This message is modeled after [CIM PhaseConnectedFaultKind](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/PhaseConnectedFaultKind).
 type PhaseConnectedFaultKind int32
 
 const (
@@ -85,12 +82,6 @@ func (PhaseConnectedFaultKind) EnumDescriptor() ([]byte, []int) {
 	return file_proto_fault_v1_fault_proto_rawDescGZIP(), []int{0}
 }
 
-// *
-// An unordered enumeration of phase identifiers. Allows designation of phases for both transmission and distribution equipment, circuits and loads. The enumeration, by itself, does not describe how the phases are connected together or connected to ground. Ground is not explicitly denoted as a phase.
-// Residential and small commercial loads are often served from single-phase, or split-phase, secondary circuits. For the example of s12N, phases 1 and 2 refer to hot wires that are 180 degrees out of phase, while N refers to the neutral wire. Through single-phase transformer connections, these secondary circuits may be served from one or two of the primary phases A, B, and C. For three-phase loads, use the A, B, C phase codes instead of s12N.
-// The integer values are from IEC 61968-9 to support revenue metering applications.
-//
-// This message is modeled after [CIM PhaseCode](https://zepben.github.io/evolve/docs/cim/evolve/IEC61970/Base/Core/PhaseCode/).
 type PhaseCode int32
 
 const (
@@ -209,9 +200,6 @@ func (PhaseCode) EnumDescriptor() ([]byte, []int) {
 	return file_proto_fault_v1_fault_proto_rawDescGZIP(), []int{1}
 }
 
-// * Abnormal condition causing current flow through conducting equipment, such as caused by equipment failure or short circuits from objects not typically modelled (for example, a tree falling on a line).
-//
-// This message is modeled after [CIM Fault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/Fault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.
 type Fault struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -331,10 +319,6 @@ func (x *Fault) GetImpactedEquipmentIds() []string {
 	return nil
 }
 
-// *
-// A fault that occurs on an AC line segment at some point along the length.
-//
-// This message is modeled after [CIM LineFault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/LineFault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.
 type LineFault struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -398,10 +382,6 @@ func (x *LineFault) GetAcLineSegmentID() string {
 	return ""
 }
 
-// *
-// A fault applied at the terminal, external to the equipment. This class is not used to specify faults internal to the equipment.
-//
-// This message is modeled after [CIM EquipmentFault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/EquipmentFault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.
 type EquipmentFault struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache

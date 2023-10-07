@@ -1,7 +1,6 @@
 syntax = "proto3";
 
-/*
-<!-- markdownlint-disable -->
+/* <!-- markdownlint-disable -->
 Messages describing faults.
 */
 
@@ -13,7 +12,7 @@ option go_package = "./fault/v1";
  
  This message is modeled after [CIM PhaseConnectedFaultKind](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/PhaseConnectedFaultKind).
  */
- 
+
 enum PhaseConnectedFaultKind {
     PHASE_CONNECTED_FAULT_KIND_UNSPECIFIED = 0;
     /* The fault connects the indicated phases to ground. The line to line fault impedance is not used and assumed infinite. The full ground impedance is connected between each phase specified in the fault and ground, but not between the phases. */
