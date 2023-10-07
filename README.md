@@ -32,9 +32,9 @@ At the time being this repository includes the following Protocol Buffer:
   ['proto/conf'](./proto/conf), which currently include:
   - `Conf2Frame`: a Protocol Buffer used to store PMU configuration frames.
 
-## Protos Management
+## Protocol Buffers Management
 
-### Generate Code from Proto
+### Generate Code from Protos
 
 ```bash
 buf generate

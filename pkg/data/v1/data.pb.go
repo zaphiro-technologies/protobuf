@@ -4,6 +4,12 @@
 // 	protoc        (unknown)
 // source: proto/data/v1/data.proto
 
+//  <!-- markdownlint-disable -->
+//Messages to support data injection in the platform.
+//The data injected may be originated from different sources (e.g. a PMU, RTU, an external service).
+//
+//Data are grouped into sets, where each id identifies a specific measurement. The id does not identify the instance of measurement, but the class of measurement. Measurement ID can be used to retrieve additional medata about the measurement, from example, in the CIM OP profile associated to the monitored grid.
+
 package v1
 
 import (
@@ -23,12 +29,12 @@ const (
 type DataType int32
 
 const (
-	DataType_DATA_TYPE_UNSPECIFIED                 DataType = 0
-	DataType_DATA_TYPE_ACTIVE_POWER                DataType = 1
-	DataType_DATA_TYPE_ANGLE                       DataType = 2
-	DataType_DATA_TYPE_AUTOMATIC                   DataType = 3
-	DataType_DATA_TYPE_BOOLEAN                     DataType = 4  //DISCRETE (True or False)
-	DataType_DATA_TYPE_CONFIG_CHANGE               DataType = 5  //DISCRETE (True or False)
+	DataType_DATA_TYPE_UNSPECIFIED                 DataType = 0  //No type define
+	DataType_DATA_TYPE_ACTIVE_POWER                DataType = 1  //Active Power. It maps to an Analog.
+	DataType_DATA_TYPE_ANGLE                       DataType = 2  //Angle. It maps to an Analog.
+	DataType_DATA_TYPE_AUTOMATIC                   DataType = 3  //Auomatic. It maps to Discrete (True or False).
+	DataType_DATA_TYPE_BOOLEAN                     DataType = 4  //Booleam. It maps to Discrete (True or False).
+	DataType_DATA_TYPE_CONFIG_CHANGE               DataType = 5  // Configuration change.  It maps to Discrete (True or False).
 	DataType_DATA_TYPE_CURRENT_SEQUENCE_NEGATIVE   DataType = 6  //PHASOR
 	DataType_DATA_TYPE_CURRENT_SEQUENCE_POSITIVE   DataType = 7  //PHASOR
 	DataType_DATA_TYPE_CURRENT_SEQUENCE_ZERO       DataType = 8  //PHASOR

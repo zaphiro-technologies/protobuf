@@ -4,6 +4,8 @@
 // 	protoc        (unknown)
 // source: proto/task/v1/task.proto
 
+// <!-- markdownlint-disable -->
+
 package v1
 
 import (

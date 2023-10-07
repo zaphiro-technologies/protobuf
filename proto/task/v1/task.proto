@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+/* <!-- markdownlint-disable --> */ 
+
 package task.v1;
 option go_package = "./task/v1";
 

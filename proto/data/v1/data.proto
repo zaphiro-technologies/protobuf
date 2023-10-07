@@ -1,15 +1,25 @@
 syntax = "proto3";
 
+/*  <!-- markdownlint-disable -->
+Messages to support data injection in the platform.
+The data injected may be originated from different sources (e.g. a PMU, RTU, an external service).
+
+Data are grouped into sets, where each id identifies a specific measurement. The id does not identify the instance of measurement, but the class of measurement. Measurement ID can be used to retrieve additional medata about the measurement, from example, in the CIM OP profile associated to the monitored grid. */
+
 package data.v1;
 option go_package = "./data/v1";
 
+/* The collection of Data Types defined so far. They are useful to map
+measurements to their rappresentation. This is important since all measurements
+are any how cast to UINT64 in the real time platform */
+
 enum DataType {
-	DATA_TYPE_UNSPECIFIED = 0;
-	DATA_TYPE_ACTIVE_POWER = 1;
-	DATA_TYPE_ANGLE = 2;
-	DATA_TYPE_AUTOMATIC = 3;
-	DATA_TYPE_BOOLEAN = 4; //DISCRETE (True or False)
-	DATA_TYPE_CONFIG_CHANGE = 5; //DISCRETE (True or False)
+	DATA_TYPE_UNSPECIFIED = 0; //No type define
+	DATA_TYPE_ACTIVE_POWER = 1; //Active Power. It maps to an Analog.
+	DATA_TYPE_ANGLE = 2; //Angle. It maps to an Analog.
+	DATA_TYPE_AUTOMATIC = 3; //Auomatic. It maps to Discrete (True or False).
+	DATA_TYPE_BOOLEAN = 4; //Booleam. It maps to Discrete (True or False).
+	DATA_TYPE_CONFIG_CHANGE = 5; // Configuration change.  It maps to Discrete (True or False).
 	DATA_TYPE_CURRENT_SEQUENCE_NEGATIVE = 6; //PHASOR
 	DATA_TYPE_CURRENT_SEQUENCE_POSITIVE = 7; //PHASOR
 	DATA_TYPE_CURRENT_SEQUENCE_ZERO = 8; //PHASOR
@@ -50,12 +60,21 @@ enum DataType {
 	DATA_TYPE_DISCRETE = 43; //DISCRETE
 	DATA_TYPE_ANALOG = 44; //ANALOG
 }
-	
+
+/* A single data. It has:
+- a given data type,
+- a point in time of measurement (encoded as int64 using Unix Epoc),
+- a value (encoded as uint64) */
+
 message Data {
 	DataType dataType = 1;
 	int64 measuredAt = 2;
 	optional uint64 value = 3;	
 }
+
+/* A set of data:
+- the id of the procuder of the data
+- the map containing data */
 
 message DataSet {
 	string producerId = 1;
