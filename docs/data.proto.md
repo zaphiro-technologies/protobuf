@@ -5,72 +5,67 @@
 ## Imports
 
 | Import | Description |
-|--------|-------------|
-
-
+| ------ | ----------- |
 
 ## Options
 
 | Name       | Value     | Description |
-|------------|-----------|-------------|
+| ---------- | --------- | ----------- |
 | go_package | ./data/v1 |             |
 
-
-
 ## Enum: DataType
+
 <div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: data.v1.DataType</div>
 
 <div class="comment"><span>The collection of Data Types defined so far. They are useful to map</span><br/><span>measurements to their rappresentation. This is important since all measurements</span><br/><span>are any how cast to UINT64 in the real time platform</span><br/></div>
 
-| Name                                  | Ordinal | Description                                                 |
-|---------------------------------------|---------|-------------------------------------------------------------|
-| DATA_TYPE_UNSPECIFIED                 | 0       | No type define                                              |
-| DATA_TYPE_ACTIVE_POWER                | 1       | Active Power. It maps to an Analog.                         |
-| DATA_TYPE_ANGLE                       | 2       | Angle. It maps to an Analog.                                |
-| DATA_TYPE_AUTOMATIC                   | 3       | Auomatic. It maps to Discrete (True or False).              |
-| DATA_TYPE_BOOLEAN                     | 4       | Booleam. It maps to Discrete (True or False).               |
-| DATA_TYPE_CONFIG_CHANGE               | 5       | Configuration change. It maps to Discrete (True or False).  |
-| DATA_TYPE_CURRENT_SEQUENCE_NEGATIVE   | 6       | PHASOR                                                      |
-| DATA_TYPE_CURRENT_SEQUENCE_POSITIVE   | 7       | PHASOR                                                      |
-| DATA_TYPE_CURRENT_SEQUENCE_ZERO       | 8       | PHASOR                                                      |
-| DATA_TYPE_DATA_ERROR                  | 9       | DISCRETE (True or False)                                    |
-| DATA_TYPE_DATA_MODIFIED               | 10      | DISCRETE (True or False)                                    |
-| DATA_TYPE_DATA_SORTING                | 11      | DISCRETE                                                    |
-| DATA_TYPE_ENERGY                      | 12      | ANALOG                                                      |
-| DATA_TYPE_FREQUENCY                   | 13      | ANALOG                                                      |
-| DATA_TYPE_LINE_CURRENT                | 14      | ANALOG                                                      |
-| DATA_TYPE_LINE_TO_LINE_VOLTAGE        | 15      | ANALOG                                                      |
-| DATA_TYPE_LOCAL_OPERATION             | 16      | DISCRETE                                                    |
-| DATA_TYPE_OPERATION_COUNT             | 17      | DISCRETE                                                    |
-| DATA_TYPE_PACKET_LATENCY              | 18      | ANALOG                                                      |
-| DATA_TYPE_PHASE_VOLTAGE               | 19      | ANALOG                                                      |
-| DATA_TYPE_PHASOR_CURRENT              | 20      | PHASOR                                                      |
-| DATA_TYPE_PHASOR_VOLTAGE              | 21      | PHASOR                                                      |
-| DATA_TYPE_PMU_SYNC                    | 22      | DISCRETE (True or False)                                    |
-| DATA_TYPE_PMU_TIME_QUALITY            | 23      | DISCRETE                                                    |
-| DATA_TYPE_PMU_TRIGGER_DETECTED        | 24      | DISCRETE (True or False)                                    |
-| DATA_TYPE_POWER                       | 25      | ANALOG                                                      |
-| DATA_TYPE_POWER_FACTOR                | 26      | ANALOG                                                      |
-| DATA_TYPE_PRESSURE                    | 27      | ANALOG                                                      |
-| DATA_TYPE_RATE_OF_CHANGE_OF_FREQUENCY | 28      | ANALOG                                                      |
-| DATA_TYPE_REACTIVE_POWER              | 29      | ANALOG                                                      |
-| DATA_TYPE_SWITCH_POSITION             | 30      | DISCRETE (True or False)                                    |
-| DATA_TYPE_TAP_POSITION                | 31      | DISCRETE                                                    |
-| DATA_TYPE_TEMPERATURE                 | 32      | ANALOG                                                      |
-| DATA_TYPE_THREE_PHASE_ACTIVE_POWER    | 33      | ANALOG                                                      |
-| DATA_TYPE_THREE_PHASE_CURRENT         | 34      | ANALOG                                                      |
-| DATA_TYPE_THREE_PHASE_POWER           | 35      | ANALOG                                                      |
-| DATA_TYPE_THREE_PHASE_POWER_FACTOR    | 36      | ANALOG                                                      |
-| DATA_TYPE_THREE_PHASE_REACTIVE_POWER  | 37      | ANALOG                                                      |
-| DATA_TYPE_TRIGGER_REASON              | 38      | DISCRETE                                                    |
-| DATA_TYPE_UNLOCKED_TIME               | 39      | DISCRETE                                                    |
-| DATA_TYPE_VOLTAGE_SEQUENCE_NEGATIVE   | 40      | PHASOR                                                      |
-| DATA_TYPE_VOLTAGE_SEQUENCE_POSITIVE   | 41      | PHASOR                                                      |
-| DATA_TYPE_VOLTAGE_SEQUENCE_ZERO       | 42      | PHASOR                                                      |
-| DATA_TYPE_DISCRETE                    | 43      | DISCRETE                                                    |
-| DATA_TYPE_ANALOG                      | 44      | ANALOG                                                      |
-
-
+| Name                                  | Ordinal | Description                                                |
+| ------------------------------------- | ------- | ---------------------------------------------------------- |
+| DATA_TYPE_UNSPECIFIED                 | 0       | No type define                                             |
+| DATA_TYPE_ACTIVE_POWER                | 1       | Active Power. It maps to an Analog.                        |
+| DATA_TYPE_ANGLE                       | 2       | Angle. It maps to an Analog.                               |
+| DATA_TYPE_AUTOMATIC                   | 3       | Auomatic. It maps to Discrete (True or False).             |
+| DATA_TYPE_BOOLEAN                     | 4       | Booleam. It maps to Discrete (True or False).              |
+| DATA_TYPE_CONFIG_CHANGE               | 5       | Configuration change. It maps to Discrete (True or False). |
+| DATA_TYPE_CURRENT_SEQUENCE_NEGATIVE   | 6       | PHASOR                                                     |
+| DATA_TYPE_CURRENT_SEQUENCE_POSITIVE   | 7       | PHASOR                                                     |
+| DATA_TYPE_CURRENT_SEQUENCE_ZERO       | 8       | PHASOR                                                     |
+| DATA_TYPE_DATA_ERROR                  | 9       | DISCRETE (True or False)                                   |
+| DATA_TYPE_DATA_MODIFIED               | 10      | DISCRETE (True or False)                                   |
+| DATA_TYPE_DATA_SORTING                | 11      | DISCRETE                                                   |
+| DATA_TYPE_ENERGY                      | 12      | ANALOG                                                     |
+| DATA_TYPE_FREQUENCY                   | 13      | ANALOG                                                     |
+| DATA_TYPE_LINE_CURRENT                | 14      | ANALOG                                                     |
+| DATA_TYPE_LINE_TO_LINE_VOLTAGE        | 15      | ANALOG                                                     |
+| DATA_TYPE_LOCAL_OPERATION             | 16      | DISCRETE                                                   |
+| DATA_TYPE_OPERATION_COUNT             | 17      | DISCRETE                                                   |
+| DATA_TYPE_PACKET_LATENCY              | 18      | ANALOG                                                     |
+| DATA_TYPE_PHASE_VOLTAGE               | 19      | ANALOG                                                     |
+| DATA_TYPE_PHASOR_CURRENT              | 20      | PHASOR                                                     |
+| DATA_TYPE_PHASOR_VOLTAGE              | 21      | PHASOR                                                     |
+| DATA_TYPE_PMU_SYNC                    | 22      | DISCRETE (True or False)                                   |
+| DATA_TYPE_PMU_TIME_QUALITY            | 23      | DISCRETE                                                   |
+| DATA_TYPE_PMU_TRIGGER_DETECTED        | 24      | DISCRETE (True or False)                                   |
+| DATA_TYPE_POWER                       | 25      | ANALOG                                                     |
+| DATA_TYPE_POWER_FACTOR                | 26      | ANALOG                                                     |
+| DATA_TYPE_PRESSURE                    | 27      | ANALOG                                                     |
+| DATA_TYPE_RATE_OF_CHANGE_OF_FREQUENCY | 28      | ANALOG                                                     |
+| DATA_TYPE_REACTIVE_POWER              | 29      | ANALOG                                                     |
+| DATA_TYPE_SWITCH_POSITION             | 30      | DISCRETE (True or False)                                   |
+| DATA_TYPE_TAP_POSITION                | 31      | DISCRETE                                                   |
+| DATA_TYPE_TEMPERATURE                 | 32      | ANALOG                                                     |
+| DATA_TYPE_THREE_PHASE_ACTIVE_POWER    | 33      | ANALOG                                                     |
+| DATA_TYPE_THREE_PHASE_CURRENT         | 34      | ANALOG                                                     |
+| DATA_TYPE_THREE_PHASE_POWER           | 35      | ANALOG                                                     |
+| DATA_TYPE_THREE_PHASE_POWER_FACTOR    | 36      | ANALOG                                                     |
+| DATA_TYPE_THREE_PHASE_REACTIVE_POWER  | 37      | ANALOG                                                     |
+| DATA_TYPE_TRIGGER_REASON              | 38      | DISCRETE                                                   |
+| DATA_TYPE_UNLOCKED_TIME               | 39      | DISCRETE                                                   |
+| DATA_TYPE_VOLTAGE_SEQUENCE_NEGATIVE   | 40      | PHASOR                                                     |
+| DATA_TYPE_VOLTAGE_SEQUENCE_POSITIVE   | 41      | PHASOR                                                     |
+| DATA_TYPE_VOLTAGE_SEQUENCE_ZERO       | 42      | PHASOR                                                     |
+| DATA_TYPE_DISCRETE                    | 43      | DISCRETE                                                   |
+| DATA_TYPE_ANALOG                      | 44      | ANALOG                                                     |
 
 ### DataType Diagram
 
@@ -130,6 +125,7 @@ class DataType{
   DATA_TYPE_ANALOG
 }
 ```
+
 ### Data Diagram
 
 ```mermaid
@@ -149,6 +145,7 @@ class Data {
 Data --> `DataType`
 
 ```
+
 ### DataSet Diagram
 
 ```mermaid
@@ -168,29 +165,27 @@ DataSet .. ` Data`
 ```
 
 ## Message: Data
+
 <div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: data.v1.Data</div>
 
 <div class="comment"><span>A single data. It has:</span><br/><span>- a given data type,</span><br/><span>- a point in time of measurement (encoded as int64 using Unix Epoc),</span><br/><span>- a value (encoded as uint64)</span><br/></div>
 
 | Field      | Ordinal | Type     | Label    | Description |
-|------------|---------|----------|----------|-------------|
+| ---------- | ------- | -------- | -------- | ----------- |
 | dataType   | 1       | DataType |          |             |
 | measuredAt | 2       | int64    |          |             |
 | value      | 3       | uint64   | Optional |             |
 
-
 ## Message: DataSet
+
 <div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: data.v1.DataSet</div>
 
 <div class="comment"><span>A set of data:</span><br/><span>- the id of the procuder of the data</span><br/><span>- the map containing data</span><br/></div>
 
 | Field      | Ordinal | Type         | Label | Description |
-|------------|---------|--------------|-------|-------------|
+| ---------- | ------- | ------------ | ----- | ----------- |
 | data       | 2       | string, Data | Map   |             |
 | producerId | 1       | string       |       |             |
-
-
-
 
 <!-- Created by: Proto Diagram Tool -->
 <!-- https://github.com/GoogleCloudPlatform/proto-gen-md-diagrams -->
