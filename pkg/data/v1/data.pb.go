@@ -32,48 +32,48 @@ const (
 	DataType_DATA_TYPE_UNSPECIFIED                 DataType = 0  //No type define
 	DataType_DATA_TYPE_ACTIVE_POWER                DataType = 1  //Active Power. It maps to an Analog.
 	DataType_DATA_TYPE_ANGLE                       DataType = 2  //Angle. It maps to an Analog.
-	DataType_DATA_TYPE_AUTOMATIC                   DataType = 3  //Auomatic. It maps to Discrete (True or False).
+	DataType_DATA_TYPE_AUTOMATIC                   DataType = 3  //Automatic. It maps to Discrete (True or False).
 	DataType_DATA_TYPE_BOOLEAN                     DataType = 4  //Booleam. It maps to Discrete (True or False).
 	DataType_DATA_TYPE_CONFIG_CHANGE               DataType = 5  // Configuration change.  It maps to Discrete (True or False).
-	DataType_DATA_TYPE_CURRENT_SEQUENCE_NEGATIVE   DataType = 6  //PHASOR
-	DataType_DATA_TYPE_CURRENT_SEQUENCE_POSITIVE   DataType = 7  //PHASOR
-	DataType_DATA_TYPE_CURRENT_SEQUENCE_ZERO       DataType = 8  //PHASOR
-	DataType_DATA_TYPE_DATA_ERROR                  DataType = 9  //DISCRETE (True or False)
-	DataType_DATA_TYPE_DATA_MODIFIED               DataType = 10 //DISCRETE (True or False)
-	DataType_DATA_TYPE_DATA_SORTING                DataType = 11 //DISCRETE
-	DataType_DATA_TYPE_ENERGY                      DataType = 12 //ANALOG
-	DataType_DATA_TYPE_FREQUENCY                   DataType = 13 //ANALOG
-	DataType_DATA_TYPE_LINE_CURRENT                DataType = 14 //ANALOG
-	DataType_DATA_TYPE_LINE_TO_LINE_VOLTAGE        DataType = 15 //ANALOG
-	DataType_DATA_TYPE_LOCAL_OPERATION             DataType = 16 //DISCRETE
-	DataType_DATA_TYPE_OPERATION_COUNT             DataType = 17 //DISCRETE
-	DataType_DATA_TYPE_PACKET_LATENCY              DataType = 18 //ANALOG
-	DataType_DATA_TYPE_PHASE_VOLTAGE               DataType = 19 //ANALOG
-	DataType_DATA_TYPE_PHASOR_CURRENT              DataType = 20 //PHASOR
-	DataType_DATA_TYPE_PHASOR_VOLTAGE              DataType = 21 //PHASOR
-	DataType_DATA_TYPE_PMU_SYNC                    DataType = 22 //DISCRETE (True or False)
-	DataType_DATA_TYPE_PMU_TIME_QUALITY            DataType = 23 //DISCRETE
-	DataType_DATA_TYPE_PMU_TRIGGER_DETECTED        DataType = 24 //DISCRETE (True or False)
-	DataType_DATA_TYPE_POWER                       DataType = 25 //ANALOG
-	DataType_DATA_TYPE_POWER_FACTOR                DataType = 26 //ANALOG
-	DataType_DATA_TYPE_PRESSURE                    DataType = 27 //ANALOG
-	DataType_DATA_TYPE_RATE_OF_CHANGE_OF_FREQUENCY DataType = 28 //ANALOG
-	DataType_DATA_TYPE_REACTIVE_POWER              DataType = 29 //ANALOG
-	DataType_DATA_TYPE_SWITCH_POSITION             DataType = 30 //DISCRETE (True or False)
-	DataType_DATA_TYPE_TAP_POSITION                DataType = 31 //DISCRETE
-	DataType_DATA_TYPE_TEMPERATURE                 DataType = 32 //ANALOG
-	DataType_DATA_TYPE_THREE_PHASE_ACTIVE_POWER    DataType = 33 //ANALOG
-	DataType_DATA_TYPE_THREE_PHASE_CURRENT         DataType = 34 //ANALOG
-	DataType_DATA_TYPE_THREE_PHASE_POWER           DataType = 35 //ANALOG
-	DataType_DATA_TYPE_THREE_PHASE_POWER_FACTOR    DataType = 36 //ANALOG
-	DataType_DATA_TYPE_THREE_PHASE_REACTIVE_POWER  DataType = 37 //ANALOG
-	DataType_DATA_TYPE_TRIGGER_REASON              DataType = 38 //DISCRETE
-	DataType_DATA_TYPE_UNLOCKED_TIME               DataType = 39 //DISCRETE
-	DataType_DATA_TYPE_VOLTAGE_SEQUENCE_NEGATIVE   DataType = 40 //PHASOR
-	DataType_DATA_TYPE_VOLTAGE_SEQUENCE_POSITIVE   DataType = 41 //PHASOR
-	DataType_DATA_TYPE_VOLTAGE_SEQUENCE_ZERO       DataType = 42 //PHASOR
-	DataType_DATA_TYPE_DISCRETE                    DataType = 43 //DISCRETE
-	DataType_DATA_TYPE_ANALOG                      DataType = 44 //ANALOG
+	DataType_DATA_TYPE_CURRENT_SEQUENCE_NEGATIVE   DataType = 6  //Current sequence negative. It maps to Phasor.
+	DataType_DATA_TYPE_CURRENT_SEQUENCE_POSITIVE   DataType = 7  //Current sequence positive. It maps to Phasor.
+	DataType_DATA_TYPE_CURRENT_SEQUENCE_ZERO       DataType = 8  //Current sequence zero. It maps to Phasor.
+	DataType_DATA_TYPE_DATA_ERROR                  DataType = 9  //Data error.It maps to Discrete (True or False).
+	DataType_DATA_TYPE_DATA_MODIFIED               DataType = 10 //Data modified. It maps to Discrete (True or False).
+	DataType_DATA_TYPE_DATA_SORTING                DataType = 11 //Data sorting. It maps to Discrete.
+	DataType_DATA_TYPE_ENERGY                      DataType = 12 //Energy. It maps to an Analog.
+	DataType_DATA_TYPE_FREQUENCY                   DataType = 13 //Frequency. It maps to an Analog.
+	DataType_DATA_TYPE_LINE_CURRENT                DataType = 14 //Line current. It maps to an Analog.
+	DataType_DATA_TYPE_LINE_TO_LINE_VOLTAGE        DataType = 15 //Line to line voltage. It maps to an Analog.
+	DataType_DATA_TYPE_LOCAL_OPERATION             DataType = 16 //Local operation. It maps to Discrete.
+	DataType_DATA_TYPE_OPERATION_COUNT             DataType = 17 //Operation counter. It maps to Discrete.
+	DataType_DATA_TYPE_PACKET_LATENCY              DataType = 18 //Packet latency. It maps to Analog.
+	DataType_DATA_TYPE_PHASE_VOLTAGE               DataType = 19 //Phase voltage. It maps to Analog.
+	DataType_DATA_TYPE_PHASOR_CURRENT              DataType = 20 //Phasor current. It maps to Phasor.
+	DataType_DATA_TYPE_PHASOR_VOLTAGE              DataType = 21 //Phasor voltage. It maps to Phasor.
+	DataType_DATA_TYPE_PMU_SYNC                    DataType = 22 //PMU synchornized. It maps to Discrete (True or False)
+	DataType_DATA_TYPE_PMU_TIME_QUALITY            DataType = 23 //PMU Time Quality. It maps to Discrete
+	DataType_DATA_TYPE_PMU_TRIGGER_DETECTED        DataType = 24 //PMU Trigger Detected. It maps to Discrete (True or False)
+	DataType_DATA_TYPE_POWER                       DataType = 25 //Power. It maps to Analog.
+	DataType_DATA_TYPE_POWER_FACTOR                DataType = 26 //Power factor. It maps to Analog.
+	DataType_DATA_TYPE_PRESSURE                    DataType = 27 //Pressure. It maps to Analog.
+	DataType_DATA_TYPE_RATE_OF_CHANGE_OF_FREQUENCY DataType = 28 //Rate of change of frequency. It maps to Analog.
+	DataType_DATA_TYPE_REACTIVE_POWER              DataType = 29 //Reactive Power. It maps to Analog.
+	DataType_DATA_TYPE_SWITCH_POSITION             DataType = 30 //Swith position. It maps to Discrete (True or False).
+	DataType_DATA_TYPE_TAP_POSITION                DataType = 31 //Tap position.  It maps to Discrete.
+	DataType_DATA_TYPE_TEMPERATURE                 DataType = 32 //Temperature. It maps to Analog.
+	DataType_DATA_TYPE_THREE_PHASE_ACTIVE_POWER    DataType = 33 //Three phase active power. It maps to Analog.
+	DataType_DATA_TYPE_THREE_PHASE_CURRENT         DataType = 34 //Three phase current. It maps to Analog.
+	DataType_DATA_TYPE_THREE_PHASE_POWER           DataType = 35 //Three phase power. It maps to Analog.
+	DataType_DATA_TYPE_THREE_PHASE_POWER_FACTOR    DataType = 36 //Three phase power factor. It maps to Analog.
+	DataType_DATA_TYPE_THREE_PHASE_REACTIVE_POWER  DataType = 37 //Three phase reactive power. It maps to Analog.
+	DataType_DATA_TYPE_TRIGGER_REASON              DataType = 38 //Trigger reason. It maps to Discrete.
+	DataType_DATA_TYPE_UNLOCKED_TIME               DataType = 39 //Unlocked time. //Three phase active power. It maps to Discrete.
+	DataType_DATA_TYPE_VOLTAGE_SEQUENCE_NEGATIVE   DataType = 40 //Voltage sequence negative. It maps to Phasor.
+	DataType_DATA_TYPE_VOLTAGE_SEQUENCE_POSITIVE   DataType = 41 //Voltage sequence positive. It maps to Phasor.
+	DataType_DATA_TYPE_VOLTAGE_SEQUENCE_ZERO       DataType = 42 //Voltage sequence zero. It maps to Phasor.
+	DataType_DATA_TYPE_DISCRETE                    DataType = 43 //Discrete. It maps to Discrete.
+	DataType_DATA_TYPE_ANALOG                      DataType = 44 //Analog.It maps to Analog.
 )
 
 // Enum value maps for DataType.
@@ -206,9 +206,9 @@ type Data struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	DataType   DataType `protobuf:"varint,1,opt,name=dataType,proto3,enum=data.v1.DataType" json:"dataType,omitempty"`
-	MeasuredAt int64    `protobuf:"varint,2,opt,name=measuredAt,proto3" json:"measuredAt,omitempty"`
-	Value      *uint64  `protobuf:"varint,3,opt,name=value,proto3,oneof" json:"value,omitempty"`
+	DataType   DataType `protobuf:"varint,1,opt,name=dataType,proto3,enum=data.v1.DataType" json:"dataType,omitempty"` //The type of data see `DataType` enum.
+	MeasuredAt int64    `protobuf:"varint,2,opt,name=measuredAt,proto3" json:"measuredAt,omitempty"`                   //The time of measurement (Unix Timestamp Nanoseconds).
+	Value      *uint64  `protobuf:"varint,3,opt,name=value,proto3,oneof" json:"value,omitempty"`                       //The data value casted to uint64.
 }
 
 func (x *Data) Reset() {
@@ -269,8 +269,8 @@ type DataSet struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	ProducerId string           `protobuf:"bytes,1,opt,name=producerId,proto3" json:"producerId,omitempty"`
-	Data       map[string]*Data `protobuf:"bytes,2,rep,name=data,proto3" json:"data,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	ProducerId string           `protobuf:"bytes,1,opt,name=producerId,proto3" json:"producerId,omitempty"`                                                                             //The id of the device / service that produced the data set.
+	Data       map[string]*Data `protobuf:"bytes,2,rep,name=data,proto3" json:"data,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"` //The map of data included in the dataset.
 }
 
 func (x *DataSet) Reset() {

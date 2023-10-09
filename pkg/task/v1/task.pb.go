@@ -5,6 +5,9 @@
 // source: proto/task/v1/task.proto
 
 // <!-- markdownlint-disable -->
+//Messages to support task coordination among processes At the time being this
+//is a proof of concept. Different changes may occurs when we actually start
+//to event driven approach to coordinate tasks.
 
 package v1
 
@@ -134,11 +137,11 @@ type Task struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id            string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	TaskType      TaskType `protobuf:"varint,2,opt,name=taskType,proto3,enum=task.v1.TaskType" json:"taskType,omitempty"`
-	CreatedAt     int64    `protobuf:"varint,3,opt,name=createdAt,proto3" json:"createdAt,omitempty"`
-	MeasurementID *string  `protobuf:"bytes,4,opt,name=measurementID,proto3,oneof" json:"measurementID,omitempty"`
-	TimestampID   *int64   `protobuf:"varint,5,opt,name=timestampID,proto3,oneof" json:"timestampID,omitempty"`
+	Id            string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`                                    //Id of the task.
+	TaskType      TaskType `protobuf:"varint,2,opt,name=taskType,proto3,enum=task.v1.TaskType" json:"taskType,omitempty"` //Type of the task
+	CreatedAt     int64    `protobuf:"varint,3,opt,name=createdAt,proto3" json:"createdAt,omitempty"`                     //Task creation time (Unix Nano timestamp)
+	MeasurementID *string  `protobuf:"bytes,4,opt,name=measurementID,proto3,oneof" json:"measurementID,omitempty"`        //Related measurement id (if any)
+	TimestampID   *int64   `protobuf:"varint,5,opt,name=timestampID,proto3,oneof" json:"timestampID,omitempty"`           //Related measurement timestamp (if any)
 }
 
 func (x *Task) Reset() {
@@ -213,12 +216,12 @@ type Notification struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id               string           `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	NotificationType NotificationType `protobuf:"varint,2,opt,name=notificationType,proto3,enum=task.v1.NotificationType" json:"notificationType,omitempty"`
-	CreatedAt        int64            `protobuf:"varint,3,opt,name=createdAt,proto3" json:"createdAt,omitempty"`
-	Message          string           `protobuf:"bytes,4,opt,name=message,proto3" json:"message,omitempty"`
-	MeasurementID    *string          `protobuf:"bytes,5,opt,name=measurementID,proto3,oneof" json:"measurementID,omitempty"`
-	TimestampID      *int64           `protobuf:"varint,6,opt,name=timestampID,proto3,oneof" json:"timestampID,omitempty"`
+	Id               string           `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`                                                            //Id of the notification
+	NotificationType NotificationType `protobuf:"varint,2,opt,name=notificationType,proto3,enum=task.v1.NotificationType" json:"notificationType,omitempty"` //Notification type
+	CreatedAt        int64            `protobuf:"varint,3,opt,name=createdAt,proto3" json:"createdAt,omitempty"`                                             //Notification creation time (Unix Nano timestamp)
+	Message          string           `protobuf:"bytes,4,opt,name=message,proto3" json:"message,omitempty"`                                                  //Notification message
+	MeasurementID    *string          `protobuf:"bytes,5,opt,name=measurementID,proto3,oneof" json:"measurementID,omitempty"`                                //Related measurement id (if any)
+	TimestampID      *int64           `protobuf:"varint,6,opt,name=timestampID,proto3,oneof" json:"timestampID,omitempty"`                                   //Related measurement timestamp (if any)
 }
 
 func (x *Notification) Reset() {
