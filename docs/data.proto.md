@@ -20,55 +20,55 @@
 ## Enum: DataType
 <div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: data.v1.DataType</div>
 
-<div class="comment"><span>The collection of Data Types defined so far. They are useful to map</span><br/><span>measurements to their rappresentation. This is important since all measurements</span><br/><span>are any how cast to UINT64 in the real time platform</span><br/></div>
+<div class="comment"><span>The collection of Data Types defined so far. They are useful to map</span><br/><span>measurements to their rappresentation. Some of the descriptions are taken from [here](https://github.com/digin-energi/Grunnprofil/blob/develop/DIGIN10/docs/MeasurementType.adoc) This is important since all measurements</span><br/><span>are any how cast to UINT64 in the real time platform</span><br/></div>
 
-| Name                                  | Ordinal | Description                                                      |
-|---------------------------------------|---------|------------------------------------------------------------------|
-| DATA_TYPE_UNSPECIFIED                 | 0       | No type define                                                   |
-| DATA_TYPE_ACTIVE_POWER                | 1       | Active Power. It maps to an Analog.                              |
-| DATA_TYPE_ANGLE                       | 2       | Angle. It maps to an Analog.                                     |
-| DATA_TYPE_AUTOMATIC                   | 3       | Automatic. It maps to Discrete (True or False).                  |
-| DATA_TYPE_BOOLEAN                     | 4       | Booleam. It maps to Discrete (True or False).                    |
-| DATA_TYPE_CONFIG_CHANGE               | 5       | Configuration change. It maps to Discrete (True or False).       |
-| DATA_TYPE_CURRENT_SEQUENCE_NEGATIVE   | 6       | Current sequence negative. It maps to Phasor.                    |
-| DATA_TYPE_CURRENT_SEQUENCE_POSITIVE   | 7       | Current sequence positive. It maps to Phasor.                    |
-| DATA_TYPE_CURRENT_SEQUENCE_ZERO       | 8       | Current sequence zero. It maps to Phasor.                        |
-| DATA_TYPE_DATA_ERROR                  | 9       | Data error.It maps to Discrete (True or False).                  |
-| DATA_TYPE_DATA_MODIFIED               | 10      | Data modified. It maps to Discrete (True or False).              |
-| DATA_TYPE_DATA_SORTING                | 11      | Data sorting. It maps to Discrete.                               |
-| DATA_TYPE_ENERGY                      | 12      | Energy. It maps to an Analog.                                    |
-| DATA_TYPE_FREQUENCY                   | 13      | Frequency. It maps to an Analog.                                 |
-| DATA_TYPE_LINE_CURRENT                | 14      | Line current. It maps to an Analog.                              |
-| DATA_TYPE_LINE_TO_LINE_VOLTAGE        | 15      | Line to line voltage. It maps to an Analog.                      |
-| DATA_TYPE_LOCAL_OPERATION             | 16      | Local operation. It maps to Discrete.                            |
-| DATA_TYPE_OPERATION_COUNT             | 17      | Operation counter. It maps to Discrete.                          |
-| DATA_TYPE_PACKET_LATENCY              | 18      | Packet latency. It maps to Analog.                               |
-| DATA_TYPE_PHASE_VOLTAGE               | 19      | Phase voltage. It maps to Analog.                                |
-| DATA_TYPE_PHASOR_CURRENT              | 20      | Phasor current. It maps to Phasor.                               |
-| DATA_TYPE_PHASOR_VOLTAGE              | 21      | Phasor voltage. It maps to Phasor.                               |
-| DATA_TYPE_PMU_SYNC                    | 22      | PMU synchornized. It maps to Discrete (True or False)            |
-| DATA_TYPE_PMU_TIME_QUALITY            | 23      | PMU Time Quality. It maps to Discrete                            |
-| DATA_TYPE_PMU_TRIGGER_DETECTED        | 24      | PMU Trigger Detected. It maps to Discrete (True or False)        |
-| DATA_TYPE_POWER                       | 25      | Power. It maps to Analog.                                        |
-| DATA_TYPE_POWER_FACTOR                | 26      | Power factor. It maps to Analog.                                 |
-| DATA_TYPE_PRESSURE                    | 27      | Pressure. It maps to Analog.                                     |
-| DATA_TYPE_RATE_OF_CHANGE_OF_FREQUENCY | 28      | Rate of change of frequency. It maps to Analog.                  |
-| DATA_TYPE_REACTIVE_POWER              | 29      | Reactive Power. It maps to Analog.                               |
-| DATA_TYPE_SWITCH_POSITION             | 30      | Swith position. It maps to Discrete (True or False).             |
-| DATA_TYPE_TAP_POSITION                | 31      | Tap position. It maps to Discrete.                               |
-| DATA_TYPE_TEMPERATURE                 | 32      | Temperature. It maps to Analog.                                  |
-| DATA_TYPE_THREE_PHASE_ACTIVE_POWER    | 33      | Three phase active power. It maps to Analog.                     |
-| DATA_TYPE_THREE_PHASE_CURRENT         | 34      | Three phase current. It maps to Analog.                          |
-| DATA_TYPE_THREE_PHASE_POWER           | 35      | Three phase power. It maps to Analog.                            |
-| DATA_TYPE_THREE_PHASE_POWER_FACTOR    | 36      | Three phase power factor. It maps to Analog.                     |
-| DATA_TYPE_THREE_PHASE_REACTIVE_POWER  | 37      | Three phase reactive power. It maps to Analog.                   |
-| DATA_TYPE_TRIGGER_REASON              | 38      | Trigger reason. It maps to Discrete.                             |
-| DATA_TYPE_UNLOCKED_TIME               | 39      | Unlocked time. //Three phase active power. It maps to Discrete.  |
-| DATA_TYPE_VOLTAGE_SEQUENCE_NEGATIVE   | 40      | Voltage sequence negative. It maps to Phasor.                    |
-| DATA_TYPE_VOLTAGE_SEQUENCE_POSITIVE   | 41      | Voltage sequence positive. It maps to Phasor.                    |
-| DATA_TYPE_VOLTAGE_SEQUENCE_ZERO       | 42      | Voltage sequence zero. It maps to Phasor.                        |
-| DATA_TYPE_DISCRETE                    | 43      | Discrete. It maps to Discrete.                                   |
-| DATA_TYPE_ANALOG                      | 44      | Analog.It maps to Analog.                                        |
+| Name                                  | Ordinal | Description                                                              |
+|---------------------------------------|---------|--------------------------------------------------------------------------|
+| DATA_TYPE_UNSPECIFIED                 | 0       | No type define                                                           |
+| DATA_TYPE_ACTIVE_POWER                | 1       | Real power in a non-three phase circuit. It maps to an Analog.           |
+| DATA_TYPE_ANGLE                       | 2       | Angle between voltage and current. It maps to an Analog.                 |
+| DATA_TYPE_AUTOMATIC                   | 3       | Automatic operation (not manual). It maps to Discrete (True or False).   |
+| DATA_TYPE_BOOLEAN                     | 4       | Boolean. It maps to Discrete (True or False).                            |
+| DATA_TYPE_CONFIG_CHANGE               | 5       | Configuration change. It maps to Discrete (True or False).               |
+| DATA_TYPE_CURRENT_SEQUENCE_NEGATIVE   | 6       | Current sequence negative. It maps to Phasor.                            |
+| DATA_TYPE_CURRENT_SEQUENCE_POSITIVE   | 7       | Current sequence positive. It maps to Phasor.                            |
+| DATA_TYPE_CURRENT_SEQUENCE_ZERO       | 8       | Current sequence zero. It maps to Phasor.                                |
+| DATA_TYPE_DATA_ERROR                  | 9       | Data error. It maps to Discrete (True or False).                         |
+| DATA_TYPE_DATA_MODIFIED               | 10      | Data modified. It maps to Discrete (True or False).                      |
+| DATA_TYPE_DATA_SORTING                | 11      | Data sorting. It maps to Discrete.                                       |
+| DATA_TYPE_ENERGY                      | 12      | Energy. It maps to an Analog.                                            |
+| DATA_TYPE_FREQUENCY                   | 13      | Frequency. It maps to an Analog.                                         |
+| DATA_TYPE_LINE_CURRENT                | 14      | Line current. It maps to an Analog.                                      |
+| DATA_TYPE_LINE_TO_LINE_VOLTAGE        | 15      | Line to line voltage. It maps to an Analog.                              |
+| DATA_TYPE_LOCAL_OPERATION             | 16      | Local operation (not remote). It maps to Discrete.                       |
+| DATA_TYPE_OPERATION_COUNT             | 17      | Operation count – typically for switches. It maps to Discrete.         |
+| DATA_TYPE_PACKET_LATENCY              | 18      | Packet latency. It maps to Analog.                                       |
+| DATA_TYPE_PHASE_VOLTAGE               | 19      | Line to ground voltage. It maps to Analog.                               |
+| DATA_TYPE_PHASOR_CURRENT              | 20      | Phasor current in a non-three phase circuit. It maps to Phasor.          |
+| DATA_TYPE_PHASOR_VOLTAGE              | 21      | Phasor voltage in a non-three phase circuit. It maps to Phasor.          |
+| DATA_TYPE_PMU_SYNC                    | 22      | PMU synchronized. It maps to Discrete (True or False)                    |
+| DATA_TYPE_PMU_TIME_QUALITY            | 23      | PMU time quality. It maps to Discrete                                    |
+| DATA_TYPE_PMU_TRIGGER_DETECTED        | 24      | PMU trigger detected. It maps to Discrete (True or False)                |
+| DATA_TYPE_POWER                       | 25      | Apparent power in a non-three phase circuit. It maps to Analog.          |
+| DATA_TYPE_POWER_FACTOR                | 26      | Power factor. It maps to Analog.                                         |
+| DATA_TYPE_PRESSURE                    | 27      | Pressure. It maps to Analog.                                             |
+| DATA_TYPE_RATE_OF_CHANGE_OF_FREQUENCY | 28      | Rate of change of frequency. It maps to Analog.                          |
+| DATA_TYPE_REACTIVE_POWER              | 29      | Reactive power in a non-three phase circuit. It maps to Analog.          |
+| DATA_TYPE_SWITCH_POSITION             | 30      | Switch position. It maps to Discrete (True or False).                    |
+| DATA_TYPE_TAP_POSITION                | 31      | Tap position of power transformer or phaseshifter. It maps to Discrete.  |
+| DATA_TYPE_TEMPERATURE                 | 32      | Temperature. It maps to Analog.                                          |
+| DATA_TYPE_THREE_PHASE_ACTIVE_POWER    | 33      | Total real power in a three phase circuit. It maps to Analog.            |
+| DATA_TYPE_THREE_PHASE_CURRENT         | 34      | Total current (rms) in a three phase circuit. It maps to Analog.         |
+| DATA_TYPE_THREE_PHASE_POWER           | 35      | Total apparent power in a three phase circuit. It maps to Analog.        |
+| DATA_TYPE_THREE_PHASE_POWER_FACTOR    | 36      | Three phase power factor. It maps to Analog.                             |
+| DATA_TYPE_THREE_PHASE_REACTIVE_POWER  | 37      | Total reactive power in a three phase circuit. It maps to Analog.        |
+| DATA_TYPE_TRIGGER_REASON              | 38      | Trigger reason. It maps to Discrete.                                     |
+| DATA_TYPE_UNLOCKED_TIME               | 39      | Unlocked time. //Three phase active power. It maps to Discrete.          |
+| DATA_TYPE_VOLTAGE_SEQUENCE_NEGATIVE   | 40      | Voltage negative sequence in a three phase circuit. It maps to Phasor.   |
+| DATA_TYPE_VOLTAGE_SEQUENCE_POSITIVE   | 41      | Voltage positive sequence in a three phase circuit. It maps to Phasor.   |
+| DATA_TYPE_VOLTAGE_SEQUENCE_ZERO       | 42      | Voltage zero sequence in a three phase circuit. It maps to Phasor.       |
+| DATA_TYPE_DISCRETE                    | 43      | Discrete. It maps to Discrete.                                           |
+| DATA_TYPE_ANALOG                      | 44      | Analog. It maps to Analog.                                               |
 
 
 
@@ -78,7 +78,7 @@
 classDiagram
 direction LR
 %% The collection of Data Types defined so far. They are useful to map
-%% measurements to their rappresentation. This is important since all measurements
+%% measurements to their rappresentation. Some of the descriptions are taken from [here](https://github.com/digin-energi/Grunnprofil/blob/develop/DIGIN10/docs/MeasurementType.adoc) This is important since all measurements
 %% are any how cast to UINT64 in the real time platform
 
 class DataType{
