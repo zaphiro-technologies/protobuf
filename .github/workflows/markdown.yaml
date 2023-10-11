@@ -14,4 +14,4 @@ jobs:
       md-lint-globs: |
         **/*.{md,MD}
         #.github
-        #docs
+        #docs/*.{md,MD}
