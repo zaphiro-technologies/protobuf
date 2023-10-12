@@ -42,6 +42,7 @@
 | NOTIFICATION_TYPE_DATA_COMPLETE  | 1       |             |
 | NOTIFICATION_TYPE_DATA_TIMEOUT_1 | 2       |             |
 | NOTIFICATION_TYPE_DATA_TIMEOUT_2 | 3       |             |
+| NOTIFICATION_TYPE_TRIGGER        | 4       |             |
 
 
 
@@ -74,6 +75,7 @@ class NotificationType{
   NOTIFICATION_TYPE_DATA_COMPLETE
   NOTIFICATION_TYPE_DATA_TIMEOUT_1
   NOTIFICATION_TYPE_DATA_TIMEOUT_2
+  NOTIFICATION_TYPE_TRIGGER
 }
 ```
 ### Task Diagram
@@ -100,7 +102,7 @@ Task --> `TaskType`
 classDiagram
 direction LR
 
-%% A notification message.
+%% A notification message. Headers used in rabbitMQ: `notificationType` `producerId` `timestampID`
 
 class Notification {
   + int64 createdAt
@@ -108,6 +110,7 @@ class Notification {
   + Optional~string~ measurementID
   + string message
   + NotificationType notificationType
+  + Optional~string~ producerID
   + Optional~int64~ timestampID
 }
 Notification --> `NotificationType`
@@ -131,16 +134,17 @@ Notification --> `NotificationType`
 ## Message: Notification
 <div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: task.v1.Notification</div>
 
-<div class="comment"><span>A notification message.</span><br/></div>
+<div class="comment"><span>A notification message. Headers used in rabbitMQ: `notificationType` `producerId` `timestampID`</span><br/></div>
 
-| Field            | Ordinal | Type             | Label    | Description                                       |
-|------------------|---------|------------------|----------|---------------------------------------------------|
-| createdAt        | 3       | int64            |          | Notification creation time (Unix Nano timestamp)  |
-| id               | 1       | string           |          | Id of the notification                            |
-| measurementID    | 5       | string           | Optional | Related measurement id (if any)                   |
-| message          | 4       | string           |          | Notification message                              |
-| notificationType | 2       | NotificationType |          | Notification type                                 |
-| timestampID      | 6       | int64            | Optional | Related measurement timestamp (if any)            |
+| Field            | Ordinal | Type             | Label    | Description                                                                          |
+|------------------|---------|------------------|----------|--------------------------------------------------------------------------------------|
+| createdAt        | 3       | int64            |          | Notification creation time (Unix Nano timestamp)                                     |
+| id               | 1       | string           |          | Id of the notification                                                               |
+| measurementID    | 5       | string           | Optional | Related measurement id (if any)                                                      |
+| message          | 4       | string           |          | Notification message, it can be a string or a integer (which maps to a enum value).  |
+| notificationType | 2       | NotificationType |          | Notification type                                                                    |
+| producerID       | 7       | string           | Optional | The id of the producer (e.g. a PMU) linked to the notification                       |
+| timestampID      | 6       | int64            | Optional | Related measurement timestamp (if any)                                               |
 
 
 
