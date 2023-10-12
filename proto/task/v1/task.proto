@@ -25,6 +25,7 @@ enum NotificationType {
 	NOTIFICATION_TYPE_DATA_COMPLETE = 1;
 	NOTIFICATION_TYPE_DATA_TIMEOUT_1 = 2;
 	NOTIFICATION_TYPE_DATA_TIMEOUT_2 = 3;
+	NOTIFICATION_TYPE_TRIGGER = 4;
 }
 
 // A task message.
@@ -38,12 +39,17 @@ message Task {
 }
 
 // A notification message.
+// Headers used in rabbitMQ:
+// `notificationType`
+// `producerId`
+// `timestampID`
 
 message Notification {
 	string id = 1; //Id of the notification
 	NotificationType notificationType = 2; //Notification type
 	int64 createdAt = 3; //Notification creation time (Unix Nano timestamp)
-	string message = 4; //Notification message
+	string message = 4; //Notification message, it can be a string or a integer (which maps to a enum value).
 	optional string 	measurementID = 5; //Related measurement id (if any)
 	optional int64 	timestampID = 6; //Related measurement timestamp (if any)
+	optional string producerID = 7; //The id of the producer (e.g. a PMU) linked to the notification
 }
