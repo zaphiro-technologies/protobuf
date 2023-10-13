@@ -74,7 +74,7 @@ func TestTriggerNotification(t *testing.T) {
 		uuid.NewString(),
 		NotificationType_NOTIFICATION_TYPE_TRIGGER,
 		time.Now().UnixNano(),
-		"1", //alternatively a string code
+		"1", // alternatively a string code
 	)
 	test.TimestampID = func() *int64 { i := int64(4); return &i }()
 	test.ProducerID = func() *string { i := "CIM_PMU_CODE"; return &i }()
