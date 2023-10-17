@@ -9,7 +9,7 @@
 
 ### Bug Fixes
 
-- Fix typo. (PR #7 by @tejo)
+- fix typo in `Fault` field `faultCurrent` (PR #7 by @tejo)
 
 ### Refactoring
 
