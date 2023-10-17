@@ -9,7 +9,7 @@ option go_package = "./fault/v1";
 
 /*
  The type of fault connection among phases.
- 
+
  This message is modeled after [CIM PhaseConnectedFaultKind](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/PhaseConnectedFaultKind).
  */
 
@@ -75,7 +75,7 @@ message Fault {
     int64 occurredDateTime = 5; //The date and time at which the fault occurred.
     optional string faultyEquipmentId = 6; //The equipment with the fault.
     optional int64 locationTime = 7; //The time when the fault was located.
-    optional float faulCurrent = 8; //The current associated to the fault.
+    optional float faultCurrent = 8; //The current associated to the fault.
     optional bool located = 9; //Was the fault located.
     repeated string impactedEquipmentIds = 10; //The set of IDs of equipments impacted by the fault.
 }

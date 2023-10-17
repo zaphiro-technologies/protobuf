@@ -20,7 +20,7 @@
 ## Enum: PhaseConnectedFaultKind
 <div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: fault.v1.PhaseConnectedFaultKind</div>
 
-<div class="comment"><span></span><br/><span> The type of fault connection among phases.</span><br/><span> </span><br/><span> This message is modeled after [CIM PhaseConnectedFaultKind](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/PhaseConnectedFaultKind).</span><br/><span></span><br/></div>
+<div class="comment"><span></span><br/><span> The type of fault connection among phases.</span><br/><span></span><br/><span> This message is modeled after [CIM PhaseConnectedFaultKind](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/PhaseConnectedFaultKind).</span><br/><span></span><br/></div>
 
 | Name                                              | Ordinal | Description                                                                                                                                                                                                                                                                                                                                                                                                 |
 |---------------------------------------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -74,7 +74,7 @@ classDiagram
 direction LR
 %% 
 %%  The type of fault connection among phases.
-%%  
+%% 
 %%  This message is modeled after [CIM PhaseConnectedFaultKind](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/PhaseConnectedFaultKind).
 %% 
 
@@ -144,7 +144,7 @@ direction LR
 class Fault {
   + string ID
   + Optional~string~ description
-  + Optional~float~ faulCurrent
+  + Optional~float~ faultCurrent
   + Optional~string~ faultyEquipmentId
   + List~string~ impactedEquipmentIds
   + PhaseConnectedFaultKind kind
@@ -205,7 +205,7 @@ EquipmentFault --> `Fault`
 |----------------------|---------|-------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------|
 | ID                   | 1       | string                  |          | The uuid of the fault.                                                                                                      |
 | description          | 2       | string                  | Optional | The textual description of the fault.                                                                                       |
-| faulCurrent          | 8       | float                   | Optional | The current associated to the fault.                                                                                        |
+| faultCurrent         | 8       | float                   | Optional | The current associated to the fault.                                                                                        |
 | faultyEquipmentId    | 6       | string                  | Optional | The equipment with the fault.                                                                                               |
 | impactedEquipmentIds | 10      | string                  | Repeated | The set of IDs of equipments impacted by the fault.                                                                         |
 | kind                 | 3       | PhaseConnectedFaultKind |          | The kind of phase fault.                                                                                                    |
