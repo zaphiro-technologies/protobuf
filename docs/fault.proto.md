@@ -147,10 +147,10 @@ direction LR
 %% 
 
 class Fault {
+  + string Id
   + Optional~string~ description
   + Optional~float~ faultCurrent
   + Optional~string~ faultyEquipmentId
-  + string id
   + List~string~ impactedEquipmentIds
   + PhaseConnectedFaultKind kind
   + Optional~bool~ located
@@ -218,10 +218,10 @@ EquipmentFault --> `Fault`
 
 | Field                | Ordinal | Type                    | Label    | Description                                                                                                                 |
 |----------------------|---------|-------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------|
+| Id                   | 1       | string                  |          | The uuid of the fault.                                                                                                      |
 | description          | 2       | string                  | Optional | The textual description of the fault.                                                                                       |
 | faultCurrent         | 8       | float                   | Optional | The current associated to the fault.                                                                                        |
 | faultyEquipmentId    | 6       | string                  | Optional | The equipment with the fault.                                                                                               |
-| id                   | 1       | string                  |          | The uuid of the fault.                                                                                                      |
 | impactedEquipmentIds | 10      | string                  | Repeated | The set of IDs of equipments impacted by the fault.                                                                         |
 | kind                 | 3       | PhaseConnectedFaultKind |          | The kind of phase fault.                                                                                                    |
 | located              | 9       | bool                    | Optional | Was the fault located.                                                                                                      |
