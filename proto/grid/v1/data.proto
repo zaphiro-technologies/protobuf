@@ -6,8 +6,8 @@ The data injected may be originated from different sources (e.g. a PMU, RTU, an 
 
 Data are grouped into sets, where each id identifies a specific measurement. The id does not identify the instance of measurement, but the class of measurement. Measurement ID can be used to retrieve additional medata about the measurement, from example, in the CIM OP profile associated to the monitored grid. */
 
-package data.v1;
-option go_package = "./data/v1";
+package grid.v1;
+option go_package = "./grid/v1";
 
 /* The collection of Data Types defined so far. They are useful to map
 measurements to their rappresentation. Some of the descriptions are taken from [here](https://github.com/digin-energi/Grunnprofil/blob/develop/DIGIN10/docs/MeasurementType.adoc) This is important since all measurements

@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.31.0
 // 	protoc        (unknown)
-// source: proto/data/v1/data.proto
+// source: proto/grid/v1/data.proto
 
 //  <!-- markdownlint-disable -->
 //Messages to support data injection in the platform.
@@ -185,11 +185,11 @@ func (x DataType) String() string {
 }
 
 func (DataType) Descriptor() protoreflect.EnumDescriptor {
-	return file_proto_data_v1_data_proto_enumTypes[0].Descriptor()
+	return file_proto_grid_v1_data_proto_enumTypes[0].Descriptor()
 }
 
 func (DataType) Type() protoreflect.EnumType {
-	return &file_proto_data_v1_data_proto_enumTypes[0]
+	return &file_proto_grid_v1_data_proto_enumTypes[0]
 }
 
 func (x DataType) Number() protoreflect.EnumNumber {
@@ -198,7 +198,7 @@ func (x DataType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use DataType.Descriptor instead.
 func (DataType) EnumDescriptor() ([]byte, []int) {
-	return file_proto_data_v1_data_proto_rawDescGZIP(), []int{0}
+	return file_proto_grid_v1_data_proto_rawDescGZIP(), []int{0}
 }
 
 type Data struct {
@@ -206,7 +206,7 @@ type Data struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	DataType   DataType `protobuf:"varint,1,opt,name=dataType,proto3,enum=data.v1.DataType" json:"dataType,omitempty"` //The type of data see `DataType` enum.
+	DataType   DataType `protobuf:"varint,1,opt,name=dataType,proto3,enum=grid.v1.DataType" json:"dataType,omitempty"` //The type of data see `DataType` enum.
 	MeasuredAt int64    `protobuf:"varint,2,opt,name=measuredAt,proto3" json:"measuredAt,omitempty"`                   //The time of measurement (Unix Timestamp Nanoseconds).
 	Value      *uint64  `protobuf:"varint,3,opt,name=value,proto3,oneof" json:"value,omitempty"`                       //The data value casted to uint64.
 }
@@ -214,7 +214,7 @@ type Data struct {
 func (x *Data) Reset() {
 	*x = Data{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_data_v1_data_proto_msgTypes[0]
+		mi := &file_proto_grid_v1_data_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -227,7 +227,7 @@ func (x *Data) String() string {
 func (*Data) ProtoMessage() {}
 
 func (x *Data) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_data_v1_data_proto_msgTypes[0]
+	mi := &file_proto_grid_v1_data_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -240,7 +240,7 @@ func (x *Data) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Data.ProtoReflect.Descriptor instead.
 func (*Data) Descriptor() ([]byte, []int) {
-	return file_proto_data_v1_data_proto_rawDescGZIP(), []int{0}
+	return file_proto_grid_v1_data_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Data) GetDataType() DataType {
@@ -276,7 +276,7 @@ type DataSet struct {
 func (x *DataSet) Reset() {
 	*x = DataSet{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_data_v1_data_proto_msgTypes[1]
+		mi := &file_proto_grid_v1_data_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -289,7 +289,7 @@ func (x *DataSet) String() string {
 func (*DataSet) ProtoMessage() {}
 
 func (x *DataSet) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_data_v1_data_proto_msgTypes[1]
+	mi := &file_proto_grid_v1_data_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -302,7 +302,7 @@ func (x *DataSet) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DataSet.ProtoReflect.Descriptor instead.
 func (*DataSet) Descriptor() ([]byte, []int) {
-	return file_proto_data_v1_data_proto_rawDescGZIP(), []int{1}
+	return file_proto_grid_v1_data_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *DataSet) GetProducerId() string {
@@ -319,14 +319,14 @@ func (x *DataSet) GetData() map[string]*Data {
 	return nil
 }
 
-var File_proto_data_v1_data_proto protoreflect.FileDescriptor
+var File_proto_grid_v1_data_proto protoreflect.FileDescriptor
 
-var file_proto_data_v1_data_proto_rawDesc = []byte{
-	0x0a, 0x18, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x64, 0x61, 0x74, 0x61, 0x2f, 0x76, 0x31, 0x2f,
-	0x64, 0x61, 0x74, 0x61, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x07, 0x64, 0x61, 0x74, 0x61,
+var file_proto_grid_v1_data_proto_rawDesc = []byte{
+	0x0a, 0x18, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x67, 0x72, 0x69, 0x64, 0x2f, 0x76, 0x31, 0x2f,
+	0x64, 0x61, 0x74, 0x61, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x07, 0x67, 0x72, 0x69, 0x64,
 	0x2e, 0x76, 0x31, 0x22, 0x7a, 0x0a, 0x04, 0x44, 0x61, 0x74, 0x61, 0x12, 0x2d, 0x0a, 0x08, 0x64,
 	0x61, 0x74, 0x61, 0x54, 0x79, 0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x11, 0x2e,
-	0x64, 0x61, 0x74, 0x61, 0x2e, 0x76, 0x31, 0x2e, 0x44, 0x61, 0x74, 0x61, 0x54, 0x79, 0x70, 0x65,
+	0x67, 0x72, 0x69, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x44, 0x61, 0x74, 0x61, 0x54, 0x79, 0x70, 0x65,
 	0x52, 0x08, 0x64, 0x61, 0x74, 0x61, 0x54, 0x79, 0x70, 0x65, 0x12, 0x1e, 0x0a, 0x0a, 0x6d, 0x65,
 	0x61, 0x73, 0x75, 0x72, 0x65, 0x64, 0x41, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0a,
 	0x6d, 0x65, 0x61, 0x73, 0x75, 0x72, 0x65, 0x64, 0x41, 0x74, 0x12, 0x19, 0x0a, 0x05, 0x76, 0x61,
@@ -335,12 +335,12 @@ var file_proto_data_v1_data_proto_rawDesc = []byte{
 	0xa1, 0x01, 0x0a, 0x07, 0x44, 0x61, 0x74, 0x61, 0x53, 0x65, 0x74, 0x12, 0x1e, 0x0a, 0x0a, 0x70,
 	0x72, 0x6f, 0x64, 0x75, 0x63, 0x65, 0x72, 0x49, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
 	0x0a, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x65, 0x72, 0x49, 0x64, 0x12, 0x2e, 0x0a, 0x04, 0x64,
-	0x61, 0x74, 0x61, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x64, 0x61, 0x74, 0x61,
+	0x61, 0x74, 0x61, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x72, 0x69, 0x64,
 	0x2e, 0x76, 0x31, 0x2e, 0x44, 0x61, 0x74, 0x61, 0x53, 0x65, 0x74, 0x2e, 0x44, 0x61, 0x74, 0x61,
 	0x45, 0x6e, 0x74, 0x72, 0x79, 0x52, 0x04, 0x64, 0x61, 0x74, 0x61, 0x1a, 0x46, 0x0a, 0x09, 0x44,
 	0x61, 0x74, 0x61, 0x45, 0x6e, 0x74, 0x72, 0x79, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18,
 	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x23, 0x0a, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0d, 0x2e, 0x64, 0x61, 0x74, 0x61,
+	0x6c, 0x75, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0d, 0x2e, 0x67, 0x72, 0x69, 0x64,
 	0x2e, 0x76, 0x31, 0x2e, 0x44, 0x61, 0x74, 0x61, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x3a,
 	0x02, 0x38, 0x01, 0x2a, 0xf3, 0x0a, 0x0a, 0x08, 0x44, 0x61, 0x74, 0x61, 0x54, 0x79, 0x70, 0x65,
 	0x12, 0x19, 0x0a, 0x15, 0x44, 0x41, 0x54, 0x41, 0x5f, 0x54, 0x59, 0x50, 0x45, 0x5f, 0x55, 0x4e,
@@ -429,34 +429,34 @@ var file_proto_data_v1_data_proto_rawDesc = []byte{
 	0x45, 0x4e, 0x43, 0x45, 0x5f, 0x5a, 0x45, 0x52, 0x4f, 0x10, 0x2a, 0x12, 0x16, 0x0a, 0x12, 0x44,
 	0x41, 0x54, 0x41, 0x5f, 0x54, 0x59, 0x50, 0x45, 0x5f, 0x44, 0x49, 0x53, 0x43, 0x52, 0x45, 0x54,
 	0x45, 0x10, 0x2b, 0x12, 0x14, 0x0a, 0x10, 0x44, 0x41, 0x54, 0x41, 0x5f, 0x54, 0x59, 0x50, 0x45,
-	0x5f, 0x41, 0x4e, 0x41, 0x4c, 0x4f, 0x47, 0x10, 0x2c, 0x42, 0x0b, 0x5a, 0x09, 0x2e, 0x2f, 0x64,
-	0x61, 0x74, 0x61, 0x2f, 0x76, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x5f, 0x41, 0x4e, 0x41, 0x4c, 0x4f, 0x47, 0x10, 0x2c, 0x42, 0x0b, 0x5a, 0x09, 0x2e, 0x2f, 0x67,
+	0x72, 0x69, 0x64, 0x2f, 0x76, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
-	file_proto_data_v1_data_proto_rawDescOnce sync.Once
-	file_proto_data_v1_data_proto_rawDescData = file_proto_data_v1_data_proto_rawDesc
+	file_proto_grid_v1_data_proto_rawDescOnce sync.Once
+	file_proto_grid_v1_data_proto_rawDescData = file_proto_grid_v1_data_proto_rawDesc
 )
 
-func file_proto_data_v1_data_proto_rawDescGZIP() []byte {
-	file_proto_data_v1_data_proto_rawDescOnce.Do(func() {
-		file_proto_data_v1_data_proto_rawDescData = protoimpl.X.CompressGZIP(file_proto_data_v1_data_proto_rawDescData)
+func file_proto_grid_v1_data_proto_rawDescGZIP() []byte {
+	file_proto_grid_v1_data_proto_rawDescOnce.Do(func() {
+		file_proto_grid_v1_data_proto_rawDescData = protoimpl.X.CompressGZIP(file_proto_grid_v1_data_proto_rawDescData)
 	})
-	return file_proto_data_v1_data_proto_rawDescData
+	return file_proto_grid_v1_data_proto_rawDescData
 }
 
-var file_proto_data_v1_data_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_proto_data_v1_data_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
-var file_proto_data_v1_data_proto_goTypes = []interface{}{
-	(DataType)(0),   // 0: data.v1.DataType
-	(*Data)(nil),    // 1: data.v1.Data
-	(*DataSet)(nil), // 2: data.v1.DataSet
-	nil,             // 3: data.v1.DataSet.DataEntry
+var file_proto_grid_v1_data_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_proto_grid_v1_data_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_proto_grid_v1_data_proto_goTypes = []interface{}{
+	(DataType)(0),   // 0: grid.v1.DataType
+	(*Data)(nil),    // 1: grid.v1.Data
+	(*DataSet)(nil), // 2: grid.v1.DataSet
+	nil,             // 3: grid.v1.DataSet.DataEntry
 }
-var file_proto_data_v1_data_proto_depIdxs = []int32{
-	0, // 0: data.v1.Data.dataType:type_name -> data.v1.DataType
-	3, // 1: data.v1.DataSet.data:type_name -> data.v1.DataSet.DataEntry
-	1, // 2: data.v1.DataSet.DataEntry.value:type_name -> data.v1.Data
+var file_proto_grid_v1_data_proto_depIdxs = []int32{
+	0, // 0: grid.v1.Data.dataType:type_name -> grid.v1.DataType
+	3, // 1: grid.v1.DataSet.data:type_name -> grid.v1.DataSet.DataEntry
+	1, // 2: grid.v1.DataSet.DataEntry.value:type_name -> grid.v1.Data
 	3, // [3:3] is the sub-list for method output_type
 	3, // [3:3] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name
@@ -464,13 +464,13 @@ var file_proto_data_v1_data_proto_depIdxs = []int32{
 	0, // [0:3] is the sub-list for field type_name
 }
 
-func init() { file_proto_data_v1_data_proto_init() }
-func file_proto_data_v1_data_proto_init() {
-	if File_proto_data_v1_data_proto != nil {
+func init() { file_proto_grid_v1_data_proto_init() }
+func file_proto_grid_v1_data_proto_init() {
+	if File_proto_grid_v1_data_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_proto_data_v1_data_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_proto_grid_v1_data_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Data); i {
 			case 0:
 				return &v.state
@@ -482,7 +482,7 @@ func file_proto_data_v1_data_proto_init() {
 				return nil
 			}
 		}
-		file_proto_data_v1_data_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_proto_grid_v1_data_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DataSet); i {
 			case 0:
 				return &v.state
@@ -495,24 +495,24 @@ func file_proto_data_v1_data_proto_init() {
 			}
 		}
 	}
-	file_proto_data_v1_data_proto_msgTypes[0].OneofWrappers = []interface{}{}
+	file_proto_grid_v1_data_proto_msgTypes[0].OneofWrappers = []interface{}{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_proto_data_v1_data_proto_rawDesc,
+			RawDescriptor: file_proto_grid_v1_data_proto_rawDesc,
 			NumEnums:      1,
 			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_proto_data_v1_data_proto_goTypes,
-		DependencyIndexes: file_proto_data_v1_data_proto_depIdxs,
-		EnumInfos:         file_proto_data_v1_data_proto_enumTypes,
-		MessageInfos:      file_proto_data_v1_data_proto_msgTypes,
+		GoTypes:           file_proto_grid_v1_data_proto_goTypes,
+		DependencyIndexes: file_proto_grid_v1_data_proto_depIdxs,
+		EnumInfos:         file_proto_grid_v1_data_proto_enumTypes,
+		MessageInfos:      file_proto_grid_v1_data_proto_msgTypes,
 	}.Build()
-	File_proto_data_v1_data_proto = out.File
-	file_proto_data_v1_data_proto_rawDesc = nil
-	file_proto_data_v1_data_proto_goTypes = nil
-	file_proto_data_v1_data_proto_depIdxs = nil
+	File_proto_grid_v1_data_proto = out.File
+	file_proto_grid_v1_data_proto_rawDesc = nil
+	file_proto_grid_v1_data_proto_goTypes = nil
+	file_proto_grid_v1_data_proto_depIdxs = nil
 }
