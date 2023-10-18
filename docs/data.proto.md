@@ -136,10 +136,13 @@ class DataType{
 classDiagram
 direction LR
 
-%% A single data. It has:
-%% - a given data type,
-%% - a point in time of measurement (encoded as int64 using Unix Epoc),
-%% - a value (encoded as uint64)
+%% A single data.
+%% Headers used in rabbitMQ (only if not sent as part of `DataSet`):
+%% * `id`: id of the `Data`
+%% * `type`: always `Data`
+%% * `producerId`: the id of the producer (e.g. a PMU) linked to the dataset.
+%% * `timestampId`: related measurement timestamp (if any)
+%% 
 
 class Data {
   + DataType dataType
@@ -155,9 +158,13 @@ Data --> `DataType`
 classDiagram
 direction LR
 
-%% A set of data:
-%% - the id of the procuder of the data
-%% - the map containing data
+%% A set of data.
+%% Headers used in rabbitMQ:
+%% * `id`: id of the `DataSet`
+%% * `type`: always `DataSet`
+%% * `producerId`: the id of the producer (e.g. a PMU) linked to the dataset.
+%% * `timestampId`: related measurement timestamp (if any)
+%% 
 
 class DataSet {
   + Map~string,  Data~ data
@@ -170,7 +177,7 @@ DataSet .. ` Data`
 ## Message: Data
 <div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.Data</div>
 
-<div class="comment"><span>A single data. It has:</span><br/><span>- a given data type,</span><br/><span>- a point in time of measurement (encoded as int64 using Unix Epoc),</span><br/><span>- a value (encoded as uint64)</span><br/></div>
+<div class="comment"><span>A single data.</span><br/><span>Headers used in rabbitMQ (only if not sent as part of `DataSet`):</span><br/><span>* `id`: id of the `Data`</span><br/><span>* `type`: always `Data`</span><br/><span>* `producerId`: the id of the producer (e.g. a PMU) linked to the dataset.</span><br/><span>* `timestampId`: related measurement timestamp (if any)</span><br/><span></span><br/></div>
 
 | Field      | Ordinal | Type     | Label    | Description                                            |
 |------------|---------|----------|----------|--------------------------------------------------------|
@@ -182,7 +189,7 @@ DataSet .. ` Data`
 ## Message: DataSet
 <div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.DataSet</div>
 
-<div class="comment"><span>A set of data:</span><br/><span>- the id of the procuder of the data</span><br/><span>- the map containing data</span><br/></div>
+<div class="comment"><span>A set of data.</span><br/><span>Headers used in rabbitMQ:</span><br/><span>* `id`: id of the `DataSet`</span><br/><span>* `type`: always `DataSet`</span><br/><span>* `producerId`: the id of the producer (e.g. a PMU) linked to the dataset.</span><br/><span>* `timestampId`: related measurement timestamp (if any)</span><br/><span></span><br/></div>
 
 | Field      | Ordinal | Type         | Label | Description                                                 |
 |------------|---------|--------------|-------|-------------------------------------------------------------|

@@ -61,10 +61,13 @@ enum DataType {
 	DATA_TYPE_ANALOG = 44; //Analog. It maps to Analog.
 }
 
-/* A single data. It has:
-- a given data type,
-- a point in time of measurement (encoded as int64 using Unix Epoc),
-- a value (encoded as uint64) */
+/* A single data.
+Headers used in rabbitMQ (only if not sent as part of `DataSet`):
+* `id`: id of the `Data`
+* `type`: always `Data`
+* `producerId`: the id of the producer (e.g. a PMU) linked to the dataset.
+* `timestampId`: related measurement timestamp (if any)
+*/
 
 message Data {
 	DataType dataType = 1; //The type of data see `DataType` enum.
@@ -72,9 +75,13 @@ message Data {
 	optional uint64 value = 3; //The data value casted to uint64.
 }
 
-/* A set of data:
-- the id of the procuder of the data
-- the map containing data */
+/* A set of data.
+Headers used in rabbitMQ:
+* `id`: id of the `DataSet`
+* `type`: always `DataSet`
+* `producerId`: the id of the producer (e.g. a PMU) linked to the dataset.
+* `timestampId`: related measurement timestamp (if any)
+*/
 
 message DataSet {
 	string producerId = 1; //The id of the device / service that produced the data set.
