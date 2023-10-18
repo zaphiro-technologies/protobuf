@@ -1,4 +1,4 @@
-# Package: data.v1
+# Package: grid.v1
 
 <div class="comment"><span><!-- markdownlint-disable --></span><br/><span>Messages to support data injection in the platform.</span><br/><span>The data injected may be originated from different sources (e.g. a PMU, RTU, an external service).</span><br/><span></span><br/><span>Data are grouped into sets, where each id identifies a specific measurement. The id does not identify the instance of measurement, but the class of measurement. Measurement ID can be used to retrieve additional medata about the measurement, from example, in the CIM OP profile associated to the monitored grid.</span><br/></div>
 
@@ -13,12 +13,12 @@
 
 | Name       | Value     | Description |
 |------------|-----------|-------------|
-| go_package | ./data/v1 |             |
+| go_package | ./grid/v1 |             |
 
 
 
 ## Enum: DataType
-<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: data.v1.DataType</div>
+<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.DataType</div>
 
 <div class="comment"><span>The collection of Data Types defined so far. They are useful to map</span><br/><span>measurements to their rappresentation. Some of the descriptions are taken from [here](https://github.com/digin-energi/Grunnprofil/blob/develop/DIGIN10/docs/MeasurementType.adoc) This is important since all measurements</span><br/><span>are any how cast to UINT64 in the real time platform</span><br/></div>
 
@@ -168,7 +168,7 @@ DataSet .. ` Data`
 ```
 
 ## Message: Data
-<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: data.v1.Data</div>
+<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.Data</div>
 
 <div class="comment"><span>A single data. It has:</span><br/><span>- a given data type,</span><br/><span>- a point in time of measurement (encoded as int64 using Unix Epoc),</span><br/><span>- a value (encoded as uint64)</span><br/></div>
 
@@ -180,7 +180,7 @@ DataSet .. ` Data`
 
 
 ## Message: DataSet
-<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: data.v1.DataSet</div>
+<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.DataSet</div>
 
 <div class="comment"><span>A set of data:</span><br/><span>- the id of the procuder of the data</span><br/><span>- the map containing data</span><br/></div>
 
