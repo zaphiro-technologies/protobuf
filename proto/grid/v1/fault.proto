@@ -73,7 +73,7 @@ Headers used in rabbitMQ:
 */
 
 message Fault {
-    string id = 1; //The uuid of the fault.
+    string Id = 1; //The uuid of the fault.
     optional string description = 2; //The textual description of the fault.
     PhaseConnectedFaultKind kind = 3; //The kind of phase fault.
     PhaseCode phases = 4; //The phases participating in the fault. The fault connections into these phases are further specified by the type of fault.
