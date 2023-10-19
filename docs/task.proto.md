@@ -78,6 +78,20 @@ class NotificationType{
   NOTIFICATION_TYPE_TRIGGER
 }
 ```
+### Parameter Diagram
+
+```mermaid
+classDiagram
+direction LR
+
+%% A parameter of a `Task` or `Notification`
+
+class Parameter {
+  + string name
+  + string value
+}
+
+```
 ### Task Diagram
 
 ```mermaid
@@ -88,9 +102,10 @@ direction LR
 
 class Task {
   + int64 createdAt
-  + Optional~string~ measurementID
+  + List~Parameter~ parameters
   + TaskType taskType
 }
+Task --> `Parameter`
 Task --> `TaskType`
 
 ```
@@ -104,24 +119,36 @@ direction LR
 
 class Notification {
   + int64 createdAt
-  + Optional~string~ measurementID
   + string message
   + NotificationType notificationType
+  + List~Parameter~ parameters
 }
 Notification --> `NotificationType`
+Notification --> `Parameter`
 
 ```
+
+## Message: Parameter
+<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: platform.v1.Parameter</div>
+
+<div class="comment"><span>A parameter of a `Task` or `Notification`</span><br/></div>
+
+| Field | Ordinal | Type   | Label | Description          |
+|-------|---------|--------|-------|----------------------|
+| name  | 1       | string |       | The parameter name   |
+| value | 2       | string |       | The parameter value  |
+
 
 ## Message: Task
 <div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: platform.v1.Task</div>
 
 <div class="comment"><span>A task message. Headers used in rabbitMQ: * `id`: id of the `Task` * `type`: always `Task` * `producerId`: the id of the producer (e.g. a PMU) linked to the notification. * `timestampId`: related measurement timestamp (if any) * `taskType`: The textual representation of the task type.</span><br/></div>
 
-| Field         | Ordinal | Type     | Label    | Description                               |
-|---------------|---------|----------|----------|-------------------------------------------|
-| createdAt     | 2       | int64    |          | Task creation time (Unix Nano timestamp)  |
-| measurementID | 3       | string   | Optional | Related measurement id (if any)           |
-| taskType      | 1       | TaskType |          | Type of the task                          |
+| Field      | Ordinal | Type      | Label    | Description                               |
+|------------|---------|-----------|----------|-------------------------------------------|
+| createdAt  | 2       | int64     |          | Task creation time (Unix Nano timestamp)  |
+| parameters | 3       | Parameter | Repeated |                                           |
+| taskType   | 1       | TaskType  |          | Type of the task                          |
 
 
 ## Message: Notification
@@ -132,9 +159,9 @@ Notification --> `NotificationType`
 | Field            | Ordinal | Type             | Label    | Description                                                                          |
 |------------------|---------|------------------|----------|--------------------------------------------------------------------------------------|
 | createdAt        | 2       | int64            |          | Notification creation time (Unix Nano timestamp)                                     |
-| measurementID    | 4       | string           | Optional | Related measurement id (if any)                                                      |
 | message          | 3       | string           |          | Notification message, it can be a string or a integer (which maps to a enum value).  |
 | notificationType | 1       | NotificationType |          | Notification type                                                                    |
+| parameters       | 4       | Parameter        | Repeated |                                                                                      |
 
 
 

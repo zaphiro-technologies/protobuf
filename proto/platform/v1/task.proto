@@ -29,6 +29,13 @@ enum NotificationType {
 	NOTIFICATION_TYPE_TRIGGER = 4;
 }
 
+// A parameter of a `Task` or `Notification`
+
+message Parameter {
+	string name = 1; //The parameter name
+	string value = 2; //The parameter value
+}
+
 // A task message.
 // Headers used in rabbitMQ:
 // * `id`: id of the `Task`
@@ -40,7 +47,7 @@ enum NotificationType {
 message Task {
 	TaskType taskType = 1; //Type of the task
 	int64 createdAt = 2; //Task creation time (Unix Nano timestamp)
-	optional string 	measurementID = 3; //Related measurement id (if any)
+	repeated Parameter parameters = 3;
 }
 
 // A notification message.
@@ -55,5 +62,5 @@ message Notification {
 	NotificationType notificationType = 1; //Notification type
 	int64 createdAt = 2; //Notification creation time (Unix Nano timestamp)
 	string message = 3; //Notification message, it can be a string or a integer (which maps to a enum value).
-	optional string 	measurementID = 4; //Related measurement id (if any)
+	repeated Parameter parameters = 4;
 }
