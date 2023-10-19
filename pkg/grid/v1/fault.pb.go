@@ -209,7 +209,7 @@ type Fault struct {
 	Description          *string                 `protobuf:"bytes,2,opt,name=description,proto3,oneof" json:"description,omitempty"`                   //The textual description of the fault.
 	Kind                 PhaseConnectedFaultKind `protobuf:"varint,3,opt,name=kind,proto3,enum=grid.v1.PhaseConnectedFaultKind" json:"kind,omitempty"` //The kind of phase fault.
 	Phases               PhaseCode               `protobuf:"varint,4,opt,name=phases,proto3,enum=grid.v1.PhaseCode" json:"phases,omitempty"`           //The phases participating in the fault. The fault connections into these phases are further specified by the type of fault.
-	OccurredDateTime     int64                   `protobuf:"varint,5,opt,name=occurredDateTime,proto3" json:"occurredDateTime,omitempty"`              //The date and time at which the fault occurred.
+	OccurredDateTime     int64                   `protobuf:"varint,5,opt,name=occurredDateTime,proto3" json:"occurredDateTime,omitempty"`              //The date and time at which the fault occurred (Unix msec timestamp).
 	FaultyEquipmentId    *string                 `protobuf:"bytes,6,opt,name=faultyEquipmentId,proto3,oneof" json:"faultyEquipmentId,omitempty"`       //The equipment with the fault.
 	LocationTime         *int64                  `protobuf:"varint,7,opt,name=locationTime,proto3,oneof" json:"locationTime,omitempty"`                //The time when the fault was located.
 	FaultCurrent         *float32                `protobuf:"fixed32,8,opt,name=faultCurrent,proto3,oneof" json:"faultCurrent,omitempty"`               //The current associated to the fault.

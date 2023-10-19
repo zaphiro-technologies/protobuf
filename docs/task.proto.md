@@ -98,7 +98,7 @@ class Parameter {
 classDiagram
 direction LR
 
-%% A task message. Headers used in rabbitMQ: * `id`: id of the `Task` * `type`: always `Task` * `producerId`: the id of the producer (e.g. a PMU) linked to the notification. * `timestampId`: related measurement timestamp (if any) * `taskType`: The textual representation of the task type.
+%% A task message. Headers used in rabbitMQ: * `id`: id of the `Task` * `type`: always `Task` * `producerId`: the id of the producer (e.g. a PMU) linked to the notification. * `timestampId`: related measurement Unix msec timestamp (if any) * `taskType`: The textual representation of the task type.
 
 class Task {
   + int64 createdAt
@@ -115,7 +115,7 @@ Task --> `TaskType`
 classDiagram
 direction LR
 
-%% A notification message. Headers used in rabbitMQ: * `id`: id of the `Notification` * `type`: always `Notification` * `producerId`: the id of the producer (e.g. a PMU) linked to the notification. * `timestampId`: related measurement timestamp (if any) * `notificationType`: The textual representation of the notification type.
+%% A notification message. Headers used in rabbitMQ: * `id`: id of the `Notification` * `type`: always `Notification` * `producerId`: the id of the producer (e.g. a PMU) linked to the notification. * `timestampId`: related measurement Unix msec timestamp (if any) * `notificationType`: The textual representation of the notification type.
 
 class Notification {
   + int64 createdAt
@@ -142,11 +142,11 @@ Notification --> `Parameter`
 ## Message: Task
 <div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: platform.v1.Task</div>
 
-<div class="comment"><span>A task message. Headers used in rabbitMQ: * `id`: id of the `Task` * `type`: always `Task` * `producerId`: the id of the producer (e.g. a PMU) linked to the notification. * `timestampId`: related measurement timestamp (if any) * `taskType`: The textual representation of the task type.</span><br/></div>
+<div class="comment"><span>A task message. Headers used in rabbitMQ: * `id`: id of the `Task` * `type`: always `Task` * `producerId`: the id of the producer (e.g. a PMU) linked to the notification. * `timestampId`: related measurement Unix msec timestamp (if any) * `taskType`: The textual representation of the task type.</span><br/></div>
 
 | Field      | Ordinal | Type      | Label    | Description                               |
 |------------|---------|-----------|----------|-------------------------------------------|
-| createdAt  | 2       | int64     |          | Task creation time (Unix Nano timestamp)  |
+| createdAt  | 2       | int64     |          | Task creation time (Unix msec timestamp)  |
 | parameters | 3       | Parameter | Repeated |                                           |
 | taskType   | 1       | TaskType  |          | Type of the task                          |
 
@@ -154,11 +154,11 @@ Notification --> `Parameter`
 ## Message: Notification
 <div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: platform.v1.Notification</div>
 
-<div class="comment"><span>A notification message. Headers used in rabbitMQ: * `id`: id of the `Notification` * `type`: always `Notification` * `producerId`: the id of the producer (e.g. a PMU) linked to the notification. * `timestampId`: related measurement timestamp (if any) * `notificationType`: The textual representation of the notification type.</span><br/></div>
+<div class="comment"><span>A notification message. Headers used in rabbitMQ: * `id`: id of the `Notification` * `type`: always `Notification` * `producerId`: the id of the producer (e.g. a PMU) linked to the notification. * `timestampId`: related measurement Unix msec timestamp (if any) * `notificationType`: The textual representation of the notification type.</span><br/></div>
 
 | Field            | Ordinal | Type             | Label    | Description                                                                          |
 |------------------|---------|------------------|----------|--------------------------------------------------------------------------------------|
-| createdAt        | 2       | int64            |          | Notification creation time (Unix Nano timestamp)                                     |
+| createdAt        | 2       | int64            |          | Notification creation time (Unix msec timestamp)                                     |
 | message          | 3       | string           |          | Notification message, it can be a string or a integer (which maps to a enum value).  |
 | notificationType | 1       | NotificationType |          | Notification type                                                                    |
 | parameters       | 4       | Parameter        | Repeated |                                                                                      |

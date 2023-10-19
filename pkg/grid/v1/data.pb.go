@@ -207,7 +207,7 @@ type Data struct {
 	unknownFields protoimpl.UnknownFields
 
 	DataType   DataType `protobuf:"varint,1,opt,name=dataType,proto3,enum=grid.v1.DataType" json:"dataType,omitempty"` //The type of data see `DataType` enum.
-	MeasuredAt int64    `protobuf:"varint,2,opt,name=measuredAt,proto3" json:"measuredAt,omitempty"`                   //The time of measurement (Unix Timestamp Nanoseconds).
+	MeasuredAt int64    `protobuf:"varint,2,opt,name=measuredAt,proto3" json:"measuredAt,omitempty"`                   //The time of measurement (Unix msec timestamp).
 	Value      *uint64  `protobuf:"varint,3,opt,name=value,proto3,oneof" json:"value,omitempty"`                       //The data value casted to uint64.
 }
 

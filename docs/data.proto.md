@@ -141,7 +141,7 @@ direction LR
 %% * `id`: id of the `Data`
 %% * `type`: always `Data`
 %% * `producerId`: the id of the producer (e.g. a PMU) linked to the dataset.
-%% * `timestampId`: related measurement timestamp (if any)
+%% * `timestampId`: related measurement Unix msec timestamp (if any)
 %% 
 
 class Data {
@@ -163,7 +163,7 @@ direction LR
 %% * `id`: id of the `DataSet`
 %% * `type`: always `DataSet`
 %% * `producerId`: the id of the producer (e.g. a PMU) linked to the dataset.
-%% * `timestampId`: related measurement timestamp (if any)
+%% * `timestampId`: related measurement Unix msec timestamp (if any)
 %% 
 
 class DataSet {
@@ -177,19 +177,19 @@ DataSet .. ` Data`
 ## Message: Data
 <div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.Data</div>
 
-<div class="comment"><span>A single data.</span><br/><span>Headers used in rabbitMQ (only if not sent as part of `DataSet`):</span><br/><span>* `id`: id of the `Data`</span><br/><span>* `type`: always `Data`</span><br/><span>* `producerId`: the id of the producer (e.g. a PMU) linked to the dataset.</span><br/><span>* `timestampId`: related measurement timestamp (if any)</span><br/><span></span><br/></div>
+<div class="comment"><span>A single data.</span><br/><span>Headers used in rabbitMQ (only if not sent as part of `DataSet`):</span><br/><span>* `id`: id of the `Data`</span><br/><span>* `type`: always `Data`</span><br/><span>* `producerId`: the id of the producer (e.g. a PMU) linked to the dataset.</span><br/><span>* `timestampId`: related measurement Unix msec timestamp (if any)</span><br/><span></span><br/></div>
 
-| Field      | Ordinal | Type     | Label    | Description                                            |
-|------------|---------|----------|----------|--------------------------------------------------------|
-| dataType   | 1       | DataType |          | The type of data see `DataType` enum.                  |
-| measuredAt | 2       | int64    |          | The time of measurement (Unix Timestamp Nanoseconds).  |
-| value      | 3       | uint64   | Optional | The data value casted to uint64.                       |
+| Field      | Ordinal | Type     | Label    | Description                                     |
+|------------|---------|----------|----------|-------------------------------------------------|
+| dataType   | 1       | DataType |          | The type of data see `DataType` enum.           |
+| measuredAt | 2       | int64    |          | The time of measurement (Unix msec timestamp).  |
+| value      | 3       | uint64   | Optional | The data value casted to uint64.                |
 
 
 ## Message: DataSet
 <div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.DataSet</div>
 
-<div class="comment"><span>A set of data.</span><br/><span>Headers used in rabbitMQ:</span><br/><span>* `id`: id of the `DataSet`</span><br/><span>* `type`: always `DataSet`</span><br/><span>* `producerId`: the id of the producer (e.g. a PMU) linked to the dataset.</span><br/><span>* `timestampId`: related measurement timestamp (if any)</span><br/><span></span><br/></div>
+<div class="comment"><span>A set of data.</span><br/><span>Headers used in rabbitMQ:</span><br/><span>* `id`: id of the `DataSet`</span><br/><span>* `type`: always `DataSet`</span><br/><span>* `producerId`: the id of the producer (e.g. a PMU) linked to the dataset.</span><br/><span>* `timestampId`: related measurement Unix msec timestamp (if any)</span><br/><span></span><br/></div>
 
 | Field      | Ordinal | Type         | Label | Description                                                 |
 |------------|---------|--------------|-------|-------------------------------------------------------------|

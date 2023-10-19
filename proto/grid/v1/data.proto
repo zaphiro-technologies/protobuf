@@ -66,12 +66,12 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 * `id`: id of the `Data`
 * `type`: always `Data`
 * `producerId`: the id of the producer (e.g. a PMU) linked to the dataset.
-* `timestampId`: related measurement timestamp (if any)
+* `timestampId`: related measurement Unix msec timestamp (if any)
 */
 
 message Data {
 	DataType dataType = 1; //The type of data see `DataType` enum.
-	int64 measuredAt = 2; //The time of measurement (Unix Timestamp Nanoseconds).
+	int64 measuredAt = 2; //The time of measurement (Unix msec timestamp).
 	optional uint64 value = 3; //The data value casted to uint64.
 }
 
@@ -80,7 +80,7 @@ Headers used in rabbitMQ:
 * `id`: id of the `DataSet`
 * `type`: always `DataSet`
 * `producerId`: the id of the producer (e.g. a PMU) linked to the dataset.
-* `timestampId`: related measurement timestamp (if any)
+* `timestampId`: related measurement Unix msec timestamp (if any)
 */
 
 message DataSet {

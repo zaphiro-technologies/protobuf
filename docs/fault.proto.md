@@ -226,7 +226,7 @@ EquipmentFault --> `Fault`
 | kind                 | 3       | PhaseConnectedFaultKind |          | The kind of phase fault.                                                                                                    |
 | located              | 9       | bool                    | Optional | Was the fault located.                                                                                                      |
 | locationTime         | 7       | int64                   | Optional | The time when the fault was located.                                                                                        |
-| occurredDateTime     | 5       | int64                   |          | The date and time at which the fault occurred.                                                                              |
+| occurredDateTime     | 5       | int64                   |          | The date and time at which the fault occurred (Unix msec timestamp).                                                        |
 | phases               | 4       | PhaseCode               |          | The phases participating in the fault. The fault connections into these phases are further specified by the type of fault.  |
 
 

@@ -41,12 +41,12 @@ message Parameter {
 // * `id`: id of the `Task`
 // * `type`: always `Task`
 // * `producerId`: the id of the producer (e.g. a PMU) linked to the notification.
-// * `timestampId`: related measurement timestamp (if any)
+// * `timestampId`: related measurement Unix msec timestamp (if any)
 // * `taskType`: The textual representation of the task type.
 
 message Task {
 	TaskType taskType = 1; //Type of the task
-	int64 createdAt = 2; //Task creation time (Unix Nano timestamp)
+	int64 createdAt = 2; //Task creation time (Unix msec timestamp)
 	repeated Parameter parameters = 3;
 }
 
@@ -55,12 +55,12 @@ message Task {
 // * `id`: id of the `Notification`
 // * `type`: always `Notification`
 // * `producerId`: the id of the producer (e.g. a PMU) linked to the notification.
-// * `timestampId`: related measurement timestamp (if any)
+// * `timestampId`: related measurement Unix msec timestamp (if any)
 // * `notificationType`: The textual representation of the notification type.
 
 message Notification {
 	NotificationType notificationType = 1; //Notification type
-	int64 createdAt = 2; //Notification creation time (Unix Nano timestamp)
+	int64 createdAt = 2; //Notification creation time (Unix msec timestamp)
 	string message = 3; //Notification message, it can be a string or a integer (which maps to a enum value).
 	repeated Parameter parameters = 4;
 }
