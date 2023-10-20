@@ -39,6 +39,10 @@ docs:
 	# mv -f proto/**/*.md docs #why it works on my mac but not in the action?
 	mv -f proto/*/v1/*.md docs
 
+.PHONY: proto-lint
+proto-lint:
+	cd proto; buf lint
+
 # Mandatory
 ci-test: cov
 # Mandatory if benchmark enabled

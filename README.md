@@ -9,6 +9,7 @@ Zaphiro's platform.
 1. [Protocol Buffer Compiler](https://grpc.io/docs/protoc-installation/)
 1. [Go plugins for the protocol compiler](https://grpc.io/docs/languages/go/quickstart/#prerequisites)
 1. [Buf](https://buf.build/docs/installation)
+1. [proto-gen-md-diagrams](https://github.com/GoogleCloudPlatform/proto-gen-md-diagrams)
 
 ## Available Protocol Buffer
 
@@ -36,17 +37,22 @@ At the time being this repository includes the following Protocol Buffer:
 
 All protocol buffers are documented in [docs](./docs).
 
-### Generate Code from Protos
+### Generate Code from Protocol Buffers
 
 ```bash
-buf generate
+make generate
 ```
 
-### Lint Protos
+### Generate Documentation from Protocol Buffers
 
 ```bash
-cd proto
-buf lint
+make docs
+```
+
+### Lint Protocol Buffers
+
+```bash
+make proto-lint
 ```
 
 ## References
