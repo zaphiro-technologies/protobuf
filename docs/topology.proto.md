@@ -35,7 +35,6 @@ direction LR
 
 class Topology {
   + uint64 createdAt
-  + bytes ssh
   + bytes tp
 }
 
@@ -49,7 +48,6 @@ class Topology {
 | Field     | Ordinal | Type   | Label | Description                                                       |
 |-----------|---------|--------|-------|-------------------------------------------------------------------|
 | createdAt | 1       | uint64 |       | The time of creation of the topology data (Unix msec timestamp).  |
-| ssh       | 3       | bytes  |       | The SSH profile file serialized as bytes.                         |
 | tp        | 2       | bytes  |       | The TP profile file serialized as bytes.                          |
 
 

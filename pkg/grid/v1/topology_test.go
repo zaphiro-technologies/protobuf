@@ -40,10 +40,6 @@ func TestTopology(t *testing.T) {
 	err = xml.Unmarshal(topology.Tp, &tp)
 	assert.NoError(t, err)
 	assert.Equal(t, "http://iec.ch/TC57/ns/CIM/Topology-EU/3.0", tp.FullModel.Profile)
-	var ssh RDF
-	err = xml.Unmarshal(topology.Ssh, &ssh)
-	assert.NoError(t, err)
-	assert.Equal(t, "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU/3.0", ssh.FullModel.Profile)
 }
 
 func BenchmarkTopologySerialization(b *testing.B) {

@@ -19,5 +19,4 @@ Headers used in rabbitMQ:
 message Topology {
 	uint64 createdAt = 1; //The time of creation of the topology data (Unix msec timestamp).
 	bytes tp = 2; //The TP profile file serialized as bytes.
-	bytes ssh = 3; //The SSH profile file serialized as bytes.
 }
