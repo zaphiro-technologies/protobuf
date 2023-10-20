@@ -9,7 +9,13 @@ protocol.
 package conf.v1;
 option go_package = "./conf/v1";
 
-/* Configuration frame 2 */
+/* Configuration frame 2 
+Headers used in rabbitMQ:
+* `id`: id of the `Conf2Frame`
+* `type`: always `Conf2Frame`
+* `producerId`: the id of the producer (e.g. a PMU) linked to the configuration frame.
+* `timestampId`: related measurement timestamp (if any)
+*/
 
 message Conf2Frame {
   Conf2Header header = 1  ; //Configuration frame 2 header

@@ -1,4 +1,4 @@
-# Package: fault.v1
+# Package: grid.v1
 
 <div class="comment"><span><!-- markdownlint-disable --></span><br/><span>Messages describing faults.</span><br/><span></span><br/></div>
 
@@ -11,14 +11,14 @@
 
 ## Options
 
-| Name       | Value      | Description |
-|------------|------------|-------------|
-| go_package | ./fault/v1 |             |
+| Name       | Value     | Description |
+|------------|-----------|-------------|
+| go_package | ./grid/v1 |             |
 
 
 
 ## Enum: PhaseConnectedFaultKind
-<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: fault.v1.PhaseConnectedFaultKind</div>
+<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.PhaseConnectedFaultKind</div>
 
 <div class="comment"><span></span><br/><span> The type of fault connection among phases.</span><br/><span></span><br/><span> This message is modeled after [CIM PhaseConnectedFaultKind](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/PhaseConnectedFaultKind).</span><br/><span></span><br/></div>
 
@@ -32,7 +32,7 @@
 
 
 ## Enum: PhaseCode
-<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: fault.v1.PhaseCode</div>
+<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.PhaseCode</div>
 
 <div class="comment"><span></span><br/><span>An unordered enumeration of phase identifiers. Allows designation of phases for both transmission and distribution equipment, circuits and loads. The enumeration, by itself, does not describe how the phases are connected together or connected to ground. Ground is not explicitly denoted as a phase.</span><br/><span>Residential and small commercial loads are often served from single-phase, or split-phase, secondary circuits. For the example of s12N, phases 1 and 2 refer to hot wires that are 180 degrees out of phase, while N refers to the neutral wire. Through single-phase transformer connections, these secondary circuits may be served from one or two of the primary phases A, B, and C. For three-phase loads, use the A, B, C phase codes instead of s12N.</span><br/><span>The integer values are from IEC 61968-9 to support revenue metering applications.</span><br/><span></span><br/><span>This message is modeled after [CIM PhaseCode](https://zepben.github.io/evolve/docs/cim/evolve/IEC61970/Base/Core/PhaseCode/).</span><br/><span></span><br/></div>
 
@@ -140,9 +140,14 @@ direction LR
 %% 
 %% This message is modeled after [CIM Fault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/Fault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.
 %% 
+%% Headers used in rabbitMQ:
+%% * `id`: id of the `Fault`
+%% * `type`: always `Fault`
+%% * `producerId`: the id of the producer (e.g. a PMU) linked to the notification.
+%% 
 
 class Fault {
-  + string ID
+  + string Id
   + Optional~string~ description
   + Optional~float~ faultCurrent
   + Optional~string~ faultyEquipmentId
@@ -167,6 +172,11 @@ direction LR
 %% 
 %% This message is modeled after [CIM LineFault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/LineFault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.
 %% 
+%% Headers used in rabbitMQ:
+%% * `id`: id of the `Fault`
+%% * `type`: always `LineFault`
+%% * `producerId`: the id of the producer (e.g. a PMU) linked to the notification.
+%% 
 
 class LineFault {
   + Optional~string~ acLineSegmentID
@@ -187,6 +197,11 @@ direction LR
 %% 
 %% This message is modeled after [CIM EquipmentFault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/EquipmentFault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.
 %% 
+%% Headers used in rabbitMQ:
+%% * `id`: id of the `EquipmentFault`
+%% * `type`: always `LineFault`
+%% * `producerId`: the id of the producer (e.g. a PMU) linked to the notification.
+%% 
 
 class EquipmentFault {
   + Fault fault
@@ -197,13 +212,13 @@ EquipmentFault --> `Fault`
 ```
 
 ## Message: Fault
-<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: fault.v1.Fault</div>
+<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.Fault</div>
 
-<div class="comment"><span>Abnormal condition causing current flow through conducting equipment, such as caused by equipment failure or short circuits from objects not typically modelled (for example, a tree falling on a line).</span><br/><span></span><br/><span>This message is modeled after [CIM Fault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/Fault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.</span><br/><span></span><br/></div>
+<div class="comment"><span>Abnormal condition causing current flow through conducting equipment, such as caused by equipment failure or short circuits from objects not typically modelled (for example, a tree falling on a line).</span><br/><span></span><br/><span>This message is modeled after [CIM Fault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/Fault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.</span><br/><span></span><br/><span>Headers used in rabbitMQ:</span><br/><span>* `id`: id of the `Fault`</span><br/><span>* `type`: always `Fault`</span><br/><span>* `producerId`: the id of the producer (e.g. a PMU) linked to the notification.</span><br/><span></span><br/></div>
 
 | Field                | Ordinal | Type                    | Label    | Description                                                                                                                 |
 |----------------------|---------|-------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------|
-| ID                   | 1       | string                  |          | The uuid of the fault.                                                                                                      |
+| Id                   | 1       | string                  |          | The uuid of the fault.                                                                                                      |
 | description          | 2       | string                  | Optional | The textual description of the fault.                                                                                       |
 | faultCurrent         | 8       | float                   | Optional | The current associated to the fault.                                                                                        |
 | faultyEquipmentId    | 6       | string                  | Optional | The equipment with the fault.                                                                                               |
@@ -211,14 +226,14 @@ EquipmentFault --> `Fault`
 | kind                 | 3       | PhaseConnectedFaultKind |          | The kind of phase fault.                                                                                                    |
 | located              | 9       | bool                    | Optional | Was the fault located.                                                                                                      |
 | locationTime         | 7       | int64                   | Optional | The time when the fault was located.                                                                                        |
-| occurredDateTime     | 5       | int64                   |          | The date and time at which the fault occurred.                                                                              |
+| occurredDateTime     | 5       | int64                   |          | The date and time at which the fault occurred (Unix msec timestamp).                                                        |
 | phases               | 4       | PhaseCode               |          | The phases participating in the fault. The fault connections into these phases are further specified by the type of fault.  |
 
 
 ## Message: LineFault
-<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: fault.v1.LineFault</div>
+<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.LineFault</div>
 
-<div class="comment"><span>A fault that occurs on an AC line segment at some point along the length.</span><br/><span></span><br/><span>This message is modeled after [CIM LineFault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/LineFault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.</span><br/><span></span><br/></div>
+<div class="comment"><span>A fault that occurs on an AC line segment at some point along the length.</span><br/><span></span><br/><span>This message is modeled after [CIM LineFault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/LineFault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.</span><br/><span></span><br/><span>Headers used in rabbitMQ:</span><br/><span>* `id`: id of the `Fault`</span><br/><span>* `type`: always `LineFault`</span><br/><span>* `producerId`: the id of the producer (e.g. a PMU) linked to the notification.</span><br/><span></span><br/></div>
 
 | Field               | Ordinal | Type   | Label    | Description                                                                                                                    |
 |---------------------|---------|--------|----------|--------------------------------------------------------------------------------------------------------------------------------|
@@ -228,9 +243,9 @@ EquipmentFault --> `Fault`
 
 
 ## Message: EquipmentFault
-<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: fault.v1.EquipmentFault</div>
+<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.EquipmentFault</div>
 
-<div class="comment"><span></span><br/><span>A fault applied at the terminal, external to the equipment. This class is not used to specify faults internal to the equipment.</span><br/><span></span><br/><span>This message is modeled after [CIM EquipmentFault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/EquipmentFault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.</span><br/><span></span><br/></div>
+<div class="comment"><span></span><br/><span>A fault applied at the terminal, external to the equipment. This class is not used to specify faults internal to the equipment.</span><br/><span></span><br/><span>This message is modeled after [CIM EquipmentFault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/EquipmentFault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.</span><br/><span></span><br/><span>Headers used in rabbitMQ:</span><br/><span>* `id`: id of the `EquipmentFault`</span><br/><span>* `type`: always `LineFault`</span><br/><span>* `producerId`: the id of the producer (e.g. a PMU) linked to the notification.</span><br/><span></span><br/></div>
 
 | Field      | Ordinal | Type   | Label    | Description                                                        |
 |------------|---------|--------|----------|--------------------------------------------------------------------|
