@@ -11,8 +11,8 @@ import (
 )
 
 func generateTopology(timestamp int64) *Topology {
-	tp, _ := os.ReadFile("FullGrid_TP.xml")   //read the content of file
-	ssh, _ := os.ReadFile("FullGrid_SSH.xml") //read the content of file
+	tp, _ := os.ReadFile("FullGrid_TP.xml")   // read the content of file
+	ssh, _ := os.ReadFile("FullGrid_SSH.xml") // read the content of file
 
 	return &Topology{
 		CreatedAt: uint64(timestamp),
