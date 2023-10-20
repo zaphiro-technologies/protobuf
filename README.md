@@ -30,7 +30,7 @@ At the time being this repository includes the following Protocol Buffer:
     a time of creation (`createdAt`), a `message` and `timestampID` and/or a
     `measurementID`.
 - _Conf_ used to manage configurations in the platform, defined in
-  ['proto/conf'](./proto/conf), which currently include:
+  [`proto/conf`](./proto/conf), which currently include:
   - `Conf2Frame`: a Protocol Buffer used to store PMU configuration frames.
 
 ## Protocol Buffers Management
