@@ -4,7 +4,7 @@
 
 ### Features
 
-- new protocol buffer for topology data (PR #12 by @chicco785)
+- New protocol buffer for topology data (PR #12 by @chicco785)
 - Notification message: support Trigger requirements (PR #6 by @chicco785)
 - Add protocol buffer to describe faults (PR #3 by @chicco785)
 
