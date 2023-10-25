@@ -29,20 +29,21 @@ enum NotificationType {
 	NOTIFICATION_TYPE_TRIGGER = 4;
 }
 
-// A parameter of a `Task` or `Notification`
+//A parameter of a `Task` or `Notification`
 
 message Parameter {
 	string name = 1; //The parameter name
 	string value = 2; //The parameter value
 }
 
-// A task message.
-// Headers used in rabbitMQ:
-// * `id`: id of the `Task`
-// * `type`: always `Task`
-// * `producerId`: the id of the producer (e.g. a PMU) linked to the notification.
-// * `timestampId`: related measurement Unix msec timestamp (if any)
-// * `taskType`: The textual representation of the task type.
+/* A task message.
+Headers used in rabbitMQ:
+* `id`: id of the `Task`
+* `type`: always `Task`
+* `producerId`: the id of the producer (e.g. a PMU) linked to the notification.
+* `timestampId`: related measurement Unix msec timestamp (if any)
+* `taskType`: The textual representation of the task type.
+*/ 
 
 message Task {
 	TaskType taskType = 1; //Type of the task
@@ -50,13 +51,14 @@ message Task {
 	repeated Parameter parameters = 3;
 }
 
-// A notification message.
-// Headers used in rabbitMQ:
-// * `id`: id of the `Notification`
-// * `type`: always `Notification`
-// * `producerId`: the id of the producer (e.g. a PMU) linked to the notification.
-// * `timestampId`: related measurement Unix msec timestamp (if any)
-// * `notificationType`: The textual representation of the notification type.
+/* A notification message.
+Headers used in rabbitMQ:
+* `id`: id of the `Notification`
+* `type`: always `Notification`
+* `producerId`: the id of the producer (e.g. a PMU) linked to the notification.
+* `timestampId`: related measurement Unix msec timestamp (if any)
+* `notificationType`: The textual representation of the notification type.
+*/
 
 message Notification {
 	NotificationType notificationType = 1; //Notification type
