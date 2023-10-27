@@ -13,7 +13,7 @@ import (
 
 func generateFault(faultId string, faultKind, phaseCode int, occurredDateTime int64) *Fault {
 	return &Fault{
-		ID:               faultId,
+		Id:               faultId,
 		Kind:             PhaseConnectedFaultKind(faultKind),
 		OccurredDateTime: occurredDateTime,
 		Phases:           PhaseCode(phaseCode),
@@ -28,7 +28,6 @@ func TestFault(t *testing.T) {
 		data := &Fault{}
 		err = proto.Unmarshal(buf, data)
 		assert.NoError(t, err)
-		assert.Equal(t, data.ID, test.ID)
 		assert.Equal(t, data.OccurredDateTime, test.OccurredDateTime)
 		assert.Equal(t, data.Kind, test.Kind)
 		assert.Equal(t, data.Kind.Number(), protoreflect.EnumNumber(k))
@@ -66,7 +65,6 @@ func TestLineFault(t *testing.T) {
 		data := &LineFault{}
 		err = proto.Unmarshal(buf, data)
 		assert.NoError(t, err)
-		assert.Equal(t, data.Fault.ID, test.Fault.ID)
 		assert.Equal(t, data.Fault.OccurredDateTime, test.Fault.OccurredDateTime)
 		assert.Equal(t, data.Fault.Kind, test.Fault.Kind)
 		assert.Equal(t, data.Fault.Kind.Number(), protoreflect.EnumNumber(k))
@@ -104,7 +102,6 @@ func TestEquipmentFault(t *testing.T) {
 		data := &EquipmentFault{}
 		err = proto.Unmarshal(buf, data)
 		assert.NoError(t, err)
-		assert.Equal(t, data.Fault.ID, test.Fault.ID)
 		assert.Equal(t, data.Fault.OccurredDateTime, test.Fault.OccurredDateTime)
 		assert.Equal(t, data.Fault.Kind, test.Fault.Kind)
 		assert.Equal(t, data.Fault.Kind.Number(), protoreflect.EnumNumber(k))

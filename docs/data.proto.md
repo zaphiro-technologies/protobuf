@@ -1,4 +1,4 @@
-# Package: data.v1
+# Package: grid.v1
 
 <div class="comment"><span><!-- markdownlint-disable --></span><br/><span>Messages to support data injection in the platform.</span><br/><span>The data injected may be originated from different sources (e.g. a PMU, RTU, an external service).</span><br/><span></span><br/><span>Data are grouped into sets, where each id identifies a specific measurement. The id does not identify the instance of measurement, but the class of measurement. Measurement ID can be used to retrieve additional medata about the measurement, from example, in the CIM OP profile associated to the monitored grid.</span><br/></div>
 
@@ -13,12 +13,12 @@
 
 | Name       | Value     | Description |
 |------------|-----------|-------------|
-| go_package | ./data/v1 |             |
+| go_package | ./grid/v1 |             |
 
 
 
 ## Enum: DataType
-<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: data.v1.DataType</div>
+<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.DataType</div>
 
 <div class="comment"><span>The collection of Data Types defined so far. They are useful to map</span><br/><span>measurements to their rappresentation. Some of the descriptions are taken from [here](https://github.com/digin-energi/Grunnprofil/blob/develop/DIGIN10/docs/MeasurementType.adoc) This is important since all measurements</span><br/><span>are any how cast to UINT64 in the real time platform</span><br/></div>
 
@@ -136,10 +136,13 @@ class DataType{
 classDiagram
 direction LR
 
-%% A single data. It has:
-%% - a given data type,
-%% - a point in time of measurement (encoded as int64 using Unix Epoc),
-%% - a value (encoded as uint64)
+%% A single data.
+%% Headers used in rabbitMQ (only if not sent as part of `DataSet`):
+%% * `id`: id of the `Data`
+%% * `type`: always `Data`
+%% * `producerId`: the id of the producer (e.g. a PMU) linked to the dataset.
+%% * `timestampId`: related measurement Unix msec timestamp (if any)
+%% 
 
 class Data {
   + DataType dataType
@@ -155,9 +158,13 @@ Data --> `DataType`
 classDiagram
 direction LR
 
-%% A set of data:
-%% - the id of the procuder of the data
-%% - the map containing data
+%% A set of data.
+%% Headers used in rabbitMQ:
+%% * `id`: id of the `DataSet`
+%% * `type`: always `DataSet`
+%% * `producerId`: the id of the producer (e.g. a PMU) linked to the dataset.
+%% * `timestampId`: related measurement Unix msec timestamp (if any)
+%% 
 
 class DataSet {
   + Map~string,  Data~ data
@@ -168,21 +175,21 @@ DataSet .. ` Data`
 ```
 
 ## Message: Data
-<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: data.v1.Data</div>
+<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.Data</div>
 
-<div class="comment"><span>A single data. It has:</span><br/><span>- a given data type,</span><br/><span>- a point in time of measurement (encoded as int64 using Unix Epoc),</span><br/><span>- a value (encoded as uint64)</span><br/></div>
+<div class="comment"><span>A single data.</span><br/><span>Headers used in rabbitMQ (only if not sent as part of `DataSet`):</span><br/><span>* `id`: id of the `Data`</span><br/><span>* `type`: always `Data`</span><br/><span>* `producerId`: the id of the producer (e.g. a PMU) linked to the dataset.</span><br/><span>* `timestampId`: related measurement Unix msec timestamp (if any)</span><br/><span></span><br/></div>
 
-| Field      | Ordinal | Type     | Label    | Description                                            |
-|------------|---------|----------|----------|--------------------------------------------------------|
-| dataType   | 1       | DataType |          | The type of data see `DataType` enum.                  |
-| measuredAt | 2       | int64    |          | The time of measurement (Unix Timestamp Nanoseconds).  |
-| value      | 3       | uint64   | Optional | The data value casted to uint64.                       |
+| Field      | Ordinal | Type     | Label    | Description                                     |
+|------------|---------|----------|----------|-------------------------------------------------|
+| dataType   | 1       | DataType |          | The type of data see `DataType` enum.           |
+| measuredAt | 2       | int64    |          | The time of measurement (Unix msec timestamp).  |
+| value      | 3       | uint64   | Optional | The data value casted to uint64.                |
 
 
 ## Message: DataSet
-<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: data.v1.DataSet</div>
+<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.DataSet</div>
 
-<div class="comment"><span>A set of data:</span><br/><span>- the id of the procuder of the data</span><br/><span>- the map containing data</span><br/></div>
+<div class="comment"><span>A set of data.</span><br/><span>Headers used in rabbitMQ:</span><br/><span>* `id`: id of the `DataSet`</span><br/><span>* `type`: always `DataSet`</span><br/><span>* `producerId`: the id of the producer (e.g. a PMU) linked to the dataset.</span><br/><span>* `timestampId`: related measurement Unix msec timestamp (if any)</span><br/><span></span><br/></div>
 
 | Field      | Ordinal | Type         | Label | Description                                                 |
 |------------|---------|--------------|-------|-------------------------------------------------------------|

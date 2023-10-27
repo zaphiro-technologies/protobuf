@@ -24,7 +24,13 @@
 classDiagram
 direction LR
 
-%% Configuration frame 2
+%% Configuration frame 2 
+%% Headers used in rabbitMQ:
+%% * `id`: id of the `Conf2Frame`
+%% * `type`: always `Conf2Frame`
+%% * `producerId`: the id of the producer (e.g. a PMU) linked to the configuration frame.
+%% * `timestampId`: related measurement timestamp (if any)
+%% 
 
 class Conf2Frame {
   + uint32 DATA_RATE
@@ -82,7 +88,7 @@ class Config {
 ## Message: Conf2Frame
 <div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: conf.v1.Conf2Frame</div>
 
-<div class="comment"><span>Configuration frame 2</span><br/></div>
+<div class="comment"><span>Configuration frame 2 </span><br/><span>Headers used in rabbitMQ:</span><br/><span>* `id`: id of the `Conf2Frame`</span><br/><span>* `type`: always `Conf2Frame`</span><br/><span>* `producerId`: the id of the producer (e.g. a PMU) linked to the configuration frame.</span><br/><span>* `timestampId`: related measurement timestamp (if any)</span><br/><span></span><br/></div>
 
 | Field     | Ordinal | Type        | Label    | Description                   |
 |-----------|---------|-------------|----------|-------------------------------|
