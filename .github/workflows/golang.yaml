@@ -35,7 +35,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
-          go-version: 1.21
+          go-version-file: go.mod
       ## it would be good to compile it else where so we can just download the exec
       - name: Clone and build proto-gen-md-diagrams
         run: |
