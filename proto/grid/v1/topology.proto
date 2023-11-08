@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+/*  <!-- markdownlint-disable -->
+Messages to support topology data exchange in the platform.
+*/
+
+package grid.v1;
+option go_package = "./grid/v1";
+
+/* A topology computed information.
+Headers used in rabbitMQ:
+* `id`: id of the `Topology`
+* `type`: always `Topology`
+* `producerId`: the id of the producer (e.g. a PMU) linked to the dataset.
+* `timestampId`: related measurement Unix msec timestamp (if any)
+* `subnetworkId`: the sub network id for which the topology was computed
+*/
+
+message Topology {
+	uint64 createdAt = 1; //The time of creation of the topology data (Unix msec timestamp).
+	bytes tp = 2; //The TP profile file serialized as bytes.
+}
