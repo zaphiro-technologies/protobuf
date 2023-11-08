@@ -1,6 +1,10 @@
 # ProtoBuf Release Notes
 
-## 0.0.1-dev - 2023-10-27
+## 0.0.2-dev - 2023-11-08
+
+- no changes
+
+## 0.0.1 - 2023-10-27
 
 ### Features
 
@@ -18,7 +22,7 @@
 
 ### Refactoring
 
-- Refactor protobuffer to align with architecture discussion (PR #9 by
+- Refactor protobuffer to align with architecture discussion (PR #9 by  
   @chicco785)
-- Migrate existing protobuf from
+- Migrate existing protobuf from  
   `https://github.com/zaphiro-technologies/rabbitmq-poc` (PR #2 by @chicco785)
