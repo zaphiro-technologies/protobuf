@@ -18,11 +18,8 @@ At the time being this repository includes the following Protocol Buffer package
 - _Grid_ package collects grid related messages, defined in
   [`proto/grid/v1`](./proto/grid/v1/), which currently include:
   - `Data` protocol buffer package, that includes the following messages
-    - `Data`: a single data defined by a `value`, a type of data (`dataType`) -
-      which can be `DIGITAL` or `PHASOR` -, and the time when the data was
-      measured (`measuredAt`).
-    - `DataSet`: a collection of data defined by a producer(`producerId`) and a
-      map of `Data` (where the key is the `uuid` of that `Data`).
+    - `Data`: a single measurement data
+    - `DataSet`: a collection of measurement data.
   - `Fault` protocol buffer package, that includes the following messages:
     - `Fault`: an abnormal condition causing current flow through conducting equipment,
     such as caused by equipment failure or short circuits from objects not
@@ -35,11 +32,8 @@ At the time being this repository includes the following Protocol Buffer package
     - `Topology`: an message represented an topology computed by the system.
 - _Platform_ package collects platform related messages, defined in
   [`proto/platform/v1`](./proto/platform/v1/), which currently include:
-  - `Task`: a task identified by an `id`, a `taskType`, a time of creation
-    (`createdAt`) and `timestampID` and/or a `measurementID`.
-  - `Notification`: a notification identified by an `id`, a `notificationType`,
-    a time of creation (`createdAt`), a `message` and `timestampID` and/or a
-    `measurementID`.
+  - `Task`: a task to be performed by an service in the platform.
+  - `Notification`: a notification produced by a service in the platform.
 - _Conf_ package collects messages related to configuration in the platform, defined in
   [`proto/conf/v1`](./proto/conf/v1/), which currently include:
   - `Conf2Frame`: a Protocol Buffer used to store PMU configuration frames.
