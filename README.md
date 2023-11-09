@@ -13,7 +13,8 @@ Zaphiro's platform.
 
 ## Available Protocol Buffer
 
-At the time being this repository includes the following Protocol Buffer packages:
+At the time being this repository includes the following Protocol Buffer
+packages:
 
 - _Grid_ package collects grid related messages, defined in
   [`proto/grid/v1`](./proto/grid/v1/), which currently include:
@@ -21,10 +22,11 @@ At the time being this repository includes the following Protocol Buffer package
     - `Data`: a single measurement data
     - `DataSet`: a collection of measurement data.
   - `Fault` protocol buffer package, that includes the following messages:
-    - `Fault`: an abnormal condition causing current flow through conducting equipment,
-    such as caused by equipment failure or short circuits from objects not
-    typically modelled.
-    - `Line Fault`: a fault that occurs on an AC line segment at some point along the length.
+    - `Fault`: an abnormal condition causing current flow through conducting
+      equipment, such as caused by equipment failure or short circuits from
+      objects not typically modelled.
+    - `Line Fault`: a fault that occurs on an AC line segment at some point
+      along the length.
     - `Equipment Fault`: a fault applied at the terminal, external to the
       equipment. This class is not used to specify faults internal to the
       equipment.
