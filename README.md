@@ -13,7 +13,8 @@ Zaphiro's platform.
 
 ## Available Protocol Buffer
 
-At the time being this repository includes the following Protocol Buffer packages:
+At the time being this repository includes the following Protocol Buffer
+packages:
 
 - _Grid_ package collects grid related messages, defined in
   [`proto/grid/v1`](./proto/grid/v1/), which currently include:
@@ -24,10 +25,11 @@ At the time being this repository includes the following Protocol Buffer package
     - `DataSet`: a collection of data defined by a producer(`producerId`) and a
       map of `Data` (where the key is the `uuid` of that `Data`).
   - `Fault` protocol buffer package, that includes the following messages:
-    - `Fault`: an abnormal condition causing current flow through conducting equipment,
-    such as caused by equipment failure or short circuits from objects not
-    typically modelled.
-    - `Line Fault`: a fault that occurs on an AC line segment at some point along the length.
+    - `Fault`: an abnormal condition causing current flow through conducting
+      equipment, such as caused by equipment failure or short circuits from
+      objects not typically modelled.
+    - `Line Fault`: a fault that occurs on an AC line segment at some point
+      along the length.
     - `Equipment Fault`: a fault applied at the terminal, external to the
       equipment. This class is not used to specify faults internal to the
       equipment.
@@ -40,8 +42,8 @@ At the time being this repository includes the following Protocol Buffer package
   - `Notification`: a notification identified by an `id`, a `notificationType`,
     a time of creation (`createdAt`), a `message` and `timestampID` and/or a
     `measurementID`.
-- _Conf_ package collects messages related to configuration in the platform, defined in
-  [`proto/conf/v1`](./proto/conf/v1/), which currently include:
+- _Conf_ package collects messages related to configuration in the platform,
+  defined in [`proto/conf/v1`](./proto/conf/v1/), which currently include:
   - `Conf2Frame`: a Protocol Buffer used to store PMU configuration frames.
 
 ## Protocol Buffers Management
