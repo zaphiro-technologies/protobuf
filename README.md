@@ -36,8 +36,8 @@ packages:
   [`proto/platform/v1`](./proto/platform/v1/), which currently include:
   - `Task`: a task to be performed by an service in the platform.
   - `Notification`: a notification produced by a service in the platform.
-- _Conf_ package collects messages related to configuration in the platform, defined in
-  [`proto/conf/v1`](./proto/conf/v1/), which currently include:
+- _Conf_ package collects messages related to configuration in the platform,
+  defined in [`proto/conf/v1`](./proto/conf/v1/), which currently include:
   - `Conf2Frame`: a Protocol Buffer used to store PMU configuration frames.
 
 ## Protocol Buffers Management
