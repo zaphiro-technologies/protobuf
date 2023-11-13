@@ -14,7 +14,7 @@ func generateTopology(timestamp int64) *Topology {
 	tp, _ := os.ReadFile("FullGrid_TP.xml") // read the content of file
 
 	return &Topology{
-		CreatedAt: int64(timestamp),
+		CreatedAt: timestamp,
 		Tp:        tp,
 	}
 }
