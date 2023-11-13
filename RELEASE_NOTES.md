@@ -24,7 +24,7 @@
 
 ### Refactoring
 
-- Refactor protobuffer to align with architecture discussion (PR #9 by  
+- Refactor protobuffer to align with architecture discussion (PR #9 by
   @chicco785)
-- Migrate existing protobuf from  
+- Migrate existing protobuf from
   `https://github.com/zaphiro-technologies/rabbitmq-poc` (PR #2 by @chicco785)
