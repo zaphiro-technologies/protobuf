@@ -1,8 +1,10 @@
 # ProtoBuf Release Notes
 
-## 0.0.2-dev - 2023-11-08
+## 0.0.2-dev - 2023-11-13
 
-- no changes
+### Bug Fixes
+
+- Bug: Use int64 for topology's createdAt. (PR #16 by @tejo)
 
 ## 0.0.1 - 2023-10-27
 
