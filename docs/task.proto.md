@@ -40,8 +40,8 @@
 |----------------------------------|---------|-------------|
 | NOTIFICATION_TYPE_UNSPECIFIED    | 0       |             |
 | NOTIFICATION_TYPE_DATA_COMPLETE  | 1       |             |
-| NOTIFICATION_TYPE_DATA_TIMEOUT_1 | 2       |             |
-| NOTIFICATION_TYPE_DATA_TIMEOUT_2 | 3       |             |
+| NOTIFICATION_TYPE_DATA_TIMEOUT_SHORT | 2       |             |
+| NOTIFICATION_TYPE_DATA_TIMEOUT_MEDIUM | 3       |             |
 | NOTIFICATION_TYPE_TRIGGER        | 4       |             |
 
 
@@ -73,8 +73,8 @@ class NotificationType{
   <<enumeration>>
   NOTIFICATION_TYPE_UNSPECIFIED
   NOTIFICATION_TYPE_DATA_COMPLETE
-  NOTIFICATION_TYPE_DATA_TIMEOUT_1
-  NOTIFICATION_TYPE_DATA_TIMEOUT_2
+  NOTIFICATION_TYPE_DATA_TIMEOUT_SHORT
+  NOTIFICATION_TYPE_DATA_TIMEOUT_MEDIUM
   NOTIFICATION_TYPE_TRIGGER
 }
 ```
