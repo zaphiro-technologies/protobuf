@@ -1,6 +1,10 @@
 # ProtoBuf Release Notes
 
-## 0.0.2-dev - 2023-11-14
+## 0.0.3-dev - 2023-11-14
+
+- no changes
+
+## 0.0.2 - 2023-11-14
 
 ### Bug Fixes
 
@@ -8,7 +12,7 @@
 
 ### Documentation
 
-- Update documentation to reflect protocol buffer refactoring (PR #15 by
+- Update documentation to reflect protocol buffer refactoring (PR #15 by  
   @chicco785)
 
 ### Refactoring
