@@ -1,8 +1,10 @@
 # ProtoBuf Release Notes
 
-## 0.0.3-dev - 2023-11-14
+## 0.0.3-dev - 2023-11-21
 
-- no changes
+### Features
+
+- Add protocol buffer for grid events (PR #19 by @chicco785)
 
 ## 0.0.2 - 2023-11-14
 
