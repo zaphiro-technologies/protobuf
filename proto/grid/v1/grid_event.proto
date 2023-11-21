@@ -1,0 +1,96 @@
+syntax = "proto3";
+
+/*  <!-- markdownlint-disable -->
+Messages to support grid event detection in the platform. Grid events are sub classes of Events.
+*/
+
+package grid.v1;
+option go_package = "./grid/v1";
+
+
+import "grid/v1/event.proto";
+import "grid/v1/fault.proto";
+
+/* A grid event.
+Headers used in rabbitMQ (only if not sent as part of `DataSet`):
+* `id`: id of the `Event`
+* `type`: always `Event`
+* `sourceId`: the id of the source (e.g. a PMU) that generated the event.
+* `timestampId`: related measurement Unix msec timestamp (if any)
+*/
+
+message GridEvent {
+  Event event = 1; //The base event message
+  string componentID = 2; //The ID of the component where the event occurred.
+  optional string substationID = 3; //The ID of the substation where the event occurred.
+  int64 startedAt = 4; //The timestamp where the event started (should be equal to timestampId in header).
+  int64 endedAt = 5; //The timestamp where the event ended.
+  float nominalValue = 6; //The measured / estimated value in relation to the event (e.g. in the case of a `VoltageEvent` is the voltage, in the case of a `CurrentEvent` is the current event).
+  float percentage = 7; //The percentage reached by the value compared to the reference limit or expected value.
+  float probability = 8; //The probability that the event actually occurred.
+}
+
+message VoltageEvent {
+  GridEvent event = 1;
+  optional PhaseCode phaseCode = 2;
+}
+
+message CurrentEvent {
+  GridEvent event = 1;
+}
+
+message PhaseEvent {
+  GridEvent event = 1;
+}
+
+message FrequencyEvent {
+  GridEvent event = 1;
+}
+
+message LineCongestion  {
+  CurrentEvent  event = 1;
+}
+
+message TransformerCongestion  {
+  CurrentEvent  event = 1;
+}
+
+message VoltageUnbalance {
+  VoltageEvent event = 1;
+}
+
+message VoltageDip {
+  VoltageEvent event = 1;
+}
+
+message VoltageInterruption {
+  VoltageEvent event = 1;
+}
+
+message VoltageSwell {
+  VoltageEvent event = 1;
+}
+
+message VoltageLimit {
+  VoltageEvent event = 1;
+}
+
+message VoltageRapidChange {
+  VoltageEvent event = 1;
+}
+
+message OverFrequency {
+  FrequencyEvent event = 1;
+}
+
+message UnderFrequency {
+  FrequencyEvent event = 1;
+}
+
+message SteadyOscillation {
+  PhaseEvent event = 1;
+}
+
+message TransientOscillation {
+  PhaseEvent event = 1;
+}

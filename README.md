@@ -32,6 +32,9 @@ packages:
       equipment.
   - `Topology` protocol buffer package, that includes the following messages:
     - `Topology`: an message represented an topology computed by the system.
+  - `Event` protocol buffer package that define general event messages,
+    inherited by:
+    - `GridEvent`: a message that represent grid events.
 - _Platform_ package collects platform related messages, defined in
   [`proto/platform/v1`](./proto/platform/v1/), which currently include:
   - `Task`: a task to be performed by an service in the platform.

@@ -30,7 +30,7 @@ cov:
 
 .PHONY: generate
 generate:
-	buf generate
+	cd proto; buf generate
 
 .PHONY: docs
 docs:

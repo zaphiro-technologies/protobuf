@@ -230,6 +230,8 @@ EquipmentFault --> `Fault`
 | phases               | 4       | PhaseCode               |          | The phases participating in the fault. The fault connections into these phases are further specified by the type of fault.  |
 
 
+
+
 ## Message: LineFault
 <div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.LineFault</div>
 
@@ -242,6 +244,8 @@ EquipmentFault --> `Fault`
 | lengthFromTerminal1 | 2       | float  | Optional | The length to the place where the fault is located starting from terminal with sequence number 1 of the faulted line segment.  |
 
 
+
+
 ## Message: EquipmentFault
 <div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.EquipmentFault</div>
 
@@ -251,6 +255,8 @@ EquipmentFault --> `Fault`
 |------------|---------|--------|----------|--------------------------------------------------------------------|
 | fault      | 1       | Fault  |          | The base fault message.                                            |
 | terminalID | 2       | string | Optional | The terminal connecting to the bus to which the fault is applied.  |
+
+
 
 
 

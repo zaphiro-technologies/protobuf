@@ -97,6 +97,8 @@ class Config {
 | header    | 1       | Conf2Header |          | Configuration frame 2 header  |
 
 
+
+
 ## Message: Conf2Header
 <div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: conf.v1.Conf2Header</div>
 
@@ -111,6 +113,8 @@ class Config {
 | SOC       | 4       | uint32 |       | SOC time stamp                                       |
 | SYNC      | 1       | uint32 |       | Sync byte followed by frame type and version number  |
 | TIME_BASE | 6       | uint32 |       | Resolution of FRACSEC time stamp                     |
+
+
 
 
 ## Message: Config
@@ -132,6 +136,8 @@ class Config {
 | PHNMR   | 4       | uint32 |          | Number of phasors                      |
 | PHUNIT  | 8       | uint32 | Repeated | Conversion factor for phasor channels  |
 | STN     | 1       | string |          | Station name                           |
+
+
 
 
 
