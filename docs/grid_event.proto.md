@@ -1,6 +1,9 @@
 # Package: grid.v1
 
-<div class="comment"><span><!-- markdownlint-disable --></span><br/><span>Messages to support grid event detection in the platform. Grid events are sub classes of Events.</span><br/><span></span><br/></div>
+<!-- markdownlint-disable -->
+Messages to support grid event detection in the platform. Grid events are sub classes of Events.
+
+
 
 ## Imports
 
@@ -38,9 +41,9 @@ class GridEvent {
   + string componentID
   + int64 endedAt
   + Event event
-  + float nominalValue
-  + float percentage
-  + float probability
+  + double nominalValue
+  + double percentage
+  + double probability
   + int64 startedAt
   + Optional~string~ substationID
 }
@@ -275,213 +278,253 @@ TransientOscillation --> `PhaseEvent`
 ```
 
 ## Message: GridEvent
-<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.GridEvent</div>
 
-<div class="comment"><span>A grid event.</span><br/><span>Headers used in rabbitMQ (only if not sent as part of `DataSet`):</span><br/><span>* `id`: id of the `Event`</span><br/><span>* `type`: always `Event`</span><br/><span>* `sourceId`: the id of the source (e.g. a PMU) that generated the event.</span><br/><span>* `timestampId`: related measurement Unix msec timestamp (if any)</span><br/><span></span><br/></div>
+**FQN**: grid.v1.GridEvent
 
-| Field        | Ordinal | Type   | Label    | Description                                                                                                                                                           |
-|--------------|---------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| componentID  | 2       | string |          | The ID of the component where the event occurred.                                                                                                                     |
-| endedAt      | 5       | int64  |          | The timestamp where the event ended.                                                                                                                                  |
-| event        | 1       | Event  |          | The base event message                                                                                                                                                |
-| nominalValue | 6       | float  |          | The measured / estimated value in relation to the event (e.g. in the case of a `VoltageEvent` is the voltage, in the case of a `CurrentEvent` is the current event).  |
-| percentage   | 7       | float  |          | The percentage reached by the value compared to the reference limit or expected value.                                                                                |
-| probability  | 8       | float  |          | The probability that the event actually occurred.                                                                                                                     |
-| startedAt    | 4       | int64  |          | The timestamp where the event started (should be equal to timestampId in header).                                                                                     |
-| substationID | 3       | string | Optional | The ID of the substation where the event occurred.                                                                                                                    |
+A grid event.
+Headers used in rabbitMQ (only if not sent as part of `DataSet`):
+* `id`: id of the `Event`
+* `type`: always `Event`
+* `sourceId`: the id of the source (e.g. a PMU) that generated the event.
+* `timestampId`: related measurement Unix msec timestamp (if any)
+
+
+
+| Field          | Ordinal | Type     | Label    | Description                                                                                                                                                           |
+|----------------|---------|----------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `componentID`  | 2       | `string` |          | The ID of the component where the event occurred.                                                                                                                     |
+| `endedAt`      | 5       | `int64`  |          | The timestamp where the event ended.                                                                                                                                  |
+| `event`        | 1       | `Event`  |          | The base event message                                                                                                                                                |
+| `nominalValue` | 6       | `double` |          | The measured / estimated value in relation to the event (e.g. in the case of a `VoltageEvent` is the voltage, in the case of a `CurrentEvent` is the current event).  |
+| `percentage`   | 7       | `double` |          | The percentage reached by the value compared to the reference limit or expected value.                                                                                |
+| `probability`  | 8       | `double` |          | The probability that the event actually occurred.                                                                                                                     |
+| `startedAt`    | 4       | `int64`  |          | The timestamp where the event started (should be equal to timestampId in header).                                                                                     |
+| `substationID` | 3       | `string` | Optional | The ID of the substation where the event occurred.                                                                                                                    |
 
 
 
 
 ## Message: VoltageEvent
-<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.VoltageEvent</div>
 
-<div class="comment"><span></span><br/></div>
+**FQN**: grid.v1.VoltageEvent
 
-| Field     | Ordinal | Type      | Label    | Description |
-|-----------|---------|-----------|----------|-------------|
-| event     | 1       | GridEvent |          |             |
-| phaseCode | 2       | PhaseCode | Optional |             |
+
+
+
+| Field       | Ordinal | Type        | Label    | Description |
+|-------------|---------|-------------|----------|-------------|
+| `event`     | 1       | `GridEvent` |          |             |
+| `phaseCode` | 2       | `PhaseCode` | Optional |             |
 
 
 
 
 ## Message: CurrentEvent
-<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.CurrentEvent</div>
 
-<div class="comment"><span></span><br/></div>
+**FQN**: grid.v1.CurrentEvent
 
-| Field | Ordinal | Type      | Label | Description |
-|-------|---------|-----------|-------|-------------|
-| event | 1       | GridEvent |       |             |
+
+
+
+| Field   | Ordinal | Type        | Label | Description |
+|---------|---------|-------------|-------|-------------|
+| `event` | 1       | `GridEvent` |       |             |
 
 
 
 
 ## Message: PhaseEvent
-<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.PhaseEvent</div>
 
-<div class="comment"><span></span><br/></div>
+**FQN**: grid.v1.PhaseEvent
 
-| Field | Ordinal | Type      | Label | Description |
-|-------|---------|-----------|-------|-------------|
-| event | 1       | GridEvent |       |             |
+
+
+
+| Field   | Ordinal | Type        | Label | Description |
+|---------|---------|-------------|-------|-------------|
+| `event` | 1       | `GridEvent` |       |             |
 
 
 
 
 ## Message: FrequencyEvent
-<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.FrequencyEvent</div>
 
-<div class="comment"><span></span><br/></div>
+**FQN**: grid.v1.FrequencyEvent
 
-| Field | Ordinal | Type      | Label | Description |
-|-------|---------|-----------|-------|-------------|
-| event | 1       | GridEvent |       |             |
+
+
+
+| Field   | Ordinal | Type        | Label | Description |
+|---------|---------|-------------|-------|-------------|
+| `event` | 1       | `GridEvent` |       |             |
 
 
 
 
 ## Message: LineCongestion
-<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.LineCongestion</div>
 
-<div class="comment"><span></span><br/></div>
+**FQN**: grid.v1.LineCongestion
 
-| Field | Ordinal | Type         | Label | Description |
-|-------|---------|--------------|-------|-------------|
-| event | 1       | CurrentEvent |       |             |
+
+
+
+| Field   | Ordinal | Type           | Label | Description |
+|---------|---------|----------------|-------|-------------|
+| `event` | 1       | `CurrentEvent` |       |             |
 
 
 
 
 ## Message: TransformerCongestion
-<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.TransformerCongestion</div>
 
-<div class="comment"><span></span><br/></div>
+**FQN**: grid.v1.TransformerCongestion
 
-| Field | Ordinal | Type         | Label | Description |
-|-------|---------|--------------|-------|-------------|
-| event | 1       | CurrentEvent |       |             |
+
+
+
+| Field   | Ordinal | Type           | Label | Description |
+|---------|---------|----------------|-------|-------------|
+| `event` | 1       | `CurrentEvent` |       |             |
 
 
 
 
 ## Message: VoltageUnbalance
-<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.VoltageUnbalance</div>
 
-<div class="comment"><span></span><br/></div>
+**FQN**: grid.v1.VoltageUnbalance
 
-| Field | Ordinal | Type         | Label | Description |
-|-------|---------|--------------|-------|-------------|
-| event | 1       | VoltageEvent |       |             |
+
+
+
+| Field   | Ordinal | Type           | Label | Description |
+|---------|---------|----------------|-------|-------------|
+| `event` | 1       | `VoltageEvent` |       |             |
 
 
 
 
 ## Message: VoltageDip
-<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.VoltageDip</div>
 
-<div class="comment"><span></span><br/></div>
+**FQN**: grid.v1.VoltageDip
 
-| Field | Ordinal | Type         | Label | Description |
-|-------|---------|--------------|-------|-------------|
-| event | 1       | VoltageEvent |       |             |
+
+
+
+| Field   | Ordinal | Type           | Label | Description |
+|---------|---------|----------------|-------|-------------|
+| `event` | 1       | `VoltageEvent` |       |             |
 
 
 
 
 ## Message: VoltageInterruption
-<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.VoltageInterruption</div>
 
-<div class="comment"><span></span><br/></div>
+**FQN**: grid.v1.VoltageInterruption
 
-| Field | Ordinal | Type         | Label | Description |
-|-------|---------|--------------|-------|-------------|
-| event | 1       | VoltageEvent |       |             |
+
+
+
+| Field   | Ordinal | Type           | Label | Description |
+|---------|---------|----------------|-------|-------------|
+| `event` | 1       | `VoltageEvent` |       |             |
 
 
 
 
 ## Message: VoltageSwell
-<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.VoltageSwell</div>
 
-<div class="comment"><span></span><br/></div>
+**FQN**: grid.v1.VoltageSwell
 
-| Field | Ordinal | Type         | Label | Description |
-|-------|---------|--------------|-------|-------------|
-| event | 1       | VoltageEvent |       |             |
+
+
+
+| Field   | Ordinal | Type           | Label | Description |
+|---------|---------|----------------|-------|-------------|
+| `event` | 1       | `VoltageEvent` |       |             |
 
 
 
 
 ## Message: VoltageLimit
-<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.VoltageLimit</div>
 
-<div class="comment"><span></span><br/></div>
+**FQN**: grid.v1.VoltageLimit
 
-| Field | Ordinal | Type         | Label | Description |
-|-------|---------|--------------|-------|-------------|
-| event | 1       | VoltageEvent |       |             |
+
+
+
+| Field   | Ordinal | Type           | Label | Description |
+|---------|---------|----------------|-------|-------------|
+| `event` | 1       | `VoltageEvent` |       |             |
 
 
 
 
 ## Message: VoltageRapidChange
-<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.VoltageRapidChange</div>
 
-<div class="comment"><span></span><br/></div>
+**FQN**: grid.v1.VoltageRapidChange
 
-| Field | Ordinal | Type         | Label | Description |
-|-------|---------|--------------|-------|-------------|
-| event | 1       | VoltageEvent |       |             |
+
+
+
+| Field   | Ordinal | Type           | Label | Description |
+|---------|---------|----------------|-------|-------------|
+| `event` | 1       | `VoltageEvent` |       |             |
 
 
 
 
 ## Message: OverFrequency
-<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.OverFrequency</div>
 
-<div class="comment"><span></span><br/></div>
+**FQN**: grid.v1.OverFrequency
 
-| Field | Ordinal | Type           | Label | Description |
-|-------|---------|----------------|-------|-------------|
-| event | 1       | FrequencyEvent |       |             |
+
+
+
+| Field   | Ordinal | Type             | Label | Description |
+|---------|---------|------------------|-------|-------------|
+| `event` | 1       | `FrequencyEvent` |       |             |
 
 
 
 
 ## Message: UnderFrequency
-<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.UnderFrequency</div>
 
-<div class="comment"><span></span><br/></div>
+**FQN**: grid.v1.UnderFrequency
 
-| Field | Ordinal | Type           | Label | Description |
-|-------|---------|----------------|-------|-------------|
-| event | 1       | FrequencyEvent |       |             |
+
+
+
+| Field   | Ordinal | Type             | Label | Description |
+|---------|---------|------------------|-------|-------------|
+| `event` | 1       | `FrequencyEvent` |       |             |
 
 
 
 
 ## Message: SteadyOscillation
-<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.SteadyOscillation</div>
 
-<div class="comment"><span></span><br/></div>
+**FQN**: grid.v1.SteadyOscillation
 
-| Field | Ordinal | Type       | Label | Description |
-|-------|---------|------------|-------|-------------|
-| event | 1       | PhaseEvent |       |             |
+
+
+
+| Field   | Ordinal | Type         | Label | Description |
+|---------|---------|--------------|-------|-------------|
+| `event` | 1       | `PhaseEvent` |       |             |
 
 
 
 
 ## Message: TransientOscillation
-<div style="font-size: 12px; margin-top: -10px;" class="fqn">FQN: grid.v1.TransientOscillation</div>
 
-<div class="comment"><span></span><br/></div>
+**FQN**: grid.v1.TransientOscillation
 
-| Field | Ordinal | Type       | Label | Description |
-|-------|---------|------------|-------|-------------|
-| event | 1       | PhaseEvent |       |             |
+
+
+
+| Field   | Ordinal | Type         | Label | Description |
+|---------|---------|--------------|-------|-------------|
+| `event` | 1       | `PhaseEvent` |       |             |
 
 
 

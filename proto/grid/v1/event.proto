@@ -33,10 +33,11 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 */
 
 message Event {
-	EventSourceType sourceType = 1; //The type of data see `DataType` enum.
-	optional int64 occurredAt = 2; //The time of occurency of the event (Unix msec timestamp).
-  optional int64 detectedAt = 3; //The time of detection of the event (Unix msec timestamp).
-	optional uint64 value = 4; //The data value casted to uint64.
-  string message = 5; //Event message.
-  optional EventStatus status = 6; //The status of the event.
+  string Id = 1; //The uuid of the event.
+  string sourceId = 2; //The id of the source (e.g. a PMU) that generated the event.
+  EventSourceType sourceType = 3; //The type of data see `DataType` enum.
+  optional int64 occurredAt = 4; //The time of occurency of the event (Unix msec timestamp).
+  optional int64 detectedAt = 5; //The time of detection of the event (Unix msec timestamp).
+  string message = 6; //Event message.
+  optional EventStatus status = 7; //The status of the event.
 }
