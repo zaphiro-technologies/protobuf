@@ -131,8 +131,8 @@ type VoltageEvent struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Event     *GridEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"`
-	PhaseCode *PhaseCode `protobuf:"varint,2,opt,name=phaseCode,proto3,enum=grid.v1.PhaseCode,oneof" json:"phaseCode,omitempty"`
+	Event     *GridEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"`                                       //The base grid event message
+	PhaseCode *PhaseCode `protobuf:"varint,2,opt,name=phaseCode,proto3,enum=grid.v1.PhaseCode,oneof" json:"phaseCode,omitempty"` //The phase for which the event occured
 }
 
 func (x *VoltageEvent) Reset() {
@@ -186,7 +186,7 @@ type CurrentEvent struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Event *GridEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"`
+	Event *GridEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"` //The base grid event message
 }
 
 func (x *CurrentEvent) Reset() {
@@ -233,7 +233,7 @@ type PhaseEvent struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Event *GridEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"`
+	Event *GridEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"` //The base grid event message
 }
 
 func (x *PhaseEvent) Reset() {
@@ -280,7 +280,7 @@ type FrequencyEvent struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Event *GridEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"`
+	Event *GridEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"` //The base grid event message
 }
 
 func (x *FrequencyEvent) Reset() {
@@ -327,7 +327,7 @@ type LineCongestion struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Event *CurrentEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"`
+	Event *CurrentEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"` //The base current grid event message
 }
 
 func (x *LineCongestion) Reset() {
@@ -374,7 +374,7 @@ type TransformerCongestion struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Event *CurrentEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"`
+	Event *CurrentEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"` //The base current grid event message
 }
 
 func (x *TransformerCongestion) Reset() {
@@ -421,7 +421,7 @@ type VoltageUnbalance struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Event *VoltageEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"`
+	Event *VoltageEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"` //The base voltage grid event message
 }
 
 func (x *VoltageUnbalance) Reset() {
@@ -468,7 +468,7 @@ type VoltageDip struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Event *VoltageEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"`
+	Event *VoltageEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"` //The base voltage grid event message
 }
 
 func (x *VoltageDip) Reset() {
@@ -515,7 +515,7 @@ type VoltageInterruption struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Event *VoltageEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"`
+	Event *VoltageEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"` //The base voltage grid event message
 }
 
 func (x *VoltageInterruption) Reset() {
@@ -562,7 +562,7 @@ type VoltageSwell struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Event *VoltageEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"`
+	Event *VoltageEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"` //The base voltage grid event message
 }
 
 func (x *VoltageSwell) Reset() {
@@ -609,7 +609,7 @@ type VoltageLimit struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Event *VoltageEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"`
+	Event *VoltageEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"` //The base voltage grid event message
 }
 
 func (x *VoltageLimit) Reset() {
@@ -656,7 +656,7 @@ type VoltageRapidChange struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Event *VoltageEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"`
+	Event *VoltageEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"` //The base voltage grid event message
 }
 
 func (x *VoltageRapidChange) Reset() {
@@ -703,7 +703,7 @@ type OverFrequency struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Event *FrequencyEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"`
+	Event *FrequencyEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"` //The base frequency grid event message
 }
 
 func (x *OverFrequency) Reset() {
@@ -750,7 +750,7 @@ type UnderFrequency struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Event *FrequencyEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"`
+	Event *FrequencyEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"` //The base frequency grid event message
 }
 
 func (x *UnderFrequency) Reset() {
@@ -797,7 +797,7 @@ type SteadyOscillation struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Event *PhaseEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"`
+	Event *PhaseEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"` //The base phase grid event message
 }
 
 func (x *SteadyOscillation) Reset() {
@@ -844,7 +844,7 @@ type TransientOscillation struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Event *PhaseEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"`
+	Event *PhaseEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"` //The base phase grid event message
 }
 
 func (x *TransientOscillation) Reset() {

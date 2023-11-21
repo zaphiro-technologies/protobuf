@@ -31,66 +31,66 @@ message GridEvent {
 }
 
 message VoltageEvent {
-  GridEvent event = 1;
-  optional PhaseCode phaseCode = 2;
+  GridEvent event = 1; //The base grid event message
+  optional PhaseCode phaseCode = 2;  //The phase for which the event occured
 }
 
 message CurrentEvent {
-  GridEvent event = 1;
+  GridEvent event = 1;  //The base grid event message
 }
 
 message PhaseEvent {
-  GridEvent event = 1;
+  GridEvent event = 1;  //The base grid event message
 }
 
 message FrequencyEvent {
-  GridEvent event = 1;
+  GridEvent event = 1;  //The base grid event message
 }
 
 message LineCongestion  {
-  CurrentEvent  event = 1;
+  CurrentEvent  event = 1; //The base current grid event message
 }
 
 message TransformerCongestion  {
-  CurrentEvent  event = 1;
+  CurrentEvent  event = 1; //The base current grid event message
 }
 
 message VoltageUnbalance {
-  VoltageEvent event = 1;
+  VoltageEvent event = 1; //The base voltage grid event message
 }
 
 message VoltageDip {
-  VoltageEvent event = 1;
+  VoltageEvent event = 1; //The base voltage grid event message
 }
 
 message VoltageInterruption {
-  VoltageEvent event = 1;
+  VoltageEvent event = 1; //The base voltage grid event message
 }
 
 message VoltageSwell {
-  VoltageEvent event = 1;
+  VoltageEvent event = 1; //The base voltage grid event message
 }
 
 message VoltageLimit {
-  VoltageEvent event = 1;
+  VoltageEvent event = 1; //The base voltage grid event message
 }
 
 message VoltageRapidChange {
-  VoltageEvent event = 1;
+  VoltageEvent event = 1; //The base voltage grid event message 
 }
 
 message OverFrequency {
-  FrequencyEvent event = 1;
+  FrequencyEvent event = 1; //The base frequency grid event message
 }
 
 message UnderFrequency {
-  FrequencyEvent event = 1;
+  FrequencyEvent event = 1; //The base frequency grid event message
 }
 
 message SteadyOscillation {
-  PhaseEvent event = 1;
+  PhaseEvent event = 1; //The base phase grid event message
 }
 
 message TransientOscillation {
-  PhaseEvent event = 1;
+  PhaseEvent event = 1; //The base phase grid event message
 }

@@ -311,10 +311,10 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 
 
-| Field       | Ordinal | Type        | Label    | Description |
-|-------------|---------|-------------|----------|-------------|
-| `event`     | 1       | `GridEvent` |          |             |
-| `phaseCode` | 2       | `PhaseCode` | Optional |             |
+| Field       | Ordinal | Type        | Label    | Description                            |
+|-------------|---------|-------------|----------|----------------------------------------|
+| `event`     | 1       | `GridEvent` |          | The base grid event message            |
+| `phaseCode` | 2       | `PhaseCode` | Optional | The phase for which the event occured  |
 
 
 
@@ -326,9 +326,9 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 
 
-| Field   | Ordinal | Type        | Label | Description |
-|---------|---------|-------------|-------|-------------|
-| `event` | 1       | `GridEvent` |       |             |
+| Field   | Ordinal | Type        | Label | Description                  |
+|---------|---------|-------------|-------|------------------------------|
+| `event` | 1       | `GridEvent` |       | The base grid event message  |
 
 
 
@@ -340,9 +340,9 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 
 
-| Field   | Ordinal | Type        | Label | Description |
-|---------|---------|-------------|-------|-------------|
-| `event` | 1       | `GridEvent` |       |             |
+| Field   | Ordinal | Type        | Label | Description                  |
+|---------|---------|-------------|-------|------------------------------|
+| `event` | 1       | `GridEvent` |       | The base grid event message  |
 
 
 
@@ -354,9 +354,9 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 
 
-| Field   | Ordinal | Type        | Label | Description |
-|---------|---------|-------------|-------|-------------|
-| `event` | 1       | `GridEvent` |       |             |
+| Field   | Ordinal | Type        | Label | Description                  |
+|---------|---------|-------------|-------|------------------------------|
+| `event` | 1       | `GridEvent` |       | The base grid event message  |
 
 
 
@@ -368,9 +368,9 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 
 
-| Field   | Ordinal | Type           | Label | Description |
-|---------|---------|----------------|-------|-------------|
-| `event` | 1       | `CurrentEvent` |       |             |
+| Field   | Ordinal | Type           | Label | Description                          |
+|---------|---------|----------------|-------|--------------------------------------|
+| `event` | 1       | `CurrentEvent` |       | The base current grid event message  |
 
 
 
@@ -382,9 +382,9 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 
 
-| Field   | Ordinal | Type           | Label | Description |
-|---------|---------|----------------|-------|-------------|
-| `event` | 1       | `CurrentEvent` |       |             |
+| Field   | Ordinal | Type           | Label | Description                          |
+|---------|---------|----------------|-------|--------------------------------------|
+| `event` | 1       | `CurrentEvent` |       | The base current grid event message  |
 
 
 
@@ -396,9 +396,9 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 
 
-| Field   | Ordinal | Type           | Label | Description |
-|---------|---------|----------------|-------|-------------|
-| `event` | 1       | `VoltageEvent` |       |             |
+| Field   | Ordinal | Type           | Label | Description                          |
+|---------|---------|----------------|-------|--------------------------------------|
+| `event` | 1       | `VoltageEvent` |       | The base voltage grid event message  |
 
 
 
@@ -410,9 +410,9 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 
 
-| Field   | Ordinal | Type           | Label | Description |
-|---------|---------|----------------|-------|-------------|
-| `event` | 1       | `VoltageEvent` |       |             |
+| Field   | Ordinal | Type           | Label | Description                          |
+|---------|---------|----------------|-------|--------------------------------------|
+| `event` | 1       | `VoltageEvent` |       | The base voltage grid event message  |
 
 
 
@@ -424,9 +424,9 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 
 
-| Field   | Ordinal | Type           | Label | Description |
-|---------|---------|----------------|-------|-------------|
-| `event` | 1       | `VoltageEvent` |       |             |
+| Field   | Ordinal | Type           | Label | Description                          |
+|---------|---------|----------------|-------|--------------------------------------|
+| `event` | 1       | `VoltageEvent` |       | The base voltage grid event message  |
 
 
 
@@ -438,9 +438,9 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 
 
-| Field   | Ordinal | Type           | Label | Description |
-|---------|---------|----------------|-------|-------------|
-| `event` | 1       | `VoltageEvent` |       |             |
+| Field   | Ordinal | Type           | Label | Description                          |
+|---------|---------|----------------|-------|--------------------------------------|
+| `event` | 1       | `VoltageEvent` |       | The base voltage grid event message  |
 
 
 
@@ -452,9 +452,9 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 
 
-| Field   | Ordinal | Type           | Label | Description |
-|---------|---------|----------------|-------|-------------|
-| `event` | 1       | `VoltageEvent` |       |             |
+| Field   | Ordinal | Type           | Label | Description                          |
+|---------|---------|----------------|-------|--------------------------------------|
+| `event` | 1       | `VoltageEvent` |       | The base voltage grid event message  |
 
 
 
@@ -466,9 +466,9 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 
 
-| Field   | Ordinal | Type           | Label | Description |
-|---------|---------|----------------|-------|-------------|
-| `event` | 1       | `VoltageEvent` |       |             |
+| Field   | Ordinal | Type           | Label | Description                          |
+|---------|---------|----------------|-------|--------------------------------------|
+| `event` | 1       | `VoltageEvent` |       | The base voltage grid event message  |
 
 
 
@@ -480,9 +480,9 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 
 
-| Field   | Ordinal | Type             | Label | Description |
-|---------|---------|------------------|-------|-------------|
-| `event` | 1       | `FrequencyEvent` |       |             |
+| Field   | Ordinal | Type             | Label | Description                            |
+|---------|---------|------------------|-------|----------------------------------------|
+| `event` | 1       | `FrequencyEvent` |       | The base frequency grid event message  |
 
 
 
@@ -494,9 +494,9 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 
 
-| Field   | Ordinal | Type             | Label | Description |
-|---------|---------|------------------|-------|-------------|
-| `event` | 1       | `FrequencyEvent` |       |             |
+| Field   | Ordinal | Type             | Label | Description                            |
+|---------|---------|------------------|-------|----------------------------------------|
+| `event` | 1       | `FrequencyEvent` |       | The base frequency grid event message  |
 
 
 
@@ -508,9 +508,9 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 
 
-| Field   | Ordinal | Type         | Label | Description |
-|---------|---------|--------------|-------|-------------|
-| `event` | 1       | `PhaseEvent` |       |             |
+| Field   | Ordinal | Type         | Label | Description                        |
+|---------|---------|--------------|-------|------------------------------------|
+| `event` | 1       | `PhaseEvent` |       | The base phase grid event message  |
 
 
 
@@ -522,9 +522,9 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 
 
-| Field   | Ordinal | Type         | Label | Description |
-|---------|---------|--------------|-------|-------------|
-| `event` | 1       | `PhaseEvent` |       |             |
+| Field   | Ordinal | Type         | Label | Description                        |
+|---------|---------|--------------|-------|------------------------------------|
+| `event` | 1       | `PhaseEvent` |       | The base phase grid event message  |
 
 
 
