@@ -70,21 +70,17 @@ func generateGridEvent(
 	event *Event,
 	componentId string,
 	nominalValue float64,
-	percentage float64,
+	referenceLimit float64,
 	probability float64,
 	substationId string,
 ) *GridEvent {
-	endedAt := *event.OccurredAt + rand.Int63n(10000)
-
 	return &GridEvent{
-		Event:        event,
-		ComponentID:  componentId,
-		SubstationID: &substationId,
-		StartedAt:    *event.OccurredAt,
-		EndedAt:      &endedAt,
-		Percentage:   percentage,
-		Probability:  &probability,
-		NominalValue: nominalValue,
+		Event:          event,
+		ComponentID:    componentId,
+		SubstationID:   &substationId,
+		ReferenceLimit: referenceLimit,
+		Probability:    &probability,
+		Value:          nominalValue,
 	}
 }
 
@@ -110,10 +106,9 @@ func TestGridEvent(t *testing.T) {
 		data := &GridEvent{}
 		err = proto.Unmarshal(buf, data)
 		assert.NoError(t, err)
-		assert.Equal(t, data.StartedAt, test.StartedAt)
-		assert.GreaterOrEqual(t, *data.EndedAt, test.StartedAt)
+		assert.Equal(t, data.Event.OccurredAt, test.Event.OccurredAt)
 		assert.Equal(t, data.Event.Message, test.Event.Message)
-		assert.Equal(t, data.NominalValue, test.NominalValue)
+		assert.Equal(t, data.Value, test.Value)
 	}
 }
 
