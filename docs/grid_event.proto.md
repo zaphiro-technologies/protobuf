@@ -39,13 +39,11 @@ direction LR
 
 class GridEvent {
   + string componentID
-  + Optional~int64~ endedAt
   + Event event
-  + double nominalValue
-  + double percentage
   + Optional~double~ probability
-  + int64 startedAt
+  + double referenceLimit
   + Optional~string~ substationID
+  + double value
 }
 GridEvent --> `Event`
 
@@ -290,16 +288,14 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 
 
-| Field          | Ordinal | Type     | Label    | Description                                                                                                                                                           |
-|----------------|---------|----------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `componentID`  | 2       | `string` |          | The ID of the component where the event occurred.                                                                                                                     |
-| `endedAt`      | 5       | `int64`  | Optional | The timestamp where the event ended.                                                                                                                                  |
-| `event`        | 1       | `Event`  |          | The base event message                                                                                                                                                |
-| `nominalValue` | 6       | `double` |          | The measured / estimated value in relation to the event (e.g. in the case of a `VoltageEvent` is the voltage, in the case of a `CurrentEvent` is the current event).  |
-| `percentage`   | 7       | `double` |          | The percentage reached by the value compared to the reference limit or expected value.                                                                                |
-| `probability`  | 8       | `double` | Optional | The probability that the event actually occurred.                                                                                                                     |
-| `startedAt`    | 4       | `int64`  |          | The timestamp where the event started (should be equal to timestampId in header).                                                                                     |
-| `substationID` | 3       | `string` | Optional | The ID of the substation where the event occurred.                                                                                                                    |
+| Field            | Ordinal | Type     | Label    | Description                                                                                                                                                           |
+|------------------|---------|----------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `componentID`    | 2       | `string` |          | The ID of the component where the event occurred.                                                                                                                     |
+| `event`          | 1       | `Event`  |          | The base event message                                                                                                                                                |
+| `probability`    | 6       | `double` | Optional | The probability that the event actually occurred.                                                                                                                     |
+| `referenceLimit` | 5       | `double` |          | The reference limit or expected value.                                                                                                                                |
+| `substationID`   | 3       | `string` | Optional | The ID of the substation where the event occurred.                                                                                                                    |
+| `value`          | 4       | `double` |          | The measured / estimated value in relation to the event (e.g. in the case of a `VoltageEvent` is the voltage, in the case of a `CurrentEvent` is the current event).  |
 
 
 

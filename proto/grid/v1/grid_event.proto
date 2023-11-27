@@ -23,11 +23,9 @@ message GridEvent {
   Event event = 1; //The base event message
   string componentID = 2; //The ID of the component where the event occurred.
   optional string substationID = 3; //The ID of the substation where the event occurred.
-  int64 startedAt = 4; //The timestamp where the event started (should be equal to timestampId in header).
-  optional int64 endedAt = 5; //The timestamp where the event ended.
-  double nominalValue = 6; //The measured / estimated value in relation to the event (e.g. in the case of a `VoltageEvent` is the voltage, in the case of a `CurrentEvent` is the current event).
-  double percentage = 7; //The percentage reached by the value compared to the reference limit or expected value.
-  optional double probability = 8; //The probability that the event actually occurred.
+  double value = 4; //The measured / estimated value in relation to the event (e.g. in the case of a `VoltageEvent` is the voltage, in the case of a `CurrentEvent` is the current event).
+  double referenceLimit = 5; //The reference limit or expected value.
+  optional double probability = 6; //The probability that the event actually occurred.
 }
 
 message VoltageEvent {

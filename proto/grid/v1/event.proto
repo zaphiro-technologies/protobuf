@@ -13,8 +13,9 @@ option go_package = "./grid/v1";
 enum EventStatus {
     EVENT_STATUS_UNSPECIFIED = 0; //No status defined
     EVENT_STATUS_ACTIVE = 1; //Event is still active
-    EVENT_STATUS_COMPLETE = 2; //Event is completed
-    EVENT_STATUS_UNKNOWN = 3; //Information available don't allow us to know if the even is active or complete
+    EVENT_STATUS_IN_PROGRESS = 2; //Event is still active
+    EVENT_STATUS_COMPLETE = 3; //Event is completed
+    EVENT_STATUS_UNKNOWN = 4; //Information available don't allow us to know if the even is active or complete
 }
  
 enum EventSourceType {
@@ -36,7 +37,7 @@ message Event {
   string Id = 1; //The uuid of the event.
   string sourceId = 2; //The id of the source (e.g. a PMU) that generated the event.
   EventSourceType sourceType = 3; //The type of data see `DataType` enum.
-  optional int64 occurredAt = 4; //The time of occurency of the event (Unix msec timestamp).
+  optional int64 occurredAt = 4; //The time of occurency of the event (Unix msec timestamp) usually is the same value as timestampId.
   optional int64 detectedAt = 5; //The time of detection of the event (Unix msec timestamp).
   string message = 6; //Event message.
   optional EventStatus status = 7; //The status of the event.

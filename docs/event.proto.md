@@ -32,8 +32,9 @@ The collection of Event Status defined so far.
 |----------------------------|---------|---------------------------------------------------------------------------------|
 | `EVENT_STATUS_UNSPECIFIED` | 0       | No status defined                                                               |
 | `EVENT_STATUS_ACTIVE`      | 1       | Event is still active                                                           |
-| `EVENT_STATUS_COMPLETE`    | 2       | Event is completed                                                              |
-| `EVENT_STATUS_UNKNOWN`     | 3       | Information available don't allow us to know if the even is active or complete  |
+| `EVENT_STATUS_IN_PROGRESS` | 2       | Event is still active                                                           |
+| `EVENT_STATUS_COMPLETE`    | 3       | Event is completed                                                              |
+| `EVENT_STATUS_UNKNOWN`     | 4       | Information available don't allow us to know if the even is active or complete  |
 
 
 ## Enum: EventSourceType
@@ -63,6 +64,7 @@ class EventStatus{
   <<enumeration>>
   EVENT_STATUS_UNSPECIFIED
   EVENT_STATUS_ACTIVE
+  EVENT_STATUS_IN_PROGRESS
   EVENT_STATUS_COMPLETE
   EVENT_STATUS_UNKNOWN
 }
@@ -123,15 +125,15 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 
 
-| Field        | Ordinal | Type              | Label    | Description                                                  |
-|--------------|---------|-------------------|----------|--------------------------------------------------------------|
-| `Id`         | 1       | `string`          |          | The uuid of the event.                                       |
-| `detectedAt` | 5       | `int64`           | Optional | The time of detection of the event (Unix msec timestamp).    |
-| `message`    | 6       | `string`          |          | Event message.                                               |
-| `occurredAt` | 4       | `int64`           | Optional | The time of occurency of the event (Unix msec timestamp).    |
-| `sourceId`   | 2       | `string`          |          | The id of the source (e.g. a PMU) that generated the event.  |
-| `sourceType` | 3       | `EventSourceType` |          | The type of data see `DataType` enum.                        |
-| `status`     | 7       | `EventStatus`     | Optional | The status of the event.                                     |
+| Field        | Ordinal | Type              | Label    | Description                                                                                         |
+|--------------|---------|-------------------|----------|-----------------------------------------------------------------------------------------------------|
+| `Id`         | 1       | `string`          |          | The uuid of the event.                                                                              |
+| `detectedAt` | 5       | `int64`           | Optional | The time of detection of the event (Unix msec timestamp).                                           |
+| `message`    | 6       | `string`          |          | Event message.                                                                                      |
+| `occurredAt` | 4       | `int64`           | Optional | The time of occurency of the event (Unix msec timestamp) usually is the same value as timestampId.  |
+| `sourceId`   | 2       | `string`          |          | The id of the source (e.g. a PMU) that generated the event.                                         |
+| `sourceType` | 3       | `EventSourceType` |          | The type of data see `DataType` enum.                                                               |
+| `status`     | 7       | `EventStatus`     | Optional | The status of the event.                                                                            |
 
 
 
