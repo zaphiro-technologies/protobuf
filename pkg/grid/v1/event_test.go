@@ -23,7 +23,7 @@ func generateEvent(
 		Id:         eventId,
 		SourceId:   eventSource,
 		SourceType: EventSourceType(eventSourceType),
-		OccurredAt: &occurredAt,
+		OccurredAt: occurredAt,
 		DetectedAt: &detectedAt,
 		Message:    message,
 	}
@@ -44,7 +44,7 @@ func TestEvent(t *testing.T) {
 		err = proto.Unmarshal(buf, data)
 		assert.NoError(t, err)
 		assert.Equal(t, data.OccurredAt, test.OccurredAt)
-		assert.GreaterOrEqual(t, *data.DetectedAt, *test.OccurredAt)
+		assert.GreaterOrEqual(t, *data.DetectedAt, test.OccurredAt)
 		assert.Equal(t, data.Message, test.Message)
 		assert.Equal(t, data.SourceType, test.SourceType)
 		assert.Equal(t, data.SourceType.Number(), protoreflect.EnumNumber(k))

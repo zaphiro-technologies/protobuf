@@ -102,7 +102,7 @@ class Event {
   + string Id
   + Optional~int64~ detectedAt
   + string message
-  + Optional~int64~ occurredAt
+  + int64 occurredAt
   + string sourceId
   + EventSourceType sourceType
   + Optional~EventStatus~ status
@@ -130,7 +130,7 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 | `Id`         | 1       | `string`          |          | The uuid of the event.                                                                              |
 | `detectedAt` | 5       | `int64`           | Optional | The time of detection of the event (Unix msec timestamp).                                           |
 | `message`    | 6       | `string`          |          | Event message.                                                                                      |
-| `occurredAt` | 4       | `int64`           | Optional | The time of occurency of the event (Unix msec timestamp) usually is the same value as timestampId.  |
+| `occurredAt` | 4       | `int64`           |          | The time of occurency of the event (Unix msec timestamp) usually is the same value as timestampId.  |
 | `sourceId`   | 2       | `string`          |          | The id of the source (e.g. a PMU) that generated the event.                                         |
 | `sourceType` | 3       | `EventSourceType` |          | The type of data see `DataType` enum.                                                               |
 | `status`     | 7       | `EventStatus`     | Optional | The status of the event.                                                                            |
