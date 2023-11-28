@@ -1,10 +1,14 @@
 # ProtoBuf Release Notes
 
-## 0.0.3-dev - 2023-11-27
+## 0.0.3-dev - 2023-11-28
 
 ### Features
 
 - Add protocol buffer for grid events (PR #19 by @chicco785)
+
+### Refactoring
+
+- Fault: uniform datetime field naming (PR #21 by @chicco785)
 
 ## 0.0.2 - 2023-11-14
 
