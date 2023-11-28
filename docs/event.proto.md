@@ -31,9 +31,9 @@ The collection of Event Status defined so far.
 | Name                       | Ordinal | Description                                                                     |
 |----------------------------|---------|---------------------------------------------------------------------------------|
 | `EVENT_STATUS_UNSPECIFIED` | 0       | No status defined                                                               |
-| `EVENT_STATUS_ACTIVE`      | 1       | Event is still active                                                           |
+| `EVENT_STATUS_STARTED`     | 1       | Event started                                                                   |
 | `EVENT_STATUS_IN_PROGRESS` | 2       | Event is still active                                                           |
-| `EVENT_STATUS_COMPLETE`    | 3       | Event is completed                                                              |
+| `EVENT_STATUS_ENDED`       | 3       | Event ended                                                                     |
 | `EVENT_STATUS_UNKNOWN`     | 4       | Information available don't allow us to know if the even is active or complete  |
 
 
@@ -63,9 +63,9 @@ direction LR
 class EventStatus{
   <<enumeration>>
   EVENT_STATUS_UNSPECIFIED
-  EVENT_STATUS_ACTIVE
+  EVENT_STATUS_STARTED
   EVENT_STATUS_IN_PROGRESS
-  EVENT_STATUS_COMPLETE
+  EVENT_STATUS_ENDED
   EVENT_STATUS_UNKNOWN
 }
 ```
