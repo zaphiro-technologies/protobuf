@@ -77,9 +77,9 @@ message Fault {
     optional string description = 2; //The textual description of the fault.
     PhaseConnectedFaultKind kind = 3; //The kind of phase fault.
     PhaseCode phases = 4; //The phases participating in the fault. The fault connections into these phases are further specified by the type of fault.
-    int64 occurredDateTime = 5; //The date and time at which the fault occurred (Unix msec timestamp).
+    int64 occurredAt = 5; //The date and time at which the fault occurred (Unix msec timestamp).
     optional string faultyEquipmentId = 6; //The equipment with the fault.
-    optional int64 locationTime = 7; //The time when the fault was located.
+    optional int64 locatedAt = 7; //The time when the fault was located.
     optional float faultCurrent = 8; //The current associated to the fault.
     optional bool located = 9; //Was the fault located.
     repeated string impactedEquipmentIds = 10; //The set of IDs of equipments impacted by the fault.
