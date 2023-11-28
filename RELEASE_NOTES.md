@@ -1,8 +1,10 @@
 # ProtoBuf Release Notes
 
-## 0.0.3-dev - 2023-11-14
+## 0.0.3-dev - 2023-11-27
 
-- no changes
+### Features
+
+- Add protocol buffer for grid events (PR #19 by @chicco785)
 
 ## 0.0.2 - 2023-11-14
 
@@ -12,9 +14,32 @@
 
 ### Documentation
 
-- Update documentation to reflect protocol buffer refactoring (PR #15 by  
+- Update documentation to reflect protocol buffer refactoring (PR #15 by
   @chicco785)
 
 ### Refactoring
 
 - Update NotificationType names (PR #17 by @hiimjako)
+
+## 0.0.1 - 2023-10-27
+
+### Features
+
+- New protocol buffer for topology data (PR #12 by @chicco785)
+- Notification message: support Trigger requirements (PR #6 by @chicco785)
+- Add protocol buffer to describe faults (PR #3 by @chicco785)
+
+### Bug Fixes
+
+- fix typo in `Fault` field `faultCurrent` (PR #7 by @tejo)
+
+### Continuous Integration
+
+- Use new shared workflow for Golang (PR #11 by @chicco785)
+
+### Refactoring
+
+- Refactor protobuffer to align with architecture discussion (PR #9 by
+  @chicco785)
+- Migrate existing protobuf from
+  `https://github.com/zaphiro-technologies/rabbitmq-poc` (PR #2 by @chicco785)

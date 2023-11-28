@@ -30,11 +30,11 @@ cov:
 
 .PHONY: generate
 generate:
-	buf generate
+	cd proto; buf generate
 
 .PHONY: docs
 docs:
-	../proto-gen-md-diagrams/proto-gen-md-diagrams -d proto
+	../proto-gen-md-diagrams/proto-gen-md-diagrams -d proto -md true
 	mkdir -p docs
 	# mv -f proto/**/*.md docs #why it works on my mac but not in the action?
 	mv -f proto/*/v1/*.md docs
