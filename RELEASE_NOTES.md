@@ -9,8 +9,8 @@
 ### Refactoring
 
 - Fault: uniform datetime field naming (PR #21 by @chicco785)
-- Event: set `occurredAt` as required and correct Event Status to `Started`,
-  `Ended` (PR #23 by @chicco785)
+- Event: set `occurredAt` as required, correct Event Status to `Started`,
+  `Ended`, and add `eventType` in the header (PR #23 by @chicco785)
 
 ## 0.0.2 - 2023-11-14
 
