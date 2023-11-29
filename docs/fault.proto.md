@@ -171,8 +171,8 @@ class Fault {
   + List~string~ impactedEquipmentIds
   + PhaseConnectedFaultKind kind
   + Optional~bool~ located
-  + Optional~int64~ locationTime
-  + int64 occurredDateTime
+  + Optional~int64~ locatedAt
+  + int64 occurredAt
   + PhaseCode phases
 }
 Fault --> `PhaseConnectedFaultKind`
@@ -252,8 +252,8 @@ Headers used in rabbitMQ:
 | `impactedEquipmentIds` | 10      | `string`                  | Repeated | The set of IDs of equipments impacted by the fault.                                                                         |
 | `kind`                 | 3       | `PhaseConnectedFaultKind` |          | The kind of phase fault.                                                                                                    |
 | `located`              | 9       | `bool`                    | Optional | Was the fault located.                                                                                                      |
-| `locationTime`         | 7       | `int64`                   | Optional | The time when the fault was located.                                                                                        |
-| `occurredDateTime`     | 5       | `int64`                   |          | The date and time at which the fault occurred (Unix msec timestamp).                                                        |
+| `locatedAt`            | 7       | `int64`                   | Optional | The time when the fault was located.                                                                                        |
+| `occurredAt`           | 5       | `int64`                   |          | The date and time at which the fault occurred (Unix msec timestamp).                                                        |
 | `phases`               | 4       | `PhaseCode`               |          | The phases participating in the fault. The fault connections into these phases are further specified by the type of fault.  |
 
 
