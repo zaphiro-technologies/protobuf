@@ -32,7 +32,9 @@ direction LR
 %% A grid event.
 %% Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 %% * `id`: id of the `Event`
-%% * `type`: always `Event`
+%% * `type`: always `Event` - used for routing.
+%% * `eventType`: the specific type of `GridEvent`, this is required in addition 
+%%  to `type` for de-serialization of the messages.
 %% * `sourceId`: the id of the source (e.g. a PMU) that generated the event.
 %% * `timestampId`: related measurement Unix msec timestamp (if any)
 %% 
@@ -282,7 +284,9 @@ TransientOscillation --> `PhaseEvent`
 A grid event.
 Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 * `id`: id of the `Event`
-* `type`: always `Event`
+* `type`: always `Event` - used for routing.
+* `eventType`: the specific type of `GridEvent`, this is required in addition 
+ to `type` for de-serialization of the messages.
 * `sourceId`: the id of the source (e.g. a PMU) that generated the event.
 * `timestampId`: related measurement Unix msec timestamp (if any)
 

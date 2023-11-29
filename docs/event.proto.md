@@ -31,9 +31,9 @@ The collection of Event Status defined so far.
 | Name                       | Ordinal | Description                                                                     |
 |----------------------------|---------|---------------------------------------------------------------------------------|
 | `EVENT_STATUS_UNSPECIFIED` | 0       | No status defined                                                               |
-| `EVENT_STATUS_ACTIVE`      | 1       | Event is still active                                                           |
+| `EVENT_STATUS_STARTED`     | 1       | Event started                                                                   |
 | `EVENT_STATUS_IN_PROGRESS` | 2       | Event is still active                                                           |
-| `EVENT_STATUS_COMPLETE`    | 3       | Event is completed                                                              |
+| `EVENT_STATUS_ENDED`       | 3       | Event ended                                                                     |
 | `EVENT_STATUS_UNKNOWN`     | 4       | Information available don't allow us to know if the even is active or complete  |
 
 
@@ -63,9 +63,9 @@ direction LR
 class EventStatus{
   <<enumeration>>
   EVENT_STATUS_UNSPECIFIED
-  EVENT_STATUS_ACTIVE
+  EVENT_STATUS_STARTED
   EVENT_STATUS_IN_PROGRESS
-  EVENT_STATUS_COMPLETE
+  EVENT_STATUS_ENDED
   EVENT_STATUS_UNKNOWN
 }
 ```
@@ -93,7 +93,9 @@ direction LR
 %% A generic event.
 %% Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 %% * `id`: id of the `Event`
-%% * `type`: always `Event`
+%% * `type`: always `Event` - used for routing.
+%% * `eventType`: the specific type of `Event`, this is required in addition 
+%%  to `type` for de-serialization of the messages.
 %% * `sourceId`: the id of the source (e.g. a PMU) that generated the event.
 %% * `timestampId`: related measurement Unix msec timestamp (if any)
 %% 
@@ -102,7 +104,7 @@ class Event {
   + string Id
   + Optional~int64~ detectedAt
   + string message
-  + Optional~int64~ occurredAt
+  + int64 occurredAt
   + string sourceId
   + EventSourceType sourceType
   + Optional~EventStatus~ status
@@ -119,7 +121,9 @@ Event --> `EventStatus`
 A generic event.
 Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 * `id`: id of the `Event`
-* `type`: always `Event`
+* `type`: always `Event` - used for routing.
+* `eventType`: the specific type of `Event`, this is required in addition 
+ to `type` for de-serialization of the messages.
 * `sourceId`: the id of the source (e.g. a PMU) that generated the event.
 * `timestampId`: related measurement Unix msec timestamp (if any)
 
@@ -130,7 +134,7 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 | `Id`         | 1       | `string`          |          | The uuid of the event.                                                                              |
 | `detectedAt` | 5       | `int64`           | Optional | The time of detection of the event (Unix msec timestamp).                                           |
 | `message`    | 6       | `string`          |          | Event message.                                                                                      |
-| `occurredAt` | 4       | `int64`           | Optional | The time of occurency of the event (Unix msec timestamp) usually is the same value as timestampId.  |
+| `occurredAt` | 4       | `int64`           |          | The time of occurency of the event (Unix msec timestamp) usually is the same value as timestampId.  |
 | `sourceId`   | 2       | `string`          |          | The id of the source (e.g. a PMU) that generated the event.                                         |
 | `sourceType` | 3       | `EventSourceType` |          | The type of data see `DataType` enum.                                                               |
 | `status`     | 7       | `EventStatus`     | Optional | The status of the event.                                                                            |
