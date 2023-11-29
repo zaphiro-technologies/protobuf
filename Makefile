@@ -8,7 +8,7 @@ else
 	NOW_DATE = $(shell date -u -I)
 endif
 
-all: test
+all: proto-lint generate lint test docs
 
 .PHONY: lint
 lint:
