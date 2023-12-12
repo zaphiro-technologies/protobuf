@@ -1,16 +1,20 @@
 # ProtoBuf Release Notes
 
-## 0.0.3-dev - 2023-11-29
+## 0.0.3-dev - 2023-12-12
 
 ### Features
 
 - Add protocol buffer for grid events (PR #19 by @chicco785)
 
+### Documentation
+
+- [Documentation] Change fault data type. (PR #26 by @tejo)
+
 ### Refactoring
 
-- Fault: uniform datetime field naming (PR #21 by @chicco785)
 - Event: set `occurredAt` as required, correct Event Status to `Started`,
   `Ended`, and add `eventType` in the header (PR #23 by @chicco785)
+- Fault: uniform datetime field naming (PR #21 by @chicco785)
 
 ## 0.0.2 - 2023-11-14
 
