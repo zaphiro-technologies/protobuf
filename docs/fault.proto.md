@@ -245,7 +245,7 @@ Headers used in rabbitMQ:
 
 | Field                  | Ordinal | Type                      | Label    | Description                                                                                                                 |
 |------------------------|---------|---------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------|
-| `Id`                   | 1       | `string`                  |          | The uuid of the fault.                                                                                                      |
+| `Id`                   | 1       | `string`                  |          | The textual id of the fault.                                                                                                      |
 | `description`          | 2       | `string`                  | Optional | The textual description of the fault.                                                                                       |
 | `faultCurrent`         | 8       | `float`                   | Optional | The current associated to the fault.                                                                                        |
 | `faultyEquipmentId`    | 6       | `string`                  | Optional | The equipment with the fault.                                                                                               |
