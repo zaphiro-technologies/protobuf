@@ -205,7 +205,7 @@ type Fault struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id                   string                  `protobuf:"bytes,1,opt,name=Id,proto3" json:"Id,omitempty"`                                           //The uuid of the fault.
+	Id                   string                  `protobuf:"bytes,1,opt,name=Id,proto3" json:"Id,omitempty"`                                           //The textual id of the fault.
 	Description          *string                 `protobuf:"bytes,2,opt,name=description,proto3,oneof" json:"description,omitempty"`                   //The textual description of the fault.
 	Kind                 PhaseConnectedFaultKind `protobuf:"varint,3,opt,name=kind,proto3,enum=grid.v1.PhaseConnectedFaultKind" json:"kind,omitempty"` //The kind of phase fault.
 	Phases               PhaseCode               `protobuf:"varint,4,opt,name=phases,proto3,enum=grid.v1.PhaseCode" json:"phases,omitempty"`           //The phases participating in the fault. The fault connections into these phases are further specified by the type of fault.
