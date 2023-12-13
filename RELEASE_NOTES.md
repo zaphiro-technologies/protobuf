@@ -6,13 +6,13 @@
 
 - Add protocol buffer for grid events (PR #19 by @chicco785)
 
-### Dependencies
-
-- Bump actions/setup-go from 4 to 5 (PR #25 by @dependabot[bot])
-
 ### Documentation
 
 - [Documentation] Change fault id data type (PR #26 by @tejo)
+
+### Dependencies
+
+- Bump actions/setup-go from 4 to 5 (PR #25 by @dependabot[bot])
 
 ### Refactoring
 
