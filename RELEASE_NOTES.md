@@ -1,6 +1,6 @@
 # ProtoBuf Release Notes
 
-## 0.0.3-dev - 2023-12-12
+## 0.0.3-dev - 2023-12-13
 
 ### Features
 
@@ -8,7 +8,7 @@
 
 ### Documentation
 
-- [Documentation] Change fault data type. (PR #26 by @tejo)
+- [Documentation] Change fault id data type (PR #26 by @tejo)
 
 ### Refactoring
 
