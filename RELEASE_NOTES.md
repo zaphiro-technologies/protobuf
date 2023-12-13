@@ -1,6 +1,6 @@
 # ProtoBuf Release Notes
 
-## 0.0.3-dev - 2023-12-11
+## 0.0.3-dev - 2023-12-13
 
 ### Features
 
@@ -9,6 +9,10 @@
 ### Dependencies
 
 - Bump actions/setup-go from 4 to 5 (PR #25 by @dependabot[bot])
+
+### Documentation
+
+- [Documentation] Change fault id data type (PR #26 by @tejo)
 
 ### Refactoring
 
