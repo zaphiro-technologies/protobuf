@@ -33,7 +33,7 @@ direction LR
 %% Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 %% * `id` (string): id of the `Event`
 %% * `type` (string): always `Event` - used for routing.
-%% * `eventType` (int64): the specific type of `GridEvent`, this is required in addition 
+%% * `eventType` (string): the specific type of `GridEvent`, this is required in addition 
 %%  to `type` for de-serialization of the messages.
 %% * `sourceId` (string): the id of the source (e.g. a PMU) that generated the event.
 %% * `timestampId` (int64): related measurement Unix msec timestamp (if any)
@@ -285,7 +285,7 @@ A grid event.
 Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 * `id` (string): id of the `Event`
 * `type` (string): always `Event` - used for routing.
-* `eventType` (int64): the specific type of `GridEvent`, this is required in addition 
+* `eventType` (string): the specific type of `GridEvent`, this is required in addition 
  to `type` for de-serialization of the messages.
 * `sourceId` (string): the id of the source (e.g. a PMU) that generated the event.
 * `timestampId` (int64): related measurement Unix msec timestamp (if any)
