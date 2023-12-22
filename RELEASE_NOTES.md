@@ -1,6 +1,6 @@
 # ProtoBuf Release Notes
 
-## 0.0.3-dev - 2023-12-13
+## 0.0.3-dev - 2023-12-22
 
 ### Features
 
@@ -8,6 +8,8 @@
 
 ### Documentation
 
+- Add types in documentation `Data`, `DataSet` and `Notification` (PR #27 by
+  @hiimjako)
 - [Documentation] Change fault id data type (PR #26 by @tejo)
 
 ### Refactoring
