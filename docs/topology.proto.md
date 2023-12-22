@@ -29,11 +29,11 @@ direction LR
 
 %% A topology computed information.
 %% Headers used in rabbitMQ:
-%% * `id`: id of the `Topology`
-%% * `type`: always `Topology`
-%% * `producerId`: the id of the producer (e.g. a PMU) linked to the dataset.
-%% * `timestampId`: related measurement Unix msec timestamp (if any)
-%% * `subnetworkId`: the sub network id for which the topology was computed
+%% * `id` (string): id of the `Topology`
+%% * `type` (string): always `Topology`
+%% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
+%% * `timestampId` (int64): related measurement Unix msec timestamp (if any)
+%% * `subnetworkId` (string): the sub network id for which the topology was computed
 %% 
 
 class Topology {
@@ -49,11 +49,11 @@ class Topology {
 
 A topology computed information.
 Headers used in rabbitMQ:
-* `id`: id of the `Topology`
-* `type`: always `Topology`
-* `producerId`: the id of the producer (e.g. a PMU) linked to the dataset.
-* `timestampId`: related measurement Unix msec timestamp (if any)
-* `subnetworkId`: the sub network id for which the topology was computed
+* `id` (string): id of the `Topology`
+* `type` (string): always `Topology`
+* `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
+* `timestampId` (int64): related measurement Unix msec timestamp (if any)
+* `subnetworkId` (string): the sub network id for which the topology was computed
 
 
 

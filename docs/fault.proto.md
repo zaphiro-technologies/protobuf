@@ -158,9 +158,9 @@ direction LR
 %% This message is modeled after [CIM Fault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/Fault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.
 %% 
 %% Headers used in rabbitMQ:
-%% * `id`: id of the `Fault`
-%% * `type`: always `Fault`
-%% * `producerId`: the id of the producer (e.g. a PMU) linked to the notification.
+%% * `id` (string): id of the `Fault`
+%% * `type` (string): always `Fault`
+%% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the notification.
 %% 
 
 class Fault {
@@ -190,9 +190,9 @@ direction LR
 %% This message is modeled after [CIM LineFault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/LineFault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.
 %% 
 %% Headers used in rabbitMQ:
-%% * `id`: id of the `Fault`
-%% * `type`: always `LineFault`
-%% * `producerId`: the id of the producer (e.g. a PMU) linked to the notification.
+%% * `id` (string): id of the `Fault`
+%% * `type` (string): always `LineFault`
+%% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the notification.
 %% 
 
 class LineFault {
@@ -215,9 +215,9 @@ direction LR
 %% This message is modeled after [CIM EquipmentFault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/EquipmentFault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.
 %% 
 %% Headers used in rabbitMQ:
-%% * `id`: id of the `EquipmentFault`
-%% * `type`: always `LineFault`
-%% * `producerId`: the id of the producer (e.g. a PMU) linked to the notification.
+%% * `id` (string): id of the `EquipmentFault`
+%% * `type` (string): always `LineFault`
+%% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the notification.
 %% 
 
 class EquipmentFault {
@@ -237,9 +237,9 @@ Abnormal condition causing current flow through conducting equipment, such as ca
 This message is modeled after [CIM Fault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/Fault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.
 
 Headers used in rabbitMQ:
-* `id`: id of the `Fault`
-* `type`: always `Fault`
-* `producerId`: the id of the producer (e.g. a PMU) linked to the notification.
+* `id` (string): id of the `Fault`
+* `type` (string): always `Fault`
+* `producerId` (string): the id of the producer (e.g. a PMU) linked to the notification.
 
 
 
@@ -268,9 +268,9 @@ A fault that occurs on an AC line segment at some point along the length.
 This message is modeled after [CIM LineFault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/LineFault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.
 
 Headers used in rabbitMQ:
-* `id`: id of the `Fault`
-* `type`: always `LineFault`
-* `producerId`: the id of the producer (e.g. a PMU) linked to the notification.
+* `id` (string): id of the `Fault`
+* `type` (string): always `LineFault`
+* `producerId` (string): the id of the producer (e.g. a PMU) linked to the notification.
 
 
 
@@ -293,9 +293,9 @@ A fault applied at the terminal, external to the equipment. This class is not us
 This message is modeled after [CIM EquipmentFault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/EquipmentFault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.
 
 Headers used in rabbitMQ:
-* `id`: id of the `EquipmentFault`
-* `type`: always `LineFault`
-* `producerId`: the id of the producer (e.g. a PMU) linked to the notification.
+* `id` (string): id of the `EquipmentFault`
+* `type` (string): always `LineFault`
+* `producerId` (string): the id of the producer (e.g. a PMU) linked to the notification.
 
 
 
