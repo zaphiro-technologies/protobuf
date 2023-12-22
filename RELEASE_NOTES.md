@@ -8,8 +8,8 @@
 
 ### Documentation
 
-- Add types in documentation `Data`, `DataSet` and `Notification` (PR #27 by
-  @hiimjako)
+- Document headers/application properties data types in `Data`, `DataSet` and
+  `Notification` (PR #27 by @hiimjako)
 - [Documentation] Change fault id data type (PR #26 by @tejo)
 
 ### Refactoring
