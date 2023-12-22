@@ -109,11 +109,11 @@ direction LR
 
 %% A task message.
 %% Headers used in rabbitMQ:
-%% * `id`: id of the `Task`
-%% * `type`: always `Task`
-%% * `producerId`: the id of the producer (e.g. a PMU) linked to the notification.
-%% * `timestampId`: related measurement Unix msec timestamp (if any)
-%% * `taskType`: The textual representation of the task type.
+%% * `id` (string): id of the `Task`
+%% * `type` (string): always `Task`
+%% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the notification.
+%% * `timestampId` (int64): related measurement Unix msec timestamp (if any)
+%% * `taskType` (int8): The textual representation of the task type.
 %% 
 
 class Task {
@@ -133,11 +133,11 @@ direction LR
 
 %% A notification message.
 %% Headers used in rabbitMQ:
-%% * `id`: id of the `Notification`
-%% * `type`: always `Notification`
-%% * `producerId`: the id of the producer (e.g. a PMU) linked to the notification.
-%% * `timestampId`: related measurement Unix msec timestamp (if any)
-%% * `notificationType`: The textual representation of the notification type.
+%% * `id` (string): id of the `Notification`
+%% * `type` (string): always `Notification`
+%% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the notification.
+%% * `timestampId` (int64): related measurement Unix msec timestamp (if any)
+%% * `notificationType` (int8): The textual representation of the notification type.
 %% 
 
 class Notification {
@@ -172,11 +172,11 @@ A parameter of a `Task` or `Notification`
 
 A task message.
 Headers used in rabbitMQ:
-* `id`: id of the `Task`
-* `type`: always `Task`
-* `producerId`: the id of the producer (e.g. a PMU) linked to the notification.
-* `timestampId`: related measurement Unix msec timestamp (if any)
-* `taskType`: The textual representation of the task type.
+* `id` (string): id of the `Task`
+* `type` (string): always `Task`
+* `producerId` (string): the id of the producer (e.g. a PMU) linked to the notification.
+* `timestampId` (int64): related measurement Unix msec timestamp (if any)
+* `taskType` (int8): The textual representation of the task type.
 
 
 
@@ -195,11 +195,11 @@ Headers used in rabbitMQ:
 
 A notification message.
 Headers used in rabbitMQ:
-* `id`: id of the `Notification`
-* `type`: always `Notification`
-* `producerId`: the id of the producer (e.g. a PMU) linked to the notification.
-* `timestampId`: related measurement Unix msec timestamp (if any)
-* `notificationType`: The textual representation of the notification type.
+* `id` (string): id of the `Notification`
+* `type` (string): always `Notification`
+* `producerId` (string): the id of the producer (e.g. a PMU) linked to the notification.
+* `timestampId` (int64): related measurement Unix msec timestamp (if any)
+* `notificationType` (int8): The textual representation of the notification type.
 
 
 

@@ -147,10 +147,10 @@ direction LR
 
 %% A single data.
 %% Headers used in rabbitMQ (only if not sent as part of `DataSet`):
-%% * `id`: id of the `Data`
-%% * `type`: always `Data`
-%% * `producerId`: the id of the producer (e.g. a PMU) linked to the dataset.
-%% * `timestampId`: related measurement Unix msec timestamp (if any)
+%% * `id` (string): id of the `Data`
+%% * `type` (string): always `Data`
+%% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
+%% * `timestampId` (int64): related measurement Unix msec timestamp (if any)
 %% 
 
 class Data {
@@ -169,10 +169,10 @@ direction LR
 
 %% A set of data.
 %% Headers used in rabbitMQ:
-%% * `id`: id of the `DataSet`
-%% * `type`: always `DataSet`
-%% * `producerId`: the id of the producer (e.g. a PMU) linked to the dataset.
-%% * `timestampId`: related measurement Unix msec timestamp (if any)
+%% * `id` (string): id of the `DataSet`
+%% * `type` (string): always `DataSet`
+%% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
+%% * `timestampId` (int64): related measurement Unix msec timestamp (if any)
 %% 
 
 class DataSet {
@@ -189,10 +189,10 @@ DataSet .. ` Data`
 
 A single data.
 Headers used in rabbitMQ (only if not sent as part of `DataSet`):
-* `id`: id of the `Data`
-* `type`: always `Data`
-* `producerId`: the id of the producer (e.g. a PMU) linked to the dataset.
-* `timestampId`: related measurement Unix msec timestamp (if any)
+* `id` (string): id of the `Data`
+* `type` (string): always `Data`
+* `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
+* `timestampId` (int64): related measurement Unix msec timestamp (if any)
 
 
 
@@ -211,10 +211,10 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 A set of data.
 Headers used in rabbitMQ:
-* `id`: id of the `DataSet`
-* `type`: always `DataSet`
-* `producerId`: the id of the producer (e.g. a PMU) linked to the dataset.
-* `timestampId`: related measurement Unix msec timestamp (if any)
+* `id` (string): id of the `DataSet`
+* `type` (string): always `DataSet`
+* `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
+* `timestampId` (int64): related measurement Unix msec timestamp (if any)
 
 
 
