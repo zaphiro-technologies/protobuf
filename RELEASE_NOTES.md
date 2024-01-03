@@ -12,6 +12,10 @@
   by @hiimjako)
 - [Documentation] Change fault id data type (PR #26 by @tejo)
 
+### Dependencies
+
+- Bump actions/setup-go from 4 to 5 (PR #25 by @dependabot[bot])
+
 ### Refactoring
 
 - Event: set `occurredAt` as required, correct Event Status to `Started`,
