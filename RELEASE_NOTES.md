@@ -1,9 +1,10 @@
 # ProtoBuf Release Notes
 
-## 0.0.3-dev - 2023-12-22
+## 0.0.3-dev - 2024-01-09
 
 ### Features
 
+- Support `DeviceEvent` messages (PR #31 by @chicco785)
 - Add protocol buffer for grid events (PR #19 by @chicco785)
 
 ### Documentation
