@@ -16,6 +16,7 @@
 
 ### Dependencies
 
+- Bump github.com/google/uuid from 1.3.1 to 1.5.0 (PR #29 by @dependabot[bot])
 - Bump actions/setup-go from 4 to 5 (PR #25 by @dependabot[bot])
 
 ### Refactoring
