@@ -1,9 +1,10 @@
 # ProtoBuf Release Notes
 
-## 0.0.3-dev - 2024-01-09
+## 0.0.3-dev - 2024-02-09
 
 ### Features
 
+- Add `NOTIFICATION_TYPE_TOPOLOGY_COMPUTED` (PR #34 by @chicco785)
 - Support `DeviceEvent` messages (PR #31 by @chicco785)
 - Add protocol buffer for grid events (PR #19 by @chicco785)
 
