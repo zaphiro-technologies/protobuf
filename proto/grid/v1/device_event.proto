@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+/*  <!-- markdownlint-disable -->
+Messages to support device event detection in the platform. Device events are sub classes of Events.
+*/
+
+package grid.v1;
+option go_package = "./grid/v1";
+
+
+import "grid/v1/event.proto";
+
+/* A device event.
+Headers used in rabbitMQ:
+* `id`: id of the `Event`
+* `type`: always `Event` - used for routing.
+* `eventType`: the specific type of `DeviceEvent`, this is required in addition 
+  to `type` for de-serialization of the messages.
+* `sourceId`: the id of the source (e.g. a PMU) that generated the event.
+* `timestampId`: related measurement Unix msec timestamp (if any)
+*/
+
+message DeviceEvent {
+  Event event = 1; //The base event message
+  string deviceID = 2; //The ID of the device where the event occurred.
+  string substationID = 3; //The ID of the substation where the event occurred.
+  optional double value = 4; //The measured / estimated value in relation to the event.
+  optional double referenceLimit = 5; //The reference limit or expected value.
+  optional string code = 6; //The device event code (or the mapped string)
+}
+
+message CommunicationErrorEvent {
+  DeviceEvent event = 1;  //The base device event message
+}
+
+message TimeQualityEvent {
+  DeviceEvent event = 1;  //The base device event message
+}
+
+message SyncStatusEvent {
+  DeviceEvent event = 1;  //The base device event message
+}
+
+message PowerEvent {
+  DeviceEvent event = 1;  //The base device event message
+}
+
+message ConfigEvent {
+  DeviceEvent event = 1;  //The base device event message
+}
+
+message TriggerEvent {
+  DeviceEvent event = 1;  //The base device event message
+}
+
+message DataErrorEvent {
+  DeviceEvent event = 1;  //The base device event message
+}

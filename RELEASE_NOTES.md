@@ -1,9 +1,12 @@
 # ProtoBuf Release Notes
 
-## 0.0.3-dev - 2024-01-08
+## 0.0.3-dev - 2024-02-09
+
 
 ### Features
 
+- Add `NOTIFICATION_TYPE_TOPOLOGY_COMPUTED` (PR #34 by @chicco785)
+- Support `DeviceEvent` messages (PR #31 by @chicco785)
 - Add protocol buffer for grid events (PR #19 by @chicco785)
 
 ### Documentation
@@ -16,6 +19,7 @@
 
 - Bump google.golang.org/protobuf from 1.31.0 to 1.32.0 (PR #28 by
   @dependabot[bot])
+- Bump github.com/google/uuid from 1.3.1 to 1.5.0 (PR #29 by @dependabot[bot])
 - Bump actions/setup-go from 4 to 5 (PR #25 by @dependabot[bot])
 
 ### Refactoring
