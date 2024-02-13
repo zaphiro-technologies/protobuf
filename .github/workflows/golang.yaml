@@ -1,5 +1,9 @@
 name: Golang
 
+concurrency:
+  group: ${{github.repository}}-${{ github.ref_name }}-go
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
