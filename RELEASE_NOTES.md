@@ -6,6 +6,15 @@
 
 - Update `releasenotes.yaml` to use `pull_request_review` (PR #35 by @chicco785)
 
+### Dependencies
+
+- Bump github.com/google/uuid from 1.5.0 to 1.6.0 (PR #36 by @dependabot[bot])
+
+### Refactoring
+
+- Remove `Event` from the name of `DeviceEvent` subclasses (PR #37 by
+  @chicco785)
+
 ## 0.0.3 - 2024-02-09
 
 ### Features
