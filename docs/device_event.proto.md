@@ -49,7 +49,7 @@ class DeviceEvent {
 DeviceEvent --> `Event`
 
 ```
-### CommunicationErrorEvent Diagram
+### CommunicationError Diagram
 
 ```mermaid
 classDiagram
@@ -57,13 +57,13 @@ direction LR
 
 %% 
 
-class CommunicationErrorEvent {
+class CommunicationError {
   + DeviceEvent event
 }
-CommunicationErrorEvent --> `DeviceEvent`
+CommunicationError --> `DeviceEvent`
 
 ```
-### TimeQualityEvent Diagram
+### TimeQuality Diagram
 
 ```mermaid
 classDiagram
@@ -71,13 +71,13 @@ direction LR
 
 %% 
 
-class TimeQualityEvent {
+class TimeQuality {
   + DeviceEvent event
 }
-TimeQualityEvent --> `DeviceEvent`
+TimeQuality --> `DeviceEvent`
 
 ```
-### SyncStatusEvent Diagram
+### SyncStatus Diagram
 
 ```mermaid
 classDiagram
@@ -85,13 +85,13 @@ direction LR
 
 %% 
 
-class SyncStatusEvent {
+class SyncStatus {
   + DeviceEvent event
 }
-SyncStatusEvent --> `DeviceEvent`
+SyncStatus --> `DeviceEvent`
 
 ```
-### PowerEvent Diagram
+### Power Diagram
 
 ```mermaid
 classDiagram
@@ -99,13 +99,13 @@ direction LR
 
 %% 
 
-class PowerEvent {
+class Power {
   + DeviceEvent event
 }
-PowerEvent --> `DeviceEvent`
+Power --> `DeviceEvent`
 
 ```
-### ConfigEvent Diagram
+### Config Diagram
 
 ```mermaid
 classDiagram
@@ -113,13 +113,13 @@ direction LR
 
 %% 
 
-class ConfigEvent {
+class Config {
   + DeviceEvent event
 }
-ConfigEvent --> `DeviceEvent`
+Config --> `DeviceEvent`
 
 ```
-### TriggerEvent Diagram
+### Trigger Diagram
 
 ```mermaid
 classDiagram
@@ -127,13 +127,13 @@ direction LR
 
 %% 
 
-class TriggerEvent {
+class Trigger {
   + DeviceEvent event
 }
-TriggerEvent --> `DeviceEvent`
+Trigger --> `DeviceEvent`
 
 ```
-### DataErrorEvent Diagram
+### DataError Diagram
 
 ```mermaid
 classDiagram
@@ -141,10 +141,10 @@ direction LR
 
 %% 
 
-class DataErrorEvent {
+class DataError {
   + DeviceEvent event
 }
-DataErrorEvent --> `DeviceEvent`
+DataError --> `DeviceEvent`
 
 ```
 
@@ -175,23 +175,9 @@ Headers used in rabbitMQ:
 
 
 
-## Message: CommunicationErrorEvent
+## Message: CommunicationError
 
-**FQN**: grid.v1.CommunicationErrorEvent
-
-
-
-
-| Field   | Ordinal | Type          | Label | Description                    |
-|---------|---------|---------------|-------|--------------------------------|
-| `event` | 1       | `DeviceEvent` |       | The base device event message  |
-
-
-
-
-## Message: TimeQualityEvent
-
-**FQN**: grid.v1.TimeQualityEvent
+**FQN**: grid.v1.CommunicationError
 
 
 
@@ -203,23 +189,9 @@ Headers used in rabbitMQ:
 
 
 
-## Message: SyncStatusEvent
+## Message: TimeQuality
 
-**FQN**: grid.v1.SyncStatusEvent
-
-
-
-
-| Field   | Ordinal | Type          | Label | Description                    |
-|---------|---------|---------------|-------|--------------------------------|
-| `event` | 1       | `DeviceEvent` |       | The base device event message  |
-
-
-
-
-## Message: PowerEvent
-
-**FQN**: grid.v1.PowerEvent
+**FQN**: grid.v1.TimeQuality
 
 
 
@@ -231,23 +203,9 @@ Headers used in rabbitMQ:
 
 
 
-## Message: ConfigEvent
+## Message: SyncStatus
 
-**FQN**: grid.v1.ConfigEvent
-
-
-
-
-| Field   | Ordinal | Type          | Label | Description                    |
-|---------|---------|---------------|-------|--------------------------------|
-| `event` | 1       | `DeviceEvent` |       | The base device event message  |
-
-
-
-
-## Message: TriggerEvent
-
-**FQN**: grid.v1.TriggerEvent
+**FQN**: grid.v1.SyncStatus
 
 
 
@@ -259,9 +217,51 @@ Headers used in rabbitMQ:
 
 
 
-## Message: DataErrorEvent
+## Message: Power
 
-**FQN**: grid.v1.DataErrorEvent
+**FQN**: grid.v1.Power
+
+
+
+
+| Field   | Ordinal | Type          | Label | Description                    |
+|---------|---------|---------------|-------|--------------------------------|
+| `event` | 1       | `DeviceEvent` |       | The base device event message  |
+
+
+
+
+## Message: Config
+
+**FQN**: grid.v1.Config
+
+
+
+
+| Field   | Ordinal | Type          | Label | Description                    |
+|---------|---------|---------------|-------|--------------------------------|
+| `event` | 1       | `DeviceEvent` |       | The base device event message  |
+
+
+
+
+## Message: Trigger
+
+**FQN**: grid.v1.Trigger
+
+
+
+
+| Field   | Ordinal | Type          | Label | Description                    |
+|---------|---------|---------------|-------|--------------------------------|
+| `event` | 1       | `DeviceEvent` |       | The base device event message  |
+
+
+
+
+## Message: DataError
+
+**FQN**: grid.v1.DataError
 
 
 
