@@ -1,7 +1,7 @@
 name: Golang
 
 concurrency:
-  group: ${{github.repository}}-${{ github.ref_name }}-go
+  group: ${{github.repository}}-${{ github.ref_name }}-proto
   cancel-in-progress: true
 
 permissions:
