@@ -29,30 +29,30 @@ message DeviceEvent {
   optional string code = 6; //The device event code (or the mapped string)
 }
 
-message CommunicationErrorEvent {
+message CommunicationError {
   DeviceEvent event = 1;  //The base device event message
 }
 
-message TimeQualityEvent {
+message TimeQuality {
   DeviceEvent event = 1;  //The base device event message
 }
 
-message SyncStatusEvent {
+message SyncStatus {
   DeviceEvent event = 1;  //The base device event message
 }
 
-message PowerEvent {
+message Power {
   DeviceEvent event = 1;  //The base device event message
 }
 
-message ConfigEvent {
+message Config {
   DeviceEvent event = 1;  //The base device event message
 }
 
-message TriggerEvent {
+message Trigger {
   DeviceEvent event = 1;  //The base device event message
 }
 
-message DataErrorEvent {
+message DataError {
   DeviceEvent event = 1;  //The base device event message
 }
