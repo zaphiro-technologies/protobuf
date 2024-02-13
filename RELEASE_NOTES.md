@@ -1,8 +1,10 @@
 # ProtoBuf Release Notes
 
-## 0.0.4-dev - 2024-02-09
+## 0.0.4-dev - 2024-02-13
 
-- no changes
+### Continuous Integration
+
+- Update `releasenotes.yaml` to use `pull_request_review` (PR #35 by @chicco785)
 
 ## 0.0.3 - 2024-02-09
 
