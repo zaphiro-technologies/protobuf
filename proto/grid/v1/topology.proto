@@ -20,3 +20,36 @@ message Topology {
     int64 createdAt = 1; // The time of creation of the topology data (Unix msec timestamp).
     bytes tp = 2; // The TP profile file serialized as bytes.
 }
+
+/* A topology Node information.
+* To be used in ComputedTopology message.
+*/
+message TopologicalNode{
+    repeated string TerminalIds = 1; //The list of Terminal ids in the TopologicalNode.                 
+	repeated string ConnectivityNodeIds = 2; //The list of ConnectivityNode ids in the TopologicalNode.
+	repeated string PowerTransferEndIds = 3; //The list of PowerTransferEnd ids in the TopologicalNode.
+	string ConnectivityNodeContainerId = 4; //The id of the ConnectivityNodeContainer in the TopologicalNode. 
+	string BaseVoltageId =  5; //The id of the BaseVoltage in the TopologicalNode.
+	double BaseVoltage = 6; //The BaseVoltage in the TopologicalNode.
+}
+
+/* A topology Island information.
+* To be used in ComputedTopology message.
+*/
+message TopologicalIsland{
+    repeated string TopologicalNodeIds = 1; //The list of TopologicalNode ids in the TopologicalIsland.
+}
+
+/* A processed topology information.
+Headers used in rabbitMQ:
+* `id` (string): id of the `Topology`
+* `type` (string): always `ComputedTopology`
+* `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
+* `timestampId` (int64): related measurement Unix msec timestamp (if any)
+* `subnetworkId` (string): the sub network id for which the topology was computed
+*/
+message ComputedTopology{
+	string eqId = 1; //The id of the EQ file used.
+	map<string, TopologicalNode> topologicalNodes = 2; //The map of TopologicalNodes in the Topology.
+	map<string, TopologicalIsland> topologicalIslands = 3; //The map of TopologicalIslands in the Topology.
+}
