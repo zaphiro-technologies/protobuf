@@ -110,7 +110,7 @@ func (x *DeviceEvent) GetCode() string {
 	return ""
 }
 
-type CommunicationErrorEvent struct {
+type CommunicationError struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -118,8 +118,8 @@ type CommunicationErrorEvent struct {
 	Event *DeviceEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"` //The base device event message
 }
 
-func (x *CommunicationErrorEvent) Reset() {
-	*x = CommunicationErrorEvent{}
+func (x *CommunicationError) Reset() {
+	*x = CommunicationError{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_grid_v1_device_event_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -127,13 +127,13 @@ func (x *CommunicationErrorEvent) Reset() {
 	}
 }
 
-func (x *CommunicationErrorEvent) String() string {
+func (x *CommunicationError) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*CommunicationErrorEvent) ProtoMessage() {}
+func (*CommunicationError) ProtoMessage() {}
 
-func (x *CommunicationErrorEvent) ProtoReflect() protoreflect.Message {
+func (x *CommunicationError) ProtoReflect() protoreflect.Message {
 	mi := &file_grid_v1_device_event_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -145,19 +145,19 @@ func (x *CommunicationErrorEvent) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use CommunicationErrorEvent.ProtoReflect.Descriptor instead.
-func (*CommunicationErrorEvent) Descriptor() ([]byte, []int) {
+// Deprecated: Use CommunicationError.ProtoReflect.Descriptor instead.
+func (*CommunicationError) Descriptor() ([]byte, []int) {
 	return file_grid_v1_device_event_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *CommunicationErrorEvent) GetEvent() *DeviceEvent {
+func (x *CommunicationError) GetEvent() *DeviceEvent {
 	if x != nil {
 		return x.Event
 	}
 	return nil
 }
 
-type TimeQualityEvent struct {
+type TimeQuality struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -165,8 +165,8 @@ type TimeQualityEvent struct {
 	Event *DeviceEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"` //The base device event message
 }
 
-func (x *TimeQualityEvent) Reset() {
-	*x = TimeQualityEvent{}
+func (x *TimeQuality) Reset() {
+	*x = TimeQuality{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_grid_v1_device_event_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -174,13 +174,13 @@ func (x *TimeQualityEvent) Reset() {
 	}
 }
 
-func (x *TimeQualityEvent) String() string {
+func (x *TimeQuality) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*TimeQualityEvent) ProtoMessage() {}
+func (*TimeQuality) ProtoMessage() {}
 
-func (x *TimeQualityEvent) ProtoReflect() protoreflect.Message {
+func (x *TimeQuality) ProtoReflect() protoreflect.Message {
 	mi := &file_grid_v1_device_event_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -192,19 +192,19 @@ func (x *TimeQualityEvent) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use TimeQualityEvent.ProtoReflect.Descriptor instead.
-func (*TimeQualityEvent) Descriptor() ([]byte, []int) {
+// Deprecated: Use TimeQuality.ProtoReflect.Descriptor instead.
+func (*TimeQuality) Descriptor() ([]byte, []int) {
 	return file_grid_v1_device_event_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *TimeQualityEvent) GetEvent() *DeviceEvent {
+func (x *TimeQuality) GetEvent() *DeviceEvent {
 	if x != nil {
 		return x.Event
 	}
 	return nil
 }
 
-type SyncStatusEvent struct {
+type SyncStatus struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -212,8 +212,8 @@ type SyncStatusEvent struct {
 	Event *DeviceEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"` //The base device event message
 }
 
-func (x *SyncStatusEvent) Reset() {
-	*x = SyncStatusEvent{}
+func (x *SyncStatus) Reset() {
+	*x = SyncStatus{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_grid_v1_device_event_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -221,13 +221,13 @@ func (x *SyncStatusEvent) Reset() {
 	}
 }
 
-func (x *SyncStatusEvent) String() string {
+func (x *SyncStatus) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SyncStatusEvent) ProtoMessage() {}
+func (*SyncStatus) ProtoMessage() {}
 
-func (x *SyncStatusEvent) ProtoReflect() protoreflect.Message {
+func (x *SyncStatus) ProtoReflect() protoreflect.Message {
 	mi := &file_grid_v1_device_event_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -239,19 +239,19 @@ func (x *SyncStatusEvent) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SyncStatusEvent.ProtoReflect.Descriptor instead.
-func (*SyncStatusEvent) Descriptor() ([]byte, []int) {
+// Deprecated: Use SyncStatus.ProtoReflect.Descriptor instead.
+func (*SyncStatus) Descriptor() ([]byte, []int) {
 	return file_grid_v1_device_event_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *SyncStatusEvent) GetEvent() *DeviceEvent {
+func (x *SyncStatus) GetEvent() *DeviceEvent {
 	if x != nil {
 		return x.Event
 	}
 	return nil
 }
 
-type PowerEvent struct {
+type Power struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -259,8 +259,8 @@ type PowerEvent struct {
 	Event *DeviceEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"` //The base device event message
 }
 
-func (x *PowerEvent) Reset() {
-	*x = PowerEvent{}
+func (x *Power) Reset() {
+	*x = Power{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_grid_v1_device_event_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -268,13 +268,13 @@ func (x *PowerEvent) Reset() {
 	}
 }
 
-func (x *PowerEvent) String() string {
+func (x *Power) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*PowerEvent) ProtoMessage() {}
+func (*Power) ProtoMessage() {}
 
-func (x *PowerEvent) ProtoReflect() protoreflect.Message {
+func (x *Power) ProtoReflect() protoreflect.Message {
 	mi := &file_grid_v1_device_event_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -286,19 +286,19 @@ func (x *PowerEvent) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use PowerEvent.ProtoReflect.Descriptor instead.
-func (*PowerEvent) Descriptor() ([]byte, []int) {
+// Deprecated: Use Power.ProtoReflect.Descriptor instead.
+func (*Power) Descriptor() ([]byte, []int) {
 	return file_grid_v1_device_event_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *PowerEvent) GetEvent() *DeviceEvent {
+func (x *Power) GetEvent() *DeviceEvent {
 	if x != nil {
 		return x.Event
 	}
 	return nil
 }
 
-type ConfigEvent struct {
+type Config struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -306,8 +306,8 @@ type ConfigEvent struct {
 	Event *DeviceEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"` //The base device event message
 }
 
-func (x *ConfigEvent) Reset() {
-	*x = ConfigEvent{}
+func (x *Config) Reset() {
+	*x = Config{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_grid_v1_device_event_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -315,13 +315,13 @@ func (x *ConfigEvent) Reset() {
 	}
 }
 
-func (x *ConfigEvent) String() string {
+func (x *Config) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ConfigEvent) ProtoMessage() {}
+func (*Config) ProtoMessage() {}
 
-func (x *ConfigEvent) ProtoReflect() protoreflect.Message {
+func (x *Config) ProtoReflect() protoreflect.Message {
 	mi := &file_grid_v1_device_event_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -333,19 +333,19 @@ func (x *ConfigEvent) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ConfigEvent.ProtoReflect.Descriptor instead.
-func (*ConfigEvent) Descriptor() ([]byte, []int) {
+// Deprecated: Use Config.ProtoReflect.Descriptor instead.
+func (*Config) Descriptor() ([]byte, []int) {
 	return file_grid_v1_device_event_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *ConfigEvent) GetEvent() *DeviceEvent {
+func (x *Config) GetEvent() *DeviceEvent {
 	if x != nil {
 		return x.Event
 	}
 	return nil
 }
 
-type TriggerEvent struct {
+type Trigger struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -353,8 +353,8 @@ type TriggerEvent struct {
 	Event *DeviceEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"` //The base device event message
 }
 
-func (x *TriggerEvent) Reset() {
-	*x = TriggerEvent{}
+func (x *Trigger) Reset() {
+	*x = Trigger{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_grid_v1_device_event_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -362,13 +362,13 @@ func (x *TriggerEvent) Reset() {
 	}
 }
 
-func (x *TriggerEvent) String() string {
+func (x *Trigger) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*TriggerEvent) ProtoMessage() {}
+func (*Trigger) ProtoMessage() {}
 
-func (x *TriggerEvent) ProtoReflect() protoreflect.Message {
+func (x *Trigger) ProtoReflect() protoreflect.Message {
 	mi := &file_grid_v1_device_event_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -380,19 +380,19 @@ func (x *TriggerEvent) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use TriggerEvent.ProtoReflect.Descriptor instead.
-func (*TriggerEvent) Descriptor() ([]byte, []int) {
+// Deprecated: Use Trigger.ProtoReflect.Descriptor instead.
+func (*Trigger) Descriptor() ([]byte, []int) {
 	return file_grid_v1_device_event_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *TriggerEvent) GetEvent() *DeviceEvent {
+func (x *Trigger) GetEvent() *DeviceEvent {
 	if x != nil {
 		return x.Event
 	}
 	return nil
 }
 
-type DataErrorEvent struct {
+type DataError struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -400,8 +400,8 @@ type DataErrorEvent struct {
 	Event *DeviceEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"` //The base device event message
 }
 
-func (x *DataErrorEvent) Reset() {
-	*x = DataErrorEvent{}
+func (x *DataError) Reset() {
+	*x = DataError{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_grid_v1_device_event_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -409,13 +409,13 @@ func (x *DataErrorEvent) Reset() {
 	}
 }
 
-func (x *DataErrorEvent) String() string {
+func (x *DataError) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*DataErrorEvent) ProtoMessage() {}
+func (*DataError) ProtoMessage() {}
 
-func (x *DataErrorEvent) ProtoReflect() protoreflect.Message {
+func (x *DataError) ProtoReflect() protoreflect.Message {
 	mi := &file_grid_v1_device_event_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -427,12 +427,12 @@ func (x *DataErrorEvent) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use DataErrorEvent.ProtoReflect.Descriptor instead.
-func (*DataErrorEvent) Descriptor() ([]byte, []int) {
+// Deprecated: Use DataError.ProtoReflect.Descriptor instead.
+func (*DataError) Descriptor() ([]byte, []int) {
 	return file_grid_v1_device_event_proto_rawDescGZIP(), []int{7}
 }
 
-func (x *DataErrorEvent) GetEvent() *DeviceEvent {
+func (x *DataError) GetEvent() *DeviceEvent {
 	if x != nil {
 		return x.Event
 	}
@@ -461,36 +461,33 @@ var file_grid_v1_device_event_proto_rawDesc = []byte{
 	0x18, 0x06, 0x20, 0x01, 0x28, 0x09, 0x48, 0x02, 0x52, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x88, 0x01,
 	0x01, 0x42, 0x08, 0x0a, 0x06, 0x5f, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x42, 0x11, 0x0a, 0x0f, 0x5f,
 	0x72, 0x65, 0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x4c, 0x69, 0x6d, 0x69, 0x74, 0x42, 0x07,
-	0x0a, 0x05, 0x5f, 0x63, 0x6f, 0x64, 0x65, 0x22, 0x45, 0x0a, 0x17, 0x43, 0x6f, 0x6d, 0x6d, 0x75,
-	0x6e, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x45, 0x76, 0x65,
-	0x6e, 0x74, 0x12, 0x2a, 0x0a, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x0a, 0x05, 0x5f, 0x63, 0x6f, 0x64, 0x65, 0x22, 0x40, 0x0a, 0x12, 0x43, 0x6f, 0x6d, 0x6d, 0x75,
+	0x6e, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x12, 0x2a, 0x0a,
+	0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x67,
+	0x72, 0x69, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x44, 0x65, 0x76, 0x69, 0x63, 0x65, 0x45, 0x76, 0x65,
+	0x6e, 0x74, 0x52, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x22, 0x39, 0x0a, 0x0b, 0x54, 0x69, 0x6d,
+	0x65, 0x51, 0x75, 0x61, 0x6c, 0x69, 0x74, 0x79, 0x12, 0x2a, 0x0a, 0x05, 0x65, 0x76, 0x65, 0x6e,
+	0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x67, 0x72, 0x69, 0x64, 0x2e, 0x76,
+	0x31, 0x2e, 0x44, 0x65, 0x76, 0x69, 0x63, 0x65, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x52, 0x05, 0x65,
+	0x76, 0x65, 0x6e, 0x74, 0x22, 0x38, 0x0a, 0x0a, 0x53, 0x79, 0x6e, 0x63, 0x53, 0x74, 0x61, 0x74,
+	0x75, 0x73, 0x12, 0x2a, 0x0a, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28,
 	0x0b, 0x32, 0x14, 0x2e, 0x67, 0x72, 0x69, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x44, 0x65, 0x76, 0x69,
-	0x63, 0x65, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x52, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x22, 0x3e,
-	0x0a, 0x10, 0x54, 0x69, 0x6d, 0x65, 0x51, 0x75, 0x61, 0x6c, 0x69, 0x74, 0x79, 0x45, 0x76, 0x65,
-	0x6e, 0x74, 0x12, 0x2a, 0x0a, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x0b, 0x32, 0x14, 0x2e, 0x67, 0x72, 0x69, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x44, 0x65, 0x76, 0x69,
-	0x63, 0x65, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x52, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x22, 0x3d,
-	0x0a, 0x0f, 0x53, 0x79, 0x6e, 0x63, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x45, 0x76, 0x65, 0x6e,
-	0x74, 0x12, 0x2a, 0x0a, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b,
-	0x32, 0x14, 0x2e, 0x67, 0x72, 0x69, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x44, 0x65, 0x76, 0x69, 0x63,
-	0x65, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x52, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x22, 0x38, 0x0a,
-	0x0a, 0x50, 0x6f, 0x77, 0x65, 0x72, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x12, 0x2a, 0x0a, 0x05, 0x65,
-	0x76, 0x65, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x67, 0x72, 0x69,
-	0x64, 0x2e, 0x76, 0x31, 0x2e, 0x44, 0x65, 0x76, 0x69, 0x63, 0x65, 0x45, 0x76, 0x65, 0x6e, 0x74,
-	0x52, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x22, 0x39, 0x0a, 0x0b, 0x43, 0x6f, 0x6e, 0x66, 0x69,
-	0x67, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x12, 0x2a, 0x0a, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x67, 0x72, 0x69, 0x64, 0x2e, 0x76, 0x31, 0x2e,
-	0x44, 0x65, 0x76, 0x69, 0x63, 0x65, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x52, 0x05, 0x65, 0x76, 0x65,
-	0x6e, 0x74, 0x22, 0x3a, 0x0a, 0x0c, 0x54, 0x72, 0x69, 0x67, 0x67, 0x65, 0x72, 0x45, 0x76, 0x65,
-	0x6e, 0x74, 0x12, 0x2a, 0x0a, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x0b, 0x32, 0x14, 0x2e, 0x67, 0x72, 0x69, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x44, 0x65, 0x76, 0x69,
-	0x63, 0x65, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x52, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x22, 0x3c,
-	0x0a, 0x0e, 0x44, 0x61, 0x74, 0x61, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x45, 0x76, 0x65, 0x6e, 0x74,
-	0x12, 0x2a, 0x0a, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32,
-	0x14, 0x2e, 0x67, 0x72, 0x69, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x44, 0x65, 0x76, 0x69, 0x63, 0x65,
-	0x45, 0x76, 0x65, 0x6e, 0x74, 0x52, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x42, 0x0b, 0x5a, 0x09,
-	0x2e, 0x2f, 0x67, 0x72, 0x69, 0x64, 0x2f, 0x76, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x33,
+	0x63, 0x65, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x52, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x22, 0x33,
+	0x0a, 0x05, 0x50, 0x6f, 0x77, 0x65, 0x72, 0x12, 0x2a, 0x0a, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x67, 0x72, 0x69, 0x64, 0x2e, 0x76, 0x31,
+	0x2e, 0x44, 0x65, 0x76, 0x69, 0x63, 0x65, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x52, 0x05, 0x65, 0x76,
+	0x65, 0x6e, 0x74, 0x22, 0x34, 0x0a, 0x06, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x12, 0x2a, 0x0a,
+	0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x67,
+	0x72, 0x69, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x44, 0x65, 0x76, 0x69, 0x63, 0x65, 0x45, 0x76, 0x65,
+	0x6e, 0x74, 0x52, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x22, 0x35, 0x0a, 0x07, 0x54, 0x72, 0x69,
+	0x67, 0x67, 0x65, 0x72, 0x12, 0x2a, 0x0a, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x67, 0x72, 0x69, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x44, 0x65,
+	0x76, 0x69, 0x63, 0x65, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x52, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74,
+	0x22, 0x37, 0x0a, 0x09, 0x44, 0x61, 0x74, 0x61, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x12, 0x2a, 0x0a,
+	0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x67,
+	0x72, 0x69, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x44, 0x65, 0x76, 0x69, 0x63, 0x65, 0x45, 0x76, 0x65,
+	0x6e, 0x74, 0x52, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x42, 0x0b, 0x5a, 0x09, 0x2e, 0x2f, 0x67,
+	0x72, 0x69, 0x64, 0x2f, 0x76, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -507,25 +504,25 @@ func file_grid_v1_device_event_proto_rawDescGZIP() []byte {
 
 var file_grid_v1_device_event_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_grid_v1_device_event_proto_goTypes = []interface{}{
-	(*DeviceEvent)(nil),             // 0: grid.v1.DeviceEvent
-	(*CommunicationErrorEvent)(nil), // 1: grid.v1.CommunicationErrorEvent
-	(*TimeQualityEvent)(nil),        // 2: grid.v1.TimeQualityEvent
-	(*SyncStatusEvent)(nil),         // 3: grid.v1.SyncStatusEvent
-	(*PowerEvent)(nil),              // 4: grid.v1.PowerEvent
-	(*ConfigEvent)(nil),             // 5: grid.v1.ConfigEvent
-	(*TriggerEvent)(nil),            // 6: grid.v1.TriggerEvent
-	(*DataErrorEvent)(nil),          // 7: grid.v1.DataErrorEvent
-	(*Event)(nil),                   // 8: grid.v1.Event
+	(*DeviceEvent)(nil),        // 0: grid.v1.DeviceEvent
+	(*CommunicationError)(nil), // 1: grid.v1.CommunicationError
+	(*TimeQuality)(nil),        // 2: grid.v1.TimeQuality
+	(*SyncStatus)(nil),         // 3: grid.v1.SyncStatus
+	(*Power)(nil),              // 4: grid.v1.Power
+	(*Config)(nil),             // 5: grid.v1.Config
+	(*Trigger)(nil),            // 6: grid.v1.Trigger
+	(*DataError)(nil),          // 7: grid.v1.DataError
+	(*Event)(nil),              // 8: grid.v1.Event
 }
 var file_grid_v1_device_event_proto_depIdxs = []int32{
 	8, // 0: grid.v1.DeviceEvent.event:type_name -> grid.v1.Event
-	0, // 1: grid.v1.CommunicationErrorEvent.event:type_name -> grid.v1.DeviceEvent
-	0, // 2: grid.v1.TimeQualityEvent.event:type_name -> grid.v1.DeviceEvent
-	0, // 3: grid.v1.SyncStatusEvent.event:type_name -> grid.v1.DeviceEvent
-	0, // 4: grid.v1.PowerEvent.event:type_name -> grid.v1.DeviceEvent
-	0, // 5: grid.v1.ConfigEvent.event:type_name -> grid.v1.DeviceEvent
-	0, // 6: grid.v1.TriggerEvent.event:type_name -> grid.v1.DeviceEvent
-	0, // 7: grid.v1.DataErrorEvent.event:type_name -> grid.v1.DeviceEvent
+	0, // 1: grid.v1.CommunicationError.event:type_name -> grid.v1.DeviceEvent
+	0, // 2: grid.v1.TimeQuality.event:type_name -> grid.v1.DeviceEvent
+	0, // 3: grid.v1.SyncStatus.event:type_name -> grid.v1.DeviceEvent
+	0, // 4: grid.v1.Power.event:type_name -> grid.v1.DeviceEvent
+	0, // 5: grid.v1.Config.event:type_name -> grid.v1.DeviceEvent
+	0, // 6: grid.v1.Trigger.event:type_name -> grid.v1.DeviceEvent
+	0, // 7: grid.v1.DataError.event:type_name -> grid.v1.DeviceEvent
 	8, // [8:8] is the sub-list for method output_type
 	8, // [8:8] is the sub-list for method input_type
 	8, // [8:8] is the sub-list for extension type_name
@@ -553,7 +550,7 @@ func file_grid_v1_device_event_proto_init() {
 			}
 		}
 		file_grid_v1_device_event_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CommunicationErrorEvent); i {
+			switch v := v.(*CommunicationError); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -565,7 +562,7 @@ func file_grid_v1_device_event_proto_init() {
 			}
 		}
 		file_grid_v1_device_event_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*TimeQualityEvent); i {
+			switch v := v.(*TimeQuality); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -577,7 +574,7 @@ func file_grid_v1_device_event_proto_init() {
 			}
 		}
 		file_grid_v1_device_event_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*SyncStatusEvent); i {
+			switch v := v.(*SyncStatus); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -589,7 +586,7 @@ func file_grid_v1_device_event_proto_init() {
 			}
 		}
 		file_grid_v1_device_event_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*PowerEvent); i {
+			switch v := v.(*Power); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -601,7 +598,7 @@ func file_grid_v1_device_event_proto_init() {
 			}
 		}
 		file_grid_v1_device_event_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ConfigEvent); i {
+			switch v := v.(*Config); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -613,7 +610,7 @@ func file_grid_v1_device_event_proto_init() {
 			}
 		}
 		file_grid_v1_device_event_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*TriggerEvent); i {
+			switch v := v.(*Trigger); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -625,7 +622,7 @@ func file_grid_v1_device_event_proto_init() {
 			}
 		}
 		file_grid_v1_device_event_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DataErrorEvent); i {
+			switch v := v.(*DataError); i {
 			case 0:
 				return &v.state
 			case 1:

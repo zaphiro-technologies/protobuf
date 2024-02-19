@@ -9,8 +9,9 @@ services.
 
 ## Imports
 
-| Import | Description |
-|--------|-------------|
+| Import                    | Description |
+|---------------------------|-------------|
+| google/protobuf/any.proto |             |
 
 
 
@@ -99,8 +100,9 @@ direction LR
 
 class Parameter {
   + string name
-  + string value
+  + google.protobuf.Any value
 }
+Parameter --> `google.protobuf.Any`
 
 ```
 ### Task Diagram
@@ -160,10 +162,10 @@ Notification --> `Parameter`
 A parameter of a `Task` or `Notification`
 
 
-| Field   | Ordinal | Type     | Label | Description          |
-|---------|---------|----------|-------|----------------------|
-| `name`  | 1       | `string` |       | The parameter name   |
-| `value` | 2       | `string` |       | The parameter value  |
+| Field   | Ordinal | Type                  | Label | Description          |
+|---------|---------|-----------------------|-------|----------------------|
+| `name`  | 1       | `string`              |       | The parameter name   |
+| `value` | 2       | `google.protobuf.Any` |       | The parameter value  |
 
 
 
