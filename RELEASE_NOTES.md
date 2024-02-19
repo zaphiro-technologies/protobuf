@@ -1,6 +1,10 @@
 # ProtoBuf Release Notes
 
-## 0.0.4-dev - 2024-02-13
+## 0.0.4-dev - 2024-02-19
+
+### Features
+
+- Topology protobuf and any notification params (PR #39 by @hiimjako)
 
 ### Continuous Integration
 
