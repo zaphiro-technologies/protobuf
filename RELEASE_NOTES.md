@@ -1,10 +1,11 @@
 # ProtoBuf Release Notes
 
-## 0.0.4-dev - 2024-02-19
+## 0.0.4-dev - 2024-02-20
 
 ### Features
 
-- Topology protobuf and any notification params (PR #39 by @hiimjako)
+- Add `Stat` protobuf (PR #40 by @hiimjako)
+- Support `ComputedTopology` protocol buffer (PR #39 by @hiimjako)
 
 ### Continuous Integration
 
