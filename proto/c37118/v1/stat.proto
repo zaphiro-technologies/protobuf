@@ -4,8 +4,8 @@ syntax = "proto3";
 Messages to support stat data injection exchange in the platform.
 */
 
-package grid.v1;
-option go_package = "./grid/v1";
+package c37118.v1;
+option go_package = "./c37118/v1";
 
 /* A Stat of PMU data, check IEEE C37.118 standard for more details.
 Headers used in rabbitMQ:

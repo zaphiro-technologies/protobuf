@@ -6,8 +6,8 @@ See [C37.118](https://www.typhoon-hil.com/documentation/typhoon-hil-software-man
 protocol.
 */
 
-package conf.v1;
-option go_package = "./conf/v1";
+package c37118.v1;
+option go_package = "./c37118/v1";
 
 /* Configuration frame 2 
 Headers used in rabbitMQ:
