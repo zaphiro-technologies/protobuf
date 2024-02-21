@@ -7,7 +7,7 @@ Messages to support stat data injection exchange in the platform.
 package grid.v1;
 option go_package = "./grid/v1";
 
-/* A Stat of PMU data, check c37.118 ieee standard for more details.
+/* A Stat of PMU data, check IEEE C37.118 standard for more details.
 Headers used in rabbitMQ:
 * `id` (string): id of the `Stat` message.
 * `producerId` (string): the id of the PMU linked to the Stat.
@@ -15,7 +15,7 @@ Headers used in rabbitMQ:
 */
 
 message Stat {
-    int64 createdAt = 1; // The time of creation of the topology data (Unix msec timestamp).
+    int64 measuredAt = 1; // The time of creation of the stat data (Unix msec timestamp).
     uint32 error = 2; // Error code uint8
 	bool sync = 3; // Synchronization status   
 	bool sorting = 4; // Sorting status
