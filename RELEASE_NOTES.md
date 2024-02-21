@@ -1,6 +1,6 @@
 # ProtoBuf Release Notes
 
-## 0.0.4-dev - 2024-02-20
+## 0.0.4-dev - 2024-02-21
 
 ### Features
 
