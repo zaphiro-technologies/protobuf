@@ -1,5 +1,11 @@
 # ProtoBuf Release Notes
 
+## 0.0.5-dev - 2024-02-29
+
+### Documentation
+
+- Add `aligned` header to Data and DataSet (PR #42 by @hiimjako)
+
 ## 0.0.4-dev - 2024-02-21
 
 ### Features
