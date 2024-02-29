@@ -151,6 +151,7 @@ direction LR
 %% * `type` (string): always `Data`
 %% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
 %% * `timestampId` (int64): related measurement Unix msec timestamp (if any)
+%% * `aligned` (bool, default true): whether the DataSet has to be time-aligned or not.
 %% 
 
 class Data {
@@ -173,6 +174,7 @@ direction LR
 %% * `type` (string): always `DataSet`
 %% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
 %% * `timestampId` (int64): related measurement Unix msec timestamp (if any)
+%% * `aligned` (bool, default true): whether the DataSet has to be time-aligned or not.
 %% 
 
 class DataSet {
@@ -193,6 +195,7 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 * `type` (string): always `Data`
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
 * `timestampId` (int64): related measurement Unix msec timestamp (if any)
+* `aligned` (bool, default true): whether the DataSet has to be time-aligned or not.
 
 
 
@@ -215,6 +218,7 @@ Headers used in rabbitMQ:
 * `type` (string): always `DataSet`
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
 * `timestampId` (int64): related measurement Unix msec timestamp (if any)
+* `aligned` (bool, default true): whether the DataSet has to be time-aligned or not.
 
 
 
