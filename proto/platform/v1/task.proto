@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-import "google/protobuf/any.proto";
+//import "google/protobuf/any.proto";
 
 /* <!-- markdownlint-disable --> 
 Messages to support coordination among processes/services in the platform.
@@ -36,7 +36,7 @@ enum NotificationType {
 
 message Parameter {
 	string name = 1; //The parameter name
-	google.protobuf.Any value = 2; //The parameter value
+	string value = 2; //The parameter value
 }
 
 /* A task message.
