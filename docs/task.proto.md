@@ -1,6 +1,6 @@
 # Package: platform.v1
 
-<!-- markdownlint-disable --> 
+import "google/protobuf/any.proto"; <!-- markdownlint-disable --> 
 Messages to support coordination among processes/services in the platform.
 At the time being this is a proof of concept. Different changes may occurs
 when we actually start to use the event driven approach to coordinate
@@ -9,9 +9,8 @@ services.
 
 ## Imports
 
-| Import                    | Description |
-|---------------------------|-------------|
-| google/protobuf/any.proto |             |
+| Import | Description |
+|--------|-------------|
 
 
 
@@ -100,9 +99,8 @@ direction LR
 
 class Parameter {
   + string name
-  + google.protobuf.Any value
+  + string value
 }
-Parameter --> `google.protobuf.Any`
 
 ```
 ### Task Diagram
@@ -162,10 +160,10 @@ Notification --> `Parameter`
 A parameter of a `Task` or `Notification`
 
 
-| Field   | Ordinal | Type                  | Label | Description          |
-|---------|---------|-----------------------|-------|----------------------|
-| `name`  | 1       | `string`              |       | The parameter name   |
-| `value` | 2       | `google.protobuf.Any` |       | The parameter value  |
+| Field   | Ordinal | Type     | Label | Description          |
+|---------|---------|----------|-------|----------------------|
+| `name`  | 1       | `string` |       | The parameter name   |
+| `value` | 2       | `string` |       | The parameter value  |
 
 
 
