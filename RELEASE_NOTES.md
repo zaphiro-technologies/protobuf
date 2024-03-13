@@ -1,10 +1,15 @@
 # ProtoBuf Release Notes
 
-## 0.0.5-dev - 2024-02-29
+## 0.0.5-dev - 2024-03-13
 
 ### Documentation
 
 - Add `aligned` header to Data and DataSet (PR #42 by @hiimjako)
+
+### Dependencies
+
+- Bump google.golang.org/protobuf from 1.32.0 to 1.33.0 (PR #44 by
+  @dependabot[bot])
 
 ## 0.0.4-dev - 2024-02-21
 
