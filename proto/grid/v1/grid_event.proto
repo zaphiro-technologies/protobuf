@@ -8,8 +8,154 @@ package grid.v1;
 option go_package = "./grid/v1";
 
 
-import "grid/v1/event.proto";
-import "grid/v1/fault.proto";
+/* The collection of Event Status defined so far.*/
+
+enum EventStatus {
+    EVENT_STATUS_UNSPECIFIED = 0; //No status defined
+    EVENT_STATUS_STARTED = 1; //Event started
+    EVENT_STATUS_IN_PROGRESS = 2; //Event is still active
+    EVENT_STATUS_ENDED = 3; //Event ended
+    EVENT_STATUS_UNKNOWN = 4; //Information available don't allow us to know if the even is active or complete
+}
+ 
+enum EventSourceType {
+    EVENT_SOURCE_UNSPECIFIED = 0; //No source type defined
+    EVENT_SOURCE_DEVICE = 1; //The source of the event was a device (e.g. PMU)
+    EVENT_SOURCE_SERVICE = 2; //The source of the event was a service (e.g. state estimator)
+    EVENT_SOURCE_EXTERNAL_SERVICE = 3; //The source of the event was a service external to SynchroGuard platform (e.g. SCADA)
+}
+
+/* A generic event.
+Headers used in rabbitMQ (only if not sent as part of `DataSet`):
+* `id` (string): id of the `Event`
+* `type` (string): always `Event` - used for routing.
+* `eventType` (string): the specific type of `Event`, this is required in addition 
+  to `type` for de-serialization of the messages.
+* `sourceId` (string): the id of the source (e.g. a PMU) that generated the event.
+* `timestampId` (int64): related measurement Unix msec timestamp (if any)
+*/
+
+message Event {
+  string Id = 1; //The uuid of the event.
+  string sourceId = 2; //The id of the source (e.g. a PMU) that generated the event.
+  EventSourceType sourceType = 3; //The type of data see `DataType` enum.
+  int64 occurredAt = 4; //The time of occurency of the event (Unix msec timestamp) usually is the same value as timestampId.
+  optional int64 detectedAt = 5; //The time of detection of the event (Unix msec timestamp).
+  string message = 6; //Event message.
+  optional EventStatus status = 7; //The status of the event.
+}
+
+
+
+/*
+ The type of fault connection among phases.
+
+ This message is modeled after [CIM PhaseConnectedFaultKind](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/PhaseConnectedFaultKind).
+ */
+
+enum PhaseConnectedFaultKind {
+    PHASE_CONNECTED_FAULT_KIND_UNSPECIFIED = 0;
+    /* The fault connects the indicated phases to ground. The line to line fault impedance is not used and assumed infinite. The full ground impedance is connected between each phase specified in the fault and ground, but not between the phases. */
+    PHASE_CONNECTED_FAULT_KIND_LINE_TO_GROUND = 1;
+    /* The fault connects the specified phases together without a connection to ground. The ground impedance of this fault is ignored. The line to line impedance is connected between each of the phases specified in the fault. For example three times for a three phase fault, one time for a two phase fault. A single phase fault should not be specified. */
+    PHASE_CONNECTED_FAULT_KIND_LINE_TO_LINE = 2;
+    /* The fault connects the indicated phases to ground and to each other. The line to line impedance is connected between each of the phases specified in the fault in a full mesh. For example three times for a three phase fault, one time for a two phase fault. A single phase fault should not be specified. The full ground impedance is connected between each phase specified in the fault and ground. */
+    PHASE_CONNECTED_FAULT_KIND_LINE_TO_LINE_TO_GROUND = 3;
+    /* The fault is when the conductor path is broken between two terminals. Additional coexisting faults may be required if the broken conductor also causes connections to grounds or other lines or phases. */
+    PHASE_CONNECTED_FAULT_KIND_LINE_OPEN = 4;
+}
+
+/*
+An unordered enumeration of phase identifiers. Allows designation of phases for both transmission and distribution equipment, circuits and loads. The enumeration, by itself, does not describe how the phases are connected together or connected to ground. Ground is not explicitly denoted as a phase.
+Residential and small commercial loads are often served from single-phase, or split-phase, secondary circuits. For the example of s12N, phases 1 and 2 refer to hot wires that are 180 degrees out of phase, while N refers to the neutral wire. Through single-phase transformer connections, these secondary circuits may be served from one or two of the primary phases A, B, and C. For three-phase loads, use the A, B, C phase codes instead of s12N.
+The integer values are from IEC 61968-9 to support revenue metering applications.
+
+This message is modeled after [CIM PhaseCode](https://zepben.github.io/evolve/docs/cim/evolve/IEC61970/Base/Core/PhaseCode/).
+ */
+
+enum PhaseCode {
+    PHASE_CODE_UNSPECIFIED = 0; //No phases specified.
+    PHASE_CODE_A = 1; //Phase A.
+    PHASE_CODE_B = 2; //Phase B.
+    PHASE_CODE_C = 3; //Phase C.
+    PHASE_CODE_N = 4; //Neutral phase.
+    PHASE_CODE_AB = 5; //Phases A and B.
+    PHASE_CODE_AC = 6; //Phases A and C.
+    PHASE_CODE_BC = 7; //Phases B and C.
+    PHASE_CODE_AN = 8; //Phases A and neutral.
+    PHASE_CODE_BN = 9; //Phases B and neutral.
+    PHASE_CODE_CN = 10; //Phases C and neutral.
+    PHASE_CODE_ABC = 11; //Phases A, B, and C.
+    PHASE_CODE_ABN = 12; //Phases A, B, and neutral.
+    PHASE_CODE_ACN = 13; //Phases A, C and neutral.
+    PHASE_CODE_BCN = 14; //Phases B, C, and neutral.
+    PHASE_CODE_ABCN = 15; //Phases A, B, C, and N.
+    PHASE_CODE_S1N = 16; //Secondary phase 1 and neutral.
+    PHASE_CODE_S2N = 17; //Secondary phase 2 and neutral.
+    PHASE_CODE_S12N = 18; //Secondary phases 1, 2, and neutral.
+    PHASE_CODE_S1 = 19; //Secondary phase 1.
+    PHASE_CODE_S2 = 20; //Secondary phase 2.
+    PHASE_CODE_S12 = 21; //Secondary phase 1 and 2.
+    PHASE_CODE_X = 22; //Unknown non-neutral phase.
+    PHASE_CODE_XY = 23; //Two unknown non-neutral phases.
+    PHASE_CODE_XN = 24; //Unknown non-neutral phase plus neutral.
+    PHASE_CODE_XYN = 25; //Two unknown non-neutral phases plus neutral.
+}
+
+/* Abnormal condition causing current flow through conducting equipment, such as caused by equipment failure or short circuits from objects not typically modelled (for example, a tree falling on a line).
+
+This message is modeled after [CIM Fault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/Fault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.
+
+Headers used in rabbitMQ:
+* `id` (string): id of the `Fault`
+* `type` (string): always `Fault`
+* `producerId` (string): the id of the producer (e.g. a PMU) linked to the notification.
+*/
+
+message Fault {
+    string Id = 1; //The textual id of the fault.
+    optional string description = 2; //The textual description of the fault.
+    PhaseConnectedFaultKind kind = 3; //The kind of phase fault.
+    PhaseCode phases = 4; //The phases participating in the fault. The fault connections into these phases are further specified by the type of fault.
+    int64 occurredAt = 5; //The date and time at which the fault occurred (Unix msec timestamp).
+    optional string faultyEquipmentId = 6; //The equipment with the fault.
+    optional int64 locatedAt = 7; //The time when the fault was located.
+    optional float faultCurrent = 8; //The current associated to the fault.
+    optional bool located = 9; //Was the fault located.
+    repeated string impactedEquipmentIds = 10; //The set of IDs of equipments impacted by the fault.
+}
+
+/* A fault that occurs on an AC line segment at some point along the length.
+
+This message is modeled after [CIM LineFault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/LineFault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.
+
+Headers used in rabbitMQ:
+* `id` (string): id of the `Fault`
+* `type` (string): always `LineFault`
+* `producerId` (string): the id of the producer (e.g. a PMU) linked to the notification.
+*/
+
+message LineFault {
+    Fault fault = 1; //The base fault message.
+    optional float lengthFromTerminal1 = 2; //The length to the place where the fault is located starting from terminal with sequence number 1 of the faulted line segment.
+    optional string acLineSegmentID = 3; //The line segment of this line fault.
+}
+
+/*
+A fault applied at the terminal, external to the equipment. This class is not used to specify faults internal to the equipment.
+
+This message is modeled after [CIM EquipmentFault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/EquipmentFault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.
+
+Headers used in rabbitMQ:
+* `id` (string): id of the `EquipmentFault`
+* `type` (string): always `LineFault`
+* `producerId` (string): the id of the producer (e.g. a PMU) linked to the notification.
+*/
+
+message EquipmentFault {
+    Fault fault = 1; //The base fault message.
+    optional string terminalID = 2; //The terminal connecting to the bus to which the fault is applied.
+}
 
 /* A grid event.
 Headers used in rabbitMQ (only if not sent as part of `DataSet`):
@@ -93,4 +239,52 @@ message SteadyOscillation {
 
 message TransientOscillation {
   PhaseEvent event = 1; //The base phase grid event message
+}
+
+
+/* A device event.
+Headers used in rabbitMQ:
+* `id`: id of the `Event`
+* `type`: always `Event` - used for routing.
+* `eventType`: the specific type of `DeviceEvent`, this is required in addition 
+  to `type` for de-serialization of the messages.
+* `sourceId`: the id of the source (e.g. a PMU) that generated the event.
+* `timestampId`: related measurement Unix msec timestamp (if any)
+*/
+
+message DeviceEvent {
+  Event event = 1; //The base event message
+  string deviceID = 2; //The ID of the device where the event occurred.
+  string substationID = 3; //The ID of the substation where the event occurred.
+  optional double value = 4; //The measured / estimated value in relation to the event.
+  optional double referenceLimit = 5; //The reference limit or expected value.
+  optional string code = 6; //The device event code (or the mapped string)
+}
+
+message CommunicationError {
+  DeviceEvent event = 1;  //The base device event message
+}
+
+message TimeQuality {
+  DeviceEvent event = 1;  //The base device event message
+}
+
+message SyncStatus {
+  DeviceEvent event = 1;  //The base device event message
+}
+
+message Power {
+  DeviceEvent event = 1;  //The base device event message
+}
+
+message Config {
+  DeviceEvent event = 1;  //The base device event message
+}
+
+message Trigger {
+  DeviceEvent event = 1;  //The base device event message
+}
+
+message DataError {
+  DeviceEvent event = 1;  //The base device event message
 }
