@@ -1,4 +1,6 @@
 version: v1
 plugins:
   - plugin: buf.build/protocolbuffers/go:v1.31.0
-    out: ../pkg
+    out: ../go
+  - plugin: buf.build/protocolbuffers/python
+    out: ../python
