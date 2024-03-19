@@ -1,4 +1,4 @@
-# Package: grid.v1
+# Package: zaphiro.grid.v1
 
 <!-- markdownlint-disable -->
 Messages to support grid event detection in the platform. Grid events are sub classes of Events.
@@ -7,10 +7,10 @@ Messages to support grid event detection in the platform. Grid events are sub cl
 
 ## Imports
 
-| Import              | Description |
-|---------------------|-------------|
-| grid/v1/event.proto |             |
-| grid/v1/fault.proto |             |
+| Import                      | Description |
+|-----------------------------|-------------|
+| zaphiro/grid/v1/event.proto |             |
+| zaphiro/grid/v1/fault.proto |             |
 
 
 
@@ -279,7 +279,7 @@ TransientOscillation --> `PhaseEvent`
 
 ## Message: GridEvent
 
-**FQN**: grid.v1.GridEvent
+**FQN**: zaphiro.grid.v1.GridEvent
 
 A grid event.
 Headers used in rabbitMQ (only if not sent as part of `DataSet`):
@@ -306,7 +306,7 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 ## Message: VoltageEvent
 
-**FQN**: grid.v1.VoltageEvent
+**FQN**: zaphiro.grid.v1.VoltageEvent
 
 
 
@@ -321,7 +321,7 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 ## Message: CurrentEvent
 
-**FQN**: grid.v1.CurrentEvent
+**FQN**: zaphiro.grid.v1.CurrentEvent
 
 
 
@@ -335,7 +335,7 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 ## Message: PhaseEvent
 
-**FQN**: grid.v1.PhaseEvent
+**FQN**: zaphiro.grid.v1.PhaseEvent
 
 
 
@@ -349,7 +349,7 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 ## Message: FrequencyEvent
 
-**FQN**: grid.v1.FrequencyEvent
+**FQN**: zaphiro.grid.v1.FrequencyEvent
 
 
 
@@ -363,7 +363,7 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 ## Message: LineCongestion
 
-**FQN**: grid.v1.LineCongestion
+**FQN**: zaphiro.grid.v1.LineCongestion
 
 
 
@@ -377,7 +377,7 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 ## Message: TransformerCongestion
 
-**FQN**: grid.v1.TransformerCongestion
+**FQN**: zaphiro.grid.v1.TransformerCongestion
 
 
 
@@ -391,7 +391,7 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 ## Message: VoltageUnbalance
 
-**FQN**: grid.v1.VoltageUnbalance
+**FQN**: zaphiro.grid.v1.VoltageUnbalance
 
 
 
@@ -405,7 +405,7 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 ## Message: VoltageDip
 
-**FQN**: grid.v1.VoltageDip
+**FQN**: zaphiro.grid.v1.VoltageDip
 
 
 
@@ -419,7 +419,7 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 ## Message: VoltageInterruption
 
-**FQN**: grid.v1.VoltageInterruption
+**FQN**: zaphiro.grid.v1.VoltageInterruption
 
 
 
@@ -433,7 +433,7 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 ## Message: VoltageSwell
 
-**FQN**: grid.v1.VoltageSwell
+**FQN**: zaphiro.grid.v1.VoltageSwell
 
 
 
@@ -447,7 +447,7 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 ## Message: VoltageLimit
 
-**FQN**: grid.v1.VoltageLimit
+**FQN**: zaphiro.grid.v1.VoltageLimit
 
 
 
@@ -461,7 +461,7 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 ## Message: VoltageRapidChange
 
-**FQN**: grid.v1.VoltageRapidChange
+**FQN**: zaphiro.grid.v1.VoltageRapidChange
 
 
 
@@ -475,7 +475,7 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 ## Message: OverFrequency
 
-**FQN**: grid.v1.OverFrequency
+**FQN**: zaphiro.grid.v1.OverFrequency
 
 
 
@@ -489,7 +489,7 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 ## Message: UnderFrequency
 
-**FQN**: grid.v1.UnderFrequency
+**FQN**: zaphiro.grid.v1.UnderFrequency
 
 
 
@@ -503,7 +503,7 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 ## Message: SteadyOscillation
 
-**FQN**: grid.v1.SteadyOscillation
+**FQN**: zaphiro.grid.v1.SteadyOscillation
 
 
 
@@ -517,7 +517,7 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 ## Message: TransientOscillation
 
-**FQN**: grid.v1.TransientOscillation
+**FQN**: zaphiro.grid.v1.TransientOscillation
 
 
 

@@ -1,4 +1,4 @@
-# Package: c37118.v1
+# Package: zaphiro.c37118.v1
 
 <!-- markdownlint-disable -->
 Messages describing PMU C37.118 Configurations. 
@@ -92,7 +92,7 @@ class Config {
 
 ## Message: Conf2Frame
 
-**FQN**: c37118.v1.Conf2Frame
+**FQN**: zaphiro.c37118.v1.Conf2Frame
 
 Configuration frame 2 
 Headers used in rabbitMQ:
@@ -114,7 +114,7 @@ Headers used in rabbitMQ:
 
 ## Message: Conf2Header
 
-**FQN**: c37118.v1.Conf2Header
+**FQN**: zaphiro.c37118.v1.Conf2Header
 
 Configuration frame 2 header
 
@@ -134,7 +134,7 @@ Configuration frame 2 header
 
 ## Message: Config
 
-**FQN**: c37118.v1.Config
+**FQN**: zaphiro.c37118.v1.Config
 
 Single PMU configuration according to Configuration frame 2
 

@@ -1,4 +1,4 @@
-# Package: grid.v1
+# Package: zaphiro.grid.v1
 
 <!-- markdownlint-disable -->
 Messages to support device event detection in the platform. Device events are sub classes of Events.
@@ -7,9 +7,9 @@ Messages to support device event detection in the platform. Device events are su
 
 ## Imports
 
-| Import              | Description |
-|---------------------|-------------|
-| grid/v1/event.proto |             |
+| Import                      | Description |
+|-----------------------------|-------------|
+| zaphiro/grid/v1/event.proto |             |
 
 
 
@@ -150,7 +150,7 @@ DataError --> `DeviceEvent`
 
 ## Message: DeviceEvent
 
-**FQN**: grid.v1.DeviceEvent
+**FQN**: zaphiro.grid.v1.DeviceEvent
 
 A device event.
 Headers used in rabbitMQ:
@@ -177,7 +177,7 @@ Headers used in rabbitMQ:
 
 ## Message: CommunicationError
 
-**FQN**: grid.v1.CommunicationError
+**FQN**: zaphiro.grid.v1.CommunicationError
 
 
 
@@ -191,7 +191,7 @@ Headers used in rabbitMQ:
 
 ## Message: TimeQuality
 
-**FQN**: grid.v1.TimeQuality
+**FQN**: zaphiro.grid.v1.TimeQuality
 
 
 
@@ -205,7 +205,7 @@ Headers used in rabbitMQ:
 
 ## Message: SyncStatus
 
-**FQN**: grid.v1.SyncStatus
+**FQN**: zaphiro.grid.v1.SyncStatus
 
 
 
@@ -219,7 +219,7 @@ Headers used in rabbitMQ:
 
 ## Message: Power
 
-**FQN**: grid.v1.Power
+**FQN**: zaphiro.grid.v1.Power
 
 
 
@@ -233,7 +233,7 @@ Headers used in rabbitMQ:
 
 ## Message: Config
 
-**FQN**: grid.v1.Config
+**FQN**: zaphiro.grid.v1.Config
 
 
 
@@ -247,7 +247,7 @@ Headers used in rabbitMQ:
 
 ## Message: Trigger
 
-**FQN**: grid.v1.Trigger
+**FQN**: zaphiro.grid.v1.Trigger
 
 
 
@@ -261,7 +261,7 @@ Headers used in rabbitMQ:
 
 ## Message: DataError
 
-**FQN**: grid.v1.DataError
+**FQN**: zaphiro.grid.v1.DataError
 
 
 

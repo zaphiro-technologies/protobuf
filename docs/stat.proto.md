@@ -1,4 +1,4 @@
-# Package: c37118.v1
+# Package: zaphiro.c37118.v1
 
 <!-- markdownlint-disable -->
 Messages to support stat data injection exchange in the platform.
@@ -51,7 +51,7 @@ class Stat {
 
 ## Message: Stat
 
-**FQN**: c37118.v1.Stat
+**FQN**: zaphiro.c37118.v1.Stat
 
 A Stat of PMU data, check IEEE C37.118 standard for more details.
 Headers used in rabbitMQ:
