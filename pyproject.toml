@@ -22,6 +22,7 @@ documentation = "https://github.com/zaphiro-technologies/protobuf"
 [tool.poetry.dependencies]
 python = ">=3.8"
 protobuf = "^5.26.0"
+types-protobuf = "^4.24.0.20240311"
 
 
 [build-system]
