@@ -40,7 +40,8 @@ packages:
   - `Task`: a task to be performed by an service in the platform.
   - `Notification`: a notification produced by a service in the platform.
 - _C37118_ package collects messages related to the IEEE c37.118 standard,
-  defined in [`zaphiro/c37118/v1`](./zaphiro/c37118/v1/), which currently include:
+  defined in [`zaphiro/c37118/v1`](./zaphiro/c37118/v1/), which currently
+  include:
   - `Conf2Frame`: a Protocol Buffer used to store PMU configuration frames.
   - `Stat`: a Protocol Buffer used to store PMU measurement Stat.
 
