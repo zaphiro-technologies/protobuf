@@ -17,7 +17,7 @@ At the time being this repository includes the following Protocol Buffer
 packages:
 
 - _Grid_ package collects grid related messages, defined in
-  [`proto/grid/v1`](./proto/grid/v1/), which currently include:
+  [`zaphiro/grid/v1`](./zaphiro/grid/v1/), which currently include:
   - `Data` protocol buffer package, that includes the following messages
     - `Data`: a single measurement data
     - `DataSet`: a collection of measurement data.
@@ -36,11 +36,11 @@ packages:
     inherited by:
     - `GridEvent`: a message that represent grid events.
 - _Platform_ package collects platform related messages, defined in
-  [`proto/platform/v1`](./proto/platform/v1/), which currently include:
+  [`zaphiro/platform/v1`](./zaphiro/platform/v1/), which currently include:
   - `Task`: a task to be performed by an service in the platform.
   - `Notification`: a notification produced by a service in the platform.
 - _C37118_ package collects messages related to the IEEE c37.118 standard,
-  defined in [`proto/c37118/v1`](./proto/c37118/v1/), which currently include:
+  defined in [`zaphiro/c37118/v1`](./zaphiro/c37118/v1/), which currently include:
   - `Conf2Frame`: a Protocol Buffer used to store PMU configuration frames.
   - `Stat`: a Protocol Buffer used to store PMU measurement Stat.
 
