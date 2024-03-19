@@ -20,7 +20,7 @@ cov:
 
 .PHONY: generate
 generate:
-	cd proto; buf generate
+	buf generate
 
 .PHONY: docs
 docs:
@@ -31,7 +31,7 @@ docs:
 
 .PHONY: proto-lint
 proto-lint:
-	cd proto; buf lint
+	buf lint
 
 # Mandatory
 ci-test: cov

@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.31.0
 // 	protoc        (unknown)
-// source: c37118/v1/conf2.proto
+// source: zaphiro/c37118/v1/conf2.proto
 
 // <!-- markdownlint-disable -->
 //Messages describing PMU C37.118 Configurations.
@@ -38,7 +38,7 @@ type Conf2Frame struct {
 func (x *Conf2Frame) Reset() {
 	*x = Conf2Frame{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_c37118_v1_conf2_proto_msgTypes[0]
+		mi := &file_zaphiro_c37118_v1_conf2_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -51,7 +51,7 @@ func (x *Conf2Frame) String() string {
 func (*Conf2Frame) ProtoMessage() {}
 
 func (x *Conf2Frame) ProtoReflect() protoreflect.Message {
-	mi := &file_c37118_v1_conf2_proto_msgTypes[0]
+	mi := &file_zaphiro_c37118_v1_conf2_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -64,7 +64,7 @@ func (x *Conf2Frame) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Conf2Frame.ProtoReflect.Descriptor instead.
 func (*Conf2Frame) Descriptor() ([]byte, []int) {
-	return file_c37118_v1_conf2_proto_rawDescGZIP(), []int{0}
+	return file_zaphiro_c37118_v1_conf2_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Conf2Frame) GetHeader() *Conf2Header {
@@ -105,7 +105,7 @@ type Conf2Header struct {
 func (x *Conf2Header) Reset() {
 	*x = Conf2Header{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_c37118_v1_conf2_proto_msgTypes[1]
+		mi := &file_zaphiro_c37118_v1_conf2_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -118,7 +118,7 @@ func (x *Conf2Header) String() string {
 func (*Conf2Header) ProtoMessage() {}
 
 func (x *Conf2Header) ProtoReflect() protoreflect.Message {
-	mi := &file_c37118_v1_conf2_proto_msgTypes[1]
+	mi := &file_zaphiro_c37118_v1_conf2_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -131,7 +131,7 @@ func (x *Conf2Header) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Conf2Header.ProtoReflect.Descriptor instead.
 func (*Conf2Header) Descriptor() ([]byte, []int) {
-	return file_c37118_v1_conf2_proto_rawDescGZIP(), []int{1}
+	return file_zaphiro_c37118_v1_conf2_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *Conf2Header) GetSYNC() uint32 {
@@ -205,7 +205,7 @@ type Config struct {
 func (x *Config) Reset() {
 	*x = Config{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_c37118_v1_conf2_proto_msgTypes[2]
+		mi := &file_zaphiro_c37118_v1_conf2_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -218,7 +218,7 @@ func (x *Config) String() string {
 func (*Config) ProtoMessage() {}
 
 func (x *Config) ProtoReflect() protoreflect.Message {
-	mi := &file_c37118_v1_conf2_proto_msgTypes[2]
+	mi := &file_zaphiro_c37118_v1_conf2_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -231,7 +231,7 @@ func (x *Config) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Config.ProtoReflect.Descriptor instead.
 func (*Config) Descriptor() ([]byte, []int) {
-	return file_c37118_v1_conf2_proto_rawDescGZIP(), []int{2}
+	return file_zaphiro_c37118_v1_conf2_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *Config) GetSTN() string {
@@ -318,17 +318,19 @@ func (x *Config) GetCFGCNT() uint32 {
 	return 0
 }
 
-var File_c37118_v1_conf2_proto protoreflect.FileDescriptor
+var File_zaphiro_c37118_v1_conf2_proto protoreflect.FileDescriptor
 
-var file_c37118_v1_conf2_proto_rawDesc = []byte{
-	0x0a, 0x15, 0x63, 0x33, 0x37, 0x31, 0x31, 0x38, 0x2f, 0x76, 0x31, 0x2f, 0x63, 0x6f, 0x6e, 0x66,
-	0x32, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x09, 0x63, 0x33, 0x37, 0x31, 0x31, 0x38, 0x2e,
-	0x76, 0x31, 0x22, 0x86, 0x01, 0x0a, 0x0a, 0x43, 0x6f, 0x6e, 0x66, 0x32, 0x46, 0x72, 0x61, 0x6d,
-	0x65, 0x12, 0x2e, 0x0a, 0x06, 0x68, 0x65, 0x61, 0x64, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x0b, 0x32, 0x16, 0x2e, 0x63, 0x33, 0x37, 0x31, 0x31, 0x38, 0x2e, 0x76, 0x31, 0x2e, 0x43, 0x6f,
-	0x6e, 0x66, 0x32, 0x48, 0x65, 0x61, 0x64, 0x65, 0x72, 0x52, 0x06, 0x68, 0x65, 0x61, 0x64, 0x65,
-	0x72, 0x12, 0x2b, 0x0a, 0x07, 0x63, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x73, 0x18, 0x02, 0x20, 0x03,
-	0x28, 0x0b, 0x32, 0x11, 0x2e, 0x63, 0x33, 0x37, 0x31, 0x31, 0x38, 0x2e, 0x76, 0x31, 0x2e, 0x43,
+var file_zaphiro_c37118_v1_conf2_proto_rawDesc = []byte{
+	0x0a, 0x1d, 0x7a, 0x61, 0x70, 0x68, 0x69, 0x72, 0x6f, 0x2f, 0x63, 0x33, 0x37, 0x31, 0x31, 0x38,
+	0x2f, 0x76, 0x31, 0x2f, 0x63, 0x6f, 0x6e, 0x66, 0x32, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12,
+	0x11, 0x7a, 0x61, 0x70, 0x68, 0x69, 0x72, 0x6f, 0x2e, 0x63, 0x33, 0x37, 0x31, 0x31, 0x38, 0x2e,
+	0x76, 0x31, 0x22, 0x96, 0x01, 0x0a, 0x0a, 0x43, 0x6f, 0x6e, 0x66, 0x32, 0x46, 0x72, 0x61, 0x6d,
+	0x65, 0x12, 0x36, 0x0a, 0x06, 0x68, 0x65, 0x61, 0x64, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x0b, 0x32, 0x1e, 0x2e, 0x7a, 0x61, 0x70, 0x68, 0x69, 0x72, 0x6f, 0x2e, 0x63, 0x33, 0x37, 0x31,
+	0x31, 0x38, 0x2e, 0x76, 0x31, 0x2e, 0x43, 0x6f, 0x6e, 0x66, 0x32, 0x48, 0x65, 0x61, 0x64, 0x65,
+	0x72, 0x52, 0x06, 0x68, 0x65, 0x61, 0x64, 0x65, 0x72, 0x12, 0x33, 0x0a, 0x07, 0x63, 0x6f, 0x6e,
+	0x66, 0x69, 0x67, 0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x19, 0x2e, 0x7a, 0x61, 0x70,
+	0x68, 0x69, 0x72, 0x6f, 0x2e, 0x63, 0x33, 0x37, 0x31, 0x31, 0x38, 0x2e, 0x76, 0x31, 0x2e, 0x43,
 	0x6f, 0x6e, 0x66, 0x69, 0x67, 0x52, 0x07, 0x63, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x73, 0x12, 0x1b,
 	0x0a, 0x09, 0x44, 0x41, 0x54, 0x41, 0x5f, 0x52, 0x41, 0x54, 0x45, 0x18, 0x03, 0x20, 0x01, 0x28,
 	0x0d, 0x52, 0x08, 0x44, 0x41, 0x54, 0x41, 0x52, 0x41, 0x54, 0x45, 0x22, 0xb9, 0x01, 0x0a, 0x0b,
@@ -366,26 +368,26 @@ var file_c37118_v1_conf2_proto_rawDesc = []byte{
 }
 
 var (
-	file_c37118_v1_conf2_proto_rawDescOnce sync.Once
-	file_c37118_v1_conf2_proto_rawDescData = file_c37118_v1_conf2_proto_rawDesc
+	file_zaphiro_c37118_v1_conf2_proto_rawDescOnce sync.Once
+	file_zaphiro_c37118_v1_conf2_proto_rawDescData = file_zaphiro_c37118_v1_conf2_proto_rawDesc
 )
 
-func file_c37118_v1_conf2_proto_rawDescGZIP() []byte {
-	file_c37118_v1_conf2_proto_rawDescOnce.Do(func() {
-		file_c37118_v1_conf2_proto_rawDescData = protoimpl.X.CompressGZIP(file_c37118_v1_conf2_proto_rawDescData)
+func file_zaphiro_c37118_v1_conf2_proto_rawDescGZIP() []byte {
+	file_zaphiro_c37118_v1_conf2_proto_rawDescOnce.Do(func() {
+		file_zaphiro_c37118_v1_conf2_proto_rawDescData = protoimpl.X.CompressGZIP(file_zaphiro_c37118_v1_conf2_proto_rawDescData)
 	})
-	return file_c37118_v1_conf2_proto_rawDescData
+	return file_zaphiro_c37118_v1_conf2_proto_rawDescData
 }
 
-var file_c37118_v1_conf2_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
-var file_c37118_v1_conf2_proto_goTypes = []interface{}{
-	(*Conf2Frame)(nil),  // 0: c37118.v1.Conf2Frame
-	(*Conf2Header)(nil), // 1: c37118.v1.Conf2Header
-	(*Config)(nil),      // 2: c37118.v1.Config
+var file_zaphiro_c37118_v1_conf2_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_zaphiro_c37118_v1_conf2_proto_goTypes = []interface{}{
+	(*Conf2Frame)(nil),  // 0: zaphiro.c37118.v1.Conf2Frame
+	(*Conf2Header)(nil), // 1: zaphiro.c37118.v1.Conf2Header
+	(*Config)(nil),      // 2: zaphiro.c37118.v1.Config
 }
-var file_c37118_v1_conf2_proto_depIdxs = []int32{
-	1, // 0: c37118.v1.Conf2Frame.header:type_name -> c37118.v1.Conf2Header
-	2, // 1: c37118.v1.Conf2Frame.configs:type_name -> c37118.v1.Config
+var file_zaphiro_c37118_v1_conf2_proto_depIdxs = []int32{
+	1, // 0: zaphiro.c37118.v1.Conf2Frame.header:type_name -> zaphiro.c37118.v1.Conf2Header
+	2, // 1: zaphiro.c37118.v1.Conf2Frame.configs:type_name -> zaphiro.c37118.v1.Config
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
@@ -393,13 +395,13 @@ var file_c37118_v1_conf2_proto_depIdxs = []int32{
 	0, // [0:2] is the sub-list for field type_name
 }
 
-func init() { file_c37118_v1_conf2_proto_init() }
-func file_c37118_v1_conf2_proto_init() {
-	if File_c37118_v1_conf2_proto != nil {
+func init() { file_zaphiro_c37118_v1_conf2_proto_init() }
+func file_zaphiro_c37118_v1_conf2_proto_init() {
+	if File_zaphiro_c37118_v1_conf2_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_c37118_v1_conf2_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_zaphiro_c37118_v1_conf2_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Conf2Frame); i {
 			case 0:
 				return &v.state
@@ -411,7 +413,7 @@ func file_c37118_v1_conf2_proto_init() {
 				return nil
 			}
 		}
-		file_c37118_v1_conf2_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_zaphiro_c37118_v1_conf2_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Conf2Header); i {
 			case 0:
 				return &v.state
@@ -423,7 +425,7 @@ func file_c37118_v1_conf2_proto_init() {
 				return nil
 			}
 		}
-		file_c37118_v1_conf2_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_zaphiro_c37118_v1_conf2_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Config); i {
 			case 0:
 				return &v.state
@@ -440,18 +442,18 @@ func file_c37118_v1_conf2_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_c37118_v1_conf2_proto_rawDesc,
+			RawDescriptor: file_zaphiro_c37118_v1_conf2_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_c37118_v1_conf2_proto_goTypes,
-		DependencyIndexes: file_c37118_v1_conf2_proto_depIdxs,
-		MessageInfos:      file_c37118_v1_conf2_proto_msgTypes,
+		GoTypes:           file_zaphiro_c37118_v1_conf2_proto_goTypes,
+		DependencyIndexes: file_zaphiro_c37118_v1_conf2_proto_depIdxs,
+		MessageInfos:      file_zaphiro_c37118_v1_conf2_proto_msgTypes,
 	}.Build()
-	File_c37118_v1_conf2_proto = out.File
-	file_c37118_v1_conf2_proto_rawDesc = nil
-	file_c37118_v1_conf2_proto_goTypes = nil
-	file_c37118_v1_conf2_proto_depIdxs = nil
+	File_zaphiro_c37118_v1_conf2_proto = out.File
+	file_zaphiro_c37118_v1_conf2_proto_rawDesc = nil
+	file_zaphiro_c37118_v1_conf2_proto_goTypes = nil
+	file_zaphiro_c37118_v1_conf2_proto_depIdxs = nil
 }

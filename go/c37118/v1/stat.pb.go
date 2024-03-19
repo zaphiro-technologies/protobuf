@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.31.0
 // 	protoc        (unknown)
-// source: c37118/v1/stat.proto
+// source: zaphiro/c37118/v1/stat.proto
 
 //  <!-- markdownlint-disable -->
 //Messages to support stat data injection exchange in the platform.
@@ -43,7 +43,7 @@ type Stat struct {
 func (x *Stat) Reset() {
 	*x = Stat{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_c37118_v1_stat_proto_msgTypes[0]
+		mi := &file_zaphiro_c37118_v1_stat_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -56,7 +56,7 @@ func (x *Stat) String() string {
 func (*Stat) ProtoMessage() {}
 
 func (x *Stat) ProtoReflect() protoreflect.Message {
-	mi := &file_c37118_v1_stat_proto_msgTypes[0]
+	mi := &file_zaphiro_c37118_v1_stat_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -69,7 +69,7 @@ func (x *Stat) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Stat.ProtoReflect.Descriptor instead.
 func (*Stat) Descriptor() ([]byte, []int) {
-	return file_c37118_v1_stat_proto_rawDescGZIP(), []int{0}
+	return file_zaphiro_c37118_v1_stat_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Stat) GetMeasuredAt() int64 {
@@ -142,11 +142,12 @@ func (x *Stat) GetTriggerReason() uint32 {
 	return 0
 }
 
-var File_c37118_v1_stat_proto protoreflect.FileDescriptor
+var File_zaphiro_c37118_v1_stat_proto protoreflect.FileDescriptor
 
-var file_c37118_v1_stat_proto_rawDesc = []byte{
-	0x0a, 0x14, 0x63, 0x33, 0x37, 0x31, 0x31, 0x38, 0x2f, 0x76, 0x31, 0x2f, 0x73, 0x74, 0x61, 0x74,
-	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x09, 0x63, 0x33, 0x37, 0x31, 0x31, 0x38, 0x2e, 0x76,
+var file_zaphiro_c37118_v1_stat_proto_rawDesc = []byte{
+	0x0a, 0x1c, 0x7a, 0x61, 0x70, 0x68, 0x69, 0x72, 0x6f, 0x2f, 0x63, 0x33, 0x37, 0x31, 0x31, 0x38,
+	0x2f, 0x76, 0x31, 0x2f, 0x73, 0x74, 0x61, 0x74, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x11,
+	0x7a, 0x61, 0x70, 0x68, 0x69, 0x72, 0x6f, 0x2e, 0x63, 0x33, 0x37, 0x31, 0x31, 0x38, 0x2e, 0x76,
 	0x31, 0x22, 0xb8, 0x02, 0x0a, 0x04, 0x53, 0x74, 0x61, 0x74, 0x12, 0x1e, 0x0a, 0x0a, 0x6d, 0x65,
 	0x61, 0x73, 0x75, 0x72, 0x65, 0x64, 0x41, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0a,
 	0x6d, 0x65, 0x61, 0x73, 0x75, 0x72, 0x65, 0x64, 0x41, 0x74, 0x12, 0x14, 0x0a, 0x05, 0x65, 0x72,
@@ -172,22 +173,22 @@ var file_c37118_v1_stat_proto_rawDesc = []byte{
 }
 
 var (
-	file_c37118_v1_stat_proto_rawDescOnce sync.Once
-	file_c37118_v1_stat_proto_rawDescData = file_c37118_v1_stat_proto_rawDesc
+	file_zaphiro_c37118_v1_stat_proto_rawDescOnce sync.Once
+	file_zaphiro_c37118_v1_stat_proto_rawDescData = file_zaphiro_c37118_v1_stat_proto_rawDesc
 )
 
-func file_c37118_v1_stat_proto_rawDescGZIP() []byte {
-	file_c37118_v1_stat_proto_rawDescOnce.Do(func() {
-		file_c37118_v1_stat_proto_rawDescData = protoimpl.X.CompressGZIP(file_c37118_v1_stat_proto_rawDescData)
+func file_zaphiro_c37118_v1_stat_proto_rawDescGZIP() []byte {
+	file_zaphiro_c37118_v1_stat_proto_rawDescOnce.Do(func() {
+		file_zaphiro_c37118_v1_stat_proto_rawDescData = protoimpl.X.CompressGZIP(file_zaphiro_c37118_v1_stat_proto_rawDescData)
 	})
-	return file_c37118_v1_stat_proto_rawDescData
+	return file_zaphiro_c37118_v1_stat_proto_rawDescData
 }
 
-var file_c37118_v1_stat_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
-var file_c37118_v1_stat_proto_goTypes = []interface{}{
-	(*Stat)(nil), // 0: c37118.v1.Stat
+var file_zaphiro_c37118_v1_stat_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_zaphiro_c37118_v1_stat_proto_goTypes = []interface{}{
+	(*Stat)(nil), // 0: zaphiro.c37118.v1.Stat
 }
-var file_c37118_v1_stat_proto_depIdxs = []int32{
+var file_zaphiro_c37118_v1_stat_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -195,13 +196,13 @@ var file_c37118_v1_stat_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_c37118_v1_stat_proto_init() }
-func file_c37118_v1_stat_proto_init() {
-	if File_c37118_v1_stat_proto != nil {
+func init() { file_zaphiro_c37118_v1_stat_proto_init() }
+func file_zaphiro_c37118_v1_stat_proto_init() {
+	if File_zaphiro_c37118_v1_stat_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_c37118_v1_stat_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_zaphiro_c37118_v1_stat_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Stat); i {
 			case 0:
 				return &v.state
@@ -218,18 +219,18 @@ func file_c37118_v1_stat_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_c37118_v1_stat_proto_rawDesc,
+			RawDescriptor: file_zaphiro_c37118_v1_stat_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_c37118_v1_stat_proto_goTypes,
-		DependencyIndexes: file_c37118_v1_stat_proto_depIdxs,
-		MessageInfos:      file_c37118_v1_stat_proto_msgTypes,
+		GoTypes:           file_zaphiro_c37118_v1_stat_proto_goTypes,
+		DependencyIndexes: file_zaphiro_c37118_v1_stat_proto_depIdxs,
+		MessageInfos:      file_zaphiro_c37118_v1_stat_proto_msgTypes,
 	}.Build()
-	File_c37118_v1_stat_proto = out.File
-	file_c37118_v1_stat_proto_rawDesc = nil
-	file_c37118_v1_stat_proto_goTypes = nil
-	file_c37118_v1_stat_proto_depIdxs = nil
+	File_zaphiro_c37118_v1_stat_proto = out.File
+	file_zaphiro_c37118_v1_stat_proto_rawDesc = nil
+	file_zaphiro_c37118_v1_stat_proto_goTypes = nil
+	file_zaphiro_c37118_v1_stat_proto_depIdxs = nil
 }

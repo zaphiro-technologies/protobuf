@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.31.0
 // 	protoc        (unknown)
-// source: grid/v1/event.proto
+// source: zaphiro/grid/v1/event.proto
 
 //  <!-- markdownlint-disable -->
 //Messages to support event detection in the platform.
@@ -63,11 +63,11 @@ func (x EventStatus) String() string {
 }
 
 func (EventStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_grid_v1_event_proto_enumTypes[0].Descriptor()
+	return file_zaphiro_grid_v1_event_proto_enumTypes[0].Descriptor()
 }
 
 func (EventStatus) Type() protoreflect.EnumType {
-	return &file_grid_v1_event_proto_enumTypes[0]
+	return &file_zaphiro_grid_v1_event_proto_enumTypes[0]
 }
 
 func (x EventStatus) Number() protoreflect.EnumNumber {
@@ -76,7 +76,7 @@ func (x EventStatus) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use EventStatus.Descriptor instead.
 func (EventStatus) EnumDescriptor() ([]byte, []int) {
-	return file_grid_v1_event_proto_rawDescGZIP(), []int{0}
+	return file_zaphiro_grid_v1_event_proto_rawDescGZIP(), []int{0}
 }
 
 type EventSourceType int32
@@ -115,11 +115,11 @@ func (x EventSourceType) String() string {
 }
 
 func (EventSourceType) Descriptor() protoreflect.EnumDescriptor {
-	return file_grid_v1_event_proto_enumTypes[1].Descriptor()
+	return file_zaphiro_grid_v1_event_proto_enumTypes[1].Descriptor()
 }
 
 func (EventSourceType) Type() protoreflect.EnumType {
-	return &file_grid_v1_event_proto_enumTypes[1]
+	return &file_zaphiro_grid_v1_event_proto_enumTypes[1]
 }
 
 func (x EventSourceType) Number() protoreflect.EnumNumber {
@@ -128,7 +128,7 @@ func (x EventSourceType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use EventSourceType.Descriptor instead.
 func (EventSourceType) EnumDescriptor() ([]byte, []int) {
-	return file_grid_v1_event_proto_rawDescGZIP(), []int{1}
+	return file_zaphiro_grid_v1_event_proto_rawDescGZIP(), []int{1}
 }
 
 type Event struct {
@@ -136,19 +136,19 @@ type Event struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id         string          `protobuf:"bytes,1,opt,name=Id,proto3" json:"Id,omitempty"`                                               //The uuid of the event.
-	SourceId   string          `protobuf:"bytes,2,opt,name=sourceId,proto3" json:"sourceId,omitempty"`                                   //The id of the source (e.g. a PMU) that generated the event.
-	SourceType EventSourceType `protobuf:"varint,3,opt,name=sourceType,proto3,enum=grid.v1.EventSourceType" json:"sourceType,omitempty"` //The type of data see `DataType` enum.
-	OccurredAt int64           `protobuf:"varint,4,opt,name=occurredAt,proto3" json:"occurredAt,omitempty"`                              //The time of occurency of the event (Unix msec timestamp) usually is the same value as timestampId.
-	DetectedAt *int64          `protobuf:"varint,5,opt,name=detectedAt,proto3,oneof" json:"detectedAt,omitempty"`                        //The time of detection of the event (Unix msec timestamp).
-	Message    string          `protobuf:"bytes,6,opt,name=message,proto3" json:"message,omitempty"`                                     //Event message.
-	Status     *EventStatus    `protobuf:"varint,7,opt,name=status,proto3,enum=grid.v1.EventStatus,oneof" json:"status,omitempty"`       //The status of the event.
+	Id         string          `protobuf:"bytes,1,opt,name=Id,proto3" json:"Id,omitempty"`                                                       //The uuid of the event.
+	SourceId   string          `protobuf:"bytes,2,opt,name=sourceId,proto3" json:"sourceId,omitempty"`                                           //The id of the source (e.g. a PMU) that generated the event.
+	SourceType EventSourceType `protobuf:"varint,3,opt,name=sourceType,proto3,enum=zaphiro.grid.v1.EventSourceType" json:"sourceType,omitempty"` //The type of data see `DataType` enum.
+	OccurredAt int64           `protobuf:"varint,4,opt,name=occurredAt,proto3" json:"occurredAt,omitempty"`                                      //The time of occurency of the event (Unix msec timestamp) usually is the same value as timestampId.
+	DetectedAt *int64          `protobuf:"varint,5,opt,name=detectedAt,proto3,oneof" json:"detectedAt,omitempty"`                                //The time of detection of the event (Unix msec timestamp).
+	Message    string          `protobuf:"bytes,6,opt,name=message,proto3" json:"message,omitempty"`                                             //Event message.
+	Status     *EventStatus    `protobuf:"varint,7,opt,name=status,proto3,enum=zaphiro.grid.v1.EventStatus,oneof" json:"status,omitempty"`       //The status of the event.
 }
 
 func (x *Event) Reset() {
 	*x = Event{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_grid_v1_event_proto_msgTypes[0]
+		mi := &file_zaphiro_grid_v1_event_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -161,7 +161,7 @@ func (x *Event) String() string {
 func (*Event) ProtoMessage() {}
 
 func (x *Event) ProtoReflect() protoreflect.Message {
-	mi := &file_grid_v1_event_proto_msgTypes[0]
+	mi := &file_zaphiro_grid_v1_event_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -174,7 +174,7 @@ func (x *Event) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Event.ProtoReflect.Descriptor instead.
 func (*Event) Descriptor() ([]byte, []int) {
-	return file_grid_v1_event_proto_rawDescGZIP(), []int{0}
+	return file_zaphiro_grid_v1_event_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Event) GetId() string {
@@ -226,25 +226,27 @@ func (x *Event) GetStatus() EventStatus {
 	return EventStatus_EVENT_STATUS_UNSPECIFIED
 }
 
-var File_grid_v1_event_proto protoreflect.FileDescriptor
+var File_zaphiro_grid_v1_event_proto protoreflect.FileDescriptor
 
-var file_grid_v1_event_proto_rawDesc = []byte{
-	0x0a, 0x13, 0x67, 0x72, 0x69, 0x64, 0x2f, 0x76, 0x31, 0x2f, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x2e,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x07, 0x67, 0x72, 0x69, 0x64, 0x2e, 0x76, 0x31, 0x22, 0x99,
+var file_zaphiro_grid_v1_event_proto_rawDesc = []byte{
+	0x0a, 0x1b, 0x7a, 0x61, 0x70, 0x68, 0x69, 0x72, 0x6f, 0x2f, 0x67, 0x72, 0x69, 0x64, 0x2f, 0x76,
+	0x31, 0x2f, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x0f, 0x7a,
+	0x61, 0x70, 0x68, 0x69, 0x72, 0x6f, 0x2e, 0x67, 0x72, 0x69, 0x64, 0x2e, 0x76, 0x31, 0x22, 0xa9,
 	0x02, 0x0a, 0x05, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x49, 0x64, 0x18, 0x01,
 	0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x49, 0x64, 0x12, 0x1a, 0x0a, 0x08, 0x73, 0x6f, 0x75, 0x72,
 	0x63, 0x65, 0x49, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x73, 0x6f, 0x75, 0x72,
-	0x63, 0x65, 0x49, 0x64, 0x12, 0x38, 0x0a, 0x0a, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x54, 0x79,
-	0x70, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x18, 0x2e, 0x67, 0x72, 0x69, 0x64, 0x2e,
-	0x76, 0x31, 0x2e, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x53, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x54, 0x79,
-	0x70, 0x65, 0x52, 0x0a, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x54, 0x79, 0x70, 0x65, 0x12, 0x1e,
-	0x0a, 0x0a, 0x6f, 0x63, 0x63, 0x75, 0x72, 0x72, 0x65, 0x64, 0x41, 0x74, 0x18, 0x04, 0x20, 0x01,
-	0x28, 0x03, 0x52, 0x0a, 0x6f, 0x63, 0x63, 0x75, 0x72, 0x72, 0x65, 0x64, 0x41, 0x74, 0x12, 0x23,
-	0x0a, 0x0a, 0x64, 0x65, 0x74, 0x65, 0x63, 0x74, 0x65, 0x64, 0x41, 0x74, 0x18, 0x05, 0x20, 0x01,
-	0x28, 0x03, 0x48, 0x00, 0x52, 0x0a, 0x64, 0x65, 0x74, 0x65, 0x63, 0x74, 0x65, 0x64, 0x41, 0x74,
-	0x88, 0x01, 0x01, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x06,
-	0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x12, 0x31, 0x0a,
-	0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x07, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x14, 0x2e,
+	0x63, 0x65, 0x49, 0x64, 0x12, 0x40, 0x0a, 0x0a, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x54, 0x79,
+	0x70, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x20, 0x2e, 0x7a, 0x61, 0x70, 0x68, 0x69,
+	0x72, 0x6f, 0x2e, 0x67, 0x72, 0x69, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x45, 0x76, 0x65, 0x6e, 0x74,
+	0x53, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x54, 0x79, 0x70, 0x65, 0x52, 0x0a, 0x73, 0x6f, 0x75, 0x72,
+	0x63, 0x65, 0x54, 0x79, 0x70, 0x65, 0x12, 0x1e, 0x0a, 0x0a, 0x6f, 0x63, 0x63, 0x75, 0x72, 0x72,
+	0x65, 0x64, 0x41, 0x74, 0x18, 0x04, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0a, 0x6f, 0x63, 0x63, 0x75,
+	0x72, 0x72, 0x65, 0x64, 0x41, 0x74, 0x12, 0x23, 0x0a, 0x0a, 0x64, 0x65, 0x74, 0x65, 0x63, 0x74,
+	0x65, 0x64, 0x41, 0x74, 0x18, 0x05, 0x20, 0x01, 0x28, 0x03, 0x48, 0x00, 0x52, 0x0a, 0x64, 0x65,
+	0x74, 0x65, 0x63, 0x74, 0x65, 0x64, 0x41, 0x74, 0x88, 0x01, 0x01, 0x12, 0x18, 0x0a, 0x07, 0x6d,
+	0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x06, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65,
+	0x73, 0x73, 0x61, 0x67, 0x65, 0x12, 0x39, 0x0a, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18,
+	0x07, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x1c, 0x2e, 0x7a, 0x61, 0x70, 0x68, 0x69, 0x72, 0x6f, 0x2e,
 	0x67, 0x72, 0x69, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x53, 0x74, 0x61,
 	0x74, 0x75, 0x73, 0x48, 0x01, 0x52, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x88, 0x01, 0x01,
 	0x42, 0x0d, 0x0a, 0x0b, 0x5f, 0x64, 0x65, 0x74, 0x65, 0x63, 0x74, 0x65, 0x64, 0x41, 0x74, 0x42,
@@ -271,27 +273,27 @@ var file_grid_v1_event_proto_rawDesc = []byte{
 }
 
 var (
-	file_grid_v1_event_proto_rawDescOnce sync.Once
-	file_grid_v1_event_proto_rawDescData = file_grid_v1_event_proto_rawDesc
+	file_zaphiro_grid_v1_event_proto_rawDescOnce sync.Once
+	file_zaphiro_grid_v1_event_proto_rawDescData = file_zaphiro_grid_v1_event_proto_rawDesc
 )
 
-func file_grid_v1_event_proto_rawDescGZIP() []byte {
-	file_grid_v1_event_proto_rawDescOnce.Do(func() {
-		file_grid_v1_event_proto_rawDescData = protoimpl.X.CompressGZIP(file_grid_v1_event_proto_rawDescData)
+func file_zaphiro_grid_v1_event_proto_rawDescGZIP() []byte {
+	file_zaphiro_grid_v1_event_proto_rawDescOnce.Do(func() {
+		file_zaphiro_grid_v1_event_proto_rawDescData = protoimpl.X.CompressGZIP(file_zaphiro_grid_v1_event_proto_rawDescData)
 	})
-	return file_grid_v1_event_proto_rawDescData
+	return file_zaphiro_grid_v1_event_proto_rawDescData
 }
 
-var file_grid_v1_event_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_grid_v1_event_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
-var file_grid_v1_event_proto_goTypes = []interface{}{
-	(EventStatus)(0),     // 0: grid.v1.EventStatus
-	(EventSourceType)(0), // 1: grid.v1.EventSourceType
-	(*Event)(nil),        // 2: grid.v1.Event
+var file_zaphiro_grid_v1_event_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
+var file_zaphiro_grid_v1_event_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_zaphiro_grid_v1_event_proto_goTypes = []interface{}{
+	(EventStatus)(0),     // 0: zaphiro.grid.v1.EventStatus
+	(EventSourceType)(0), // 1: zaphiro.grid.v1.EventSourceType
+	(*Event)(nil),        // 2: zaphiro.grid.v1.Event
 }
-var file_grid_v1_event_proto_depIdxs = []int32{
-	1, // 0: grid.v1.Event.sourceType:type_name -> grid.v1.EventSourceType
-	0, // 1: grid.v1.Event.status:type_name -> grid.v1.EventStatus
+var file_zaphiro_grid_v1_event_proto_depIdxs = []int32{
+	1, // 0: zaphiro.grid.v1.Event.sourceType:type_name -> zaphiro.grid.v1.EventSourceType
+	0, // 1: zaphiro.grid.v1.Event.status:type_name -> zaphiro.grid.v1.EventStatus
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
@@ -299,13 +301,13 @@ var file_grid_v1_event_proto_depIdxs = []int32{
 	0, // [0:2] is the sub-list for field type_name
 }
 
-func init() { file_grid_v1_event_proto_init() }
-func file_grid_v1_event_proto_init() {
-	if File_grid_v1_event_proto != nil {
+func init() { file_zaphiro_grid_v1_event_proto_init() }
+func file_zaphiro_grid_v1_event_proto_init() {
+	if File_zaphiro_grid_v1_event_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_grid_v1_event_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_zaphiro_grid_v1_event_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Event); i {
 			case 0:
 				return &v.state
@@ -318,24 +320,24 @@ func file_grid_v1_event_proto_init() {
 			}
 		}
 	}
-	file_grid_v1_event_proto_msgTypes[0].OneofWrappers = []interface{}{}
+	file_zaphiro_grid_v1_event_proto_msgTypes[0].OneofWrappers = []interface{}{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_grid_v1_event_proto_rawDesc,
+			RawDescriptor: file_zaphiro_grid_v1_event_proto_rawDesc,
 			NumEnums:      2,
 			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_grid_v1_event_proto_goTypes,
-		DependencyIndexes: file_grid_v1_event_proto_depIdxs,
-		EnumInfos:         file_grid_v1_event_proto_enumTypes,
-		MessageInfos:      file_grid_v1_event_proto_msgTypes,
+		GoTypes:           file_zaphiro_grid_v1_event_proto_goTypes,
+		DependencyIndexes: file_zaphiro_grid_v1_event_proto_depIdxs,
+		EnumInfos:         file_zaphiro_grid_v1_event_proto_enumTypes,
+		MessageInfos:      file_zaphiro_grid_v1_event_proto_msgTypes,
 	}.Build()
-	File_grid_v1_event_proto = out.File
-	file_grid_v1_event_proto_rawDesc = nil
-	file_grid_v1_event_proto_goTypes = nil
-	file_grid_v1_event_proto_depIdxs = nil
+	File_zaphiro_grid_v1_event_proto = out.File
+	file_zaphiro_grid_v1_event_proto_rawDesc = nil
+	file_zaphiro_grid_v1_event_proto_goTypes = nil
+	file_zaphiro_grid_v1_event_proto_depIdxs = nil
 }

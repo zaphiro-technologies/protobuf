@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.31.0
 // 	protoc        (unknown)
-// source: platform/v1/task.proto
+// source: zaphiro/platform/v1/task.proto
 
 // <!-- markdownlint-disable -->
 //Messages to support coordination among processes/services in the platform.
@@ -66,11 +66,11 @@ func (x TaskType) String() string {
 }
 
 func (TaskType) Descriptor() protoreflect.EnumDescriptor {
-	return file_platform_v1_task_proto_enumTypes[0].Descriptor()
+	return file_zaphiro_platform_v1_task_proto_enumTypes[0].Descriptor()
 }
 
 func (TaskType) Type() protoreflect.EnumType {
-	return &file_platform_v1_task_proto_enumTypes[0]
+	return &file_zaphiro_platform_v1_task_proto_enumTypes[0]
 }
 
 func (x TaskType) Number() protoreflect.EnumNumber {
@@ -79,7 +79,7 @@ func (x TaskType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use TaskType.Descriptor instead.
 func (TaskType) EnumDescriptor() ([]byte, []int) {
-	return file_platform_v1_task_proto_rawDescGZIP(), []int{0}
+	return file_zaphiro_platform_v1_task_proto_rawDescGZIP(), []int{0}
 }
 
 type NotificationType int32
@@ -124,11 +124,11 @@ func (x NotificationType) String() string {
 }
 
 func (NotificationType) Descriptor() protoreflect.EnumDescriptor {
-	return file_platform_v1_task_proto_enumTypes[1].Descriptor()
+	return file_zaphiro_platform_v1_task_proto_enumTypes[1].Descriptor()
 }
 
 func (NotificationType) Type() protoreflect.EnumType {
-	return &file_platform_v1_task_proto_enumTypes[1]
+	return &file_zaphiro_platform_v1_task_proto_enumTypes[1]
 }
 
 func (x NotificationType) Number() protoreflect.EnumNumber {
@@ -137,7 +137,7 @@ func (x NotificationType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use NotificationType.Descriptor instead.
 func (NotificationType) EnumDescriptor() ([]byte, []int) {
-	return file_platform_v1_task_proto_rawDescGZIP(), []int{1}
+	return file_zaphiro_platform_v1_task_proto_rawDescGZIP(), []int{1}
 }
 
 type Parameter struct {
@@ -152,7 +152,7 @@ type Parameter struct {
 func (x *Parameter) Reset() {
 	*x = Parameter{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_platform_v1_task_proto_msgTypes[0]
+		mi := &file_zaphiro_platform_v1_task_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -165,7 +165,7 @@ func (x *Parameter) String() string {
 func (*Parameter) ProtoMessage() {}
 
 func (x *Parameter) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_v1_task_proto_msgTypes[0]
+	mi := &file_zaphiro_platform_v1_task_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -178,7 +178,7 @@ func (x *Parameter) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Parameter.ProtoReflect.Descriptor instead.
 func (*Parameter) Descriptor() ([]byte, []int) {
-	return file_platform_v1_task_proto_rawDescGZIP(), []int{0}
+	return file_zaphiro_platform_v1_task_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Parameter) GetName() string {
@@ -200,15 +200,15 @@ type Task struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	TaskType   TaskType     `protobuf:"varint,1,opt,name=taskType,proto3,enum=platform.v1.TaskType" json:"taskType,omitempty"` //Type of the task
-	CreatedAt  int64        `protobuf:"varint,2,opt,name=createdAt,proto3" json:"createdAt,omitempty"`                         //Task creation time (Unix msec timestamp)
+	TaskType   TaskType     `protobuf:"varint,1,opt,name=taskType,proto3,enum=zaphiro.platform.v1.TaskType" json:"taskType,omitempty"` //Type of the task
+	CreatedAt  int64        `protobuf:"varint,2,opt,name=createdAt,proto3" json:"createdAt,omitempty"`                                 //Task creation time (Unix msec timestamp)
 	Parameters []*Parameter `protobuf:"bytes,3,rep,name=parameters,proto3" json:"parameters,omitempty"`
 }
 
 func (x *Task) Reset() {
 	*x = Task{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_platform_v1_task_proto_msgTypes[1]
+		mi := &file_zaphiro_platform_v1_task_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -221,7 +221,7 @@ func (x *Task) String() string {
 func (*Task) ProtoMessage() {}
 
 func (x *Task) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_v1_task_proto_msgTypes[1]
+	mi := &file_zaphiro_platform_v1_task_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -234,7 +234,7 @@ func (x *Task) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Task.ProtoReflect.Descriptor instead.
 func (*Task) Descriptor() ([]byte, []int) {
-	return file_platform_v1_task_proto_rawDescGZIP(), []int{1}
+	return file_zaphiro_platform_v1_task_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *Task) GetTaskType() TaskType {
@@ -263,16 +263,16 @@ type Notification struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	NotificationType NotificationType `protobuf:"varint,1,opt,name=notificationType,proto3,enum=platform.v1.NotificationType" json:"notificationType,omitempty"` //Notification type
-	CreatedAt        int64            `protobuf:"varint,2,opt,name=createdAt,proto3" json:"createdAt,omitempty"`                                                 //Notification creation time (Unix msec timestamp)
-	Message          string           `protobuf:"bytes,3,opt,name=message,proto3" json:"message,omitempty"`                                                      //Notification message, it can be a string or a integer (which maps to a enum value).
+	NotificationType NotificationType `protobuf:"varint,1,opt,name=notificationType,proto3,enum=zaphiro.platform.v1.NotificationType" json:"notificationType,omitempty"` //Notification type
+	CreatedAt        int64            `protobuf:"varint,2,opt,name=createdAt,proto3" json:"createdAt,omitempty"`                                                         //Notification creation time (Unix msec timestamp)
+	Message          string           `protobuf:"bytes,3,opt,name=message,proto3" json:"message,omitempty"`                                                              //Notification message, it can be a string or a integer (which maps to a enum value).
 	Parameters       []*Parameter     `protobuf:"bytes,4,rep,name=parameters,proto3" json:"parameters,omitempty"`
 }
 
 func (x *Notification) Reset() {
 	*x = Notification{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_platform_v1_task_proto_msgTypes[2]
+		mi := &file_zaphiro_platform_v1_task_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -285,7 +285,7 @@ func (x *Notification) String() string {
 func (*Notification) ProtoMessage() {}
 
 func (x *Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_platform_v1_task_proto_msgTypes[2]
+	mi := &file_zaphiro_platform_v1_task_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -298,7 +298,7 @@ func (x *Notification) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Notification.ProtoReflect.Descriptor instead.
 func (*Notification) Descriptor() ([]byte, []int) {
-	return file_platform_v1_task_proto_rawDescGZIP(), []int{2}
+	return file_zaphiro_platform_v1_task_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *Notification) GetNotificationType() NotificationType {
@@ -329,38 +329,41 @@ func (x *Notification) GetParameters() []*Parameter {
 	return nil
 }
 
-var File_platform_v1_task_proto protoreflect.FileDescriptor
+var File_zaphiro_platform_v1_task_proto protoreflect.FileDescriptor
 
-var file_platform_v1_task_proto_rawDesc = []byte{
-	0x0a, 0x16, 0x70, 0x6c, 0x61, 0x74, 0x66, 0x6f, 0x72, 0x6d, 0x2f, 0x76, 0x31, 0x2f, 0x74, 0x61,
-	0x73, 0x6b, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x0b, 0x70, 0x6c, 0x61, 0x74, 0x66, 0x6f,
+var file_zaphiro_platform_v1_task_proto_rawDesc = []byte{
+	0x0a, 0x1e, 0x7a, 0x61, 0x70, 0x68, 0x69, 0x72, 0x6f, 0x2f, 0x70, 0x6c, 0x61, 0x74, 0x66, 0x6f,
+	0x72, 0x6d, 0x2f, 0x76, 0x31, 0x2f, 0x74, 0x61, 0x73, 0x6b, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x12, 0x13, 0x7a, 0x61, 0x70, 0x68, 0x69, 0x72, 0x6f, 0x2e, 0x70, 0x6c, 0x61, 0x74, 0x66, 0x6f,
 	0x72, 0x6d, 0x2e, 0x76, 0x31, 0x1a, 0x19, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2f, 0x70, 0x72,
 	0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2f, 0x61, 0x6e, 0x79, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
 	0x22, 0x4b, 0x0a, 0x09, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x65, 0x74, 0x65, 0x72, 0x12, 0x12, 0x0a,
 	0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d,
 	0x65, 0x12, 0x2a, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b,
 	0x32, 0x14, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62,
-	0x75, 0x66, 0x2e, 0x41, 0x6e, 0x79, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x8f, 0x01,
-	0x0a, 0x04, 0x54, 0x61, 0x73, 0x6b, 0x12, 0x31, 0x0a, 0x08, 0x74, 0x61, 0x73, 0x6b, 0x54, 0x79,
-	0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x15, 0x2e, 0x70, 0x6c, 0x61, 0x74, 0x66,
-	0x6f, 0x72, 0x6d, 0x2e, 0x76, 0x31, 0x2e, 0x54, 0x61, 0x73, 0x6b, 0x54, 0x79, 0x70, 0x65, 0x52,
-	0x08, 0x74, 0x61, 0x73, 0x6b, 0x54, 0x79, 0x70, 0x65, 0x12, 0x1c, 0x0a, 0x09, 0x63, 0x72, 0x65,
-	0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x09, 0x63, 0x72,
-	0x65, 0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x12, 0x36, 0x0a, 0x0a, 0x70, 0x61, 0x72, 0x61, 0x6d,
-	0x65, 0x74, 0x65, 0x72, 0x73, 0x18, 0x03, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x16, 0x2e, 0x70, 0x6c,
+	0x75, 0x66, 0x2e, 0x41, 0x6e, 0x79, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x9f, 0x01,
+	0x0a, 0x04, 0x54, 0x61, 0x73, 0x6b, 0x12, 0x39, 0x0a, 0x08, 0x74, 0x61, 0x73, 0x6b, 0x54, 0x79,
+	0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x1d, 0x2e, 0x7a, 0x61, 0x70, 0x68, 0x69,
+	0x72, 0x6f, 0x2e, 0x70, 0x6c, 0x61, 0x74, 0x66, 0x6f, 0x72, 0x6d, 0x2e, 0x76, 0x31, 0x2e, 0x54,
+	0x61, 0x73, 0x6b, 0x54, 0x79, 0x70, 0x65, 0x52, 0x08, 0x74, 0x61, 0x73, 0x6b, 0x54, 0x79, 0x70,
+	0x65, 0x12, 0x1c, 0x0a, 0x09, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x18, 0x02,
+	0x20, 0x01, 0x28, 0x03, 0x52, 0x09, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x12,
+	0x3e, 0x0a, 0x0a, 0x70, 0x61, 0x72, 0x61, 0x6d, 0x65, 0x74, 0x65, 0x72, 0x73, 0x18, 0x03, 0x20,
+	0x03, 0x28, 0x0b, 0x32, 0x1e, 0x2e, 0x7a, 0x61, 0x70, 0x68, 0x69, 0x72, 0x6f, 0x2e, 0x70, 0x6c,
 	0x61, 0x74, 0x66, 0x6f, 0x72, 0x6d, 0x2e, 0x76, 0x31, 0x2e, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x65,
 	0x74, 0x65, 0x72, 0x52, 0x0a, 0x70, 0x61, 0x72, 0x61, 0x6d, 0x65, 0x74, 0x65, 0x72, 0x73, 0x22,
-	0xc9, 0x01, 0x0a, 0x0c, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e,
-	0x12, 0x49, 0x0a, 0x10, 0x6e, 0x6f, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e,
-	0x54, 0x79, 0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x1d, 0x2e, 0x70, 0x6c, 0x61,
-	0x74, 0x66, 0x6f, 0x72, 0x6d, 0x2e, 0x76, 0x31, 0x2e, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x69, 0x63,
-	0x61, 0x74, 0x69, 0x6f, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x52, 0x10, 0x6e, 0x6f, 0x74, 0x69, 0x66,
-	0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x12, 0x1c, 0x0a, 0x09, 0x63,
-	0x72, 0x65, 0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x09,
-	0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73,
-	0x73, 0x61, 0x67, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73,
-	0x61, 0x67, 0x65, 0x12, 0x36, 0x0a, 0x0a, 0x70, 0x61, 0x72, 0x61, 0x6d, 0x65, 0x74, 0x65, 0x72,
-	0x73, 0x18, 0x04, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x16, 0x2e, 0x70, 0x6c, 0x61, 0x74, 0x66, 0x6f,
+	0xd9, 0x01, 0x0a, 0x0c, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e,
+	0x12, 0x51, 0x0a, 0x10, 0x6e, 0x6f, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e,
+	0x54, 0x79, 0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x25, 0x2e, 0x7a, 0x61, 0x70,
+	0x68, 0x69, 0x72, 0x6f, 0x2e, 0x70, 0x6c, 0x61, 0x74, 0x66, 0x6f, 0x72, 0x6d, 0x2e, 0x76, 0x31,
+	0x2e, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x54, 0x79, 0x70,
+	0x65, 0x52, 0x10, 0x6e, 0x6f, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x54,
+	0x79, 0x70, 0x65, 0x12, 0x1c, 0x0a, 0x09, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x64, 0x41, 0x74,
+	0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x09, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x64, 0x41,
+	0x74, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x03, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x12, 0x3e, 0x0a, 0x0a, 0x70,
+	0x61, 0x72, 0x61, 0x6d, 0x65, 0x74, 0x65, 0x72, 0x73, 0x18, 0x04, 0x20, 0x03, 0x28, 0x0b, 0x32,
+	0x1e, 0x2e, 0x7a, 0x61, 0x70, 0x68, 0x69, 0x72, 0x6f, 0x2e, 0x70, 0x6c, 0x61, 0x74, 0x66, 0x6f,
 	0x72, 0x6d, 0x2e, 0x76, 0x31, 0x2e, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x65, 0x74, 0x65, 0x72, 0x52,
 	0x0a, 0x70, 0x61, 0x72, 0x61, 0x6d, 0x65, 0x74, 0x65, 0x72, 0x73, 0x2a, 0x81, 0x01, 0x0a, 0x08,
 	0x54, 0x61, 0x73, 0x6b, 0x54, 0x79, 0x70, 0x65, 0x12, 0x19, 0x0a, 0x15, 0x54, 0x41, 0x53, 0x4b,
@@ -392,33 +395,33 @@ var file_platform_v1_task_proto_rawDesc = []byte{
 }
 
 var (
-	file_platform_v1_task_proto_rawDescOnce sync.Once
-	file_platform_v1_task_proto_rawDescData = file_platform_v1_task_proto_rawDesc
+	file_zaphiro_platform_v1_task_proto_rawDescOnce sync.Once
+	file_zaphiro_platform_v1_task_proto_rawDescData = file_zaphiro_platform_v1_task_proto_rawDesc
 )
 
-func file_platform_v1_task_proto_rawDescGZIP() []byte {
-	file_platform_v1_task_proto_rawDescOnce.Do(func() {
-		file_platform_v1_task_proto_rawDescData = protoimpl.X.CompressGZIP(file_platform_v1_task_proto_rawDescData)
+func file_zaphiro_platform_v1_task_proto_rawDescGZIP() []byte {
+	file_zaphiro_platform_v1_task_proto_rawDescOnce.Do(func() {
+		file_zaphiro_platform_v1_task_proto_rawDescData = protoimpl.X.CompressGZIP(file_zaphiro_platform_v1_task_proto_rawDescData)
 	})
-	return file_platform_v1_task_proto_rawDescData
+	return file_zaphiro_platform_v1_task_proto_rawDescData
 }
 
-var file_platform_v1_task_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_platform_v1_task_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
-var file_platform_v1_task_proto_goTypes = []interface{}{
-	(TaskType)(0),         // 0: platform.v1.TaskType
-	(NotificationType)(0), // 1: platform.v1.NotificationType
-	(*Parameter)(nil),     // 2: platform.v1.Parameter
-	(*Task)(nil),          // 3: platform.v1.Task
-	(*Notification)(nil),  // 4: platform.v1.Notification
+var file_zaphiro_platform_v1_task_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
+var file_zaphiro_platform_v1_task_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_zaphiro_platform_v1_task_proto_goTypes = []interface{}{
+	(TaskType)(0),         // 0: zaphiro.platform.v1.TaskType
+	(NotificationType)(0), // 1: zaphiro.platform.v1.NotificationType
+	(*Parameter)(nil),     // 2: zaphiro.platform.v1.Parameter
+	(*Task)(nil),          // 3: zaphiro.platform.v1.Task
+	(*Notification)(nil),  // 4: zaphiro.platform.v1.Notification
 	(*anypb.Any)(nil),     // 5: google.protobuf.Any
 }
-var file_platform_v1_task_proto_depIdxs = []int32{
-	5, // 0: platform.v1.Parameter.value:type_name -> google.protobuf.Any
-	0, // 1: platform.v1.Task.taskType:type_name -> platform.v1.TaskType
-	2, // 2: platform.v1.Task.parameters:type_name -> platform.v1.Parameter
-	1, // 3: platform.v1.Notification.notificationType:type_name -> platform.v1.NotificationType
-	2, // 4: platform.v1.Notification.parameters:type_name -> platform.v1.Parameter
+var file_zaphiro_platform_v1_task_proto_depIdxs = []int32{
+	5, // 0: zaphiro.platform.v1.Parameter.value:type_name -> google.protobuf.Any
+	0, // 1: zaphiro.platform.v1.Task.taskType:type_name -> zaphiro.platform.v1.TaskType
+	2, // 2: zaphiro.platform.v1.Task.parameters:type_name -> zaphiro.platform.v1.Parameter
+	1, // 3: zaphiro.platform.v1.Notification.notificationType:type_name -> zaphiro.platform.v1.NotificationType
+	2, // 4: zaphiro.platform.v1.Notification.parameters:type_name -> zaphiro.platform.v1.Parameter
 	5, // [5:5] is the sub-list for method output_type
 	5, // [5:5] is the sub-list for method input_type
 	5, // [5:5] is the sub-list for extension type_name
@@ -426,13 +429,13 @@ var file_platform_v1_task_proto_depIdxs = []int32{
 	0, // [0:5] is the sub-list for field type_name
 }
 
-func init() { file_platform_v1_task_proto_init() }
-func file_platform_v1_task_proto_init() {
-	if File_platform_v1_task_proto != nil {
+func init() { file_zaphiro_platform_v1_task_proto_init() }
+func file_zaphiro_platform_v1_task_proto_init() {
+	if File_zaphiro_platform_v1_task_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_platform_v1_task_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_zaphiro_platform_v1_task_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Parameter); i {
 			case 0:
 				return &v.state
@@ -444,7 +447,7 @@ func file_platform_v1_task_proto_init() {
 				return nil
 			}
 		}
-		file_platform_v1_task_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_zaphiro_platform_v1_task_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Task); i {
 			case 0:
 				return &v.state
@@ -456,7 +459,7 @@ func file_platform_v1_task_proto_init() {
 				return nil
 			}
 		}
-		file_platform_v1_task_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_zaphiro_platform_v1_task_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Notification); i {
 			case 0:
 				return &v.state
@@ -473,19 +476,19 @@ func file_platform_v1_task_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_platform_v1_task_proto_rawDesc,
+			RawDescriptor: file_zaphiro_platform_v1_task_proto_rawDesc,
 			NumEnums:      2,
 			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_platform_v1_task_proto_goTypes,
-		DependencyIndexes: file_platform_v1_task_proto_depIdxs,
-		EnumInfos:         file_platform_v1_task_proto_enumTypes,
-		MessageInfos:      file_platform_v1_task_proto_msgTypes,
+		GoTypes:           file_zaphiro_platform_v1_task_proto_goTypes,
+		DependencyIndexes: file_zaphiro_platform_v1_task_proto_depIdxs,
+		EnumInfos:         file_zaphiro_platform_v1_task_proto_enumTypes,
+		MessageInfos:      file_zaphiro_platform_v1_task_proto_msgTypes,
 	}.Build()
-	File_platform_v1_task_proto = out.File
-	file_platform_v1_task_proto_rawDesc = nil
-	file_platform_v1_task_proto_goTypes = nil
-	file_platform_v1_task_proto_depIdxs = nil
+	File_zaphiro_platform_v1_task_proto = out.File
+	file_zaphiro_platform_v1_task_proto_rawDesc = nil
+	file_zaphiro_platform_v1_task_proto_goTypes = nil
+	file_zaphiro_platform_v1_task_proto_depIdxs = nil
 }
