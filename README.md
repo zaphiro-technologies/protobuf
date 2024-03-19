@@ -48,6 +48,27 @@ packages:
 
 All protocol buffers are documented in [docs](./docs).
 
+### Installation
+
+Currently code is generated for:
+
+- [go](go)
+- [python](python)
+
+#### Python
+
+Installation was tested with poetry:
+
+```bash
+poetry add git+https://github.com/zaphiro-technologies/protobuf.git#v0.0.5
+```
+
+#### Go
+
+```bash
+go install github.com/zaphiro-technologies/protobuf@v0.0.5
+```
+
 ### Generate Code from Protocol Buffers
 
 ```bash
