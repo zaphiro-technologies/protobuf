@@ -15,6 +15,7 @@ version = "0.0.4-dev"
 description = "Zaphiro Protocol Buffers"
 authors = ["Federico M. Facca <federico.facca@zaphiro.ch>"]
 readme = "README.md"
+packages = [{include = "*", from="python"}]
 repository = "https://github.com/zaphiro-technologies/protobuf"
 documentation = "https://github.com/zaphiro-technologies/protobuf"
 
