@@ -2,5 +2,7 @@ version: v1
 plugins:
   - plugin: buf.build/protocolbuffers/go:v1.31.0
     out: go
-  - plugin: buf.build/protocolbuffers/python
+  - plugin: buf.build/protocolbuffers/pyi:v26.0
+    out: python
+  - plugin: buf.build/protocolbuffers/python:v26.0
     out: python
