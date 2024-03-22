@@ -1,6 +1,10 @@
 # ProtoBuf Release Notes
 
-## 0.0.5-dev - 2024-03-13
+## 0.0.5-dev - 2024-03-22
+
+### Features
+
+- Support python generation (PR #47 by @chicco785)
 
 ### Documentation
 
@@ -8,9 +12,9 @@
 
 ### Dependencies
 
-- Bump google.golang.org/protobuf from 1.32.0 to 1.33.0 (PR #44 by
-  @dependabot[bot])
 - Bump github.com/stretchr/testify from 1.8.4 to 1.9.0 (PR #43 by
+  @dependabot[bot])
+- Bump google.golang.org/protobuf from 1.32.0 to 1.33.0 (PR #44 by
   @dependabot[bot])
 
 ## 0.0.4-dev - 2024-02-21
