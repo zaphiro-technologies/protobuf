@@ -1,6 +1,10 @@
 # ProtoBuf Release Notes
 
-## 0.0.5-dev - 2024-03-22
+## 0.0.6-dev - 2024-03-25
+
+- no changes
+
+## 0.0.5 - 2024-03-22
 
 ### Features
 
@@ -17,7 +21,7 @@
 - Bump google.golang.org/protobuf from 1.32.0 to 1.33.0 (PR #44 by
   @dependabot[bot])
 
-## 0.0.4-dev - 2024-02-21
+## 0.0.4 - 2024-02-21
 
 ### Features
 
