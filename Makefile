@@ -20,18 +20,18 @@ cov:
 
 .PHONY: generate
 generate:
-	cd proto; buf generate
+	buf generate
 
 .PHONY: docs
 docs:
-	../proto-gen-md-diagrams/proto-gen-md-diagrams -d proto -md true
+	../proto-gen-md-diagrams/proto-gen-md-diagrams -d zaphiro -md true
 	mkdir -p docs
-	# mv -f proto/**/*.md docs #why it works on my mac but not in the action?
-	mv -f proto/*/v1/*.md docs
+	# mv -f zaphiro/**/*.md docs #why it works on my mac but not in the action?
+	mv -f zaphiro/*/v1/*.md docs
 
 .PHONY: proto-lint
 proto-lint:
-	cd proto; buf lint
+	buf lint
 
 # Mandatory
 ci-test: cov

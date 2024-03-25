@@ -1,4 +1,4 @@
-name: Golang
+name: Protobuf
 
 concurrency:
   group: ${{github.repository}}-${{ github.ref_name }}-proto
@@ -29,8 +29,6 @@ jobs:
       - run: git config --global url.https://$GH_ACCESS_TOKEN@github.com/.insteadOf https://github.com/
       - uses: bufbuild/buf-setup-action@v1
       - uses: bufbuild/buf-lint-action@v1
-        with:
-          input: "proto"
       # - uses: bufbuild/buf-breaking-action@v1
       #   with:
       #     # The 'main' branch of the GitHub repository that defines the module.
@@ -63,5 +61,6 @@ jobs:
           git add --all && git commit -m "Buf re-generated protos" || echo "No changes to commit"
           git push
   golang:
+    needs: proto
     uses: zaphiro-technologies/github-workflows/.github/workflows/golang.yaml@main
     secrets: inherit

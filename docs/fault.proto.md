@@ -1,4 +1,4 @@
-# Package: grid.v1
+# Package: zaphiro.grid.v1
 
 <!-- markdownlint-disable -->
 Messages describing faults.
@@ -22,7 +22,7 @@ Messages describing faults.
 
 ## Enum: PhaseConnectedFaultKind
 
-**FQN**: grid.v1.PhaseConnectedFaultKind
+**FQN**: zaphiro.grid.v1.PhaseConnectedFaultKind
 
 
  The type of fault connection among phases.
@@ -42,7 +42,7 @@ Messages describing faults.
 
 ## Enum: PhaseCode
 
-**FQN**: grid.v1.PhaseCode
+**FQN**: zaphiro.grid.v1.PhaseCode
 
 
 An unordered enumeration of phase identifiers. Allows designation of phases for both transmission and distribution equipment, circuits and loads. The enumeration, by itself, does not describe how the phases are connected together or connected to ground. Ground is not explicitly denoted as a phase.
@@ -230,7 +230,7 @@ EquipmentFault --> `Fault`
 
 ## Message: Fault
 
-**FQN**: grid.v1.Fault
+**FQN**: zaphiro.grid.v1.Fault
 
 Abnormal condition causing current flow through conducting equipment, such as caused by equipment failure or short circuits from objects not typically modelled (for example, a tree falling on a line).
 
@@ -261,7 +261,7 @@ Headers used in rabbitMQ:
 
 ## Message: LineFault
 
-**FQN**: grid.v1.LineFault
+**FQN**: zaphiro.grid.v1.LineFault
 
 A fault that occurs on an AC line segment at some point along the length.
 
@@ -285,7 +285,7 @@ Headers used in rabbitMQ:
 
 ## Message: EquipmentFault
 
-**FQN**: grid.v1.EquipmentFault
+**FQN**: zaphiro.grid.v1.EquipmentFault
 
 
 A fault applied at the terminal, external to the equipment. This class is not used to specify faults internal to the equipment.

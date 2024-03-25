@@ -1,0 +1,30 @@
+[project]
+name = "protobuf-zaphiro"
+version = "0.0.4-dev"
+description = "Zaphiro Protocol Buffers"
+readme = "README.md"
+requires-python = ">=3.8"
+
+[project.urls]
+Documentation = "https://github.com/zaphiro-technologies/protobuf"
+Repository = "https://github.com/zaphiro-technologies/protobuf"
+
+[tool.poetry]
+name = "protobuf-zaphiro"
+version = "0.0.4-dev"
+description = "Zaphiro Protocol Buffers"
+authors = ["Federico M. Facca <federico.facca@zaphiro.ch>"]
+readme = "README.md"
+packages = [{include = "*", from="python"}]
+repository = "https://github.com/zaphiro-technologies/protobuf"
+documentation = "https://github.com/zaphiro-technologies/protobuf"
+
+[tool.poetry.dependencies]
+python = ">=3.8"
+protobuf = "^5.26.0"
+types-protobuf = "^4.24.0.20240311"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

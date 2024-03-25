@@ -1,4 +1,4 @@
-# Package: grid.v1
+# Package: zaphiro.grid.v1
 
 <!-- markdownlint-disable -->
 Messages to support topology data exchange in the platform.
@@ -104,7 +104,7 @@ ComputedTopology .. ` TopologicalNode`
 
 ## Message: Topology
 
-**FQN**: grid.v1.Topology
+**FQN**: zaphiro.grid.v1.Topology
 
 A topology computed information.
 Headers used in rabbitMQ:
@@ -126,7 +126,7 @@ Headers used in rabbitMQ:
 
 ## Message: TopologicalNode
 
-**FQN**: grid.v1.TopologicalNode
+**FQN**: zaphiro.grid.v1.TopologicalNode
 
 A topology Node information.
 * To be used in ComputedTopology message.
@@ -147,7 +147,7 @@ A topology Node information.
 
 ## Message: TopologicalIsland
 
-**FQN**: grid.v1.TopologicalIsland
+**FQN**: zaphiro.grid.v1.TopologicalIsland
 
 A topology Island information.
 * To be used in ComputedTopology message.
@@ -163,7 +163,7 @@ A topology Island information.
 
 ## Message: ComputedTopology
 
-**FQN**: grid.v1.ComputedTopology
+**FQN**: zaphiro.grid.v1.ComputedTopology
 
 A processed topology information.
 Headers used in rabbitMQ:

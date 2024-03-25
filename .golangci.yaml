@@ -18,11 +18,10 @@ linters-settings:
       - whyNoLint
       - unnamedResult
   gofmt:
-    gofmt:
       simplify: false
-    rewrite-rules:
-      - pattern: 'interface{}'
-        replacement: 'any'
+  rewrite-rules:
+    - pattern: 'interface{}'
+      replacement: 'any'
   lll:
     line-length: 140
   misspell:

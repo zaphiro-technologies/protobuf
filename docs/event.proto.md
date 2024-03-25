@@ -1,4 +1,4 @@
-# Package: grid.v1
+# Package: zaphiro.grid.v1
 
 <!-- markdownlint-disable -->
 Messages to support event detection in the platform.
@@ -23,7 +23,7 @@ The event detected may be originated from different sources: devices (e.g. a PMU
 
 ## Enum: EventStatus
 
-**FQN**: grid.v1.EventStatus
+**FQN**: zaphiro.grid.v1.EventStatus
 
 The collection of Event Status defined so far.
 
@@ -39,7 +39,7 @@ The collection of Event Status defined so far.
 
 ## Enum: EventSourceType
 
-**FQN**: grid.v1.EventSourceType
+**FQN**: zaphiro.grid.v1.EventSourceType
 
 
 
@@ -116,7 +116,7 @@ Event --> `EventStatus`
 
 ## Message: Event
 
-**FQN**: grid.v1.Event
+**FQN**: zaphiro.grid.v1.Event
 
 A generic event.
 Headers used in rabbitMQ (only if not sent as part of `DataSet`):

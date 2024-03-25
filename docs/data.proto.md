@@ -1,4 +1,4 @@
-# Package: grid.v1
+# Package: zaphiro.grid.v1
 
 <!-- markdownlint-disable -->
 Messages to support data injection in the platform.
@@ -24,7 +24,7 @@ Data are grouped into sets, where each id identifies a specific measurement. The
 
 ## Enum: DataType
 
-**FQN**: grid.v1.DataType
+**FQN**: zaphiro.grid.v1.DataType
 
 The collection of Data Types defined so far. They are useful to map
 measurements to their rappresentation. Some of the descriptions are taken from [here](https://github.com/3lbits/Grunnprofil/blob/main/DIGIN10/docs/MeasurementType.adoc) This is important since all measurements
@@ -187,7 +187,7 @@ DataSet .. ` Data`
 
 ## Message: Data
 
-**FQN**: grid.v1.Data
+**FQN**: zaphiro.grid.v1.Data
 
 A single data.
 Headers used in rabbitMQ (only if not sent as part of `DataSet`):
@@ -210,7 +210,7 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 
 ## Message: DataSet
 
-**FQN**: grid.v1.DataSet
+**FQN**: zaphiro.grid.v1.DataSet
 
 A set of data.
 Headers used in rabbitMQ:
