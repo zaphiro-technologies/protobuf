@@ -78,6 +78,8 @@ are any how cast to UINT64 in the real time platform
 | `DATA_TYPE_VOLTAGE_SEQUENCE_ZERO`       | 42      | Voltage zero sequence in a three phase circuit. It maps to Phasor.       |
 | `DATA_TYPE_DISCRETE`                    | 43      | Discrete. It maps to Discrete.                                           |
 | `DATA_TYPE_ANALOG`                      | 44      | Analog. It maps to Analog.                                               |
+| `DATA_TYPE_NORMALIZED_RESIDUAL`         | 45      | Normalized Residual. It maps to Analog.                                  |
+| `DATA_TYPE_OBJECTIVE_FUNCTION`          | 46      | Objective Function. It maps to Analog.                                   |
 
 
 
@@ -137,6 +139,8 @@ class DataType{
   DATA_TYPE_VOLTAGE_SEQUENCE_ZERO
   DATA_TYPE_DISCRETE
   DATA_TYPE_ANALOG
+  DATA_TYPE_NORMALIZED_RESIDUAL
+  DATA_TYPE_OBJECTIVE_FUNCTION
 }
 ```
 ### Data Diagram
