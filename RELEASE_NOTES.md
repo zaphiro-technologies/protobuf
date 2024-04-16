@@ -1,8 +1,11 @@
 # ProtoBuf Release Notes
 
-## 0.0.6-dev - 2024-03-25
+## 0.0.6-dev - 2024-04-16
 
-- no changes
+### Features
+
+- Support `NormalizedResidual` and `ObjectiveFunction` data types (PR #49 by
+  @chicco785)
 
 ## 0.0.5 - 2024-03-22
 
