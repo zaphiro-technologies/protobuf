@@ -182,8 +182,8 @@ direction LR
 %% 
 
 class DataSet {
-  + Map~string,  Data~ data
   + string producerId
+  + Map~string,  Data~ data
 }
 DataSet .. ` Data`
 
@@ -228,8 +228,8 @@ Headers used in rabbitMQ:
 
 | Field        | Ordinal | Type           | Label | Description                                                 |
 |--------------|---------|----------------|-------|-------------------------------------------------------------|
-| `data`       | 2       | `string, Data` | Map   | The map of data included in the dataset.                    |
 | `producerId` | 1       | `string`       |       | The id of the device / service that produced the data set.  |
+| `data`       | 2       | `string, Data` | Map   | The map of data included in the dataset.                    |
 
 
 

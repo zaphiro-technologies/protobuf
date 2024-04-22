@@ -24,10 +24,8 @@ generate:
 
 .PHONY: docs
 docs:
-	../proto-gen-md-diagrams/proto-gen-md-diagrams -d zaphiro -md true
 	mkdir -p docs
-	# mv -f zaphiro/**/*.md docs #why it works on my mac but not in the action?
-	mv -f zaphiro/*/v1/*.md docs
+	../proto-gen-md-diagrams/proto-gen-md-diagrams -d zaphiro -o docs -md true
 
 .PHONY: proto-lint
 proto-lint:

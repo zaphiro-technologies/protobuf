@@ -38,12 +38,12 @@ direction LR
 %% 
 
 class Conf2Frame {
-  + uint32 DATA_RATE
-  + List~Config~ configs
   + Conf2Header header
+  + List~Config~ configs
+  + uint32 DATA_RATE
 }
-Conf2Frame --> `Config`
 Conf2Frame --> `Conf2Header`
+Conf2Frame --> `Config`
 
 ```
 ### Conf2Header Diagram
@@ -55,13 +55,13 @@ direction LR
 %% Configuration frame 2 header
 
 class Conf2Header {
-  + uint32 FRACSEC
+  + uint32 SYNC
   + uint32 FRAMESIZE
   + uint32 IDCODE
-  + uint32 NUM_PMU
   + uint32 SOC
-  + uint32 SYNC
+  + uint32 FRACSEC
   + uint32 TIME_BASE
+  + uint32 NUM_PMU
 }
 
 ```
@@ -74,18 +74,18 @@ direction LR
 %% Single PMU configuration according to Configuration frame 2
 
 class Config {
+  + string STN
+  + uint32 IDCODE
+  + uint32 FORMAT
+  + uint32 PHNMR
   + uint32 ANNMR
-  + List~uint32~ ANUNIT
-  + uint32 CFGCNT
-  + string CHNAM
   + uint32 DGNMR
+  + string CHNAM
+  + List~uint32~ PHUNIT
+  + List~uint32~ ANUNIT
   + List~uint32~ DIGUNIT
   + uint32 FNOM
-  + uint32 FORMAT
-  + uint32 IDCODE
-  + uint32 PHNMR
-  + List~uint32~ PHUNIT
-  + string STN
+  + uint32 CFGCNT
 }
 
 ```
@@ -105,9 +105,9 @@ Headers used in rabbitMQ:
 
 | Field       | Ordinal | Type          | Label    | Description                   |
 |-------------|---------|---------------|----------|-------------------------------|
-| `DATA_RATE` | 3       | `uint32`      |          | Rate of data transmission     |
-| `configs`   | 2       | `Config`      | Repeated | Set of PMU configurations     |
 | `header`    | 1       | `Conf2Header` |          | Configuration frame 2 header  |
+| `configs`   | 2       | `Config`      | Repeated | Set of PMU configurations     |
+| `DATA_RATE` | 3       | `uint32`      |          | Rate of data transmission     |
 
 
 
@@ -121,13 +121,13 @@ Configuration frame 2 header
 
 | Field       | Ordinal | Type     | Label | Description                                          |
 |-------------|---------|----------|-------|------------------------------------------------------|
-| `FRACSEC`   | 5       | `uint32` |       | Fraction of Second and Message Time Quality          |
+| `SYNC`      | 1       | `uint32` |       | Sync byte followed by frame type and version number  |
 | `FRAMESIZE` | 2       | `uint32` |       | Number of bytes in the frame                         |
 | `IDCODE`    | 3       | `uint32` |       | Stream source ID number                              |
-| `NUM_PMU`   | 7       | `uint32` |       | The number of PMUs included in the data frame        |
 | `SOC`       | 4       | `uint32` |       | SOC time stamp                                       |
-| `SYNC`      | 1       | `uint32` |       | Sync byte followed by frame type and version number  |
+| `FRACSEC`   | 5       | `uint32` |       | Fraction of Second and Message Time Quality          |
 | `TIME_BASE` | 6       | `uint32` |       | Resolution of FRACSEC time stamp                     |
+| `NUM_PMU`   | 7       | `uint32` |       | The number of PMUs included in the data frame        |
 
 
 
@@ -141,18 +141,18 @@ Single PMU configuration according to Configuration frame 2
 
 | Field     | Ordinal | Type     | Label    | Description                            |
 |-----------|---------|----------|----------|----------------------------------------|
+| `STN`     | 1       | `string` |          | Station name                           |
+| `IDCODE`  | 2       | `uint32` |          | Data source ID number                  |
+| `FORMAT`  | 3       | `uint32` |          | Data format within data frame          |
+| `PHNMR`   | 4       | `uint32` |          | Number of phasors                      |
 | `ANNMR`   | 5       | `uint32` |          | Number of analog values                |
-| `ANUNIT`  | 9       | `uint32` | Repeated | Conversion factor for analog channels  |
-| `CFGCNT`  | 12      | `uint32` |          | Configuration change count             |
-| `CHNAM`   | 7       | `string` |          | Phasor and channel names               |
 | `DGNMR`   | 6       | `uint32` |          | Number of digital status words         |
+| `CHNAM`   | 7       | `string` |          | Phasor and channel names               |
+| `PHUNIT`  | 8       | `uint32` | Repeated | Conversion factor for phasor channels  |
+| `ANUNIT`  | 9       | `uint32` | Repeated | Conversion factor for analog channels  |
 | `DIGUNIT` | 10      | `uint32` | Repeated | Mask words for digital status words    |
 | `FNOM`    | 11      | `uint32` |          | Nominal line frequency code and flags  |
-| `FORMAT`  | 3       | `uint32` |          | Data format within data frame          |
-| `IDCODE`  | 2       | `uint32` |          | Data source ID number                  |
-| `PHNMR`   | 4       | `uint32` |          | Number of phasors                      |
-| `PHUNIT`  | 8       | `uint32` | Repeated | Conversion factor for phasor channels  |
-| `STN`     | 1       | `string` |          | Station name                           |
+| `CFGCNT`  | 12      | `uint32` |          | Configuration change count             |
 
 
 

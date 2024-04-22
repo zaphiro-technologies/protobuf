@@ -35,16 +35,16 @@ direction LR
 %% 
 
 class Stat {
+  + int64 measuredAt
+  + uint32 error
+  + bool sync
+  + bool sorting
+  + bool trigger
   + bool configChange
   + bool dataModified
-  + uint32 error
-  + int64 measuredAt
-  + bool sorting
-  + bool sync
   + uint32 timeQuality
-  + bool trigger
-  + uint32 triggerReason
   + uint32 unlockedTime
+  + uint32 triggerReason
 }
 
 ```
@@ -63,16 +63,16 @@ Headers used in rabbitMQ:
 
 | Field           | Ordinal | Type     | Label | Description                                                   |
 |-----------------|---------|----------|-------|---------------------------------------------------------------|
+| `measuredAt`    | 1       | `int64`  |       | The time of creation of the stat data (Unix msec timestamp).  |
+| `error`         | 2       | `uint32` |       | Error code uint8                                              |
+| `sync`          | 3       | `bool`   |       | Synchronization status                                        |
+| `sorting`       | 4       | `bool`   |       | Sorting status                                                |
+| `trigger`       | 5       | `bool`   |       | Trigger status                                                |
 | `configChange`  | 6       | `bool`   |       | Configuration change status                                   |
 | `dataModified`  | 7       | `bool`   |       | Data modification status                                      |
-| `error`         | 2       | `uint32` |       | Error code uint8                                              |
-| `measuredAt`    | 1       | `int64`  |       | The time of creation of the stat data (Unix msec timestamp).  |
-| `sorting`       | 4       | `bool`   |       | Sorting status                                                |
-| `sync`          | 3       | `bool`   |       | Synchronization status                                        |
 | `timeQuality`   | 8       | `uint32` |       | Time quality uint8                                            |
-| `trigger`       | 5       | `bool`   |       | Trigger status                                                |
-| `triggerReason` | 10      | `uint32` |       | Trigger reason uint8                                          |
 | `unlockedTime`  | 9       | `uint32` |       | Unlocked time uint8                                           |
+| `triggerReason` | 10      | `uint32` |       | Trigger reason uint8                                          |
 
 
 

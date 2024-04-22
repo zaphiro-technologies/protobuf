@@ -121,12 +121,12 @@ direction LR
 %% 
 
 class Task {
+  + TaskType taskType
   + int64 createdAt
   + List~Parameter~ parameters
-  + TaskType taskType
 }
-Task --> `Parameter`
 Task --> `TaskType`
+Task --> `Parameter`
 
 ```
 ### Notification Diagram
@@ -145,9 +145,9 @@ direction LR
 %% 
 
 class Notification {
+  + NotificationType notificationType
   + int64 createdAt
   + string message
-  + NotificationType notificationType
   + List~Parameter~ parameters
 }
 Notification --> `NotificationType`
@@ -186,9 +186,9 @@ Headers used in rabbitMQ:
 
 | Field        | Ordinal | Type        | Label    | Description                               |
 |--------------|---------|-------------|----------|-------------------------------------------|
+| `taskType`   | 1       | `TaskType`  |          | Type of the task                          |
 | `createdAt`  | 2       | `int64`     |          | Task creation time (Unix msec timestamp)  |
 | `parameters` | 3       | `Parameter` | Repeated |                                           |
-| `taskType`   | 1       | `TaskType`  |          | Type of the task                          |
 
 
 
@@ -209,9 +209,9 @@ Headers used in rabbitMQ:
 
 | Field              | Ordinal | Type               | Label    | Description                                                                          |
 |--------------------|---------|--------------------|----------|--------------------------------------------------------------------------------------|
+| `notificationType` | 1       | `NotificationType` |          | Notification type                                                                    |
 | `createdAt`        | 2       | `int64`            |          | Notification creation time (Unix msec timestamp)                                     |
 | `message`          | 3       | `string`           |          | Notification message, it can be a string or a integer (which maps to a enum value).  |
-| `notificationType` | 1       | `NotificationType` |          | Notification type                                                                    |
 | `parameters`       | 4       | `Parameter`        | Repeated |                                                                                      |
 
 
