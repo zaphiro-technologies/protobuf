@@ -39,12 +39,12 @@ direction LR
 %% 
 
 class DeviceEvent {
-  + Optional~string~ code
-  + string deviceID
   + Event event
-  + Optional~double~ referenceLimit
+  + string deviceID
   + string substationID
   + Optional~double~ value
+  + Optional~double~ referenceLimit
+  + Optional~string~ code
 }
 DeviceEvent --> `Event`
 
@@ -165,12 +165,12 @@ Headers used in rabbitMQ:
 
 | Field            | Ordinal | Type     | Label    | Description                                               |
 |------------------|---------|----------|----------|-----------------------------------------------------------|
-| `code`           | 6       | `string` | Optional | The device event code (or the mapped string)              |
-| `deviceID`       | 2       | `string` |          | The ID of the device where the event occurred.            |
 | `event`          | 1       | `Event`  |          | The base event message                                    |
-| `referenceLimit` | 5       | `double` | Optional | The reference limit or expected value.                    |
+| `deviceID`       | 2       | `string` |          | The ID of the device where the event occurred.            |
 | `substationID`   | 3       | `string` |          | The ID of the substation where the event occurred.        |
 | `value`          | 4       | `double` | Optional | The measured / estimated value in relation to the event.  |
+| `referenceLimit` | 5       | `double` | Optional | The reference limit or expected value.                    |
+| `code`           | 6       | `string` | Optional | The device event code (or the mapped string)              |
 
 
 

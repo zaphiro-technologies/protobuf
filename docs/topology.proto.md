@@ -53,12 +53,12 @@ direction LR
 %% 
 
 class TopologicalNode {
-  + double BaseVoltage
-  + string BaseVoltageId
-  + string ConnectivityNodeContainerId
+  + List~string~ TerminalIds
   + List~string~ ConnectivityNodeIds
   + List~string~ PowerTransferEndIds
-  + List~string~ TerminalIds
+  + string ConnectivityNodeContainerId
+  + string BaseVoltageId
+  + double BaseVoltage
 }
 
 ```
@@ -94,11 +94,11 @@ direction LR
 
 class ComputedTopology {
   + string eqId
-  + Map~string,  TopologicalIsland~ topologicalIslands
   + Map~string,  TopologicalNode~ topologicalNodes
+  + Map~string,  TopologicalIsland~ topologicalIslands
 }
-ComputedTopology .. ` TopologicalIsland`
 ComputedTopology .. ` TopologicalNode`
+ComputedTopology .. ` TopologicalIsland`
 
 ```
 
@@ -135,12 +135,12 @@ A topology Node information.
 
 | Field                         | Ordinal | Type     | Label    | Description                                                      |
 |-------------------------------|---------|----------|----------|------------------------------------------------------------------|
-| `BaseVoltage`                 | 6       | `double` |          | The BaseVoltage in the TopologicalNode.                          |
-| `BaseVoltageId`               | 5       | `string` |          | The id of the BaseVoltage in the TopologicalNode.                |
-| `ConnectivityNodeContainerId` | 4       | `string` |          | The id of the ConnectivityNodeContainer in the TopologicalNode.  |
+| `TerminalIds`                 | 1       | `string` | Repeated | The list of Terminal ids in the TopologicalNode.                 |
 | `ConnectivityNodeIds`         | 2       | `string` | Repeated | The list of ConnectivityNode ids in the TopologicalNode.         |
 | `PowerTransferEndIds`         | 3       | `string` | Repeated | The list of PowerTransferEnd ids in the TopologicalNode.         |
-| `TerminalIds`                 | 1       | `string` | Repeated | The list of Terminal ids in the TopologicalNode.                 |
+| `ConnectivityNodeContainerId` | 4       | `string` |          | The id of the ConnectivityNodeContainer in the TopologicalNode.  |
+| `BaseVoltageId`               | 5       | `string` |          | The id of the BaseVoltage in the TopologicalNode.                |
+| `BaseVoltage`                 | 6       | `double` |          | The BaseVoltage in the TopologicalNode.                          |
 
 
 
@@ -178,8 +178,8 @@ Headers used in rabbitMQ:
 | Field                | Ordinal | Type                        | Label | Description                                     |
 |----------------------|---------|-----------------------------|-------|-------------------------------------------------|
 | `eqId`               | 1       | `string`                    |       | The id of the EQ file used.                     |
-| `topologicalIslands` | 3       | `string, TopologicalIsland` | Map   | The map of TopologicalIslands in the Topology.  |
 | `topologicalNodes`   | 2       | `string, TopologicalNode`   | Map   | The map of TopologicalNodes in the Topology.    |
+| `topologicalIslands` | 3       | `string, TopologicalIsland` | Map   | The map of TopologicalIslands in the Topology.  |
 
 
 

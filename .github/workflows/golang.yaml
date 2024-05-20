@@ -42,9 +42,8 @@ jobs:
       - name: Clone and build proto-gen-md-diagrams
         run: |
           cd ..
-          git clone https://github.com/zaphiro-technologies/proto-gen-md-diagrams.git
+          git clone https://github.com/GoogleCloudPlatform/proto-gen-md-diagrams.git
           cd proto-gen-md-diagrams
-          git checkout 1-feature-better-support-for-markdown-generation
           go build
           cd ..
           cd protobuf

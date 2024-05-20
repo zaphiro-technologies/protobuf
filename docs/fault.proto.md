@@ -49,7 +49,7 @@ An unordered enumeration of phase identifiers. Allows designation of phases for 
 Residential and small commercial loads are often served from single-phase, or split-phase, secondary circuits. For the example of s12N, phases 1 and 2 refer to hot wires that are 180 degrees out of phase, while N refers to the neutral wire. Through single-phase transformer connections, these secondary circuits may be served from one or two of the primary phases A, B, and C. For three-phase loads, use the A, B, C phase codes instead of s12N.
 The integer values are from IEC 61968-9 to support revenue metering applications.
 
-This message is modeled after [CIM PhaseCode](https://zepben.github.io/evolve/docs/cim/evolve/IEC61970/Base/Core/PhaseCode/).
+This message is modeled after [CIM PhaseCode](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Core/PhaseCode/).
 
 
 
@@ -114,7 +114,7 @@ direction LR
 %% Residential and small commercial loads are often served from single-phase, or split-phase, secondary circuits. For the example of s12N, phases 1 and 2 refer to hot wires that are 180 degrees out of phase, while N refers to the neutral wire. Through single-phase transformer connections, these secondary circuits may be served from one or two of the primary phases A, B, and C. For three-phase loads, use the A, B, C phase codes instead of s12N.
 %% The integer values are from IEC 61968-9 to support revenue metering applications.
 %% 
-%% This message is modeled after [CIM PhaseCode](https://zepben.github.io/evolve/docs/cim/evolve/IEC61970/Base/Core/PhaseCode/).
+%% This message is modeled after [CIM PhaseCode](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Core/PhaseCode/).
 %% 
 
 class PhaseCode{
@@ -166,14 +166,14 @@ direction LR
 class Fault {
   + string Id
   + Optional~string~ description
-  + Optional~float~ faultCurrent
-  + Optional~string~ faultyEquipmentId
-  + List~string~ impactedEquipmentIds
   + PhaseConnectedFaultKind kind
-  + Optional~bool~ located
-  + Optional~int64~ locatedAt
-  + int64 occurredAt
   + PhaseCode phases
+  + int64 occurredAt
+  + Optional~string~ faultyEquipmentId
+  + Optional~int64~ locatedAt
+  + Optional~float~ faultCurrent
+  + Optional~bool~ located
+  + List~string~ impactedEquipmentIds
 }
 Fault --> `PhaseConnectedFaultKind`
 Fault --> `PhaseCode`
@@ -196,9 +196,9 @@ direction LR
 %% 
 
 class LineFault {
-  + Optional~string~ acLineSegmentID
   + Fault fault
   + Optional~float~ lengthFromTerminal1
+  + Optional~string~ acLineSegmentID
 }
 LineFault --> `Fault`
 
@@ -247,14 +247,14 @@ Headers used in rabbitMQ:
 |------------------------|---------|---------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------|
 | `Id`                   | 1       | `string`                  |          | The textual id of the fault.                                                                                                |
 | `description`          | 2       | `string`                  | Optional | The textual description of the fault.                                                                                       |
-| `faultCurrent`         | 8       | `float`                   | Optional | The current associated to the fault.                                                                                        |
-| `faultyEquipmentId`    | 6       | `string`                  | Optional | The equipment with the fault.                                                                                               |
-| `impactedEquipmentIds` | 10      | `string`                  | Repeated | The set of IDs of equipments impacted by the fault.                                                                         |
 | `kind`                 | 3       | `PhaseConnectedFaultKind` |          | The kind of phase fault.                                                                                                    |
-| `located`              | 9       | `bool`                    | Optional | Was the fault located.                                                                                                      |
-| `locatedAt`            | 7       | `int64`                   | Optional | The time when the fault was located.                                                                                        |
-| `occurredAt`           | 5       | `int64`                   |          | The date and time at which the fault occurred (Unix msec timestamp).                                                        |
 | `phases`               | 4       | `PhaseCode`               |          | The phases participating in the fault. The fault connections into these phases are further specified by the type of fault.  |
+| `occurredAt`           | 5       | `int64`                   |          | The date and time at which the fault occurred (Unix msec timestamp).                                                        |
+| `faultyEquipmentId`    | 6       | `string`                  | Optional | The equipment with the fault.                                                                                               |
+| `locatedAt`            | 7       | `int64`                   | Optional | The time when the fault was located.                                                                                        |
+| `faultCurrent`         | 8       | `float`                   | Optional | The current associated to the fault.                                                                                        |
+| `located`              | 9       | `bool`                    | Optional | Was the fault located.                                                                                                      |
+| `impactedEquipmentIds` | 10      | `string`                  | Repeated | The set of IDs of equipments impacted by the fault.                                                                         |
 
 
 
@@ -276,9 +276,9 @@ Headers used in rabbitMQ:
 
 | Field                 | Ordinal | Type     | Label    | Description                                                                                                                    |
 |-----------------------|---------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------|
-| `acLineSegmentID`     | 3       | `string` | Optional | The line segment of this line fault.                                                                                           |
 | `fault`               | 1       | `Fault`  |          | The base fault message.                                                                                                        |
 | `lengthFromTerminal1` | 2       | `float`  | Optional | The length to the place where the fault is located starting from terminal with sequence number 1 of the faulted line segment.  |
+| `acLineSegmentID`     | 3       | `string` | Optional | The line segment of this line fault.                                                                                           |
 
 
 
