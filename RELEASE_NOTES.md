@@ -11,6 +11,11 @@
 
 - Replace custom proto-gen-md-diagrams with official one (PR #50 by @chicco785)
 
+### Dependencies
+
+- Bump google.golang.org/protobuf from 1.33.0 to 1.34.1 (PR #52 by
+  @dependabot[bot])
+
 ## 0.0.5 - 2024-03-22
 
 ### Features
