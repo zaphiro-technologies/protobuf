@@ -49,7 +49,7 @@ An unordered enumeration of phase identifiers. Allows designation of phases for 
 Residential and small commercial loads are often served from single-phase, or split-phase, secondary circuits. For the example of s12N, phases 1 and 2 refer to hot wires that are 180 degrees out of phase, while N refers to the neutral wire. Through single-phase transformer connections, these secondary circuits may be served from one or two of the primary phases A, B, and C. For three-phase loads, use the A, B, C phase codes instead of s12N.
 The integer values are from IEC 61968-9 to support revenue metering applications.
 
-This message is modeled after [CIM PhaseCode](https://zepben.github.io/evolve/docs/cim/evolve/IEC61970/Base/Core/PhaseCode/).
+This message is modeled after [CIM PhaseCode](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Core/PhaseCode/).
 
 
 
@@ -114,7 +114,7 @@ direction LR
 %% Residential and small commercial loads are often served from single-phase, or split-phase, secondary circuits. For the example of s12N, phases 1 and 2 refer to hot wires that are 180 degrees out of phase, while N refers to the neutral wire. Through single-phase transformer connections, these secondary circuits may be served from one or two of the primary phases A, B, and C. For three-phase loads, use the A, B, C phase codes instead of s12N.
 %% The integer values are from IEC 61968-9 to support revenue metering applications.
 %% 
-%% This message is modeled after [CIM PhaseCode](https://zepben.github.io/evolve/docs/cim/evolve/IEC61970/Base/Core/PhaseCode/).
+%% This message is modeled after [CIM PhaseCode](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Core/PhaseCode/).
 %% 
 
 class PhaseCode{
