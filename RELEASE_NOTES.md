@@ -1,11 +1,15 @@
 # ProtoBuf Release Notes
 
-## 0.0.6-dev - 2024-04-16
+## 0.0.6-dev - 2024-05-20
 
 ### Features
 
 - Support `NormalizedResidual` and `ObjectiveFunction` data types (PR #49 by
   @chicco785)
+
+### Continuous Integration
+
+- Replace custom proto-gen-md-diagrams with official one (PR #50 by @chicco785)
 
 ## 0.0.5 - 2024-03-22
 
