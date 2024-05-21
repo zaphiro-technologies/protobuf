@@ -53,12 +53,28 @@ direction LR
 %% 
 
 class TopologicalNode {
+  + string Id
   + List~string~ TerminalIds
   + List~string~ ConnectivityNodeIds
-  + List~string~ PowerTransferEndIds
+  + List~string~ BranchIds
   + string ConnectivityNodeContainerId
   + string BaseVoltageId
   + double BaseVoltage
+}
+
+```
+### BranchConnection Diagram
+
+```mermaid
+classDiagram
+direction LR
+
+%% A wrapper in order to use an array in the map in TopologicalIsland.
+%% * It represents the connections between the TopologicalNodes in the TopologicalIsland.
+%% 
+
+class BranchConnection {
+  + List~string~ TopologicalNodeIds
 }
 
 ```
@@ -73,8 +89,10 @@ direction LR
 %% 
 
 class TopologicalIsland {
-  + List~string~ TopologicalNodeIds
+  + string Id
+  + List~TopologicalNode~ TopologicalNodes
 }
+TopologicalIsland --> `TopologicalNode`
 
 ```
 ### ComputedTopology Diagram
@@ -94,11 +112,11 @@ direction LR
 
 class ComputedTopology {
   + string eqId
-  + Map~string,  TopologicalNode~ topologicalNodes
-  + Map~string,  TopologicalIsland~ topologicalIslands
+  + List~TopologicalIsland~ topologicalIslands
+  + Map~string,  BranchConnection~ BranchConnections
 }
-ComputedTopology .. ` TopologicalNode`
-ComputedTopology .. ` TopologicalIsland`
+ComputedTopology --> `TopologicalIsland`
+ComputedTopology .. ` BranchConnection`
 
 ```
 
@@ -135,12 +153,29 @@ A topology Node information.
 
 | Field                         | Ordinal | Type     | Label    | Description                                                      |
 |-------------------------------|---------|----------|----------|------------------------------------------------------------------|
-| `TerminalIds`                 | 1       | `string` | Repeated | The list of Terminal ids in the TopologicalNode.                 |
-| `ConnectivityNodeIds`         | 2       | `string` | Repeated | The list of ConnectivityNode ids in the TopologicalNode.         |
-| `PowerTransferEndIds`         | 3       | `string` | Repeated | The list of PowerTransferEnd ids in the TopologicalNode.         |
-| `ConnectivityNodeContainerId` | 4       | `string` |          | The id of the ConnectivityNodeContainer in the TopologicalNode.  |
-| `BaseVoltageId`               | 5       | `string` |          | The id of the BaseVoltage in the TopologicalNode.                |
-| `BaseVoltage`                 | 6       | `double` |          | The BaseVoltage in the TopologicalNode.                          |
+| `Id`                          | 1       | `string` |          | The id of the TopologicalNode.                                   |
+| `TerminalIds`                 | 2       | `string` | Repeated | The list of Terminal ids in the TopologicalNode.                 |
+| `ConnectivityNodeIds`         | 3       | `string` | Repeated | The list of ConnectivityNode ids in the TopologicalNode.         |
+| `BranchIds`                   | 4       | `string` | Repeated | The list of Branch ids in the TopologicalNode.                   |
+| `ConnectivityNodeContainerId` | 5       | `string` |          | The id of the ConnectivityNodeContainer in the TopologicalNode.  |
+| `BaseVoltageId`               | 6       | `string` |          | The id of the BaseVoltage in the TopologicalNode.                |
+| `BaseVoltage`                 | 7       | `double` |          | The BaseVoltage in the TopologicalNode.                          |
+
+
+
+
+## Message: BranchConnection
+
+**FQN**: zaphiro.grid.v1.BranchConnection
+
+A wrapper in order to use an array in the map in TopologicalIsland.
+* It represents the connections between the TopologicalNodes in the TopologicalIsland.
+
+
+
+| Field                | Ordinal | Type     | Label    | Description                                               |
+|----------------------|---------|----------|----------|-----------------------------------------------------------|
+| `TopologicalNodeIds` | 1       | `string` | Repeated | The list of TopologicalNode ids connected to the Branch.  |
 
 
 
@@ -154,9 +189,10 @@ A topology Island information.
 
 
 
-| Field                | Ordinal | Type     | Label    | Description                                                |
-|----------------------|---------|----------|----------|------------------------------------------------------------|
-| `TopologicalNodeIds` | 1       | `string` | Repeated | The list of TopologicalNode ids in the TopologicalIsland.  |
+| Field              | Ordinal | Type              | Label    | Description                                            |
+|--------------------|---------|-------------------|----------|--------------------------------------------------------|
+| `Id`               | 1       | `string`          |          | The id of the TopologicalIsland.                       |
+| `TopologicalNodes` | 2       | `TopologicalNode` | Repeated | The list of TopologicalNode in the TopologicalIsland.  |
 
 
 
@@ -175,11 +211,11 @@ Headers used in rabbitMQ:
 
 
 
-| Field                | Ordinal | Type                        | Label | Description                                     |
-|----------------------|---------|-----------------------------|-------|-------------------------------------------------|
-| `eqId`               | 1       | `string`                    |       | The id of the EQ file used.                     |
-| `topologicalNodes`   | 2       | `string, TopologicalNode`   | Map   | The map of TopologicalNodes in the Topology.    |
-| `topologicalIslands` | 3       | `string, TopologicalIsland` | Map   | The map of TopologicalIslands in the Topology.  |
+| Field                | Ordinal | Type                       | Label    | Description                                                                                         |
+|----------------------|---------|----------------------------|----------|-----------------------------------------------------------------------------------------------------|
+| `eqId`               | 1       | `string`                   |          | The id of the EQ file used.                                                                         |
+| `topologicalIslands` | 2       | `TopologicalIsland`        | Repeated | The map of TopologicalIslands in the Topology.                                                      |
+| `BranchConnections`  | 3       | `string, BranchConnection` | Map      | All the connections between the TopologicalNodes in the TopologicalIsland. TN id -> TN connection.  |
 
 
 
