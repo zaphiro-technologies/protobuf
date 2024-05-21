@@ -5,11 +5,16 @@ on:
       - "*"
   pull_request_review:
   pull_request:
+    types:
+      - labeled
+      - unlabeled
+      - edited
+      - synchronize
     branches: [main]
   release:
     types:
       - published
-      
+
 jobs:
   release-notes:
     uses: zaphiro-technologies/github-workflows/.github/workflows/release-notes.yaml@main
