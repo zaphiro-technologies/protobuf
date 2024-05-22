@@ -1,6 +1,6 @@
 # ProtoBuf Release Notes
 
-## 0.0.6-dev - 2024-05-20
+## 0.0.6-dev - 2024-05-22
 
 ### Features
 
@@ -9,6 +9,7 @@
 
 ### Continuous Integration
 
+- Configure Static Code & License Analysis (PR #55 by @chicco785)
 - Replace custom proto-gen-md-diagrams with official one (PR #50 by @chicco785)
 
 ### Dependencies
