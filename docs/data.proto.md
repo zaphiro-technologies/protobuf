@@ -80,6 +80,10 @@ are any how cast to UINT64 in the real time platform
 | `DATA_TYPE_ANALOG`                      | 44      | Analog. It maps to Analog.                                               |
 | `DATA_TYPE_NORMALIZED_RESIDUAL`         | 45      | Normalized Residual. It maps to Analog.                                  |
 | `DATA_TYPE_OBJECTIVE_FUNCTION`          | 46      | Objective Function. It maps to Analog.                                   |
+| `DATA_TYPE_SWITCH_POSITION_CHECK`       | 47      | Switch Position Check. It maps to Boolean.                               |
+| `DATA_TYPE_TEMPERATURE_ALARM`           | 48      | Temperature Alarm. It maps to Boolean.                                   |
+| `DATA_TYPE_PRESSURE_ALARM`              | 49      | Pressure Alarm. It maps to Boolean.                                      |
+| `DATA_TYPE_DOOR_ALARM`                  | 50      | Door Alarm. It maps to Boolean.                                          |
 
 
 
@@ -141,6 +145,10 @@ class DataType{
   DATA_TYPE_ANALOG
   DATA_TYPE_NORMALIZED_RESIDUAL
   DATA_TYPE_OBJECTIVE_FUNCTION
+  DATA_TYPE_SWITCH_POSITION_CHECK
+  DATA_TYPE_TEMPERATURE_ALARM
+  DATA_TYPE_PRESSURE_ALARM
+  DATA_TYPE_DOOR_ALARM
 }
 ```
 ### Data Diagram
