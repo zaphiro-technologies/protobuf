@@ -42,6 +42,14 @@ class PhaseCode(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     PHASE_CODE_XY: _ClassVar[PhaseCode]
     PHASE_CODE_XN: _ClassVar[PhaseCode]
     PHASE_CODE_XYN: _ClassVar[PhaseCode]
+
+class FaultStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    FAULT_STATUS_UNSPECIFIED: _ClassVar[FaultStatus]
+    FAULT_STATUS_STARTED: _ClassVar[FaultStatus]
+    FAULT_STATUS_LOCATED: _ClassVar[FaultStatus]
+    FAULT_STATUS_ENDED: _ClassVar[FaultStatus]
+    FAULT_STATUS_UNKNOWN: _ClassVar[FaultStatus]
 PHASE_CONNECTED_FAULT_KIND_UNSPECIFIED: PhaseConnectedFaultKind
 PHASE_CONNECTED_FAULT_KIND_LINE_TO_GROUND: PhaseConnectedFaultKind
 PHASE_CONNECTED_FAULT_KIND_LINE_TO_LINE: PhaseConnectedFaultKind
@@ -73,30 +81,33 @@ PHASE_CODE_X: PhaseCode
 PHASE_CODE_XY: PhaseCode
 PHASE_CODE_XN: PhaseCode
 PHASE_CODE_XYN: PhaseCode
+FAULT_STATUS_UNSPECIFIED: FaultStatus
+FAULT_STATUS_STARTED: FaultStatus
+FAULT_STATUS_LOCATED: FaultStatus
+FAULT_STATUS_ENDED: FaultStatus
+FAULT_STATUS_UNKNOWN: FaultStatus
 
 class Fault(_message.Message):
-    __slots__ = ("Id", "description", "kind", "phases", "occurredAt", "faultyEquipmentId", "locatedAt", "faultCurrent", "located", "impactedEquipmentIds")
+    __slots__ = ("Id", "description", "kind", "phases", "updatedAt", "status", "faultyEquipmentId", "faultCurrent", "impactedEquipmentIds")
     ID_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     KIND_FIELD_NUMBER: _ClassVar[int]
     PHASES_FIELD_NUMBER: _ClassVar[int]
-    OCCURREDAT_FIELD_NUMBER: _ClassVar[int]
+    UPDATEDAT_FIELD_NUMBER: _ClassVar[int]
+    STATUS_FIELD_NUMBER: _ClassVar[int]
     FAULTYEQUIPMENTID_FIELD_NUMBER: _ClassVar[int]
-    LOCATEDAT_FIELD_NUMBER: _ClassVar[int]
     FAULTCURRENT_FIELD_NUMBER: _ClassVar[int]
-    LOCATED_FIELD_NUMBER: _ClassVar[int]
     IMPACTEDEQUIPMENTIDS_FIELD_NUMBER: _ClassVar[int]
     Id: str
     description: str
     kind: PhaseConnectedFaultKind
     phases: PhaseCode
-    occurredAt: int
+    updatedAt: int
+    status: FaultStatus
     faultyEquipmentId: str
-    locatedAt: int
     faultCurrent: float
-    located: bool
     impactedEquipmentIds: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, Id: _Optional[str] = ..., description: _Optional[str] = ..., kind: _Optional[_Union[PhaseConnectedFaultKind, str]] = ..., phases: _Optional[_Union[PhaseCode, str]] = ..., occurredAt: _Optional[int] = ..., faultyEquipmentId: _Optional[str] = ..., locatedAt: _Optional[int] = ..., faultCurrent: _Optional[float] = ..., located: bool = ..., impactedEquipmentIds: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(self, Id: _Optional[str] = ..., description: _Optional[str] = ..., kind: _Optional[_Union[PhaseConnectedFaultKind, str]] = ..., phases: _Optional[_Union[PhaseCode, str]] = ..., updatedAt: _Optional[int] = ..., status: _Optional[_Union[FaultStatus, str]] = ..., faultyEquipmentId: _Optional[str] = ..., faultCurrent: _Optional[float] = ..., impactedEquipmentIds: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class LineFault(_message.Message):
     __slots__ = ("fault", "lengthFromTerminal1", "acLineSegmentID")
