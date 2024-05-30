@@ -83,6 +83,22 @@ This message is modeled after [CIM PhaseCode](https://zepben.github.io/evolve/do
 | `PHASE_CODE_XYN`         | 25      | Two unknown non-neutral phases plus neutral.  |
 
 
+## Enum: FaultStatus
+
+**FQN**: zaphiro.grid.v1.FaultStatus
+
+The collection of Fault Status defined so far.
+
+
+| Name                       | Ordinal | Description                                                                      |
+|----------------------------|---------|----------------------------------------------------------------------------------|
+| `FAULT_STATUS_UNSPECIFIED` | 0       | No status defined                                                                |
+| `FAULT_STATUS_STARTED`     | 1       | Fault started                                                                    |
+| `FAULT_STATUS_LOCATED`     | 2       | Fault was located                                                                |
+| `FAULT_STATUS_ENDED`       | 3       | Fault ended                                                                      |
+| `FAULT_STATUS_UNKNOWN`     | 4       | Information available don't allow us to know if the Fault is active or complete  |
+
+
 
 ### PhaseConnectedFaultKind Diagram
 
@@ -147,6 +163,22 @@ class PhaseCode{
   PHASE_CODE_XYN
 }
 ```
+### FaultStatus Diagram
+
+```mermaid
+classDiagram
+direction LR
+%% The collection of Fault Status defined so far.
+
+class FaultStatus{
+  <<enumeration>>
+  FAULT_STATUS_UNSPECIFIED
+  FAULT_STATUS_STARTED
+  FAULT_STATUS_LOCATED
+  FAULT_STATUS_ENDED
+  FAULT_STATUS_UNKNOWN
+}
+```
 ### Fault Diagram
 
 ```mermaid
@@ -168,15 +200,15 @@ class Fault {
   + Optional~string~ description
   + PhaseConnectedFaultKind kind
   + PhaseCode phases
-  + int64 occurredAt
+  + int64 updatedAt
+  + FaultStatus status
   + Optional~string~ faultyEquipmentId
-  + Optional~int64~ locatedAt
   + Optional~float~ faultCurrent
-  + Optional~bool~ located
   + List~string~ impactedEquipmentIds
 }
 Fault --> `PhaseConnectedFaultKind`
 Fault --> `PhaseCode`
+Fault --> `FaultStatus`
 
 ```
 ### LineFault Diagram
@@ -249,12 +281,11 @@ Headers used in rabbitMQ:
 | `description`          | 2       | `string`                  | Optional | The textual description of the fault.                                                                                       |
 | `kind`                 | 3       | `PhaseConnectedFaultKind` |          | The kind of phase fault.                                                                                                    |
 | `phases`               | 4       | `PhaseCode`               |          | The phases participating in the fault. The fault connections into these phases are further specified by the type of fault.  |
-| `occurredAt`           | 5       | `int64`                   |          | The date and time at which the fault occurred (Unix msec timestamp).                                                        |
-| `faultyEquipmentId`    | 6       | `string`                  | Optional | The equipment with the fault.                                                                                               |
-| `locatedAt`            | 7       | `int64`                   | Optional | The time when the fault was located.                                                                                        |
+| `updatedAt`            | 5       | `int64`                   |          | The date and time at which the fault started/located/ended depending on the Fault Status (Unix msec timestamp).             |
+| `status`               | 6       | `FaultStatus`             |          | The status of the fault.                                                                                                    |
+| `faultyEquipmentId`    | 7       | `string`                  | Optional | The equipment with the fault.                                                                                               |
 | `faultCurrent`         | 8       | `float`                   | Optional | The current associated to the fault.                                                                                        |
-| `located`              | 9       | `bool`                    | Optional | Was the fault located.                                                                                                      |
-| `impactedEquipmentIds` | 10      | `string`                  | Repeated | The set of IDs of equipments impacted by the fault.                                                                         |
+| `impactedEquipmentIds` | 9       | `string`                  | Repeated | The set of IDs of equipments impacted by the fault.                                                                         |
 
 
 
