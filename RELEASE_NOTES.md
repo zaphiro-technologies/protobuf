@@ -1,6 +1,6 @@
 # ProtoBuf Release Notes
 
-## 0.0.6-dev - 2024-05-24
+## 0.0.6-dev - 2024-05-30
 
 ### Features
 
@@ -17,6 +17,10 @@
 
 - Bump google.golang.org/protobuf from 1.33.0 to 1.34.1 (PR #52 by
   @dependabot[bot])
+
+### Refactoring
+
+- Adopt `FaultStatus` to manage fault evolution over time (PR #59 by @chicco785)
 
 ## 0.0.5 - 2024-03-22
 
