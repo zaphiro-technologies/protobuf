@@ -1,10 +1,11 @@
 # ProtoBuf Release Notes
 
-## 0.0.6-dev - 2024-05-30
+## 0.0.6-dev - 2024-06-04
 
 ### Features
 
 - Add support for Measurement Types used in SIL (PR #57 by @chicco785)
+- Update topology protobuf to include branches (PR #53 by @hiimjako)
 - Support `NormalizedResidual` and `ObjectiveFunction` data types (PR #49 by
   @chicco785)
 
