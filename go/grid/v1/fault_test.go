@@ -11,12 +11,12 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 )
 
-func generateFault(faultId string, faultKind, phaseCode int, occurredAt int64) *Fault {
+func generateFault(faultId string, faultKind, phaseCode int, updatedAt int64) *Fault {
 	return &Fault{
-		Id:         faultId,
-		Kind:       PhaseConnectedFaultKind(faultKind),
-		OccurredAt: occurredAt,
-		Phases:     PhaseCode(phaseCode),
+		Id:        faultId,
+		Kind:      PhaseConnectedFaultKind(faultKind),
+		UpdatedAt: updatedAt,
+		Phases:    PhaseCode(phaseCode),
 	}
 }
 
@@ -28,7 +28,7 @@ func TestFault(t *testing.T) {
 		data := &Fault{}
 		err = proto.Unmarshal(buf, data)
 		assert.NoError(t, err)
-		assert.Equal(t, data.OccurredAt, test.OccurredAt)
+		assert.Equal(t, data.UpdatedAt, test.UpdatedAt)
 		assert.Equal(t, data.Kind, test.Kind)
 		assert.Equal(t, data.Kind.Number(), protoreflect.EnumNumber(k))
 		assert.Equal(t, data.Phases, test.Phases)
@@ -65,7 +65,7 @@ func TestLineFault(t *testing.T) {
 		data := &LineFault{}
 		err = proto.Unmarshal(buf, data)
 		assert.NoError(t, err)
-		assert.Equal(t, data.Fault.OccurredAt, test.Fault.OccurredAt)
+		assert.Equal(t, data.Fault.UpdatedAt, test.Fault.UpdatedAt)
 		assert.Equal(t, data.Fault.Kind, test.Fault.Kind)
 		assert.Equal(t, data.Fault.Kind.Number(), protoreflect.EnumNumber(k))
 		assert.Equal(t, data.Fault.Phases, test.Fault.Phases)
@@ -102,7 +102,7 @@ func TestEquipmentFault(t *testing.T) {
 		data := &EquipmentFault{}
 		err = proto.Unmarshal(buf, data)
 		assert.NoError(t, err)
-		assert.Equal(t, data.Fault.OccurredAt, test.Fault.OccurredAt)
+		assert.Equal(t, data.Fault.UpdatedAt, test.Fault.UpdatedAt)
 		assert.Equal(t, data.Fault.Kind, test.Fault.Kind)
 		assert.Equal(t, data.Fault.Kind.Number(), protoreflect.EnumNumber(k))
 		assert.Equal(t, data.Fault.Phases, test.Fault.Phases)

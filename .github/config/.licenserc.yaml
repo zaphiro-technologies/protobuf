@@ -1,0 +1,36 @@
+# see https://github.com/marketplace/actions/license-eye-header#configurations
+
+header:
+  # this is not the actual license, but the desired compatibility
+  license:
+    spdx-id: Apache-2.0
+    copyright-year: 2024
+    copyright-owner: Zaphiro Technologies
+
+  paths-ignore:
+    - '.github'
+    - '.docker'
+    - '**/*.{md,MD}'
+    - 'go.mod'
+    - 'go.sum'
+
+  comment: on-failure
+
+# If you don't want to check dependencies' license compatibility, remove the following part
+dependency:
+  files:
+    - go.mod            # If this is a Go project.
+  licenses:
+    # these are not real licenses, but the desired compatibility
+    - name: github.com/zaphiro-technologies/cim-measurements-go
+      license: Apache-2.0
+    - name: github.com/zaphiro-technologies/logging
+      license: Apache-2.0
+    - name: github.com/zaphiro-technologies/observability
+      license: Apache-2.0
+    - name: github.com/zaphiro-technologies/protobuf
+      license: Apache-2.0
+    - name: github.com/zaphiro-technologies/roger 
+      license: Apache-2.0
+    - name: github.com/zaphiro-technologies/golib 
+      license: Apache-2.0

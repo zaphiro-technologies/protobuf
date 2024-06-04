@@ -1,15 +1,26 @@
 # ProtoBuf Release Notes
 
-## 0.0.6-dev - 2024-05-20
+## 0.0.6-dev - 2024-05-30
 
 ### Features
 
+- Add support for Measurement Types used in SIL (PR #57 by @chicco785)
 - Support `NormalizedResidual` and `ObjectiveFunction` data types (PR #49 by
   @chicco785)
 
 ### Continuous Integration
 
+- Configure Static Code & License Analysis (PR #55 by @chicco785)
 - Replace custom proto-gen-md-diagrams with official one (PR #50 by @chicco785)
+
+### Dependencies
+
+- Bump google.golang.org/protobuf from 1.33.0 to 1.34.1 (PR #52 by
+  @dependabot[bot])
+
+### Refactoring
+
+- Adopt `FaultStatus` to manage fault evolution over time (PR #59 by @chicco785)
 
 ## 0.0.5 - 2024-03-22
 
