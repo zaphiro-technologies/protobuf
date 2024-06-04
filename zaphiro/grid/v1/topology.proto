@@ -25,20 +25,12 @@ message Topology {
 * To be used in ComputedTopology message.
 */
 message TopologicalNode{
-	string Id = 1; //The id of the TopologicalNode.
-    repeated string TerminalIds = 2; //The list of Terminal ids in the TopologicalNode.                 
-	repeated string ConnectivityNodeIds = 3; //The list of ConnectivityNode ids in the TopologicalNode.
-	repeated string BranchIds = 4; //The list of Branch ids in the TopologicalNode.
-	string ConnectivityNodeContainerId = 5; //The id of the ConnectivityNodeContainer in the TopologicalNode. 
-	string BaseVoltageId =  6; //The id of the BaseVoltage in the TopologicalNode.
-	double BaseVoltage = 7; //The BaseVoltage in the TopologicalNode.
-}
-
-/* A wrapper in order to use an array in the map in TopologicalIsland.
-* It represents the connections between the TopologicalNodes in the TopologicalIsland.
-*/
-message BranchConnection{
-	repeated string TopologicalNodeIds = 1; // The list of TopologicalNode ids connected to the Branch.
+    repeated string TerminalIds = 1; //The list of Terminal ids in the TopologicalNode.                 
+	repeated string ConnectivityNodeIds = 2; //The list of ConnectivityNode ids in the TopologicalNode.
+	repeated string BranchIds = 3; //The list of Branch ids in the TopologicalNode.
+	string ConnectivityNodeContainerId = 4; //The id of the ConnectivityNodeContainer in the TopologicalNode. 
+	string BaseVoltageId =  5; //The id of the BaseVoltage in the TopologicalNode.
+	double BaseVoltage = 6; //The BaseVoltage in the TopologicalNode.
 }
 
 /* A topology Island information.
@@ -46,7 +38,14 @@ message BranchConnection{
 */
 message TopologicalIsland{
 	string Id = 1; //The id of the TopologicalIsland.
-    repeated TopologicalNode TopologicalNodes = 2; //The list of TopologicalNode in the TopologicalIsland.
+    map<string, TopologicalNode> TopologicalNodes = 2; //The list of TopologicalNode in the TopologicalIsland. TN id -> TN.
+}
+
+/* A wrapper in order to use an array in the map in TopologicalIsland.
+* It represents the connections between the TopologicalNodes in the TopologicalIsland.
+*/
+message BranchConnection{
+	repeated string TopologicalNodeIds = 1; // The list of TopologicalNode ids connected to the Branch.
 }
 
 /* A processed topology information.
@@ -59,6 +58,6 @@ Headers used in rabbitMQ:
 */
 message ComputedTopology{
 	string eqId = 1; //The id of the EQ file used.
-	repeated TopologicalIsland topologicalIslands = 2; //The map of TopologicalIslands in the Topology.
+	map<string,  TopologicalIsland> topologicalIslands = 2; // The map of TopologicalIslands in the Topology. TI id -> TI.
 	map<string, BranchConnection> BranchConnections = 3; // All the connections between the TopologicalNodes in the TopologicalIsland. TN id -> TN connection.
 }
