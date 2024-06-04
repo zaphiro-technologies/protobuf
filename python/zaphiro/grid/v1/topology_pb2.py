@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1ezaphiro/grid/v1/topology.proto\x12\x0fzaphiro.grid.v1\"8\n\x08Topology\x12\x1c\n\tcreatedAt\x18\x01 \x01(\x03R\tcreatedAt\x12\x0e\n\x02tp\x18\x02 \x01(\x0cR\x02tp\"\xa1\x02\n\x0fTopologicalNode\x12 \n\x0bTerminalIds\x18\x01 \x03(\tR\x0bTerminalIds\x12\x30\n\x13\x43onnectivityNodeIds\x18\x02 \x03(\tR\x13\x43onnectivityNodeIds\x12\x30\n\x13PowerTransferEndIds\x18\x03 \x03(\tR\x13PowerTransferEndIds\x12@\n\x1b\x43onnectivityNodeContainerId\x18\x04 \x01(\tR\x1b\x43onnectivityNodeContainerId\x12$\n\rBaseVoltageId\x18\x05 \x01(\tR\rBaseVoltageId\x12 \n\x0b\x42\x61seVoltage\x18\x06 \x01(\x01R\x0b\x42\x61seVoltage\"C\n\x11TopologicalIsland\x12.\n\x12TopologicalNodeIds\x18\x01 \x03(\tR\x12TopologicalNodeIds\"\xc8\x03\n\x10\x43omputedTopology\x12\x12\n\x04\x65qId\x18\x01 \x01(\tR\x04\x65qId\x12\x63\n\x10topologicalNodes\x18\x02 \x03(\x0b\x32\x37.zaphiro.grid.v1.ComputedTopology.TopologicalNodesEntryR\x10topologicalNodes\x12i\n\x12topologicalIslands\x18\x03 \x03(\x0b\x32\x39.zaphiro.grid.v1.ComputedTopology.TopologicalIslandsEntryR\x12topologicalIslands\x1a\x65\n\x15TopologicalNodesEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x36\n\x05value\x18\x02 \x01(\x0b\x32 .zaphiro.grid.v1.TopologicalNodeR\x05value:\x02\x38\x01\x1ai\n\x17TopologicalIslandsEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x38\n\x05value\x18\x02 \x01(\x0b\x32\".zaphiro.grid.v1.TopologicalIslandR\x05value:\x02\x38\x01\x42\x0bZ\t./grid/v1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1ezaphiro/grid/v1/topology.proto\x12\x0fzaphiro.grid.v1\"8\n\x08Topology\x12\x1c\n\tcreatedAt\x18\x01 \x01(\x03R\tcreatedAt\x12\x0e\n\x02tp\x18\x02 \x01(\x0cR\x02tp\"\x8d\x02\n\x0fTopologicalNode\x12 \n\x0bTerminalIds\x18\x01 \x03(\tR\x0bTerminalIds\x12\x30\n\x13\x43onnectivityNodeIds\x18\x02 \x03(\tR\x13\x43onnectivityNodeIds\x12\x1c\n\tBranchIds\x18\x03 \x03(\tR\tBranchIds\x12@\n\x1b\x43onnectivityNodeContainerId\x18\x04 \x01(\tR\x1b\x43onnectivityNodeContainerId\x12$\n\rBaseVoltageId\x18\x05 \x01(\tR\rBaseVoltageId\x12 \n\x0b\x42\x61seVoltage\x18\x06 \x01(\x01R\x0b\x42\x61seVoltage\"\xf0\x01\n\x11TopologicalIsland\x12\x0e\n\x02Id\x18\x01 \x01(\tR\x02Id\x12\x64\n\x10TopologicalNodes\x18\x02 \x03(\x0b\x32\x38.zaphiro.grid.v1.TopologicalIsland.TopologicalNodesEntryR\x10TopologicalNodes\x1a\x65\n\x15TopologicalNodesEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x36\n\x05value\x18\x02 \x01(\x0b\x32 .zaphiro.grid.v1.TopologicalNodeR\x05value:\x02\x38\x01\"B\n\x10\x42ranchConnection\x12.\n\x12TopologicalNodeIds\x18\x01 \x03(\tR\x12TopologicalNodeIds\"\xcd\x03\n\x10\x43omputedTopology\x12\x12\n\x04\x65qId\x18\x01 \x01(\tR\x04\x65qId\x12i\n\x12topologicalIslands\x18\x02 \x03(\x0b\x32\x39.zaphiro.grid.v1.ComputedTopology.TopologicalIslandsEntryR\x12topologicalIslands\x12\x66\n\x11\x42ranchConnections\x18\x03 \x03(\x0b\x32\x38.zaphiro.grid.v1.ComputedTopology.BranchConnectionsEntryR\x11\x42ranchConnections\x1ai\n\x17TopologicalIslandsEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x38\n\x05value\x18\x02 \x01(\x0b\x32\".zaphiro.grid.v1.TopologicalIslandR\x05value:\x02\x38\x01\x1ag\n\x16\x42ranchConnectionsEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x37\n\x05value\x18\x02 \x01(\x0b\x32!.zaphiro.grid.v1.BranchConnectionR\x05value:\x02\x38\x01\x42\x0bZ\t./grid/v1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -22,20 +22,26 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'zaphiro.grid.v1.topology_pb
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z\t./grid/v1'
-  _globals['_COMPUTEDTOPOLOGY_TOPOLOGICALNODESENTRY']._loaded_options = None
-  _globals['_COMPUTEDTOPOLOGY_TOPOLOGICALNODESENTRY']._serialized_options = b'8\001'
+  _globals['_TOPOLOGICALISLAND_TOPOLOGICALNODESENTRY']._loaded_options = None
+  _globals['_TOPOLOGICALISLAND_TOPOLOGICALNODESENTRY']._serialized_options = b'8\001'
   _globals['_COMPUTEDTOPOLOGY_TOPOLOGICALISLANDSENTRY']._loaded_options = None
   _globals['_COMPUTEDTOPOLOGY_TOPOLOGICALISLANDSENTRY']._serialized_options = b'8\001'
+  _globals['_COMPUTEDTOPOLOGY_BRANCHCONNECTIONSENTRY']._loaded_options = None
+  _globals['_COMPUTEDTOPOLOGY_BRANCHCONNECTIONSENTRY']._serialized_options = b'8\001'
   _globals['_TOPOLOGY']._serialized_start=51
   _globals['_TOPOLOGY']._serialized_end=107
   _globals['_TOPOLOGICALNODE']._serialized_start=110
-  _globals['_TOPOLOGICALNODE']._serialized_end=399
-  _globals['_TOPOLOGICALISLAND']._serialized_start=401
-  _globals['_TOPOLOGICALISLAND']._serialized_end=468
-  _globals['_COMPUTEDTOPOLOGY']._serialized_start=471
-  _globals['_COMPUTEDTOPOLOGY']._serialized_end=927
-  _globals['_COMPUTEDTOPOLOGY_TOPOLOGICALNODESENTRY']._serialized_start=719
-  _globals['_COMPUTEDTOPOLOGY_TOPOLOGICALNODESENTRY']._serialized_end=820
-  _globals['_COMPUTEDTOPOLOGY_TOPOLOGICALISLANDSENTRY']._serialized_start=822
-  _globals['_COMPUTEDTOPOLOGY_TOPOLOGICALISLANDSENTRY']._serialized_end=927
+  _globals['_TOPOLOGICALNODE']._serialized_end=379
+  _globals['_TOPOLOGICALISLAND']._serialized_start=382
+  _globals['_TOPOLOGICALISLAND']._serialized_end=622
+  _globals['_TOPOLOGICALISLAND_TOPOLOGICALNODESENTRY']._serialized_start=521
+  _globals['_TOPOLOGICALISLAND_TOPOLOGICALNODESENTRY']._serialized_end=622
+  _globals['_BRANCHCONNECTION']._serialized_start=624
+  _globals['_BRANCHCONNECTION']._serialized_end=690
+  _globals['_COMPUTEDTOPOLOGY']._serialized_start=693
+  _globals['_COMPUTEDTOPOLOGY']._serialized_end=1154
+  _globals['_COMPUTEDTOPOLOGY_TOPOLOGICALISLANDSENTRY']._serialized_start=944
+  _globals['_COMPUTEDTOPOLOGY_TOPOLOGICALISLANDSENTRY']._serialized_end=1049
+  _globals['_COMPUTEDTOPOLOGY_BRANCHCONNECTIONSENTRY']._serialized_start=1051
+  _globals['_COMPUTEDTOPOLOGY_BRANCHCONNECTIONSENTRY']._serialized_end=1154
 # @@protoc_insertion_point(module_scope)
