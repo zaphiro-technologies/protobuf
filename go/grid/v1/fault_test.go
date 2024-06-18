@@ -47,19 +47,17 @@ func BenchmarkFaultSerialization(b *testing.B) {
 func generateLineFault(
 	fault *Fault,
 	lengthFromTerminal1 float32,
-	acLineSegmentID string,
 ) *LineFault {
 	return &LineFault{
 		Fault:               fault,
 		LengthFromTerminal1: &lengthFromTerminal1,
-		AcLineSegmentID:     &acLineSegmentID,
 	}
 }
 
 func TestLineFault(t *testing.T) {
 	for k := 0; k < 5; k++ {
 		fault := generateFault(uuid.NewString(), k, rand.Intn(26), time.Now().UnixNano())
-		test := generateLineFault(fault, rand.Float32(), uuid.NewString())
+		test := generateLineFault(fault, rand.Float32())
 		buf, err := proto.Marshal(test)
 		assert.NoError(t, err)
 		data := &LineFault{}
@@ -75,7 +73,7 @@ func TestLineFault(t *testing.T) {
 
 func BenchmarkLineFaultSerialization(b *testing.B) {
 	fault := generateFault(uuid.NewString(), rand.Intn(4), rand.Intn(26), time.Now().UnixNano())
-	test := generateLineFault(fault, rand.Float32(), uuid.NewString())
+	test := generateLineFault(fault, rand.Float32())
 	for i := 0; i < b.N; i++ {
 		buf, _ := proto.Marshal(test)
 		conf := &LineFault{}
