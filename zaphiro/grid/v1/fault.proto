@@ -129,6 +129,6 @@ message EquipmentFault {
 
 
 message FaultMeasurement {
-    bool positiveSign = 1; The sign to be used for the measurement (`true positive`, `false` negative).
-    string measurementID = 2; The ID of a measurement used to locate the fault.
+    bool positiveSign = 1; // The sign to be used for the measurement (`true positive`, `false` negative).
+    string measurementID = 2; // The ID of a measurement used to locate the fault.
 }
