@@ -67,7 +67,7 @@ enum PhaseCode {
 enum FaultStatus {
     FAULT_STATUS_UNSPECIFIED = 0; //No status defined
     FAULT_STATUS_STARTED = 1; //Fault started
-    FAULT_STATUS_LOCATED = 2; //Fault was located
+    FAULT_STATUS_ENDED_AND_LOCATED = 2; //Fault was located
     FAULT_STATUS_ENDED = 3; //Fault ended
     FAULT_STATUS_UNKNOWN = 4; //Information available don't allow us to know if the Fault is active or complete
 }
@@ -92,7 +92,8 @@ message Fault {
     optional string faultyEquipmentId = 7; //The equipment with the fault.
     optional float faultCurrent = 8; //The current associated to the fault.
     repeated string impactedEquipmentIds = 9; //The set of IDs of equipments impacted by the fault.
-
+    repeated FaultMeasurement usedMeasurementIds = 10; //The set of measurements used to locate the fault.
+    optional int64 measurementTimestamp = 11; // The timestamp of the measurements used to compute the fault location.
 }
 
 /* A fault that occurs on an AC line segment at some point along the length.
@@ -108,7 +109,6 @@ Headers used in rabbitMQ:
 message LineFault {
     Fault fault = 1; //The base fault message.
     optional float lengthFromTerminal1 = 2; //The length to the place where the fault is located starting from terminal with sequence number 1 of the faulted line segment.
-    optional string acLineSegmentID = 3; //The line segment of this line fault.
 }
 
 /*
@@ -125,4 +125,10 @@ Headers used in rabbitMQ:
 message EquipmentFault {
     Fault fault = 1; //The base fault message.
     optional string terminalID = 2; //The terminal connecting to the bus to which the fault is applied.
+}
+
+
+message FaultMeasurement {
+    bool positiveSign = 1; The sign to be used for the measurement (`true positive`, `false` negative).
+    string measurementID = 2; The ID of a measurement used to locate the fault.
 }
