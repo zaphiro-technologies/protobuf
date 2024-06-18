@@ -364,7 +364,7 @@ Headers used in rabbitMQ:
 
 | Field           | Ordinal | Type     | Label | Description                                                                   |
 |-----------------|---------|----------|-------|-------------------------------------------------------------------------------|
-| `positiveSign`  | 1       | `bool`   |       | The sign to be used for the measurement (`true positive`, `false` negative).  |
+| `positiveSign`  | 1       | `bool`   |       | The sign to be used for the measurement (`true` positive, `false` negative).  |
 | `measurementID` | 2       | `string` |       | The ID of a measurement used to locate the fault.                             |
 
 

@@ -497,7 +497,7 @@ type FaultMeasurement struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	PositiveSign  bool   `protobuf:"varint,1,opt,name=positiveSign,proto3" json:"positiveSign,omitempty"`  // The sign to be used for the measurement (`true positive`, `false` negative).
+	PositiveSign  bool   `protobuf:"varint,1,opt,name=positiveSign,proto3" json:"positiveSign,omitempty"`  // The sign to be used for the measurement (`true` positive, `false` negative).
 	MeasurementID string `protobuf:"bytes,2,opt,name=measurementID,proto3" json:"measurementID,omitempty"` // The ID of a measurement used to locate the fault.
 }
 
