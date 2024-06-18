@@ -90,13 +90,13 @@ This message is modeled after [CIM PhaseCode](https://zepben.github.io/evolve/do
 The collection of Fault Status defined so far.
 
 
-| Name                       | Ordinal | Description                                                                      |
-|----------------------------|---------|----------------------------------------------------------------------------------|
-| `FAULT_STATUS_UNSPECIFIED` | 0       | No status defined                                                                |
-| `FAULT_STATUS_STARTED`     | 1       | Fault started                                                                    |
-| `FAULT_STATUS_LOCATED`     | 2       | Fault was located                                                                |
-| `FAULT_STATUS_ENDED`       | 3       | Fault ended                                                                      |
-| `FAULT_STATUS_UNKNOWN`     | 4       | Information available don't allow us to know if the Fault is active or complete  |
+| Name                             | Ordinal | Description                                                                      |
+|----------------------------------|---------|----------------------------------------------------------------------------------|
+| `FAULT_STATUS_UNSPECIFIED`       | 0       | No status defined                                                                |
+| `FAULT_STATUS_STARTED`           | 1       | Fault started                                                                    |
+| `FAULT_STATUS_ENDED_AND_LOCATED` | 2       | Fault was located                                                                |
+| `FAULT_STATUS_ENDED`             | 3       | Fault ended                                                                      |
+| `FAULT_STATUS_UNKNOWN`           | 4       | Information available don't allow us to know if the Fault is active or complete  |
 
 
 
@@ -174,7 +174,7 @@ class FaultStatus{
   <<enumeration>>
   FAULT_STATUS_UNSPECIFIED
   FAULT_STATUS_STARTED
-  FAULT_STATUS_LOCATED
+  FAULT_STATUS_ENDED_AND_LOCATED
   FAULT_STATUS_ENDED
   FAULT_STATUS_UNKNOWN
 }
@@ -205,10 +205,13 @@ class Fault {
   + Optional~string~ faultyEquipmentId
   + Optional~float~ faultCurrent
   + List~string~ impactedEquipmentIds
+  + List~FaultMeasurement~ usedMeasurementIds
+  + Optional~int64~ measurementTimestamp
 }
 Fault --> `PhaseConnectedFaultKind`
 Fault --> `PhaseCode`
 Fault --> `FaultStatus`
+Fault --> `FaultMeasurement`
 
 ```
 ### LineFault Diagram
@@ -230,7 +233,6 @@ direction LR
 class LineFault {
   + Fault fault
   + Optional~float~ lengthFromTerminal1
-  + Optional~string~ acLineSegmentID
 }
 LineFault --> `Fault`
 
@@ -257,6 +259,20 @@ class EquipmentFault {
   + Optional~string~ terminalID
 }
 EquipmentFault --> `Fault`
+
+```
+### FaultMeasurement Diagram
+
+```mermaid
+classDiagram
+direction LR
+
+%% 
+
+class FaultMeasurement {
+  + bool positiveSign
+  + string measurementID
+}
 
 ```
 
@@ -286,6 +302,8 @@ Headers used in rabbitMQ:
 | `faultyEquipmentId`    | 7       | `string`                  | Optional | The equipment with the fault.                                                                                               |
 | `faultCurrent`         | 8       | `float`                   | Optional | The current associated to the fault.                                                                                        |
 | `impactedEquipmentIds` | 9       | `string`                  | Repeated | The set of IDs of equipments impacted by the fault.                                                                         |
+| `usedMeasurementIds`   | 10      | `FaultMeasurement`        | Repeated | The set of measurements used to locate the fault.                                                                           |
+| `measurementTimestamp` | 11      | `int64`                   | Optional | The timestamp of the measurements used to compute the fault location.                                                       |
 
 
 
@@ -305,11 +323,10 @@ Headers used in rabbitMQ:
 
 
 
-| Field                 | Ordinal | Type     | Label    | Description                                                                                                                    |
-|-----------------------|---------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------|
-| `fault`               | 1       | `Fault`  |          | The base fault message.                                                                                                        |
-| `lengthFromTerminal1` | 2       | `float`  | Optional | The length to the place where the fault is located starting from terminal with sequence number 1 of the faulted line segment.  |
-| `acLineSegmentID`     | 3       | `string` | Optional | The line segment of this line fault.                                                                                           |
+| Field                 | Ordinal | Type    | Label    | Description                                                                                                                    |
+|-----------------------|---------|---------|----------|--------------------------------------------------------------------------------------------------------------------------------|
+| `fault`               | 1       | `Fault` |          | The base fault message.                                                                                                        |
+| `lengthFromTerminal1` | 2       | `float` | Optional | The length to the place where the fault is located starting from terminal with sequence number 1 of the faulted line segment.  |
 
 
 
@@ -334,6 +351,21 @@ Headers used in rabbitMQ:
 |--------------|---------|----------|----------|--------------------------------------------------------------------|
 | `fault`      | 1       | `Fault`  |          | The base fault message.                                            |
 | `terminalID` | 2       | `string` | Optional | The terminal connecting to the bus to which the fault is applied.  |
+
+
+
+
+## Message: FaultMeasurement
+
+**FQN**: zaphiro.grid.v1.FaultMeasurement
+
+
+
+
+| Field           | Ordinal | Type     | Label | Description                                                                   |
+|-----------------|---------|----------|-------|-------------------------------------------------------------------------------|
+| `positiveSign`  | 1       | `bool`   |       | The sign to be used for the measurement (`true` positive, `false` negative).  |
+| `measurementID` | 2       | `string` |       | The ID of a measurement used to locate the fault.                             |
 
 
 

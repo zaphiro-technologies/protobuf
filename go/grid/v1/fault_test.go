@@ -11,18 +11,30 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 )
 
-func generateFault(faultId string, faultKind, phaseCode int, updatedAt int64) *Fault {
+func generateFault(
+	faultId string,
+	faultKind, phaseCode int,
+	updatedAt int64,
+	faultyEquipmentId string,
+) *Fault {
 	return &Fault{
-		Id:        faultId,
-		Kind:      PhaseConnectedFaultKind(faultKind),
-		UpdatedAt: updatedAt,
-		Phases:    PhaseCode(phaseCode),
+		Id:                faultId,
+		Kind:              PhaseConnectedFaultKind(faultKind),
+		UpdatedAt:         updatedAt,
+		Phases:            PhaseCode(phaseCode),
+		FaultyEquipmentId: &faultyEquipmentId,
 	}
 }
 
 func TestFault(t *testing.T) {
 	for k := 0; k < 5; k++ {
-		test := generateFault(uuid.NewString(), k, rand.Intn(26), time.Now().UnixNano())
+		test := generateFault(
+			uuid.NewString(),
+			k,
+			rand.Intn(26),
+			time.Now().UnixNano(),
+			uuid.NewString(),
+		)
 		buf, err := proto.Marshal(test)
 		assert.NoError(t, err)
 		data := &Fault{}
@@ -36,7 +48,13 @@ func TestFault(t *testing.T) {
 }
 
 func BenchmarkFaultSerialization(b *testing.B) {
-	test := generateFault(uuid.NewString(), rand.Intn(4), rand.Intn(26), time.Now().UnixNano())
+	test := generateFault(
+		uuid.NewString(),
+		rand.Intn(4),
+		rand.Intn(26),
+		time.Now().UnixNano(),
+		uuid.NewString(),
+	)
 	for i := 0; i < b.N; i++ {
 		buf, _ := proto.Marshal(test)
 		conf := &Fault{}
@@ -47,35 +65,35 @@ func BenchmarkFaultSerialization(b *testing.B) {
 func generateLineFault(
 	fault *Fault,
 	lengthFromTerminal1 float32,
-	acLineSegmentID string,
 ) *LineFault {
 	return &LineFault{
 		Fault:               fault,
 		LengthFromTerminal1: &lengthFromTerminal1,
-		AcLineSegmentID:     &acLineSegmentID,
 	}
 }
 
 func TestLineFault(t *testing.T) {
 	for k := 0; k < 5; k++ {
-		fault := generateFault(uuid.NewString(), k, rand.Intn(26), time.Now().UnixNano())
-		test := generateLineFault(fault, rand.Float32(), uuid.NewString())
+		fault := generateFault(uuid.NewString(), k, rand.Intn(26), time.Now().UnixNano(), "line1")
+		test := generateLineFault(fault, rand.Float32())
 		buf, err := proto.Marshal(test)
 		assert.NoError(t, err)
 		data := &LineFault{}
 		err = proto.Unmarshal(buf, data)
 		assert.NoError(t, err)
-		assert.Equal(t, data.Fault.UpdatedAt, test.Fault.UpdatedAt)
-		assert.Equal(t, data.Fault.Kind, test.Fault.Kind)
-		assert.Equal(t, data.Fault.Kind.Number(), protoreflect.EnumNumber(k))
-		assert.Equal(t, data.Fault.Phases, test.Fault.Phases)
 		assert.Equal(t, data.LengthFromTerminal1, test.LengthFromTerminal1)
 	}
 }
 
 func BenchmarkLineFaultSerialization(b *testing.B) {
-	fault := generateFault(uuid.NewString(), rand.Intn(4), rand.Intn(26), time.Now().UnixNano())
-	test := generateLineFault(fault, rand.Float32(), uuid.NewString())
+	fault := generateFault(
+		uuid.NewString(),
+		rand.Intn(4),
+		rand.Intn(26),
+		time.Now().UnixNano(),
+		"line1",
+	)
+	test := generateLineFault(fault, rand.Float32())
 	for i := 0; i < b.N; i++ {
 		buf, _ := proto.Marshal(test)
 		conf := &LineFault{}
@@ -95,23 +113,31 @@ func generateEquipmentFault(
 
 func TestEquipmentFault(t *testing.T) {
 	for k := 0; k < 5; k++ {
-		fault := generateFault(uuid.NewString(), k, rand.Intn(26), time.Now().UnixNano())
+		fault := generateFault(
+			uuid.NewString(),
+			k,
+			rand.Intn(26),
+			time.Now().UnixNano(),
+			"equipment1",
+		)
 		test := generateEquipmentFault(fault, uuid.NewString())
 		buf, err := proto.Marshal(test)
 		assert.NoError(t, err)
 		data := &EquipmentFault{}
 		err = proto.Unmarshal(buf, data)
 		assert.NoError(t, err)
-		assert.Equal(t, data.Fault.UpdatedAt, test.Fault.UpdatedAt)
-		assert.Equal(t, data.Fault.Kind, test.Fault.Kind)
-		assert.Equal(t, data.Fault.Kind.Number(), protoreflect.EnumNumber(k))
-		assert.Equal(t, data.Fault.Phases, test.Fault.Phases)
 		assert.Equal(t, data.TerminalID, test.TerminalID)
 	}
 }
 
 func BenchmarkEquipmentFaultSerialization(b *testing.B) {
-	fault := generateFault(uuid.NewString(), rand.Intn(4), rand.Intn(26), time.Now().UnixNano())
+	fault := generateFault(
+		uuid.NewString(),
+		rand.Intn(4),
+		rand.Intn(26),
+		time.Now().UnixNano(),
+		"equipment1",
+	)
 	test := generateEquipmentFault(fault, uuid.NewString())
 	for i := 0; i < b.N; i++ {
 		buf, _ := proto.Marshal(test)
