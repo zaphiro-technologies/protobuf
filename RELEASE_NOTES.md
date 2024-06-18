@@ -1,11 +1,16 @@
 # ProtoBuf Release Notes
 
-## 0.0.7-dev - 2024-06-17
+## 0.0.7-dev - 2024-06-18
 
 ### Dependencies
 
 - Bump google.golang.org/protobuf from 1.34.1 to 1.34.2 (PR #60 by
   @dependabot[bot])
+
+### Refactoring
+
+- Refactor `Fault` messages to support measurement and measurement timestamp
+  reference (PR #62 by @chicco785)
 
 ## 0.0.6 - 2024-06-04
 
