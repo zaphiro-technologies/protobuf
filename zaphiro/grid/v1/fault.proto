@@ -78,7 +78,7 @@ This message is modeled after [CIM Fault](https://zepben.github.io/evolve/docs/c
 
 Faults messages represent events linked to a given fault (identified by the id). From the point of view of storage the sequence of events may be handled in a way that does not map totally to the single event, e.g. by combining multiple events in a single database row.
 
-When a fault is detected, an event of type "Started" is generated, when a fault is located (and multiple locations can occur for the same fault) and a fault event of type "Located" is generated. Then a fault ends, a fault event of type "Ended" is generated. Certain values of the fault event message are populated only in case of event type "Located" (i.e. `locationProbability`, `measurementTimestamp`, `usedMeasurementIds`).
+When a fault is detected, an event of type "Started" is generated, when a fault is located (and multiple locations can occur for the same fault) and a fault event of type "Located" is generated. When a fault ends, a fault event of type "Ended" is generated. Certain fields of the fault event message are populated only in case of event type "Located" (i.e. `locationProbability`, `measurementTimestamp`, `usedMeasurementIds`).
 
 Headers used in rabbitMQ:
 * `id` (string): id of the `Fault`
