@@ -87,7 +87,7 @@ This message is modeled after [CIM PhaseCode](https://zepben.github.io/evolve/do
 
 **FQN**: zaphiro.grid.v1.FaultEventType
 
-The collection of Fault Status defined so far.
+The collection of Fault Event Types defined so far.
 
 
 | Name                           | Ordinal | Description                                                                      |
@@ -168,7 +168,7 @@ class PhaseCode{
 ```mermaid
 classDiagram
 direction LR
-%% The collection of Fault Status defined so far.
+%% The collection of Fault Event Types defined so far.
 
 class FaultEventType{
   <<enumeration>>
@@ -189,6 +189,10 @@ direction LR
 %% 
 %% This message is modeled after [CIM Fault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/Fault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.
 %% 
+%% Faults messages represent events linked to a given fault (identified by the id). From the point of view of storage the sequence of events may be handled in a way that does not map totally to the single event, e.g. by combining multiple events in a single database row.
+%% 
+%% When a fault is detected, an event of type "Started" is generated, when a fault is located (and multiple locations can occur for the same fault) and a fault event of type "Located" is generated. Then a fault ends, a fault event of type "Ended" is generated. Certain values of the fault event message are populated only in case of event type "Located" (i.e. `locationProbability`, `measurementTimestamp`, `usedMeasurementIds`).
+%% 
 %% Headers used in rabbitMQ:
 %% * `id` (string): id of the `Fault`
 %% * `type` (string): always `Fault`
@@ -201,7 +205,7 @@ class Fault {
   + PhaseConnectedFaultKind kind
   + PhaseCode phases
   + int64 updatedAt
-  + FaultEventType status
+  + FaultEventType faultEventType
   + Optional~string~ faultyEquipmentId
   + Optional~float~ faultCurrent
   + List~string~ impactedEquipmentIds
@@ -286,6 +290,10 @@ Abnormal condition causing current flow through conducting equipment, such as ca
 
 This message is modeled after [CIM Fault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/Fault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.
 
+Faults messages represent events linked to a given fault (identified by the id). From the point of view of storage the sequence of events may be handled in a way that does not map totally to the single event, e.g. by combining multiple events in a single database row.
+
+When a fault is detected, an event of type "Started" is generated, when a fault is located (and multiple locations can occur for the same fault) and a fault event of type "Located" is generated. Then a fault ends, a fault event of type "Ended" is generated. Certain values of the fault event message are populated only in case of event type "Located" (i.e. `locationProbability`, `measurementTimestamp`, `usedMeasurementIds`).
+
 Headers used in rabbitMQ:
 * `id` (string): id of the `Fault`
 * `type` (string): always `Fault`
@@ -300,7 +308,7 @@ Headers used in rabbitMQ:
 | `kind`                 | 3       | `PhaseConnectedFaultKind` |          | The kind of phase fault.                                                                                                    |
 | `phases`               | 4       | `PhaseCode`               |          | The phases participating in the fault. The fault connections into these phases are further specified by the type of fault.  |
 | `updatedAt`            | 5       | `int64`                   |          | The date and time at which the fault started/located/ended depending on the Fault Status (Unix msec timestamp).             |
-| `status`               | 6       | `FaultEventType`          |          | The status of the fault.                                                                                                    |
+| `faultEventType`       | 6       | `FaultEventType`          |          | The type of the fault event.                                                                                                |
 | `faultyEquipmentId`    | 7       | `string`                  | Optional | The equipment with the fault.                                                                                               |
 | `faultCurrent`         | 8       | `float`                   | Optional | The current associated to the fault.                                                                                        |
 | `impactedEquipmentIds` | 9       | `string`                  | Repeated | The set of IDs of equipments impacted by the fault.                                                                         |

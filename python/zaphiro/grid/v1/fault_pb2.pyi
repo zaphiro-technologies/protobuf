@@ -88,13 +88,13 @@ FAULT_EVENT_TYPE_ENDED: FaultEventType
 FAULT_EVENT_TYPE_UNKNOWN: FaultEventType
 
 class Fault(_message.Message):
-    __slots__ = ("Id", "description", "kind", "phases", "updatedAt", "status", "faultyEquipmentId", "faultCurrent", "impactedEquipmentIds", "usedMeasurementIds", "measurementTimestamp", "locationProbability")
+    __slots__ = ("Id", "description", "kind", "phases", "updatedAt", "faultEventType", "faultyEquipmentId", "faultCurrent", "impactedEquipmentIds", "usedMeasurementIds", "measurementTimestamp", "locationProbability")
     ID_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     KIND_FIELD_NUMBER: _ClassVar[int]
     PHASES_FIELD_NUMBER: _ClassVar[int]
     UPDATEDAT_FIELD_NUMBER: _ClassVar[int]
-    STATUS_FIELD_NUMBER: _ClassVar[int]
+    FAULTEVENTTYPE_FIELD_NUMBER: _ClassVar[int]
     FAULTYEQUIPMENTID_FIELD_NUMBER: _ClassVar[int]
     FAULTCURRENT_FIELD_NUMBER: _ClassVar[int]
     IMPACTEDEQUIPMENTIDS_FIELD_NUMBER: _ClassVar[int]
@@ -106,14 +106,14 @@ class Fault(_message.Message):
     kind: PhaseConnectedFaultKind
     phases: PhaseCode
     updatedAt: int
-    status: FaultEventType
+    faultEventType: FaultEventType
     faultyEquipmentId: str
     faultCurrent: float
     impactedEquipmentIds: _containers.RepeatedScalarFieldContainer[str]
     usedMeasurementIds: _containers.RepeatedCompositeFieldContainer[FaultMeasurement]
     measurementTimestamp: int
     locationProbability: float
-    def __init__(self, Id: _Optional[str] = ..., description: _Optional[str] = ..., kind: _Optional[_Union[PhaseConnectedFaultKind, str]] = ..., phases: _Optional[_Union[PhaseCode, str]] = ..., updatedAt: _Optional[int] = ..., status: _Optional[_Union[FaultEventType, str]] = ..., faultyEquipmentId: _Optional[str] = ..., faultCurrent: _Optional[float] = ..., impactedEquipmentIds: _Optional[_Iterable[str]] = ..., usedMeasurementIds: _Optional[_Iterable[_Union[FaultMeasurement, _Mapping]]] = ..., measurementTimestamp: _Optional[int] = ..., locationProbability: _Optional[float] = ...) -> None: ...
+    def __init__(self, Id: _Optional[str] = ..., description: _Optional[str] = ..., kind: _Optional[_Union[PhaseConnectedFaultKind, str]] = ..., phases: _Optional[_Union[PhaseCode, str]] = ..., updatedAt: _Optional[int] = ..., faultEventType: _Optional[_Union[FaultEventType, str]] = ..., faultyEquipmentId: _Optional[str] = ..., faultCurrent: _Optional[float] = ..., impactedEquipmentIds: _Optional[_Iterable[str]] = ..., usedMeasurementIds: _Optional[_Iterable[_Union[FaultMeasurement, _Mapping]]] = ..., measurementTimestamp: _Optional[int] = ..., locationProbability: _Optional[float] = ...) -> None: ...
 
 class LineFault(_message.Message):
     __slots__ = ("fault", "lengthFromTerminal1", "lengthUncertainty")

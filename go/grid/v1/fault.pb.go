@@ -260,18 +260,18 @@ type Fault struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id                   string                  `protobuf:"bytes,1,opt,name=Id,proto3" json:"Id,omitempty"`                                                   //The textual id of the fault.
-	Description          *string                 `protobuf:"bytes,2,opt,name=description,proto3,oneof" json:"description,omitempty"`                           //The textual description of the fault.
-	Kind                 PhaseConnectedFaultKind `protobuf:"varint,3,opt,name=kind,proto3,enum=zaphiro.grid.v1.PhaseConnectedFaultKind" json:"kind,omitempty"` //The kind of phase fault.
-	Phases               PhaseCode               `protobuf:"varint,4,opt,name=phases,proto3,enum=zaphiro.grid.v1.PhaseCode" json:"phases,omitempty"`           //The phases participating in the fault. The fault connections into these phases are further specified by the type of fault.
-	UpdatedAt            int64                   `protobuf:"varint,5,opt,name=updatedAt,proto3" json:"updatedAt,omitempty"`                                    //The date and time at which the fault started/located/ended depending on the Fault Status (Unix msec timestamp).
-	Status               FaultEventType          `protobuf:"varint,6,opt,name=status,proto3,enum=zaphiro.grid.v1.FaultEventType" json:"status,omitempty"`      //The status of the fault.
-	FaultyEquipmentId    *string                 `protobuf:"bytes,7,opt,name=faultyEquipmentId,proto3,oneof" json:"faultyEquipmentId,omitempty"`               //The equipment with the fault.
-	FaultCurrent         *float32                `protobuf:"fixed32,8,opt,name=faultCurrent,proto3,oneof" json:"faultCurrent,omitempty"`                       //The current associated to the fault.
-	ImpactedEquipmentIds []string                `protobuf:"bytes,9,rep,name=impactedEquipmentIds,proto3" json:"impactedEquipmentIds,omitempty"`               //The set of IDs of equipments impacted by the fault.
-	UsedMeasurementIds   []*FaultMeasurement     `protobuf:"bytes,10,rep,name=usedMeasurementIds,proto3" json:"usedMeasurementIds,omitempty"`                  //The set of measurements used to locate the fault.
-	MeasurementTimestamp *int64                  `protobuf:"varint,11,opt,name=measurementTimestamp,proto3,oneof" json:"measurementTimestamp,omitempty"`       // The timestamp of the measurements used to compute the fault location.
-	LocationProbability  *float32                `protobuf:"fixed32,12,opt,name=locationProbability,proto3,oneof" json:"locationProbability,omitempty"`        // The probability associated to the location. (This is relevant because multiple locations can be returned for a fault)
+	Id                   string                  `protobuf:"bytes,1,opt,name=Id,proto3" json:"Id,omitempty"`                                                              //The textual id of the fault.
+	Description          *string                 `protobuf:"bytes,2,opt,name=description,proto3,oneof" json:"description,omitempty"`                                      //The textual description of the fault.
+	Kind                 PhaseConnectedFaultKind `protobuf:"varint,3,opt,name=kind,proto3,enum=zaphiro.grid.v1.PhaseConnectedFaultKind" json:"kind,omitempty"`            //The kind of phase fault.
+	Phases               PhaseCode               `protobuf:"varint,4,opt,name=phases,proto3,enum=zaphiro.grid.v1.PhaseCode" json:"phases,omitempty"`                      //The phases participating in the fault. The fault connections into these phases are further specified by the type of fault.
+	UpdatedAt            int64                   `protobuf:"varint,5,opt,name=updatedAt,proto3" json:"updatedAt,omitempty"`                                               //The date and time at which the fault started/located/ended depending on the Fault Status (Unix msec timestamp).
+	FaultEventType       FaultEventType          `protobuf:"varint,6,opt,name=faultEventType,proto3,enum=zaphiro.grid.v1.FaultEventType" json:"faultEventType,omitempty"` //The type of the fault event.
+	FaultyEquipmentId    *string                 `protobuf:"bytes,7,opt,name=faultyEquipmentId,proto3,oneof" json:"faultyEquipmentId,omitempty"`                          //The equipment with the fault.
+	FaultCurrent         *float32                `protobuf:"fixed32,8,opt,name=faultCurrent,proto3,oneof" json:"faultCurrent,omitempty"`                                  //The current associated to the fault.
+	ImpactedEquipmentIds []string                `protobuf:"bytes,9,rep,name=impactedEquipmentIds,proto3" json:"impactedEquipmentIds,omitempty"`                          //The set of IDs of equipments impacted by the fault.
+	UsedMeasurementIds   []*FaultMeasurement     `protobuf:"bytes,10,rep,name=usedMeasurementIds,proto3" json:"usedMeasurementIds,omitempty"`                             //The set of measurements used to locate the fault.
+	MeasurementTimestamp *int64                  `protobuf:"varint,11,opt,name=measurementTimestamp,proto3,oneof" json:"measurementTimestamp,omitempty"`                  // The timestamp of the measurements used to compute the fault location.
+	LocationProbability  *float32                `protobuf:"fixed32,12,opt,name=locationProbability,proto3,oneof" json:"locationProbability,omitempty"`                   // The probability associated to the location. (This is relevant because multiple locations can be returned for a fault)
 }
 
 func (x *Fault) Reset() {
@@ -341,9 +341,9 @@ func (x *Fault) GetUpdatedAt() int64 {
 	return 0
 }
 
-func (x *Fault) GetStatus() FaultEventType {
+func (x *Fault) GetFaultEventType() FaultEventType {
 	if x != nil {
-		return x.Status
+		return x.FaultEventType
 	}
 	return FaultEventType_FAULT_EVENT_TYPE_UNSPECIFIED
 }
@@ -568,7 +568,7 @@ var File_zaphiro_grid_v1_fault_proto protoreflect.FileDescriptor
 var file_zaphiro_grid_v1_fault_proto_rawDesc = []byte{
 	0x0a, 0x1b, 0x7a, 0x61, 0x70, 0x68, 0x69, 0x72, 0x6f, 0x2f, 0x67, 0x72, 0x69, 0x64, 0x2f, 0x76,
 	0x31, 0x2f, 0x66, 0x61, 0x75, 0x6c, 0x74, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x0f, 0x7a,
-	0x61, 0x70, 0x68, 0x69, 0x72, 0x6f, 0x2e, 0x67, 0x72, 0x69, 0x64, 0x2e, 0x76, 0x31, 0x22, 0xc2,
+	0x61, 0x70, 0x68, 0x69, 0x72, 0x6f, 0x2e, 0x67, 0x72, 0x69, 0x64, 0x2e, 0x76, 0x31, 0x22, 0xd2,
 	0x05, 0x0a, 0x05, 0x46, 0x61, 0x75, 0x6c, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x49, 0x64, 0x18, 0x01,
 	0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x49, 0x64, 0x12, 0x25, 0x0a, 0x0b, 0x64, 0x65, 0x73, 0x63,
 	0x72, 0x69, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x48, 0x00, 0x52,
@@ -582,10 +582,11 @@ var file_zaphiro_grid_v1_fault_proto_rawDesc = []byte{
 	0x50, 0x68, 0x61, 0x73, 0x65, 0x43, 0x6f, 0x64, 0x65, 0x52, 0x06, 0x70, 0x68, 0x61, 0x73, 0x65,
 	0x73, 0x12, 0x1c, 0x0a, 0x09, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x18, 0x05,
 	0x20, 0x01, 0x28, 0x03, 0x52, 0x09, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x12,
-	0x37, 0x0a, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x06, 0x20, 0x01, 0x28, 0x0e, 0x32,
-	0x1f, 0x2e, 0x7a, 0x61, 0x70, 0x68, 0x69, 0x72, 0x6f, 0x2e, 0x67, 0x72, 0x69, 0x64, 0x2e, 0x76,
-	0x31, 0x2e, 0x46, 0x61, 0x75, 0x6c, 0x74, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x54, 0x79, 0x70, 0x65,
-	0x52, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x31, 0x0a, 0x11, 0x66, 0x61, 0x75, 0x6c,
+	0x47, 0x0a, 0x0e, 0x66, 0x61, 0x75, 0x6c, 0x74, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x54, 0x79, 0x70,
+	0x65, 0x18, 0x06, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x1f, 0x2e, 0x7a, 0x61, 0x70, 0x68, 0x69, 0x72,
+	0x6f, 0x2e, 0x67, 0x72, 0x69, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x46, 0x61, 0x75, 0x6c, 0x74, 0x45,
+	0x76, 0x65, 0x6e, 0x74, 0x54, 0x79, 0x70, 0x65, 0x52, 0x0e, 0x66, 0x61, 0x75, 0x6c, 0x74, 0x45,
+	0x76, 0x65, 0x6e, 0x74, 0x54, 0x79, 0x70, 0x65, 0x12, 0x31, 0x0a, 0x11, 0x66, 0x61, 0x75, 0x6c,
 	0x74, 0x79, 0x45, 0x71, 0x75, 0x69, 0x70, 0x6d, 0x65, 0x6e, 0x74, 0x49, 0x64, 0x18, 0x07, 0x20,
 	0x01, 0x28, 0x09, 0x48, 0x01, 0x52, 0x11, 0x66, 0x61, 0x75, 0x6c, 0x74, 0x79, 0x45, 0x71, 0x75,
 	0x69, 0x70, 0x6d, 0x65, 0x6e, 0x74, 0x49, 0x64, 0x88, 0x01, 0x01, 0x12, 0x27, 0x0a, 0x0c, 0x66,
@@ -729,7 +730,7 @@ var file_zaphiro_grid_v1_fault_proto_goTypes = []interface{}{
 var file_zaphiro_grid_v1_fault_proto_depIdxs = []int32{
 	0, // 0: zaphiro.grid.v1.Fault.kind:type_name -> zaphiro.grid.v1.PhaseConnectedFaultKind
 	1, // 1: zaphiro.grid.v1.Fault.phases:type_name -> zaphiro.grid.v1.PhaseCode
-	2, // 2: zaphiro.grid.v1.Fault.status:type_name -> zaphiro.grid.v1.FaultEventType
+	2, // 2: zaphiro.grid.v1.Fault.faultEventType:type_name -> zaphiro.grid.v1.FaultEventType
 	6, // 3: zaphiro.grid.v1.Fault.usedMeasurementIds:type_name -> zaphiro.grid.v1.FaultMeasurement
 	3, // 4: zaphiro.grid.v1.LineFault.fault:type_name -> zaphiro.grid.v1.Fault
 	3, // 5: zaphiro.grid.v1.EquipmentFault.fault:type_name -> zaphiro.grid.v1.Fault
