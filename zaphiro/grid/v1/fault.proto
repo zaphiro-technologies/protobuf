@@ -78,7 +78,7 @@ This message is modeled after [CIM Fault](https://zepben.github.io/evolve/docs/c
 
 Faults messages represent events linked to a given fault (identified by the id). From the point of view of storage the sequence of events may be handled in a way that does not map totally to the single event, e.g. by combining multiple events in a single database row.
 
-When a fault is detected, an event of type "Started" is generated, when a fault is located (and multiple locations can occur for the same fault) and a fault event of type "Located" is generated. When a fault ends, a fault event of type "Ended" is generated. Certain fields of the fault event message are populated only in case of event type "Located" (i.e. `locationProbability`, `measurementTimestamp`, `usedMeasurementIds`).
+When a fault is detected, an `Fault` message event of type `FAULT_EVENT_TYPE_STARTED` is generated, when a fault is located (and multiple locations can occur for the same fault) and a `Fault` event message of type `FAULT_EVENT_TYPE_LOCATED` is generated. When a fault ends, a `Fault` event message of type `FAULT_EVENT_TYPE_ENDED` is generated. Certain fields of the Fault event message may be populated only in case of event type `FAULT_EVENT_TYPE_LOCATED` (i.e. `locationProbability`, `measurementTimestamp`).
 
 Headers used in rabbitMQ:
 * `id` (string): id of the `Fault`
@@ -105,6 +105,8 @@ message Fault {
 
 This message is modeled after [CIM LineFault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/LineFault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.
 
+Certain fields of the `LineFault` event message may be populated only in case of event type `FAULT_EVENT_TYPE_LOCATED` (i.e. `lengthFromTerminal1`, `lengthUncertainty`).
+
 Headers used in rabbitMQ:
 * `id` (string): id of the `Fault`
 * `type` (string): always `LineFault`
@@ -121,6 +123,8 @@ message LineFault {
 A fault applied at the terminal, external to the equipment. This class is not used to specify faults internal to the equipment.
 
 This message is modeled after [CIM EquipmentFault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/EquipmentFault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.
+
+Certain fields of the `EquipmentFault` event message may be populated only in case of event type `FAULT_EVENT_TYPE_LOCATED` (i.e. `terminalID`).
 
 Headers used in rabbitMQ:
 * `id` (string): id of the `EquipmentFault`
