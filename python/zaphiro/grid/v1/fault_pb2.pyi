@@ -43,13 +43,13 @@ class PhaseCode(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     PHASE_CODE_XN: _ClassVar[PhaseCode]
     PHASE_CODE_XYN: _ClassVar[PhaseCode]
 
-class FaultStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+class FaultEventType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
-    FAULT_STATUS_UNSPECIFIED: _ClassVar[FaultStatus]
-    FAULT_STATUS_STARTED: _ClassVar[FaultStatus]
-    FAULT_STATUS_ENDED_AND_LOCATED: _ClassVar[FaultStatus]
-    FAULT_STATUS_ENDED: _ClassVar[FaultStatus]
-    FAULT_STATUS_UNKNOWN: _ClassVar[FaultStatus]
+    FAULT_EVENT_TYPE_UNSPECIFIED: _ClassVar[FaultEventType]
+    FAULT_EVENT_TYPE_STARTED: _ClassVar[FaultEventType]
+    FAULT_EVENT_TYPE_LOCATED: _ClassVar[FaultEventType]
+    FAULT_EVENT_TYPE_ENDED: _ClassVar[FaultEventType]
+    FAULT_EVENT_TYPE_UNKNOWN: _ClassVar[FaultEventType]
 PHASE_CONNECTED_FAULT_KIND_UNSPECIFIED: PhaseConnectedFaultKind
 PHASE_CONNECTED_FAULT_KIND_LINE_TO_GROUND: PhaseConnectedFaultKind
 PHASE_CONNECTED_FAULT_KIND_LINE_TO_LINE: PhaseConnectedFaultKind
@@ -81,45 +81,49 @@ PHASE_CODE_X: PhaseCode
 PHASE_CODE_XY: PhaseCode
 PHASE_CODE_XN: PhaseCode
 PHASE_CODE_XYN: PhaseCode
-FAULT_STATUS_UNSPECIFIED: FaultStatus
-FAULT_STATUS_STARTED: FaultStatus
-FAULT_STATUS_ENDED_AND_LOCATED: FaultStatus
-FAULT_STATUS_ENDED: FaultStatus
-FAULT_STATUS_UNKNOWN: FaultStatus
+FAULT_EVENT_TYPE_UNSPECIFIED: FaultEventType
+FAULT_EVENT_TYPE_STARTED: FaultEventType
+FAULT_EVENT_TYPE_LOCATED: FaultEventType
+FAULT_EVENT_TYPE_ENDED: FaultEventType
+FAULT_EVENT_TYPE_UNKNOWN: FaultEventType
 
 class Fault(_message.Message):
-    __slots__ = ("Id", "description", "kind", "phases", "updatedAt", "status", "faultyEquipmentId", "faultCurrent", "impactedEquipmentIds", "usedMeasurementIds", "measurementTimestamp")
+    __slots__ = ("Id", "description", "kind", "phases", "updatedAt", "faultEventType", "faultyEquipmentId", "faultCurrent", "impactedEquipmentIds", "usedMeasurementIds", "measurementTimestamp", "locationProbability")
     ID_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     KIND_FIELD_NUMBER: _ClassVar[int]
     PHASES_FIELD_NUMBER: _ClassVar[int]
     UPDATEDAT_FIELD_NUMBER: _ClassVar[int]
-    STATUS_FIELD_NUMBER: _ClassVar[int]
+    FAULTEVENTTYPE_FIELD_NUMBER: _ClassVar[int]
     FAULTYEQUIPMENTID_FIELD_NUMBER: _ClassVar[int]
     FAULTCURRENT_FIELD_NUMBER: _ClassVar[int]
     IMPACTEDEQUIPMENTIDS_FIELD_NUMBER: _ClassVar[int]
     USEDMEASUREMENTIDS_FIELD_NUMBER: _ClassVar[int]
     MEASUREMENTTIMESTAMP_FIELD_NUMBER: _ClassVar[int]
+    LOCATIONPROBABILITY_FIELD_NUMBER: _ClassVar[int]
     Id: str
     description: str
     kind: PhaseConnectedFaultKind
     phases: PhaseCode
     updatedAt: int
-    status: FaultStatus
+    faultEventType: FaultEventType
     faultyEquipmentId: str
     faultCurrent: float
     impactedEquipmentIds: _containers.RepeatedScalarFieldContainer[str]
     usedMeasurementIds: _containers.RepeatedCompositeFieldContainer[FaultMeasurement]
     measurementTimestamp: int
-    def __init__(self, Id: _Optional[str] = ..., description: _Optional[str] = ..., kind: _Optional[_Union[PhaseConnectedFaultKind, str]] = ..., phases: _Optional[_Union[PhaseCode, str]] = ..., updatedAt: _Optional[int] = ..., status: _Optional[_Union[FaultStatus, str]] = ..., faultyEquipmentId: _Optional[str] = ..., faultCurrent: _Optional[float] = ..., impactedEquipmentIds: _Optional[_Iterable[str]] = ..., usedMeasurementIds: _Optional[_Iterable[_Union[FaultMeasurement, _Mapping]]] = ..., measurementTimestamp: _Optional[int] = ...) -> None: ...
+    locationProbability: float
+    def __init__(self, Id: _Optional[str] = ..., description: _Optional[str] = ..., kind: _Optional[_Union[PhaseConnectedFaultKind, str]] = ..., phases: _Optional[_Union[PhaseCode, str]] = ..., updatedAt: _Optional[int] = ..., faultEventType: _Optional[_Union[FaultEventType, str]] = ..., faultyEquipmentId: _Optional[str] = ..., faultCurrent: _Optional[float] = ..., impactedEquipmentIds: _Optional[_Iterable[str]] = ..., usedMeasurementIds: _Optional[_Iterable[_Union[FaultMeasurement, _Mapping]]] = ..., measurementTimestamp: _Optional[int] = ..., locationProbability: _Optional[float] = ...) -> None: ...
 
 class LineFault(_message.Message):
-    __slots__ = ("fault", "lengthFromTerminal1")
+    __slots__ = ("fault", "lengthFromTerminal1", "lengthUncertainty")
     FAULT_FIELD_NUMBER: _ClassVar[int]
     LENGTHFROMTERMINAL1_FIELD_NUMBER: _ClassVar[int]
+    LENGTHUNCERTAINTY_FIELD_NUMBER: _ClassVar[int]
     fault: Fault
     lengthFromTerminal1: float
-    def __init__(self, fault: _Optional[_Union[Fault, _Mapping]] = ..., lengthFromTerminal1: _Optional[float] = ...) -> None: ...
+    lengthUncertainty: float
+    def __init__(self, fault: _Optional[_Union[Fault, _Mapping]] = ..., lengthFromTerminal1: _Optional[float] = ..., lengthUncertainty: _Optional[float] = ...) -> None: ...
 
 class EquipmentFault(_message.Message):
     __slots__ = ("fault", "terminalID")
