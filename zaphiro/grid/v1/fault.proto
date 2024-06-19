@@ -62,7 +62,7 @@ enum PhaseCode {
     PHASE_CODE_XYN = 25; //Two unknown non-neutral phases plus neutral.
 }
 
-/* The collection of Fault Status defined so far.*/
+/* The collection of Fault Event Types defined so far.*/
 
 enum FaultEventType {
     FAULT_EVENT_TYPE_UNSPECIFIED = 0; //No status defined
@@ -76,6 +76,10 @@ enum FaultEventType {
 
 This message is modeled after [CIM Fault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/Fault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.
 
+Faults messages represent events linked to a given fault (identified by the id). From the point of view of storage the sequence of events may be handled in a way that does not map totally to the single event, e.g. by combining multiple events in a single database row.
+
+When a fault is detected, an event of type "Started" is generated, when a fault is located (and multiple locations can occur for the same fault) and a fault event of type "Located" is generated. Then a fault ends, a fault event of type "Ended" is generated. Certain values of the fault event message are populated only in case of event type "Located" (i.e. `locationProbability`, `measurementTimestamp`, `usedMeasurementIds`).
+
 Headers used in rabbitMQ:
 * `id` (string): id of the `Fault`
 * `type` (string): always `Fault`
@@ -88,7 +92,7 @@ message Fault {
     PhaseConnectedFaultKind kind = 3; //The kind of phase fault.
     PhaseCode phases = 4; //The phases participating in the fault. The fault connections into these phases are further specified by the type of fault.
     int64 updatedAt = 5; //The date and time at which the fault started/located/ended depending on the Fault Status (Unix msec timestamp).
-    FaultEventType status = 6; //The status of the fault.
+    FaultEventType faultEventType = 6; //The type of the fault event.
     optional string faultyEquipmentId = 7; //The equipment with the fault.
     optional float faultCurrent = 8; //The current associated to the fault.
     repeated string impactedEquipmentIds = 9; //The set of IDs of equipments impacted by the fault.
