@@ -83,20 +83,20 @@ This message is modeled after [CIM PhaseCode](https://zepben.github.io/evolve/do
 | `PHASE_CODE_XYN`         | 25      | Two unknown non-neutral phases plus neutral.  |
 
 
-## Enum: FaultStatus
+## Enum: FaultEventType
 
-**FQN**: zaphiro.grid.v1.FaultStatus
+**FQN**: zaphiro.grid.v1.FaultEventType
 
 The collection of Fault Status defined so far.
 
 
-| Name                             | Ordinal | Description                                                                      |
-|----------------------------------|---------|----------------------------------------------------------------------------------|
-| `FAULT_STATUS_UNSPECIFIED`       | 0       | No status defined                                                                |
-| `FAULT_STATUS_STARTED`           | 1       | Fault started                                                                    |
-| `FAULT_STATUS_ENDED_AND_LOCATED` | 2       | Fault was located                                                                |
-| `FAULT_STATUS_ENDED`             | 3       | Fault ended                                                                      |
-| `FAULT_STATUS_UNKNOWN`           | 4       | Information available don't allow us to know if the Fault is active or complete  |
+| Name                           | Ordinal | Description                                                                      |
+|--------------------------------|---------|----------------------------------------------------------------------------------|
+| `FAULT_EVENT_TYPE_UNSPECIFIED` | 0       | No status defined                                                                |
+| `FAULT_EVENT_TYPE_STARTED`     | 1       | Fault started                                                                    |
+| `FAULT_EVENT_TYPE_LOCATED`     | 2       | Fault located                                                                    |
+| `FAULT_EVENT_TYPE_ENDED`       | 3       | Fault ended                                                                      |
+| `FAULT_EVENT_TYPE_UNKNOWN`     | 4       | Information available don't allow us to know if the Fault is active or complete  |
 
 
 
@@ -163,20 +163,20 @@ class PhaseCode{
   PHASE_CODE_XYN
 }
 ```
-### FaultStatus Diagram
+### FaultEventType Diagram
 
 ```mermaid
 classDiagram
 direction LR
 %% The collection of Fault Status defined so far.
 
-class FaultStatus{
+class FaultEventType{
   <<enumeration>>
-  FAULT_STATUS_UNSPECIFIED
-  FAULT_STATUS_STARTED
-  FAULT_STATUS_ENDED_AND_LOCATED
-  FAULT_STATUS_ENDED
-  FAULT_STATUS_UNKNOWN
+  FAULT_EVENT_TYPE_UNSPECIFIED
+  FAULT_EVENT_TYPE_STARTED
+  FAULT_EVENT_TYPE_LOCATED
+  FAULT_EVENT_TYPE_ENDED
+  FAULT_EVENT_TYPE_UNKNOWN
 }
 ```
 ### Fault Diagram
@@ -201,16 +201,17 @@ class Fault {
   + PhaseConnectedFaultKind kind
   + PhaseCode phases
   + int64 updatedAt
-  + FaultStatus status
+  + FaultEventType status
   + Optional~string~ faultyEquipmentId
   + Optional~float~ faultCurrent
   + List~string~ impactedEquipmentIds
   + List~FaultMeasurement~ usedMeasurementIds
   + Optional~int64~ measurementTimestamp
+  + Optional~float~ locationProbability
 }
 Fault --> `PhaseConnectedFaultKind`
 Fault --> `PhaseCode`
-Fault --> `FaultStatus`
+Fault --> `FaultEventType`
 Fault --> `FaultMeasurement`
 
 ```
@@ -233,6 +234,7 @@ direction LR
 class LineFault {
   + Fault fault
   + Optional~float~ lengthFromTerminal1
+  + Optional~float~ lengthUncertainty
 }
 LineFault --> `Fault`
 
@@ -298,12 +300,13 @@ Headers used in rabbitMQ:
 | `kind`                 | 3       | `PhaseConnectedFaultKind` |          | The kind of phase fault.                                                                                                    |
 | `phases`               | 4       | `PhaseCode`               |          | The phases participating in the fault. The fault connections into these phases are further specified by the type of fault.  |
 | `updatedAt`            | 5       | `int64`                   |          | The date and time at which the fault started/located/ended depending on the Fault Status (Unix msec timestamp).             |
-| `status`               | 6       | `FaultStatus`             |          | The status of the fault.                                                                                                    |
+| `status`               | 6       | `FaultEventType`          |          | The status of the fault.                                                                                                    |
 | `faultyEquipmentId`    | 7       | `string`                  | Optional | The equipment with the fault.                                                                                               |
 | `faultCurrent`         | 8       | `float`                   | Optional | The current associated to the fault.                                                                                        |
 | `impactedEquipmentIds` | 9       | `string`                  | Repeated | The set of IDs of equipments impacted by the fault.                                                                         |
 | `usedMeasurementIds`   | 10      | `FaultMeasurement`        | Repeated | The set of measurements used to locate the fault.                                                                           |
 | `measurementTimestamp` | 11      | `int64`                   | Optional | The timestamp of the measurements used to compute the fault location.                                                       |
+| `locationProbability`  | 12      | `float`                   | Optional | The probability associated to the location. (This is relevant because multiple locations can be returned for a fault)       |
 
 
 
@@ -327,6 +330,7 @@ Headers used in rabbitMQ:
 |-----------------------|---------|---------|----------|--------------------------------------------------------------------------------------------------------------------------------|
 | `fault`               | 1       | `Fault` |          | The base fault message.                                                                                                        |
 | `lengthFromTerminal1` | 2       | `float` | Optional | The length to the place where the fault is located starting from terminal with sequence number 1 of the faulted line segment.  |
+| `lengthUncertainty`   | 3       | `float` | Optional | The +/- uncertainty on the reported length.                                                                                    |
 
 
 
