@@ -64,12 +64,12 @@ enum PhaseCode {
 
 /* The collection of Fault Status defined so far.*/
 
-enum FaultStatus {
-    FAULT_STATUS_UNSPECIFIED = 0; //No status defined
-    FAULT_STATUS_STARTED = 1; //Fault started
-    FAULT_STATUS_ENDED_AND_LOCATED = 2; //Fault was located
-    FAULT_STATUS_ENDED = 3; //Fault ended
-    FAULT_STATUS_UNKNOWN = 4; //Information available don't allow us to know if the Fault is active or complete
+enum FaultEventType {
+    FAULT_EVENT_TYPE_UNSPECIFIED = 0; //No status defined
+    FAULT_EVENT_TYPE_STARTED = 1; //Fault started
+    FAULT_EVENT_TYPE_LOCATED = 2; //Fault located
+    FAULT_EVENT_TYPE_ENDED = 3; //Fault ended
+    FAULT_EVENT_TYPE_UNKNOWN = 4; //Information available don't allow us to know if the Fault is active or complete
 }
 
 /* Abnormal condition causing current flow through conducting equipment, such as caused by equipment failure or short circuits from objects not typically modelled (for example, a tree falling on a line).
@@ -88,12 +88,13 @@ message Fault {
     PhaseConnectedFaultKind kind = 3; //The kind of phase fault.
     PhaseCode phases = 4; //The phases participating in the fault. The fault connections into these phases are further specified by the type of fault.
     int64 updatedAt = 5; //The date and time at which the fault started/located/ended depending on the Fault Status (Unix msec timestamp).
-    FaultStatus status = 6; //The status of the fault.
+    FaultEventType status = 6; //The status of the fault.
     optional string faultyEquipmentId = 7; //The equipment with the fault.
     optional float faultCurrent = 8; //The current associated to the fault.
     repeated string impactedEquipmentIds = 9; //The set of IDs of equipments impacted by the fault.
     repeated FaultMeasurement usedMeasurementIds = 10; //The set of measurements used to locate the fault.
     optional int64 measurementTimestamp = 11; // The timestamp of the measurements used to compute the fault location.
+    optional float locationProbability = 12; // The probability associated to the location. (This is relevant because multiple locations can be returned for a fault)
 }
 
 /* A fault that occurs on an AC line segment at some point along the length.
@@ -109,6 +110,7 @@ Headers used in rabbitMQ:
 message LineFault {
     Fault fault = 1; //The base fault message.
     optional float lengthFromTerminal1 = 2; //The length to the place where the fault is located starting from terminal with sequence number 1 of the faulted line segment.
+    optional float lengthUncertainty = 3;  //The +/- uncertainty on the reported length.
 }
 
 /*
