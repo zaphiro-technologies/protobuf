@@ -9,6 +9,8 @@
 
 ### Refactoring
 
+- Fault messages as set of events, rather than single event with multiple status
+  (PR #63 by @chicco785)
 - Refactor `Fault` messages to support measurement and measurement timestamp
   reference (PR #62 by @chicco785)
 
