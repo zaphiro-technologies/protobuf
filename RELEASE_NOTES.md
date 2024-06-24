@@ -1,6 +1,10 @@
 # ProtoBuf Release Notes
 
-## 0.0.7-dev - 2024-06-19
+## 0.0.7-dev - 2024-06-24
+
+### Documentation
+
+- Update stat producerId documentation (PR #64 by @hiimjako)
 
 ### Dependencies
 
