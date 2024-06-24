@@ -30,7 +30,7 @@ direction LR
 %% A Stat of PMU data, check IEEE C37.118 standard for more details.
 %% Headers used in rabbitMQ:
 %% * `id` (string): id of the `Stat` message.
-%% * `producerId` (string): the id of the PMU linked to the Stat.
+%% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
 %% * `timestampId` (int64): related measurement Unix msec timestamp (if any)
 %% 
 
@@ -56,7 +56,7 @@ class Stat {
 A Stat of PMU data, check IEEE C37.118 standard for more details.
 Headers used in rabbitMQ:
 * `id` (string): id of the `Stat` message.
-* `producerId` (string): the id of the PMU linked to the Stat.
+* `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
 * `timestampId` (int64): related measurement Unix msec timestamp (if any)
 
 
