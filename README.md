@@ -1,15 +1,12 @@
-# Proto Buf
+# SynchroGuard's Protocol Buffers
+
+In SynchroGuard, real-time data exchange relies on protocol buffer messages
+exchanged over [RabbitMQ](https://www.rabbitmq.com/). Thus, consuming and/or
+publishing protocol buffer messages on RabbitMQ is the preferred way to
+integrate third parties with SynchroGuard for real-time data exchange.
 
 This repository includes the [Protocol Buffer](https://protobuf.dev/) used in
-Zaphiro's platform.
-
-## Requirements
-
-1. [Golang](https://go.dev/doc/install)
-1. [Protocol Buffer Compiler](https://grpc.io/docs/protoc-installation/)
-1. [Go plugins for the protocol compiler](https://grpc.io/docs/languages/go/quickstart/#prerequisites)
-1. [Buf](https://buf.build/docs/installation)
-1. [proto-gen-md-diagrams](https://github.com/GoogleCloudPlatform/proto-gen-md-diagrams)
+Zaphiro's platform and the generated code for GO and Python.
 
 ## Available Protocol Buffer
 
@@ -45,18 +42,16 @@ packages:
   - `Conf2Frame`: a Protocol Buffer used to store PMU configuration frames.
   - `Stat`: a Protocol Buffer used to store PMU measurement Stat.
 
-## Protocol Buffers Management
-
 All protocol buffers are documented in [docs](./docs).
 
-### Installation
+## Installation
 
 Currently code is generated for:
 
 - [go](go)
 - [python](python)
 
-#### Python
+### Python
 
 Installation was tested with poetry:
 
@@ -64,11 +59,31 @@ Installation was tested with poetry:
 poetry add git+https://github.com/zaphiro-technologies/protobuf.git#v0.0.5
 ```
 
-#### Go
+### Go
 
 ```bash
 go install github.com/zaphiro-technologies/protobuf/go@v0.0.5
 ```
+
+## Contributing to Protocol Buffers
+
+Should you need to modify the protocol buffer message or add new ones, you will
+need to set-up the dependencies listed in [Requirements](#requirements).
+
+Protocol buffers are versioned (current version is v1), and should be developed
+following best practices, as implemented by [Buf](https://buf.build) and defined
+in [Protobuf programming
+guides](https://protobuf.dev/programming-guides/dos-donts/).
+In particular, it is important - even more within the same version - to preserve
+compatibility, to avoid services breaking up.
+
+## Requirements
+
+1. [Golang](https://go.dev/doc/install)
+1. [Protocol Buffer Compiler](https://grpc.io/docs/protoc-installation/)
+1. [Go plugins for the protocol compiler](https://grpc.io/docs/languages/go/quickstart/#prerequisites)
+1. [Buf](https://buf.build/docs/installation)
+1. [proto-gen-md-diagrams](https://github.com/GoogleCloudPlatform/proto-gen-md-diagrams)
 
 ### Generate Code from Protocol Buffers
 

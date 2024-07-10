@@ -11,6 +11,8 @@ header:
     - '.github'
     - '.docker'
     - '**/*.{md,MD}'
+    - 'LICENSE'
+    - 'NOTICE'
     - 'go.mod'
     - 'go.sum'
 
