@@ -274,18 +274,18 @@ type Fault struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id                   string                  `protobuf:"bytes,1,opt,name=Id,proto3"                                                  json:"Id,omitempty"`                   //The textual id of the fault.
-	Description          *string                 `protobuf:"bytes,2,opt,name=description,proto3,oneof"                                   json:"description,omitempty"`          //The textual description of the fault.
-	Kind                 PhaseConnectedFaultKind `protobuf:"varint,3,opt,name=kind,proto3,enum=zaphiro.grid.v1.PhaseConnectedFaultKind"  json:"kind,omitempty"`                 //The kind of phase fault.
-	Phases               PhaseCode               `protobuf:"varint,4,opt,name=phases,proto3,enum=zaphiro.grid.v1.PhaseCode"              json:"phases,omitempty"`               //The phases participating in the fault. The fault connections into these phases are further specified by the type of fault.
-	UpdatedAt            int64                   `protobuf:"varint,5,opt,name=updatedAt,proto3"                                          json:"updatedAt,omitempty"`            //The date and time at which the fault started/located/ended depending on the Fault Status (Unix msec timestamp).
-	FaultEventType       FaultEventType          `protobuf:"varint,6,opt,name=faultEventType,proto3,enum=zaphiro.grid.v1.FaultEventType" json:"faultEventType,omitempty"`       //The type of the fault event.
-	FaultyEquipmentId    *string                 `protobuf:"bytes,7,opt,name=faultyEquipmentId,proto3,oneof"                             json:"faultyEquipmentId,omitempty"`    //The equipment with the fault.
-	FaultCurrent         *float32                `protobuf:"fixed32,8,opt,name=faultCurrent,proto3,oneof"                                json:"faultCurrent,omitempty"`         //The current associated to the fault.
-	ImpactedEquipmentIds []string                `protobuf:"bytes,9,rep,name=impactedEquipmentIds,proto3"                                json:"impactedEquipmentIds,omitempty"` //The set of IDs of equipments impacted by the fault.
-	UsedMeasurementIds   []*FaultMeasurement     `protobuf:"bytes,10,rep,name=usedMeasurementIds,proto3"                                 json:"usedMeasurementIds,omitempty"`   //The set of measurements used to locate the fault.
-	MeasurementTimestamp *int64                  `protobuf:"varint,11,opt,name=measurementTimestamp,proto3,oneof"                        json:"measurementTimestamp,omitempty"` // The timestamp of the measurements used to compute the fault location.
-	LocationProbability  *float32                `protobuf:"fixed32,12,opt,name=locationProbability,proto3,oneof"                        json:"locationProbability,omitempty"`  // The probability associated to the location. (This is relevant because multiple locations can be returned for a fault)
+	Id                   string                  `protobuf:"bytes,1,opt,name=Id,proto3" json:"Id,omitempty"`                                                              //The textual id of the fault.
+	Description          *string                 `protobuf:"bytes,2,opt,name=description,proto3,oneof" json:"description,omitempty"`                                      //The textual description of the fault.
+	Kind                 PhaseConnectedFaultKind `protobuf:"varint,3,opt,name=kind,proto3,enum=zaphiro.grid.v1.PhaseConnectedFaultKind" json:"kind,omitempty"`            //The kind of phase fault.
+	Phases               PhaseCode               `protobuf:"varint,4,opt,name=phases,proto3,enum=zaphiro.grid.v1.PhaseCode" json:"phases,omitempty"`                      //The phases participating in the fault. The fault connections into these phases are further specified by the type of fault.
+	UpdatedAt            int64                   `protobuf:"varint,5,opt,name=updatedAt,proto3" json:"updatedAt,omitempty"`                                               //The date and time at which the fault started/located/ended depending on the Fault Status (Unix msec timestamp).
+	FaultEventType       FaultEventType          `protobuf:"varint,6,opt,name=faultEventType,proto3,enum=zaphiro.grid.v1.FaultEventType" json:"faultEventType,omitempty"` //The type of the fault event.
+	FaultyEquipmentId    *string                 `protobuf:"bytes,7,opt,name=faultyEquipmentId,proto3,oneof" json:"faultyEquipmentId,omitempty"`                          //The equipment with the fault.
+	FaultCurrent         *float32                `protobuf:"fixed32,8,opt,name=faultCurrent,proto3,oneof" json:"faultCurrent,omitempty"`                                  //The current associated to the fault.
+	ImpactedEquipmentIds []string                `protobuf:"bytes,9,rep,name=impactedEquipmentIds,proto3" json:"impactedEquipmentIds,omitempty"`                          //The set of IDs of equipments impacted by the fault.
+	UsedMeasurementIds   []*FaultMeasurement     `protobuf:"bytes,10,rep,name=usedMeasurementIds,proto3" json:"usedMeasurementIds,omitempty"`                             //The set of measurements used to locate the fault.
+	MeasurementTimestamp *int64                  `protobuf:"varint,11,opt,name=measurementTimestamp,proto3,oneof" json:"measurementTimestamp,omitempty"`                  // The timestamp of the measurements used to compute the fault location.
+	LocationProbability  *float32                `protobuf:"fixed32,12,opt,name=locationProbability,proto3,oneof" json:"locationProbability,omitempty"`                   // The probability associated to the location. (This is relevant because multiple locations can be returned for a fault)
 }
 
 func (x *Fault) Reset() {
@@ -409,9 +409,9 @@ type LineFault struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Fault               *Fault   `protobuf:"bytes,1,opt,name=fault,proto3"                       json:"fault,omitempty"`               //The base fault message.
+	Fault               *Fault   `protobuf:"bytes,1,opt,name=fault,proto3" json:"fault,omitempty"`                                     //The base fault message.
 	LengthFromTerminal1 *float32 `protobuf:"fixed32,2,opt,name=lengthFromTerminal1,proto3,oneof" json:"lengthFromTerminal1,omitempty"` //The length to the place where the fault is located starting from terminal with sequence number 1 of the faulted line segment.
-	LengthUncertainty   *float32 `protobuf:"fixed32,3,opt,name=lengthUncertainty,proto3,oneof"   json:"lengthUncertainty,omitempty"`   //The +/- uncertainty on the reported length.
+	LengthUncertainty   *float32 `protobuf:"fixed32,3,opt,name=lengthUncertainty,proto3,oneof" json:"lengthUncertainty,omitempty"`     //The +/- uncertainty on the reported length.
 }
 
 func (x *LineFault) Reset() {
@@ -472,7 +472,7 @@ type EquipmentFault struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Fault      *Fault  `protobuf:"bytes,1,opt,name=fault,proto3"            json:"fault,omitempty"`      //The base fault message.
+	Fault      *Fault  `protobuf:"bytes,1,opt,name=fault,proto3" json:"fault,omitempty"`                 //The base fault message.
 	TerminalID *string `protobuf:"bytes,2,opt,name=terminalID,proto3,oneof" json:"terminalID,omitempty"` //The terminal connecting to the bus to which the fault is applied.
 }
 
@@ -725,9 +725,7 @@ var (
 
 func file_zaphiro_grid_v1_fault_proto_rawDescGZIP() []byte {
 	file_zaphiro_grid_v1_fault_proto_rawDescOnce.Do(func() {
-		file_zaphiro_grid_v1_fault_proto_rawDescData = protoimpl.X.CompressGZIP(
-			file_zaphiro_grid_v1_fault_proto_rawDescData,
-		)
+		file_zaphiro_grid_v1_fault_proto_rawDescData = protoimpl.X.CompressGZIP(file_zaphiro_grid_v1_fault_proto_rawDescData)
 	})
 	return file_zaphiro_grid_v1_fault_proto_rawDescData
 }
