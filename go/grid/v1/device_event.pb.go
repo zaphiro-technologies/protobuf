@@ -42,12 +42,12 @@ type DeviceEvent struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Event          *Event   `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"`                           //The base event message
-	DeviceID       string   `protobuf:"bytes,2,opt,name=deviceID,proto3" json:"deviceID,omitempty"`                     //The ID of the device where the event occurred.
-	SubstationID   string   `protobuf:"bytes,3,opt,name=substationID,proto3" json:"substationID,omitempty"`             //The ID of the substation where the event occurred.
-	Value          *float64 `protobuf:"fixed64,4,opt,name=value,proto3,oneof" json:"value,omitempty"`                   //The measured / estimated value in relation to the event.
+	Event          *Event   `protobuf:"bytes,1,opt,name=event,proto3"                  json:"event,omitempty"`          //The base event message
+	DeviceID       string   `protobuf:"bytes,2,opt,name=deviceID,proto3"               json:"deviceID,omitempty"`       //The ID of the device where the event occurred.
+	SubstationID   string   `protobuf:"bytes,3,opt,name=substationID,proto3"           json:"substationID,omitempty"`   //The ID of the substation where the event occurred.
+	Value          *float64 `protobuf:"fixed64,4,opt,name=value,proto3,oneof"          json:"value,omitempty"`          //The measured / estimated value in relation to the event.
 	ReferenceLimit *float64 `protobuf:"fixed64,5,opt,name=referenceLimit,proto3,oneof" json:"referenceLimit,omitempty"` //The reference limit or expected value.
-	Code           *string  `protobuf:"bytes,6,opt,name=code,proto3,oneof" json:"code,omitempty"`                       //The device event code (or the mapped string)
+	Code           *string  `protobuf:"bytes,6,opt,name=code,proto3,oneof"             json:"code,omitempty"`           //The device event code (or the mapped string)
 }
 
 func (x *DeviceEvent) Reset() {
@@ -517,7 +517,9 @@ var (
 
 func file_zaphiro_grid_v1_device_event_proto_rawDescGZIP() []byte {
 	file_zaphiro_grid_v1_device_event_proto_rawDescOnce.Do(func() {
-		file_zaphiro_grid_v1_device_event_proto_rawDescData = protoimpl.X.CompressGZIP(file_zaphiro_grid_v1_device_event_proto_rawDescData)
+		file_zaphiro_grid_v1_device_event_proto_rawDescData = protoimpl.X.CompressGZIP(
+			file_zaphiro_grid_v1_device_event_proto_rawDescData,
+		)
 	})
 	return file_zaphiro_grid_v1_device_event_proto_rawDescData
 }
