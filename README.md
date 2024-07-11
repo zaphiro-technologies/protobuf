@@ -90,7 +90,53 @@ Python and Go, code to:
 
 1. Set-up the infrastructure using `make docker-start`.
 1. Launch the example `make example-measurements-go`
-1. Press any key to stop
+1. Press any key to stop.
+
+```bash
+Getting started with Streaming client for RabbitMQ
+Connecting to RabbitMQ streaming ...
+Sent 10 messages
+Press any key to stop
+
+consumer name: my_consumer, measurement_id: Dev0000-0005, measurement_time 1720698360980, measurement_type 20, measurement_value 4592455024224327647
+consumer name: my_consumer, measurement_id: Dev0000-0006, measurement_time 1720698360980, measurement_type 20, measurement_value 4604241342922663796
+consumer name: my_consumer, measurement_id: Dev0000-0009, measurement_time 1720698360980, measurement_type 44, measurement_value 4603643564277470555
+consumer name: my_consumer, measurement_id: Dev0000-0001, measurement_time 1720698360980, measurement_type 28, measurement_value 4598295346455196891
+consumer name: my_consumer, measurement_id: Dev0000-0004, measurement_time 1720698360980, measurement_type 20, measurement_value 4605375802349382247
+consumer name: my_consumer, measurement_id: Dev0000-0007, measurement_time 1720698360980, measurement_type 20, measurement_value 4605095969928423361
+consumer name: my_consumer, measurement_id: Dev0000-0002, measurement_time 1720698360980, measurement_type 21, measurement_value 4600833284970982103
+consumer name: my_consumer, measurement_id: Dev0000-0008, measurement_time 1720698360980, measurement_type 20, measurement_value 4597854724057569946
+consumer name: my_consumer, measurement_id: Dev0000-0000, measurement_time 1720698360980, measurement_type 13, measurement_value 4603013690508174157
+consumer name: my_consumer, measurement_id: Dev0000-0003, measurement_time 1720698360980, measurement_type 21, measurement_value 4598093240485266093
+consumer name: my_consumer, measurement_id: Dev0000-0008, measurement_time 1720698360980, measurement_type 20, measurement_value 4600766170106400936
+consumer name: my_consumer, measurement_id: Dev0000-0007, measurement_time 1720698360980, measurement_type 20, measurement_value 4606916483465028581
+```
+
+### Produce and consume faults
+
+#### Python
+
+1. Set-up the infrastructure using `make docker-start`.
+1. Launch the producer `make produce-measurements-python`
+1. Launch the consumer `make consume-measurements-python`
+
+#### Go
+
+1. Set-up the infrastructure using `make docker-start`.
+1. Launch the example `make example-faults-go`
+1. Press any key to stop.
+
+```bash
+Getting started with AMPQ client for RabbitMQ
+Connecting to RabbitMQ ...
+Received a fault event message: 1948cd36-f835-4dc5-83c2-ba5a7612362a, event type: FAULT_EVENT_TYPE_STARTED
+Press any key to stop
+
+Received a fault event message: 1948cd36-f835-4dc5-83c2-ba5a7612362a, event type: FAULT_EVENT_TYPE_ENDED
+Received a line fault event message: 1948cd36-f835-4dc5-83c2-ba5a7612362a, event type: FAULT_EVENT_TYPE_LOCATED, faulty line: EQ-1, probability: 0.330000, length from t1: 0.526424
+Received a line fault event message: 1948cd36-f835-4dc5-83c2-ba5a7612362a, event type: FAULT_EVENT_TYPE_LOCATED, faulty line: EQ-2, probability: 0.330000, length from t1: 0.484818
+Received a line fault event message: 1948cd36-f835-4dc5-83c2-ba5a7612362a, event type: FAULT_EVENT_TYPE_LOCATED, faulty line: EQ-3, probability: 0.330000, length from t1: 0.315550
+```
 
 ## Contributing to Protocol Buffers
 
