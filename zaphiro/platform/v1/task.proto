@@ -14,13 +14,13 @@
 
 syntax = "proto3";
 
-import "google/protobuf/any.proto";
-
 /* <!-- markdownlint-disable --> 
 Messages to support coordination among processes/services in the platform.
 At the time being this is a proof of concept. Different changes may occurs
 when we actually start to use the event driven approach to coordinate
-services. */ 
+services. */
+
+import "google/protobuf/any.proto";
 
 package zaphiro.platform.v1;
 option go_package = "./platform/v1";
