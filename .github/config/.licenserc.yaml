@@ -11,7 +11,7 @@ header:
     - '.github'
     - '.docker'
     - '**/*.{md,MD}'
-    - '**/*.proto.{md,MD}'
+    - 'docs/*.proto.md'
     - 'examples/go/vendor'
     - 'python/**'
     - 'go/**'
