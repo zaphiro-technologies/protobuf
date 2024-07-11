@@ -67,8 +67,8 @@ go get -v github.com/zaphiro-technologies/protobuf/go@v0.0.7
 
 ## Examples
 
-For your convenience, in the [examples](examples) folder we provide both for
-Python and Go, code to:
+For your convenience, in the [examples](examples) folder we provide
+Go code to:
 
 - Produce and consume measurements (uses RabbitMQ streams).
 - Produce and consume faults (uses RabbitMQ exchanges).
@@ -79,12 +79,6 @@ Python and Go, code to:
 - [Docker](https://docs.docker.com/get-docker/)
 
 ### Produce and consume measurements
-
-#### Python
-
-1. Set-up the infrastructure using `make docker-start`.
-1. Launch the producer `make produce-measurements-python`
-1. Launch the consumer `make consume-measurements-python`
 
 #### Go
 
@@ -113,12 +107,6 @@ consumer name: my_consumer, measurement_id: Dev0000-0007, measurement_time 17206
 ```
 
 ### Produce and consume faults
-
-#### Python
-
-1. Set-up the infrastructure using `make docker-start`.
-1. Launch the producer `make produce-measurements-python`
-1. Launch the consumer `make consume-measurements-python`
 
 #### Go
 
