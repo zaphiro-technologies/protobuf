@@ -23,7 +23,12 @@ func CheckErr(err error) {
 
 func consumerClose(channelClose stream.ChannelClose) {
 	event := <-channelClose
-	fmt.Printf("Consumer: %s closed on the stream: %s, reason: %s \n", event.Name, event.StreamName, event.Reason)
+	fmt.Printf(
+		"Consumer: %s closed on the stream: %s, reason: %s \n",
+		event.Name,
+		event.StreamName,
+		event.Reason,
+	)
 }
 
 func generateDataID(pmuId int, nMeasures int) map[string]*grid.Data {
@@ -117,7 +122,9 @@ func main() {
 		messageProperties := make(map[string]interface{})
 		messageProperties["Id"] = uuid.New().String()
 		messageProperties["type"] = "DataSet"
-		messageProperties["timestampId"] = int64(math.Round(float64(time.Now().UnixMilli())/20) * 20)
+		messageProperties["timestampId"] = int64(
+			math.Round(float64(time.Now().UnixMilli())/20) * 20,
+		)
 		messageProperties["producerId"] = data.GetProducerId()
 		message.ApplicationProperties = messageProperties
 		err := producer.Send(message)
@@ -136,8 +143,14 @@ func main() {
 		data := &grid.DataSet{}
 		err := proto.Unmarshal(message.GetData(), data)
 		for measurement_id, measurement := range data.GetData() {
-			fmt.Printf("consumer name: %s, measurement_id: %s, measurement_time %d, measurement_type %d, measurement_value %d\n ",
-				consumerContext.Consumer.GetName(), measurement_id, measurement.DataType, *measurement.Value, measurement.MeasuredAt)
+			fmt.Printf(
+				"consumer name: %s, measurement_id: %s, measurement_time %d, measurement_type %d, measurement_value %d\n ",
+				consumerContext.Consumer.GetName(),
+				measurement_id,
+				measurement.DataType,
+				*measurement.Value,
+				measurement.MeasuredAt,
+			)
 		}
 		CheckErr(err)
 	}
