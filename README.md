@@ -1,4 +1,4 @@
-# SynchroGuard's Protocol Buffers
+# SynchroGuard's Protocol Buffer Messages
 
 In SynchroGuard, real-time data exchange relies on protocol buffer messages
 exchanged over [RabbitMQ](https://www.rabbitmq.com/). Thus, consuming and/or
@@ -8,7 +8,7 @@ integrate third parties with SynchroGuard for real-time data exchange.
 This repository includes the [Protocol Buffer](https://protobuf.dev/) used in
 Zaphiro's platform and the generated code for GO and Python.
 
-## Available Protocol Buffer
+## Available Protocol Buffer Messages
 
 At the time being this repository includes the following Protocol Buffer
 packages:
@@ -56,14 +56,41 @@ Currently code is generated for:
 Installation was tested with poetry:
 
 ```bash
-poetry add git+https://github.com/zaphiro-technologies/protobuf.git#v0.0.5
+poetry add git+https://github.com/zaphiro-technologies/protobuf.git#v0.0.7
 ```
 
 ### Go
 
 ```bash
-go install github.com/zaphiro-technologies/protobuf/go@v0.0.5
+go get -v github.com/zaphiro-technologies/protobuf/go@v0.0.7
 ```
+
+## Examples
+
+For your convenience, in the [examples](examples) folder we provide both for
+Python and Go, code to:
+
+- Produce and consume measurements (uses RabbitMQ streams).
+- Produce and consume faults (uses RabbitMQ exchanges).
+
+### Requirements
+
+- Python 3.12 or Golang 1.21
+- [Docker](https://docs.docker.com/get-docker/)
+
+### Produce and consume measurements
+
+#### Python
+
+1. Set-up the infrastructure using `make docker-start`.
+1. Launch the producer `make produce-measurements-python`
+1. Launch the consumer `make consume-measurements-python`
+
+#### Go
+
+1. Set-up the infrastructure using `make docker-start`.
+1. Launch the producer `make produce-measurements-go`
+1. Launch the consumer `make consume-measurements-go`
 
 ## Contributing to Protocol Buffers
 
@@ -77,7 +104,9 @@ guides](https://protobuf.dev/programming-guides/dos-donts/).
 In particular, it is important - even more within the same version - to preserve
 compatibility, to avoid services breaking up.
 
-## Requirements
+You find contributing guidelines [here](CONTRIBUTING.md).
+
+### Requirements
 
 1. [Golang](https://go.dev/doc/install)
 1. [Protocol Buffer Compiler](https://grpc.io/docs/protoc-installation/)
