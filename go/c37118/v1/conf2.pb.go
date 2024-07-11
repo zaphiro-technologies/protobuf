@@ -44,8 +44,8 @@ type Conf2Frame struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Header    *Conf2Header `protobuf:"bytes,1,opt,name=header,proto3" json:"header,omitempty"`                      //Configuration frame 2 header
-	Configs   []*Config    `protobuf:"bytes,2,rep,name=configs,proto3" json:"configs,omitempty"`                    //Set of PMU configurations
+	Header    *Conf2Header `protobuf:"bytes,1,opt,name=header,proto3"                   json:"header,omitempty"`    //Configuration frame 2 header
+	Configs   []*Config    `protobuf:"bytes,2,rep,name=configs,proto3"                  json:"configs,omitempty"`   //Set of PMU configurations
 	DATA_RATE uint32       `protobuf:"varint,3,opt,name=DATA_RATE,json=DATARATE,proto3" json:"DATA_RATE,omitempty"` //Rate of data transmission
 }
 
@@ -107,13 +107,13 @@ type Conf2Header struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	SYNC      uint32 `protobuf:"varint,1,opt,name=SYNC,proto3" json:"SYNC,omitempty"`                         //Sync byte followed by frame type and version number
-	FRAMESIZE uint32 `protobuf:"varint,2,opt,name=FRAMESIZE,proto3" json:"FRAMESIZE,omitempty"`               //Number of bytes in the frame
-	IDCODE    uint32 `protobuf:"varint,3,opt,name=IDCODE,proto3" json:"IDCODE,omitempty"`                     //Stream source ID number
-	SOC       uint32 `protobuf:"varint,4,opt,name=SOC,proto3" json:"SOC,omitempty"`                           //SOC time stamp
-	FRACSEC   uint32 `protobuf:"varint,5,opt,name=FRACSEC,proto3" json:"FRACSEC,omitempty"`                   //Fraction of Second and Message Time Quality
+	SYNC      uint32 `protobuf:"varint,1,opt,name=SYNC,proto3"                    json:"SYNC,omitempty"`      //Sync byte followed by frame type and version number
+	FRAMESIZE uint32 `protobuf:"varint,2,opt,name=FRAMESIZE,proto3"               json:"FRAMESIZE,omitempty"` //Number of bytes in the frame
+	IDCODE    uint32 `protobuf:"varint,3,opt,name=IDCODE,proto3"                  json:"IDCODE,omitempty"`    //Stream source ID number
+	SOC       uint32 `protobuf:"varint,4,opt,name=SOC,proto3"                     json:"SOC,omitempty"`       //SOC time stamp
+	FRACSEC   uint32 `protobuf:"varint,5,opt,name=FRACSEC,proto3"                 json:"FRACSEC,omitempty"`   //Fraction of Second and Message Time Quality
 	TIME_BASE uint32 `protobuf:"varint,6,opt,name=TIME_BASE,json=TIMEBASE,proto3" json:"TIME_BASE,omitempty"` //Resolution of FRACSEC time stamp
-	NUM_PMU   uint32 `protobuf:"varint,7,opt,name=NUM_PMU,json=NUMPMU,proto3" json:"NUM_PMU,omitempty"`       //The number of PMUs included in the data frame
+	NUM_PMU   uint32 `protobuf:"varint,7,opt,name=NUM_PMU,json=NUMPMU,proto3"     json:"NUM_PMU,omitempty"`   //The number of PMUs included in the data frame
 }
 
 func (x *Conf2Header) Reset() {
@@ -202,18 +202,18 @@ type Config struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	STN     string   `protobuf:"bytes,1,opt,name=STN,proto3" json:"STN,omitempty"`                  //Station name
-	IDCODE  uint32   `protobuf:"varint,2,opt,name=IDCODE,proto3" json:"IDCODE,omitempty"`           //Data source ID number
-	FORMAT  uint32   `protobuf:"varint,3,opt,name=FORMAT,proto3" json:"FORMAT,omitempty"`           //Data format within data frame
-	PHNMR   uint32   `protobuf:"varint,4,opt,name=PHNMR,proto3" json:"PHNMR,omitempty"`             //Number of phasors
-	ANNMR   uint32   `protobuf:"varint,5,opt,name=ANNMR,proto3" json:"ANNMR,omitempty"`             //Number of analog values
-	DGNMR   uint32   `protobuf:"varint,6,opt,name=DGNMR,proto3" json:"DGNMR,omitempty"`             //Number of digital status words
-	CHNAM   string   `protobuf:"bytes,7,opt,name=CHNAM,proto3" json:"CHNAM,omitempty"`              //Phasor and channel names
-	PHUNIT  []uint32 `protobuf:"varint,8,rep,packed,name=PHUNIT,proto3" json:"PHUNIT,omitempty"`    //Conversion factor for phasor channels
-	ANUNIT  []uint32 `protobuf:"varint,9,rep,packed,name=ANUNIT,proto3" json:"ANUNIT,omitempty"`    //Conversion factor for analog channels
+	STN     string   `protobuf:"bytes,1,opt,name=STN,proto3"              json:"STN,omitempty"`     //Station name
+	IDCODE  uint32   `protobuf:"varint,2,opt,name=IDCODE,proto3"          json:"IDCODE,omitempty"`  //Data source ID number
+	FORMAT  uint32   `protobuf:"varint,3,opt,name=FORMAT,proto3"          json:"FORMAT,omitempty"`  //Data format within data frame
+	PHNMR   uint32   `protobuf:"varint,4,opt,name=PHNMR,proto3"           json:"PHNMR,omitempty"`   //Number of phasors
+	ANNMR   uint32   `protobuf:"varint,5,opt,name=ANNMR,proto3"           json:"ANNMR,omitempty"`   //Number of analog values
+	DGNMR   uint32   `protobuf:"varint,6,opt,name=DGNMR,proto3"           json:"DGNMR,omitempty"`   //Number of digital status words
+	CHNAM   string   `protobuf:"bytes,7,opt,name=CHNAM,proto3"            json:"CHNAM,omitempty"`   //Phasor and channel names
+	PHUNIT  []uint32 `protobuf:"varint,8,rep,packed,name=PHUNIT,proto3"   json:"PHUNIT,omitempty"`  //Conversion factor for phasor channels
+	ANUNIT  []uint32 `protobuf:"varint,9,rep,packed,name=ANUNIT,proto3"   json:"ANUNIT,omitempty"`  //Conversion factor for analog channels
 	DIGUNIT []uint32 `protobuf:"varint,10,rep,packed,name=DIGUNIT,proto3" json:"DIGUNIT,omitempty"` //Mask words for digital status words
-	FNOM    uint32   `protobuf:"varint,11,opt,name=FNOM,proto3" json:"FNOM,omitempty"`              //Nominal line frequency code and flags
-	CFGCNT  uint32   `protobuf:"varint,12,opt,name=CFGCNT,proto3" json:"CFGCNT,omitempty"`          //Configuration change count
+	FNOM    uint32   `protobuf:"varint,11,opt,name=FNOM,proto3"           json:"FNOM,omitempty"`    //Nominal line frequency code and flags
+	CFGCNT  uint32   `protobuf:"varint,12,opt,name=CFGCNT,proto3"         json:"CFGCNT,omitempty"`  //Configuration change count
 }
 
 func (x *Config) Reset() {
@@ -388,7 +388,9 @@ var (
 
 func file_zaphiro_c37118_v1_conf2_proto_rawDescGZIP() []byte {
 	file_zaphiro_c37118_v1_conf2_proto_rawDescOnce.Do(func() {
-		file_zaphiro_c37118_v1_conf2_proto_rawDescData = protoimpl.X.CompressGZIP(file_zaphiro_c37118_v1_conf2_proto_rawDescData)
+		file_zaphiro_c37118_v1_conf2_proto_rawDescData = protoimpl.X.CompressGZIP(
+			file_zaphiro_c37118_v1_conf2_proto_rawDescData,
+		)
 	})
 	return file_zaphiro_c37118_v1_conf2_proto_rawDescData
 }
