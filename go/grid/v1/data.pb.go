@@ -238,9 +238,9 @@ type Data struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	DataType   DataType `protobuf:"varint,1,opt,name=dataType,proto3,enum=zaphiro.grid.v1.DataType" json:"dataType,omitempty"`   //The type of data see `DataType` enum.
-	MeasuredAt int64    `protobuf:"varint,2,opt,name=measuredAt,proto3"                             json:"measuredAt,omitempty"` //The time of measurement (Unix msec timestamp).
-	Value      *uint64  `protobuf:"varint,3,opt,name=value,proto3,oneof"                            json:"value,omitempty"`      //The data value casted to uint64.
+	DataType   DataType `protobuf:"varint,1,opt,name=dataType,proto3,enum=zaphiro.grid.v1.DataType" json:"dataType,omitempty"` //The type of data see `DataType` enum.
+	MeasuredAt int64    `protobuf:"varint,2,opt,name=measuredAt,proto3" json:"measuredAt,omitempty"`                           //The time of measurement (Unix msec timestamp).
+	Value      *uint64  `protobuf:"varint,3,opt,name=value,proto3,oneof" json:"value,omitempty"`                               //The data value casted to uint64.
 }
 
 func (x *Data) Reset() {
@@ -301,8 +301,8 @@ type DataSet struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	ProducerId string           `protobuf:"bytes,1,opt,name=producerId,proto3" json:"producerId,omitempty"`                                                                                         //The id of the device / service that produced the data set.
-	Data       map[string]*Data `protobuf:"bytes,2,rep,name=data,proto3"       json:"data,omitempty"       protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"` //The map of data included in the dataset.
+	ProducerId string           `protobuf:"bytes,1,opt,name=producerId,proto3" json:"producerId,omitempty"`                                                                             //The id of the device / service that produced the data set.
+	Data       map[string]*Data `protobuf:"bytes,2,rep,name=data,proto3" json:"data,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"` //The map of data included in the dataset.
 }
 
 func (x *DataSet) Reset() {
@@ -487,9 +487,7 @@ var (
 
 func file_zaphiro_grid_v1_data_proto_rawDescGZIP() []byte {
 	file_zaphiro_grid_v1_data_proto_rawDescOnce.Do(func() {
-		file_zaphiro_grid_v1_data_proto_rawDescData = protoimpl.X.CompressGZIP(
-			file_zaphiro_grid_v1_data_proto_rawDescData,
-		)
+		file_zaphiro_grid_v1_data_proto_rawDescData = protoimpl.X.CompressGZIP(file_zaphiro_grid_v1_data_proto_rawDescData)
 	})
 	return file_zaphiro_grid_v1_data_proto_rawDescData
 }

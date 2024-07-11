@@ -42,15 +42,15 @@ type Stat struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	MeasuredAt    int64  `protobuf:"varint,1,opt,name=measuredAt,proto3"     json:"measuredAt,omitempty"`    // The time of creation of the stat data (Unix msec timestamp).
-	Error         uint32 `protobuf:"varint,2,opt,name=error,proto3"          json:"error,omitempty"`         // Error code uint8
-	Sync          bool   `protobuf:"varint,3,opt,name=sync,proto3"           json:"sync,omitempty"`          // Synchronization status
-	Sorting       bool   `protobuf:"varint,4,opt,name=sorting,proto3"        json:"sorting,omitempty"`       // Sorting status
-	Trigger       bool   `protobuf:"varint,5,opt,name=trigger,proto3"        json:"trigger,omitempty"`       // Trigger status
-	ConfigChange  bool   `protobuf:"varint,6,opt,name=configChange,proto3"   json:"configChange,omitempty"`  // Configuration change status
-	DataModified  bool   `protobuf:"varint,7,opt,name=dataModified,proto3"   json:"dataModified,omitempty"`  // Data modification status
-	TimeQuality   uint32 `protobuf:"varint,8,opt,name=timeQuality,proto3"    json:"timeQuality,omitempty"`   // Time quality uint8
-	UnlockedTime  uint32 `protobuf:"varint,9,opt,name=unlockedTime,proto3"   json:"unlockedTime,omitempty"`  // Unlocked time uint8
+	MeasuredAt    int64  `protobuf:"varint,1,opt,name=measuredAt,proto3" json:"measuredAt,omitempty"`        // The time of creation of the stat data (Unix msec timestamp).
+	Error         uint32 `protobuf:"varint,2,opt,name=error,proto3" json:"error,omitempty"`                  // Error code uint8
+	Sync          bool   `protobuf:"varint,3,opt,name=sync,proto3" json:"sync,omitempty"`                    // Synchronization status
+	Sorting       bool   `protobuf:"varint,4,opt,name=sorting,proto3" json:"sorting,omitempty"`              // Sorting status
+	Trigger       bool   `protobuf:"varint,5,opt,name=trigger,proto3" json:"trigger,omitempty"`              // Trigger status
+	ConfigChange  bool   `protobuf:"varint,6,opt,name=configChange,proto3" json:"configChange,omitempty"`    // Configuration change status
+	DataModified  bool   `protobuf:"varint,7,opt,name=dataModified,proto3" json:"dataModified,omitempty"`    // Data modification status
+	TimeQuality   uint32 `protobuf:"varint,8,opt,name=timeQuality,proto3" json:"timeQuality,omitempty"`      // Time quality uint8
+	UnlockedTime  uint32 `protobuf:"varint,9,opt,name=unlockedTime,proto3" json:"unlockedTime,omitempty"`    // Unlocked time uint8
 	TriggerReason uint32 `protobuf:"varint,10,opt,name=triggerReason,proto3" json:"triggerReason,omitempty"` // Trigger reason uint8
 }
 
@@ -193,9 +193,7 @@ var (
 
 func file_zaphiro_c37118_v1_stat_proto_rawDescGZIP() []byte {
 	file_zaphiro_c37118_v1_stat_proto_rawDescOnce.Do(func() {
-		file_zaphiro_c37118_v1_stat_proto_rawDescData = protoimpl.X.CompressGZIP(
-			file_zaphiro_c37118_v1_stat_proto_rawDescData,
-		)
+		file_zaphiro_c37118_v1_stat_proto_rawDescData = protoimpl.X.CompressGZIP(file_zaphiro_c37118_v1_stat_proto_rawDescData)
 	})
 	return file_zaphiro_c37118_v1_stat_proto_rawDescData
 }
