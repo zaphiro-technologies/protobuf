@@ -2,7 +2,9 @@
 
 ## 0.0.8-dev - 2024-07-11
 
-- no changes
+### Documentation
+
+- Update documentation for open source release (PR #66 by @chicco785)
 
 ## 0.0.7 - 2024-06-24
 

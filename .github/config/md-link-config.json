@@ -2,6 +2,9 @@
     "ignorePatterns": [
         {
             "pattern": "^https://github.com/zaphiro-technologies/"
+        },
+        {
+            "pattern": "^http://pkg.go.dev/"
         }
     ]
 }
