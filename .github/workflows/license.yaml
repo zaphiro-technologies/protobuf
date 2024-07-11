@@ -15,4 +15,4 @@ jobs:
     uses: zaphiro-technologies/github-workflows/.github/workflows/license.yaml@main
     secrets: inherit
     with:
-      skip-fix: false
+      skip-fix: true
