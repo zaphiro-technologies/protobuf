@@ -22,7 +22,16 @@ func CheckErr(err error) {
 	}
 }
 
-func generateFault(fault_id string, event_type grid.FaultEventType, measurement_timestamp int64, fault_current float32, location_probability *float32, used_measurements []*grid.FaultMeasurement, impacted_equipments []string, faulty_equipment *string) *grid.Fault {
+func generateFault(
+	fault_id string,
+	event_type grid.FaultEventType,
+	measurement_timestamp int64,
+	fault_current float32,
+	location_probability *float32,
+	used_measurements []*grid.FaultMeasurement,
+	impacted_equipments []string,
+	faulty_equipment *string,
+) *grid.Fault {
 	description := "Example fault"
 
 	tm := math.Round(float64(time.Now().UnixMilli())/20) * 20
@@ -45,14 +54,36 @@ func generateFault(fault_id string, event_type grid.FaultEventType, measurement_
 	return &fault
 }
 
-func generateLineFault(fault_id string, event_type grid.FaultEventType, measurement_timestamp int64, fault_current float32, location_probability *float32, used_measurements []*grid.FaultMeasurement, impacted_equipments []string, faulty_equipment *string) *grid.LineFault {
+func generateLineFault(
+	fault_id string,
+	event_type grid.FaultEventType,
+	measurement_timestamp int64,
+	fault_current float32,
+	location_probability *float32,
+	used_measurements []*grid.FaultMeasurement,
+	impacted_equipments []string,
+	faulty_equipment *string,
+) *grid.LineFault {
 
-	fault := generateFault(fault_id, event_type, measurement_timestamp, fault_current, location_probability, used_measurements, impacted_equipments, faulty_equipment)
+	fault := generateFault(
+		fault_id,
+		event_type,
+		measurement_timestamp,
+		fault_current,
+		location_probability,
+		used_measurements,
+		impacted_equipments,
+		faulty_equipment,
+	)
 
 	length_from_terminal1 := rand.Float32()
 	length_uncertainty := float32(100.0)
 
-	lineFault := grid.LineFault{Fault: fault, LengthFromTerminal1: &length_from_terminal1, LengthUncertainty: &length_uncertainty}
+	lineFault := grid.LineFault{
+		Fault:               fault,
+		LengthFromTerminal1: &length_from_terminal1,
+		LengthUncertainty:   &length_uncertainty,
+	}
 
 	return &lineFault
 }
@@ -128,14 +159,22 @@ func main() {
 				data := &grid.Fault{}
 				err := proto.Unmarshal(d.Body, data)
 				CheckErr(err)
-				fmt.Printf("Received a fault message: %s, event: %s\n", data.Id, data.FaultEventType)
+				fmt.Printf(
+					"Received a fault message: %s, event: %s\n",
+					data.Id,
+					data.FaultEventType,
+				)
 			}
 
 			if d.Headers["type"] == "LineFault" {
 				data := &grid.LineFault{}
 				err := proto.Unmarshal(d.Body, data)
 				CheckErr(err)
-				fmt.Printf("Received a fault message: %s, event: %s\n", data.Fault.Id, data.Fault.FaultEventType)
+				fmt.Printf(
+					"Received a fault message: %s, event: %s\n",
+					data.Fault.Id,
+					data.Fault.FaultEventType,
+				)
 			}
 		}
 	}()
@@ -148,9 +187,22 @@ func main() {
 	fault_equipment := new(string)
 	location_probability := new(float32)
 	impacted_equipments := []string{"EQ-1", "EQ-2", "EQ-3"}
-	used_measurements := []*grid.FaultMeasurement{{PositiveSign: true, MeasurementID: "M-1"}, {PositiveSign: true, MeasurementID: "M-1"}, {PositiveSign: true, MeasurementID: "M-1"}}
+	used_measurements := []*grid.FaultMeasurement{
+		{PositiveSign: true, MeasurementID: "M-1"},
+		{PositiveSign: true, MeasurementID: "M-1"},
+		{PositiveSign: true, MeasurementID: "M-1"},
+	}
 
-	startFaultEvent := generateFault(fault_id, grid.FaultEventType_FAULT_EVENT_TYPE_STARTED, mt, fault_current, location_probability, used_measurements, impacted_equipments, fault_equipment)
+	startFaultEvent := generateFault(
+		fault_id,
+		grid.FaultEventType_FAULT_EVENT_TYPE_STARTED,
+		mt,
+		fault_current,
+		location_probability,
+		used_measurements,
+		impacted_equipments,
+		fault_equipment,
+	)
 
 	header := amqp.Table{
 		"id":         fault_id,
@@ -162,7 +214,16 @@ func main() {
 
 	time.Sleep(20 * time.Millisecond)
 
-	endFaultEvent := generateFault(fault_id, grid.FaultEventType_FAULT_EVENT_TYPE_ENDED, mt, fault_current, location_probability, used_measurements, impacted_equipments, fault_equipment)
+	endFaultEvent := generateFault(
+		fault_id,
+		grid.FaultEventType_FAULT_EVENT_TYPE_ENDED,
+		mt,
+		fault_current,
+		location_probability,
+		used_measurements,
+		impacted_equipments,
+		fault_equipment,
+	)
 	buf, _ = proto.Marshal(endFaultEvent)
 	publishMessage(ch, ctx, header, buf)
 
@@ -175,21 +236,48 @@ func main() {
 		"type":       "LineFault",
 	}
 
-	location := generateLineFault(fault_id, grid.FaultEventType_FAULT_EVENT_TYPE_LOCATED, mt, fault_current, &probability, used_measurements, impacted_equipments, &equipment)
+	location := generateLineFault(
+		fault_id,
+		grid.FaultEventType_FAULT_EVENT_TYPE_LOCATED,
+		mt,
+		fault_current,
+		&probability,
+		used_measurements,
+		impacted_equipments,
+		&equipment,
+	)
 	buf, _ = proto.Marshal(location)
 	publishMessage(ch, ctx, header, buf)
 
 	// second potential location
 	equipment = "EQ-2"
 
-	location = generateLineFault(fault_id, grid.FaultEventType_FAULT_EVENT_TYPE_LOCATED, mt, fault_current, &probability, used_measurements, impacted_equipments, &equipment)
+	location = generateLineFault(
+		fault_id,
+		grid.FaultEventType_FAULT_EVENT_TYPE_LOCATED,
+		mt,
+		fault_current,
+		&probability,
+		used_measurements,
+		impacted_equipments,
+		&equipment,
+	)
 	buf, _ = proto.Marshal(location)
 	publishMessage(ch, ctx, header, buf)
 
 	// third potential location
 	equipment = "EQ-3"
 
-	location = generateLineFault(fault_id, grid.FaultEventType_FAULT_EVENT_TYPE_LOCATED, mt, fault_current, &probability, used_measurements, impacted_equipments, &equipment)
+	location = generateLineFault(
+		fault_id,
+		grid.FaultEventType_FAULT_EVENT_TYPE_LOCATED,
+		mt,
+		fault_current,
+		&probability,
+		used_measurements,
+		impacted_equipments,
+		&equipment,
+	)
 	buf, _ = proto.Marshal(location)
 	publishMessage(ch, ctx, header, buf)
 
