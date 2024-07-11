@@ -20,10 +20,10 @@ At the time being this is a proof of concept. Different changes may occurs
 when we actually start to use the event driven approach to coordinate
 services. */
 
-import "google/protobuf/any.proto";
-
 package zaphiro.platform.v1;
 option go_package = "./platform/v1";
+
+import "google/protobuf/any.proto"; //To support messages with fields of any type
 
 //The different type of tasks run by the real time processing.
 
