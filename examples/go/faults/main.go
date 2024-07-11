@@ -173,7 +173,10 @@ func main() {
 				fmt.Printf(
 					"Received a line fault event message: %s, event type: %s, faulty line: %s, probability: %f, length from t1: %f\n",
 					data.Fault.Id,
-					data.Fault.FaultEventType, *data.Fault.FaultyEquipmentId, *data.Fault.LocationProbability, *data.LengthFromTerminal1,
+					data.Fault.FaultEventType,
+					*data.Fault.FaultyEquipmentId,
+					*data.Fault.LocationProbability,
+					*data.LengthFromTerminal1,
 				)
 			}
 		}
