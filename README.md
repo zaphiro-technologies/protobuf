@@ -67,8 +67,7 @@ go get -v github.com/zaphiro-technologies/protobuf/go@v0.0.7
 
 ## Examples
 
-For your convenience, in the [examples](examples) folder we provide
-Go code to:
+For your convenience, in the [examples](examples) folder we provide Go code to:
 
 - Produce and consume measurements (uses RabbitMQ streams).
 - Produce and consume faults (uses RabbitMQ exchanges).
@@ -133,8 +132,8 @@ need to set-up the dependencies listed in [Requirements](#requirements).
 
 Protocol buffers are versioned (current version is v1), and should be developed
 following best practices, as implemented by [Buf](https://buf.build) and defined
-in [Protobuf programming
-guides](https://protobuf.dev/programming-guides/dos-donts/).
+in
+[Protobuf programming guides](https://protobuf.dev/programming-guides/dos-donts/).
 In particular, it is important - even more within the same version - to preserve
 compatibility, to avoid services breaking up.
 
