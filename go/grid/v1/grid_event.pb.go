@@ -42,12 +42,12 @@ type GridEvent struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Event          *Event   `protobuf:"bytes,1,opt,name=event,proto3"               json:"event,omitempty"`          //The base event message
-	ComponentID    string   `protobuf:"bytes,2,opt,name=componentID,proto3"         json:"componentID,omitempty"`    //The ID of the component where the event occurred.
-	SubstationID   *string  `protobuf:"bytes,3,opt,name=substationID,proto3,oneof"  json:"substationID,omitempty"`   //The ID of the substation where the event occurred.
-	Value          float64  `protobuf:"fixed64,4,opt,name=value,proto3"             json:"value,omitempty"`          //The measured / estimated value in relation to the event (e.g. in the case of a `VoltageEvent` is the voltage, in the case of a `CurrentEvent` is the current event).
-	ReferenceLimit float64  `protobuf:"fixed64,5,opt,name=referenceLimit,proto3"    json:"referenceLimit,omitempty"` //The reference limit or expected value.
-	Probability    *float64 `protobuf:"fixed64,6,opt,name=probability,proto3,oneof" json:"probability,omitempty"`    //The probability that the event actually occurred.
+	Event          *Event   `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"`                     //The base event message
+	ComponentID    string   `protobuf:"bytes,2,opt,name=componentID,proto3" json:"componentID,omitempty"`         //The ID of the component where the event occurred.
+	SubstationID   *string  `protobuf:"bytes,3,opt,name=substationID,proto3,oneof" json:"substationID,omitempty"` //The ID of the substation where the event occurred.
+	Value          float64  `protobuf:"fixed64,4,opt,name=value,proto3" json:"value,omitempty"`                   //The measured / estimated value in relation to the event (e.g. in the case of a `VoltageEvent` is the voltage, in the case of a `CurrentEvent` is the current event).
+	ReferenceLimit float64  `protobuf:"fixed64,5,opt,name=referenceLimit,proto3" json:"referenceLimit,omitempty"` //The reference limit or expected value.
+	Probability    *float64 `protobuf:"fixed64,6,opt,name=probability,proto3,oneof" json:"probability,omitempty"` //The probability that the event actually occurred.
 }
 
 func (x *GridEvent) Reset() {
@@ -129,7 +129,7 @@ type VoltageEvent struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Event     *GridEvent `protobuf:"bytes,1,opt,name=event,proto3"                                           json:"event,omitempty"`     //The base grid event message
+	Event     *GridEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"`                                               //The base grid event message
 	PhaseCode *PhaseCode `protobuf:"varint,2,opt,name=phaseCode,proto3,enum=zaphiro.grid.v1.PhaseCode,oneof" json:"phaseCode,omitempty"` //The phase for which the event occured
 }
 
@@ -997,9 +997,7 @@ var (
 
 func file_zaphiro_grid_v1_grid_event_proto_rawDescGZIP() []byte {
 	file_zaphiro_grid_v1_grid_event_proto_rawDescOnce.Do(func() {
-		file_zaphiro_grid_v1_grid_event_proto_rawDescData = protoimpl.X.CompressGZIP(
-			file_zaphiro_grid_v1_grid_event_proto_rawDescData,
-		)
+		file_zaphiro_grid_v1_grid_event_proto_rawDescData = protoimpl.X.CompressGZIP(file_zaphiro_grid_v1_grid_event_proto_rawDescData)
 	})
 	return file_zaphiro_grid_v1_grid_event_proto_rawDescData
 }
