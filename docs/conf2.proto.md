@@ -1,6 +1,6 @@
 # Package: zaphiro.c37118.v1
 
- <!-- markdownlint-disable -->
+<!-- markdownlint-disable -->
 Messages describing PMU C37.118 Configurations. 
 See [C37.118](https://www.typhoon-hil.com/documentation/typhoon-hil-software-manual/References/c37_118_protocol.html)
 protocol.

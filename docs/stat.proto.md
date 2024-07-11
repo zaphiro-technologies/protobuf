@@ -1,6 +1,6 @@
 # Package: zaphiro.c37118.v1
 
- <!-- markdownlint-disable -->
+<!-- markdownlint-disable -->
 Messages to support stat data injection exchange in the platform.
 
 

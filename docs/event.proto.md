@@ -1,6 +1,6 @@
 # Package: zaphiro.grid.v1
 
- <!-- markdownlint-disable -->
+<!-- markdownlint-disable -->
 Messages to support event detection in the platform.
 The event detected may be originated from different sources: devices (e.g. a PMU, RTU), services (e.g. state estimator), or an external service (e.g. SCADA).
 

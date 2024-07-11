@@ -1,6 +1,6 @@
 # Package: zaphiro.grid.v1
 
- <!-- markdownlint-disable -->
+<!-- markdownlint-disable -->
 Messages to support data injection in the platform.
 The data injected may be originated from different sources (e.g. a PMU, RTU, an external service).
 
