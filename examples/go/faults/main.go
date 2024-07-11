@@ -160,7 +160,7 @@ func main() {
 				err := proto.Unmarshal(d.Body, data)
 				CheckErr(err)
 				fmt.Printf(
-					"Received a fault message: %s, event: %s\n",
+					"Received a fault event message: %s, event type: %s\n",
 					data.Id,
 					data.FaultEventType,
 				)
@@ -171,9 +171,9 @@ func main() {
 				err := proto.Unmarshal(d.Body, data)
 				CheckErr(err)
 				fmt.Printf(
-					"Received a fault message: %s, event: %s\n",
+					"Received a line fault event message: %s, event type: %s, faulty line: %s, probability: %f, length from t1: %f\n",
 					data.Fault.Id,
-					data.Fault.FaultEventType,
+					data.Fault.FaultEventType, *data.Fault.FaultyEquipmentId, *data.Fault.LocationProbability, *data.LengthFromTerminal1,
 				)
 			}
 		}
