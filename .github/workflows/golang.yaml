@@ -54,6 +54,15 @@ jobs:
       - name: Generating protos
         run: |
           make generate
+      - name: Golines
+        run: |
+          go install github.com/segmentio/golines@latest
+          golines . -w
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@v6
+        with:
+          args: --fix
+          version: latest
       - name: Commit buf changes
         run: |
           git config --global user.name 'Bot'
