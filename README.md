@@ -74,7 +74,7 @@ For your convenience, in the [examples](examples) folder we provide Go code to:
 
 ### Requirements
 
-- Python 3.12 or Golang 1.21
+- Golang 1.21
 - [Docker](https://docs.docker.com/get-docker/)
 
 ### Produce and consume measurements
