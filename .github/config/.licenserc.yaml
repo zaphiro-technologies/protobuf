@@ -14,7 +14,7 @@ header:
     - 'examples/go/vendor'
     - '*.yaml'
     - '.snyk'
-    - '*.json'
+    - '**/*.json'
     - 'LICENSE'
     - 'NOTICE'
     - 'go.mod'
