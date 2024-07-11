@@ -1,0 +1,32 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3.12.4-management-alpine
+    container_name: "rabbitmq"
+    hostname: "rabbitmq"
+    restart: always
+    sysctls:
+      net.core.somaxconn: 4096
+      net.ipv4.tcp_max_syn_backlog: 8192
+    environment:
+      - RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS=-rabbitmq_stream advertised_host rabbitmq -rabbit loopback_users "none"
+    volumes:
+      - ./rabbitmq/init.sh:/init.sh
+      - ./rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+      - ./rabbitmq/enabled_plugins.conf:/etc/rabbitmq/enabled_plugins
+    ports:
+      - 5672:5672
+      - 15672:15672
+      - 5552:5552
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:15672"]
+      interval: 1s
+      timeout: 2s
+      retries: 20
+    networks:
+      net:
+        aliases:
+          - rabbitmq
+
+networks:
+  net:
+    name: net
