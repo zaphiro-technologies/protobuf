@@ -8,7 +8,7 @@ services:
       net.core.somaxconn: 4096
       net.ipv4.tcp_max_syn_backlog: 8192
     environment:
-      - RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS=-rabbitmq_stream advertised_host rabbitmq -rabbit loopback_users "none"
+      - RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS=-rabbitmq_stream advertised_host localhost -rabbit loopback_users "none"
     volumes:
       - ./rabbitmq/init.sh:/init.sh
       - ./rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
