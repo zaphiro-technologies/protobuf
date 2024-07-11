@@ -22,6 +22,11 @@ header:
     - 'NOTICE'
     - 'go.mod'
     - 'go.sum'
+    - 'sonar-project.properties'
+    - '*.toml'
+    - '*.lock'
+    - '*.xml'
+    - '.gitignore'
 
   comment: on-failure
 
