@@ -89,8 +89,8 @@ Python and Go, code to:
 #### Go
 
 1. Set-up the infrastructure using `make docker-start`.
-1. Launch the producer `make produce-measurements-go`
-1. Launch the consumer `make consume-measurements-go`
+1. Launch the example `make example-measurements-go`
+1. Press any key to stop
 
 ## Contributing to Protocol Buffers
 

@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"math"
+	"math/rand"
 	"os"
 	"time"
 
@@ -57,10 +58,13 @@ func generateDataID(pmuId int, nMeasures int) map[string]*grid.Data {
 			dataTypeInt = 44
 		}
 		dataType := grid.DataType(dataTypeInt)
+		// values are stored as uint64
+		value := uint64(math.Float64bits(rand.Float64()))
+		tm := math.Round(float64(time.Now().UnixMilli())/20) * 20
 		dataID[id] = &grid.Data{
 			DataType:   dataType,
-			Value:      new(uint64),
-			MeasuredAt: time.Now().UnixMilli(),
+			Value:      &value,
+			MeasuredAt: int64(tm),
 		}
 	}
 	return dataID
@@ -147,9 +151,9 @@ func main() {
 				"consumer name: %s, measurement_id: %s, measurement_time %d, measurement_type %d, measurement_value %d\n ",
 				consumerContext.Consumer.GetName(),
 				measurement_id,
-				measurement.DataType,
-				*measurement.Value,
 				measurement.MeasuredAt,
+				measurement.DataType.Number(),
+				*measurement.Value,
 			)
 		}
 		CheckErr(err)
@@ -169,11 +173,12 @@ func main() {
 	// client reconnection or just log
 	defer consumerClose(channelClose)
 
-	fmt.Println("Press any key to stop ")
+	fmt.Println("Press any key to stop\n")
 	_, _ = reader.ReadString('\n')
 	err = consumer.Close()
 	time.Sleep(200 * time.Millisecond)
 	CheckErr(err)
+	//of course in prod, don't delete the stream :)
 	err = env.DeleteStream(streamName)
 	CheckErr(err)
 	err = env.Close()

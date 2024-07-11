@@ -49,6 +49,14 @@ sleep:
 create-rabbit-defaults:
 	docker exec rabbitmq ./init.sh
 
+.PHONY: example-measurements-go
+example-measurements-go:
+	cd examples/go/measurements && go run main.go
+
+.PHONY: example-faults-go
+example-faults-go:
+	cd examples/go/faults && go run main.go
+
 # Mandatory
 ci-test: cov
 # Mandatory if benchmark enabled
