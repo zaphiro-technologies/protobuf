@@ -259,8 +259,8 @@ direction LR
 %% Certain fields of the `EquipmentFault` event message may be populated only in case of event type `FAULT_EVENT_TYPE_LOCATED` (i.e. `terminalID`).
 %% 
 %% Headers used in rabbitMQ:
-%% * `id` (string): id of the `EquipmentFault`
-%% * `type` (string): always `LineFault`
+%% * `id` (string): id of the `Fault`
+%% * `type` (string): always `EquipmentFault`
 %% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the notification.
 %% 
 
@@ -361,8 +361,8 @@ This message is modeled after [CIM EquipmentFault](https://zepben.github.io/evol
 Certain fields of the `EquipmentFault` event message may be populated only in case of event type `FAULT_EVENT_TYPE_LOCATED` (i.e. `terminalID`).
 
 Headers used in rabbitMQ:
-* `id` (string): id of the `EquipmentFault`
-* `type` (string): always `LineFault`
+* `id` (string): id of the `Fault`
+* `type` (string): always `EquipmentFault`
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the notification.
 
 
