@@ -1,9 +1,10 @@
 # ProtoBuf Release Notes
 
-## 0.0.8-dev - 2024-07-11
+## 0.0.8-dev - 2024-07-23
 
 ### Documentation
 
+- Fix documentation of headers for faults (PR #68 by @chicco785)
 - Update documentation for open source release (PR #66 by @chicco785)
 
 ## 0.0.7 - 2024-06-24
