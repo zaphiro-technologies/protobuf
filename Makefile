@@ -29,7 +29,7 @@ bench:
 .PHONY: cov
 cov:
 	mkdir -p coverage && \
-	go test ./... -coverprofile=./coverage/coverage.out && \
+	go test ./... -coverpkg=./... -coverprofile=./coverage/coverage.out && \
 	gcov2lcov -infile=./coverage/coverage.out -outfile=./coverage/lcov.info
 
 .PHONY: generate
