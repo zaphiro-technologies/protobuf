@@ -1,6 +1,11 @@
 # ProtoBuf Release Notes
 
-## 0.0.8-dev - 2024-07-23
+## 0.0.8-dev - 2024-07-31
+
+### Continuous Integration
+
+- Pass `-coverpkg=./...` to `go test` to compute coverage across all packages
+  (PR #61 by @chicco785)
 
 ### Documentation
 
