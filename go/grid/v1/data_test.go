@@ -19,12 +19,13 @@ import (
 	"testing"
 	"time"
 
+	"github.com/ccoveille/go-safecast"
 	"github.com/google/uuid"
 	"github.com/stretchr/testify/assert"
 	"google.golang.org/protobuf/proto"
 )
 
-func generateData(dataType int, value uint64, timestamp int64) *Data {
+func generateData(dataType int32, value uint64, timestamp int64) *Data {
 	return &Data{
 		DataType:   DataType(dataType),
 		Value:      &value,
@@ -37,7 +38,7 @@ func generateDataSet(producerId string, data map[string]*Data) *DataSet {
 }
 
 func TestData(t *testing.T) {
-	for k := 0; k < 46; k++ {
+	for k := int32(0); k < 46; k++ {
 		test := generateData(k, rand.Uint64(), time.Now().UnixNano())
 		buf, err := proto.Marshal(test)
 		assert.NoError(t, err)
@@ -52,7 +53,7 @@ func TestData(t *testing.T) {
 
 func TestDataSet(t *testing.T) {
 	dataMap := map[string]*Data{}
-	for k := 0; k < 46; k++ {
+	for k := int32(0); k < 46; k++ {
 		dataMap[uuid.New().String()] = generateData(k, rand.Uint64(), time.Now().UnixNano())
 	}
 	test := generateDataSet("myDataSet", dataMap)
@@ -66,7 +67,11 @@ func TestDataSet(t *testing.T) {
 }
 
 func BenchmarkDataSerialization(b *testing.B) {
-	test := generateData(rand.Intn(46), rand.Uint64(), time.Now().UnixNano())
+	randDataType, err := safecast.ToInt32(rand.Intn(46))
+	if err != nil {
+		b.Fatalf("Failed to convert int to int32: %v", err)
+	}
+	test := generateData(randDataType, rand.Uint64(), time.Now().UnixNano())
 	for i := 0; i < b.N; i++ {
 		buf, _ := proto.Marshal(test)
 		conf := &Data{}
@@ -76,7 +81,7 @@ func BenchmarkDataSerialization(b *testing.B) {
 
 func BenchmarkDataSetSerialization(b *testing.B) {
 	dataMap := map[string]*Data{}
-	for k := 0; k < 46; k++ {
+	for k := int32(0); k < 46; k++ {
 		dataMap[uuid.New().String()] = generateData(k, rand.Uint64(), time.Now().UnixNano())
 	}
 	test := generateDataSet("myDataSet", dataMap)

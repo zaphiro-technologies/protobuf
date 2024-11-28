@@ -1,6 +1,6 @@
 module github.com/zaphiro-technologies/protobuf
 
-go 1.21
+go 1.23
 
 require (
 	github.com/google/uuid v1.6.0
@@ -9,6 +9,7 @@ require (
 )
 
 require (
+	github.com/ccoveille/go-safecast v1.2.0 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/google/go-cmp v0.5.8 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect

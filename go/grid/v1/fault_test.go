@@ -19,6 +19,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/ccoveille/go-safecast"
 	"github.com/google/uuid"
 	"github.com/stretchr/testify/assert"
 	"google.golang.org/protobuf/proto"
@@ -27,7 +28,7 @@ import (
 
 func generateFault(
 	faultId string,
-	faultKind, phaseCode int,
+	faultKind, phaseCode int32,
 	updatedAt int64,
 	faultyEquipmentId string,
 ) *Fault {
@@ -41,11 +42,15 @@ func generateFault(
 }
 
 func TestFault(t *testing.T) {
-	for k := 0; k < 5; k++ {
+	for k := int32(0); k < 5; k++ {
+		randPhaseCode, err := safecast.ToInt32(rand.Intn(26))
+		if err != nil {
+			t.Fatalf("Failed to convert int to int32: %v", err)
+		}
 		test := generateFault(
 			uuid.NewString(),
 			k,
-			rand.Intn(26),
+			randPhaseCode,
 			time.Now().UnixNano(),
 			uuid.NewString(),
 		)
@@ -62,10 +67,18 @@ func TestFault(t *testing.T) {
 }
 
 func BenchmarkFaultSerialization(b *testing.B) {
+	randFaultKind, err := safecast.ToInt32(rand.Intn(4))
+	if err != nil {
+		b.Fatalf("Failed to convert int to int32: %v", err)
+	}
+	randPhaseCode, err := safecast.ToInt32(rand.Intn(26))
+	if err != nil {
+		b.Fatalf("Failed to convert int to int32: %v", err)
+	}
 	test := generateFault(
 		uuid.NewString(),
-		rand.Intn(4),
-		rand.Intn(26),
+		randFaultKind,
+		randPhaseCode,
 		time.Now().UnixNano(),
 		uuid.NewString(),
 	)
@@ -87,8 +100,12 @@ func generateLineFault(
 }
 
 func TestLineFault(t *testing.T) {
-	for k := 0; k < 5; k++ {
-		fault := generateFault(uuid.NewString(), k, rand.Intn(26), time.Now().UnixNano(), "line1")
+	for k := int32(0); k < 5; k++ {
+		randPhaseCode, err := safecast.ToInt32(rand.Intn(26))
+		if err != nil {
+			t.Fatalf("Failed to convert int to int32: %v", err)
+		}
+		fault := generateFault(uuid.NewString(), k, randPhaseCode, time.Now().UnixNano(), "line1")
 		test := generateLineFault(fault, rand.Float32())
 		buf, err := proto.Marshal(test)
 		assert.NoError(t, err)
@@ -100,10 +117,18 @@ func TestLineFault(t *testing.T) {
 }
 
 func BenchmarkLineFaultSerialization(b *testing.B) {
+	randFaultKind, err := safecast.ToInt32(rand.Intn(4))
+	if err != nil {
+		b.Fatalf("Failed to convert int to int32: %v", err)
+	}
+	randPhaseCode, err := safecast.ToInt32(rand.Intn(26))
+	if err != nil {
+		b.Fatalf("Failed to convert int to int32: %v", err)
+	}
 	fault := generateFault(
 		uuid.NewString(),
-		rand.Intn(4),
-		rand.Intn(26),
+		randFaultKind,
+		randPhaseCode,
 		time.Now().UnixNano(),
 		"line1",
 	)
@@ -126,11 +151,15 @@ func generateEquipmentFault(
 }
 
 func TestEquipmentFault(t *testing.T) {
-	for k := 0; k < 5; k++ {
+	for k := int32(0); k < 5; k++ {
+		randPhaseCode, err := safecast.ToInt32(rand.Intn(26))
+		if err != nil {
+			t.Fatalf("Failed to convert int to int32: %v", err)
+		}
 		fault := generateFault(
 			uuid.NewString(),
 			k,
-			rand.Intn(26),
+			randPhaseCode,
 			time.Now().UnixNano(),
 			"equipment1",
 		)
@@ -145,10 +174,18 @@ func TestEquipmentFault(t *testing.T) {
 }
 
 func BenchmarkEquipmentFaultSerialization(b *testing.B) {
+	randFaultKind, err := safecast.ToInt32(rand.Intn(4))
+	if err != nil {
+		b.Fatalf("Failed to convert int to int32: %v", err)
+	}
+	randPhaseCode, err := safecast.ToInt32(rand.Intn(26))
+	if err != nil {
+		b.Fatalf("Failed to convert int to int32: %v", err)
+	}
 	fault := generateFault(
 		uuid.NewString(),
-		rand.Intn(4),
-		rand.Intn(26),
+		randFaultKind,
+		randPhaseCode,
 		time.Now().UnixNano(),
 		"equipment1",
 	)

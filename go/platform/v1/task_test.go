@@ -19,6 +19,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/ccoveille/go-safecast"
 	"github.com/stretchr/testify/assert"
 	"google.golang.org/protobuf/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -32,7 +33,7 @@ func generateTask(taskType TaskType, createdAt int64) *Task {
 }
 
 func TestTask(t *testing.T) {
-	for k := 0; k < 5; k++ {
+	for k := int32(0); k < 5; k++ {
 		test := generateTask(TaskType(k), time.Now().UnixNano())
 		buf, err := proto.Marshal(test)
 		assert.NoError(t, err)
@@ -58,7 +59,7 @@ func generateNotification(
 }
 
 func TestNotification(t *testing.T) {
-	for k := 0; k < 5; k++ {
+	for k := int32(0); k < 5; k++ {
 		test := generateNotification(
 			NotificationType(k),
 			time.Now().UnixNano(),
@@ -94,8 +95,12 @@ func TestTriggerNotification(t *testing.T) {
 }
 
 func BenchmarkNotificationSerialization(b *testing.B) {
+	randInt32, err := safecast.ToInt32(rand.Intn(4))
+	if err != nil {
+		b.Fatalf("Failed to convert int to int32: %v", err)
+	}
 	test := generateNotification(
-		NotificationType(rand.Intn(4)),
+		NotificationType(randInt32),
 		time.Now().UnixNano(),
 		"1",
 	)
@@ -107,7 +112,11 @@ func BenchmarkNotificationSerialization(b *testing.B) {
 }
 
 func BenchmarkTaskSerialization(b *testing.B) {
-	test := generateTask(TaskType(rand.Intn(5)), time.Now().UnixNano())
+	randInt32, err := safecast.ToInt32(rand.Intn(5))
+	if err != nil {
+		b.Fatalf("Failed to convert int to int32: %v", err)
+	}
+	test := generateTask(TaskType(randInt32), time.Now().UnixNano())
 	for i := 0; i < b.N; i++ {
 		buf, _ := proto.Marshal(test)
 		conf := &Task{}

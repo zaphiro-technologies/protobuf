@@ -19,6 +19,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/ccoveille/go-safecast"
 	"github.com/google/uuid"
 	"github.com/stretchr/testify/assert"
 	"google.golang.org/protobuf/proto"
@@ -27,7 +28,7 @@ import (
 
 func generateEvent(
 	eventId string,
-	eventSourceType int,
+	eventSourceType int32,
 	eventSource string,
 	occurredAt int64,
 	message string,
@@ -44,7 +45,7 @@ func generateEvent(
 }
 
 func TestEvent(t *testing.T) {
-	for k := 0; k < 4; k++ {
+	for k := int32(0); k < 4; k++ {
 		test := generateEvent(
 			uuid.NewString(),
 			k,
@@ -66,9 +67,13 @@ func TestEvent(t *testing.T) {
 }
 
 func BenchmarkEventSerialization(b *testing.B) {
+	randEventSourceType, err := safecast.ToInt32(rand.Intn(4))
+	if err != nil {
+		b.Fatalf("Failed to convert int to int32: %v", err)
+	}
 	test := generateEvent(
 		uuid.NewString(),
-		rand.Intn(4),
+		randEventSourceType,
 		uuid.NewString(),
 		time.Now().UnixNano(),
 		"my message benchmark event",
@@ -99,7 +104,7 @@ func generateGridEvent(
 }
 
 func TestGridEvent(t *testing.T) {
-	for k := 0; k < 5; k++ {
+	for k := int32(0); k < 5; k++ {
 		event := generateEvent(
 			uuid.NewString(),
 			k,
@@ -127,9 +132,13 @@ func TestGridEvent(t *testing.T) {
 }
 
 func BenchmarkGridEventSerialization(b *testing.B) {
+	randEventSourceType, err := safecast.ToInt32(rand.Intn(4))
+	if err != nil {
+		b.Fatalf("Failed to convert int to int32: %v", err)
+	}
 	event := generateEvent(
 		uuid.NewString(),
-		rand.Intn(4),
+		randEventSourceType,
 		uuid.NewString(),
 		time.Now().UnixNano(),
 		"my message benchmark grid event",

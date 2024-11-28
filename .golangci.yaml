@@ -98,5 +98,6 @@ issues:
         - goconst
         - init
         - gochecknoinits
+        - dupl
 run:
   timeout: 5m
