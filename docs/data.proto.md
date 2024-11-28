@@ -164,6 +164,8 @@ direction LR
 %% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
 %% * `timestampId` (int64): related measurement Unix msec timestamp (if any)
 %% * `aligned` (bool, default true): whether the DataSet has to be time-aligned or not.
+%% * `samplingPeriod` (string): optional, used to identify timestamps that match
+%%  `second` or `minute`.
 %% 
 
 class Data {
@@ -187,6 +189,8 @@ direction LR
 %% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
 %% * `timestampId` (int64): related measurement Unix msec timestamp (if any)
 %% * `aligned` (bool, default true): whether the DataSet has to be time-aligned or not.
+%% * `samplingPeriod` (string): optional, used to identify timestamps that match
+%%  `second` or `minute`.
 %% 
 
 class DataSet {
@@ -207,10 +211,9 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 * `type` (string): always `Data`
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
 * `timestampId` (int64): related measurement Unix msec timestamp (if any)
-* `aligned` (bool, default true): whether the DataSet has to be time-aligned or
-  not.
+* `aligned` (bool, default true): whether the DataSet has to be time-aligned or not.
 * `samplingPeriod` (string): optional, used to identify timestamps that match
-  `second` or `minute`.
+ `second` or `minute`.
 
 
 
@@ -235,7 +238,8 @@ Headers used in rabbitMQ:
 * `timestampId` (int64): related measurement Unix msec timestamp (if any)
 * `aligned` (bool, default true): whether the DataSet has to be time-aligned or not.
 * `samplingPeriod` (string): optional, used to identify timestamps that match
-  `second` or `minute`.
+ `second` or `minute`.
+
 
 
 | Field        | Ordinal | Type           | Label | Description                                                 |
