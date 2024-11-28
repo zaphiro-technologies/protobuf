@@ -144,6 +144,8 @@ func main() {
 			math.Round(float64(time.Now().UnixMilli())/20) * 20,
 		)
 		messageProperties["producerId"] = data.GetProducerId()
+		messageProperties["aligned"] = false
+		messageProperties["samplingPeriod"] = "msec"
 		message.ApplicationProperties = messageProperties
 		err := producer.Send(message)
 		CheckErr(err)
