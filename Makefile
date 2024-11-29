@@ -24,7 +24,7 @@ test:
 
 .PHONY: bench
 bench:
-	go test ./... -benchmem -p 1 -run='^$$' -bench='^Benchmark_'
+	go test ./... -benchmem -p 1 -run='^$$' -bench=.
 
 .PHONY: cov
 cov:
