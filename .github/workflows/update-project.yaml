@@ -57,7 +57,7 @@ jobs:
         run: | 
             echo "NEWTAG=${{ steps.semvers.outputs.patch }}" >> $GITHUB_ENV
       - name: 'Modify python project'
-        if:  ${{ inputs.python }}
+        #if:  ${{ inputs.python }}
         run: | 
             sed -i "s/version = \".*\"/version = \"$NEWTAG\"/g" pyproject.toml
       - name: Commit tag changes
