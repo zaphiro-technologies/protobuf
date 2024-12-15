@@ -57,7 +57,7 @@ jobs:
         run: | 
             echo "NEWTAG=${{ steps.semvers.outputs.patch }}" >> $GITHUB_ENV
       - name: 'Modify python project'
-        #if:  ${{ inputs.python }}
+        if:  ${{ inputs.python }}
         run: | 
             sed -i "s/version = \".*\"/version = \"$NEWTAG\"/g" pyproject.toml
       - name: Commit tag changes
@@ -67,7 +67,7 @@ jobs:
             #git commit -am "Automated tag changes [dependabot skip]" || echo "No changes to commit"
             #git push
       - name: Test
-        run: echo $NEWTAG
+        run: echo "v${{ env.NEWTAG }}"
     #   - name: Create New Tag
     #     run: |
     #       git tag -a "v${{ env.NEWTAG }}" -m "Release v${{ env.NEWTAG }}"
