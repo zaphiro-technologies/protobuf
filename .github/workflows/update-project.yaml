@@ -56,22 +56,26 @@ jobs:
         if:  ${{ inputs.tag == '' }}
         run: | 
             echo "NEWTAG=${{ steps.semvers.outputs.patch }}" >> $GITHUB_ENV
+      - name: 'Modify python project'
+        if:  ${{ inputs.python }}
+        run: | 
+            sed -i "s/version = \".*\"/version = \"$NEWTAG\"/g" pyproject.toml
       - name: Commit tag changes
         run: |
             git config --global user.name 'Bot'
             git config --global user.email 'bot@zaphiro.ch'
-            git commit -am "Automated tag changes [dependabot skip]" || echo "No changes to commit"
-            git push
+            #git commit -am "Automated tag changes [dependabot skip]" || echo "No changes to commit"
+            #git push
       - name: Test
         run: echo $NEWTAG
     #   - name: Create New Tag
     #     run: |
-    #       git tag -a "v${{ env.new_version }}" -m "Release v${{ env.new_version }}"
-    #       git push origin "v${{ env.new_version }}"
+    #       git tag -a "v${{ env.NEWTAG }}" -m "Release v${{ env.NEWTAG }}"
+    #       git push origin "v${{ env.NEWTAG }}"
 
     #   - name: Publish Release
     #     uses: actions/create-release@v1
     #     with:
-    #       tag_name: "v${{ env.new_version }}"
-    #       release_name: "Release v${{ env.new_version }}"
+    #       tag_name: "v${{ env.NEWTAG }}"
+    #       release_name: "Release v${{ env.NEWTAG }}"
 
