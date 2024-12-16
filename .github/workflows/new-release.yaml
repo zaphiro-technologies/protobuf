@@ -15,7 +15,7 @@ on:
 
 jobs:
   create-new-tag:
-    uses: zaphiro-technologies/github-workflows/.github/workflows/new-release.yaml@new-release
+    uses: zaphiro-technologies/github-workflows/.github/workflows/new-release.yaml@main
     secrets: inherit
     with:
       tag: ${{ inputs.tag }}
