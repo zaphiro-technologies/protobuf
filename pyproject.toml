@@ -1,6 +1,6 @@
 [project]
 name = "protobuf-zaphiro"
-version = "0.0.8-dev"
+version = "0.0.8"
 description = "Zaphiro Protocol Buffers"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -11,7 +11,7 @@ Repository = "https://github.com/zaphiro-technologies/protobuf"
 
 [tool.poetry]
 name = "protobuf-zaphiro"
-version = "0.0.8-dev"
+version = "0.0.8"
 description = "Zaphiro Protocol Buffers"
 authors = ["Federico M. Facca <federico.facca@zaphiro.ch>"]
 readme = "README.md"
