@@ -1,6 +1,10 @@
 # ProtoBuf Release Notes
 
-## 0.0.8-dev - 2024-07-31
+## 0.0.8-dev - 2024-12-17
+
+### Features
+
+- Add `samplingPeriod` property (PR #73 by @chicco785)
 
 ### Continuous Integration
 

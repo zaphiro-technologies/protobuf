@@ -18,10 +18,10 @@ linters-settings:
       - whyNoLint
       - unnamedResult
   gofmt:
-      simplify: false
-  rewrite-rules:
-    - pattern: 'interface{}'
-      replacement: 'any'
+    simplify: false
+    rewrite-rules:
+      - pattern: 'interface{}'
+        replacement: 'any'
   lll:
     line-length: 140
   misspell:
@@ -29,7 +29,6 @@ linters-settings:
   nolintlint:
     allow-unused: false # report any unused nolint directives
     require-explanation: false # don't require an explanation for nolint directives
-    require-specific: false # don't require nolint directives to be specific about which linter is being skipped
   revive:
     rules:
       - name: unexported-return
@@ -48,7 +47,7 @@ linters:
     - dogsled
     - dupl
     - errcheck
-    - exportloopref
+    - copyloopvar
     - gochecknoinits
     - goconst
     - gocritic
@@ -92,5 +91,13 @@ linters:
   # - funlen
   # - gomnd
 
+issues:
+  exclude-rules:
+    - path: (.+)_test.go
+      linters:
+        - goconst
+        - init
+        - gochecknoinits
+        - dupl
 run:
-  deadline: 5m
+  timeout: 5m

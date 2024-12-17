@@ -5,6 +5,9 @@
         },
         {
             "pattern": "^http://pkg.go.dev/"
+        },
+        {
+            "pattern": "^https://www.typhoon-hil.com/"
         }
     ]
 }
