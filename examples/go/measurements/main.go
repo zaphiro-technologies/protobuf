@@ -145,7 +145,7 @@ func main() {
 		)
 		messageProperties["producerId"] = data.GetProducerId()
 		messageProperties["aligned"] = false
-		messageProperties["samplingPeriod"] = "msec"
+		messageProperties["samplingPeriod"] = "second"
 		message.ApplicationProperties = messageProperties
 		err := producer.Send(message)
 		CheckErr(err)
