@@ -1,9 +1,5 @@
 name: Publish new release
 
-concurrency:
-  group: ${{github.repository}}-new-release
-  cancel-in-progress: false
-
 on:
   workflow_dispatch:
     inputs:
