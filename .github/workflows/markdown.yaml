@@ -8,7 +8,7 @@ on:
 
 jobs:
   markdown-checker:
-    uses: zaphiro-technologies/github-workflows/.github/workflows/markdown.yaml@131-feature-replace-link-checker-with-httpsgithubcomumbrelladocsaction-linkspector
+    uses: zaphiro-technologies/github-workflows/.github/workflows/markdown.yaml@main
     secrets: inherit
     with:
       md-lint-globs: |
