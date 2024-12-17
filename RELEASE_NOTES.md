@@ -8,6 +8,7 @@
 
 ### Continuous Integration
 
+- Add `new-release` workflow (PR #76 by @chicco785)
 - Pass `-coverpkg=./...` to `go test` to compute coverage across all packages
   (PR #61 by @chicco785)
 
