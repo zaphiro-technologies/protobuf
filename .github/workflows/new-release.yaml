@@ -1,0 +1,23 @@
+name: Publish new release
+
+concurrency:
+  group: ${{github.repository}}-new-release
+  cancel-in-progress: false
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to be created (when empty, it will be automatically computed)'
+        required: false
+        type: string
+        default: ''
+
+jobs:
+  create-new-tag:
+    uses: zaphiro-technologies/github-workflows/.github/workflows/new-release.yaml@main
+    secrets: inherit
+    with:
+      tag: ${{ inputs.tag }}
+      language: 'python'
+

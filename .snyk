@@ -5,3 +5,4 @@ patch: {}
 exclude:
   global:
     - vendor/**
+    - examples/go/vendor
