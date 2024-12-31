@@ -1,12 +1,14 @@
 # ProtoBuf Release Notes
 
-## 0.0.9-dev - 2024-12-23
+## 0.0.9-dev - 2024-12-31
 
 ### Dependencies
 
-- Bump google.golang.org/protobuf from 1.34.2 to 1.36.0 (PR #77 by
+- Bump google.golang.org/protobuf from 1.36.0 to 1.36.1 (PR #79 by
   @dependabot[bot])
 - Bump github.com/stretchr/testify from 1.9.0 to 1.10.0 (PR #72 by
+  @dependabot[bot])
+- Bump google.golang.org/protobuf from 1.34.2 to 1.36.0 (PR #77 by
   @dependabot[bot])
 
 ## 0.0.8 - 2024-12-17
