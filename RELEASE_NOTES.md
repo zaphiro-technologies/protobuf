@@ -6,6 +6,8 @@
 
 - Bump google.golang.org/protobuf from 1.36.0 to 1.36.1 (PR #79 by
   @dependabot[bot])
+- Bump github.com/ccoveille/go-safecast from 1.2.0 to 1.5.0 (PR #78 by
+  @dependabot[bot])
 - Bump github.com/stretchr/testify from 1.9.0 to 1.10.0 (PR #72 by
   @dependabot[bot])
 - Bump google.golang.org/protobuf from 1.34.2 to 1.36.0 (PR #77 by
