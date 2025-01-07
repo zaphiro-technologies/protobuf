@@ -248,6 +248,20 @@ class UnderFrequency {
 UnderFrequency --> `FrequencyEvent`
 
 ```
+### FrequencyVariation Diagram
+
+```mermaid
+classDiagram
+direction LR
+
+%% 
+
+class FrequencyVariation {
+  + FrequencyEvent event
+}
+FrequencyVariation --> `FrequencyEvent`
+
+```
 ### SteadyOscillation Diagram
 
 ```mermaid
@@ -490,6 +504,20 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 ## Message: UnderFrequency
 
 **FQN**: zaphiro.grid.v1.UnderFrequency
+
+
+
+
+| Field   | Ordinal | Type             | Label | Description                            |
+|---------|---------|------------------|-------|----------------------------------------|
+| `event` | 1       | `FrequencyEvent` |       | The base frequency grid event message  |
+
+
+
+
+## Message: FrequencyVariation
+
+**FQN**: zaphiro.grid.v1.FrequencyVariation
 
 
 
