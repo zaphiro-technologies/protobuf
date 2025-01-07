@@ -133,7 +133,7 @@ need to set-up the dependencies listed in [Requirements](#requirements).
 Protocol buffers are versioned (current version is v1), and should be developed
 following best practices, as implemented by [Buf](https://buf.build) and defined
 in
-[Protobuf programming guides](https://protobuf.dev/programming-guides/dos-donts/).
+[Protobuf programming guides](https://protobuf.dev/best-practices/dos-donts/).
 In particular, it is important - even more within the same version - to preserve
 compatibility, to avoid services breaking up.
 
@@ -168,4 +168,4 @@ make proto-lint
 ## References
 
 1. [10 Protobuf Versioning Best Practices](https://climbtheladder.com/10-protobuf-versioning-best-practices/)
-1. [Protos Best Practices](https://protobuf.dev/programming-guides/dos-donts/)
+1. [Protos Best Practices](https://protobuf.dev/best-practices/dos-donts/)

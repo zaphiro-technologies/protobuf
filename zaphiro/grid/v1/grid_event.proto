@@ -101,6 +101,10 @@ message UnderFrequency {
   FrequencyEvent event = 1; //The base frequency grid event message
 }
 
+message FrequencyVariation {
+  FrequencyEvent event = 1; //The base frequency grid event message
+}
+
 message SteadyOscillation {
   PhaseEvent event = 1; //The base phase grid event message
 }

@@ -1,12 +1,16 @@
 # ProtoBuf Release Notes
 
-## 0.0.9-dev - 2024-12-31
+## 0.0.9-dev - 2025-01-07
+
+### Features
+
+- Add `FrequencyVariation` Event (PR #80 by @chicco785)
 
 ### Dependencies
 
-- Bump google.golang.org/protobuf from 1.36.0 to 1.36.1 (PR #79 by
-  @dependabot[bot])
 - Bump github.com/ccoveille/go-safecast from 1.2.0 to 1.5.0 (PR #78 by
+  @dependabot[bot])
+- Bump google.golang.org/protobuf from 1.36.0 to 1.36.1 (PR #79 by
   @dependabot[bot])
 - Bump github.com/stretchr/testify from 1.9.0 to 1.10.0 (PR #72 by
   @dependabot[bot])

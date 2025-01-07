@@ -108,6 +108,12 @@ class UnderFrequency(_message.Message):
     event: FrequencyEvent
     def __init__(self, event: _Optional[_Union[FrequencyEvent, _Mapping]] = ...) -> None: ...
 
+class FrequencyVariation(_message.Message):
+    __slots__ = ("event",)
+    EVENT_FIELD_NUMBER: _ClassVar[int]
+    event: FrequencyEvent
+    def __init__(self, event: _Optional[_Union[FrequencyEvent, _Mapping]] = ...) -> None: ...
+
 class SteadyOscillation(_message.Message):
     __slots__ = ("event",)
     EVENT_FIELD_NUMBER: _ClassVar[int]
