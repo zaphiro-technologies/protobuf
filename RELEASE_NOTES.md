@@ -1,10 +1,14 @@
 # ProtoBuf Release Notes
 
-## 0.0.9-dev - 2025-01-07
+## 0.0.9-dev - 2025-01-09
 
 ### Features
 
 - Add `FrequencyVariation` Event (PR #80 by @chicco785)
+
+### Continuous Integration
+
+- Add trivy cache workflow (PR #81 by @chicco785)
 
 ### Dependencies
 
