@@ -1,6 +1,6 @@
 # ProtoBuf Release Notes
 
-## 0.0.9-dev - 2025-01-09
+## 0.0.9-dev - 2025-01-13
 
 ### Features
 
@@ -12,6 +12,8 @@
 
 ### Dependencies
 
+- Bump google.golang.org/protobuf from 1.36.1 to 1.36.2 (PR #83 by
+  @dependabot[bot])
 - Bump github.com/ccoveille/go-safecast from 1.2.0 to 1.5.0 (PR #78 by
   @dependabot[bot])
 - Bump google.golang.org/protobuf from 1.36.0 to 1.36.1 (PR #79 by
