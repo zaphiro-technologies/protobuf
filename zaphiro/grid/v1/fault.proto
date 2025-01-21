@@ -84,11 +84,12 @@ enum FaultEventType {
     FAULT_EVENT_TYPE_LOCATED = 2; //Fault located
     FAULT_EVENT_TYPE_ENDED = 3; //Fault ended
     FAULT_EVENT_TYPE_UNKNOWN = 4; //Information available don't allow us to know if the Fault is active or complete
+    FAULT_EVENT_TYPE_UPDATED = 5; //Fault data requires to be updated
 }
 
 /* Abnormal condition causing current flow through conducting equipment, such as caused by equipment failure or short circuits from objects not typically modelled (for example, a tree falling on a line).
 
-This message is modeled after [CIM Fault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/Fault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.
+This message is modelled after [CIM Fault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/Fault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.
 
 Faults messages represent events linked to a given fault (identified by the id). From the point of view of storage the sequence of events may be handled in a way that does not map totally to the single event, e.g. by combining multiple events in a single database row.
 
