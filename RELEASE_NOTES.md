@@ -1,9 +1,10 @@
 # ProtoBuf Release Notes
 
-## 0.0.9-dev - 2025-01-20
+## 0.0.9-dev - 2025-01-21
 
 ### Features
 
+- Add Updated to `FaultEventType` (PR #85 by @chicco785)
 - Add `FrequencyVariation` Event (PR #80 by @chicco785)
 
 ### Continuous Integration
