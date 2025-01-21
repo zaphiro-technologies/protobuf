@@ -110,6 +110,7 @@ enum FaultEventType {
     FAULT_EVENT_TYPE_LOCATED = 2; //Fault located
     FAULT_EVENT_TYPE_ENDED = 3; //Fault ended
     FAULT_EVENT_TYPE_UNKNOWN = 4; //Information available don't allow us to know if the Fault is active or complete
+    FAULT_EVENT_TYPE_UPDATED = 5; //Fault data requires to be updated
 }
 
 /* Abnormal condition causing current flow through conducting equipment, such as caused by equipment failure or short circuits from objects not typically modelled (for example, a tree falling on a line).
