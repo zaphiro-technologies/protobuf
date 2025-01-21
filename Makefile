@@ -16,7 +16,7 @@ all: proto-lint generate lint test docs
 
 .PHONY: lint
 lint:
-	golangci-lint run --fix
+	golangci-lint run --fix && golines . -w
 
 .PHONY: test
 test:

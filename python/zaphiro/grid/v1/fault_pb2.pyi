@@ -50,6 +50,7 @@ class FaultEventType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     FAULT_EVENT_TYPE_LOCATED: _ClassVar[FaultEventType]
     FAULT_EVENT_TYPE_ENDED: _ClassVar[FaultEventType]
     FAULT_EVENT_TYPE_UNKNOWN: _ClassVar[FaultEventType]
+    FAULT_EVENT_TYPE_UPDATED: _ClassVar[FaultEventType]
 PHASE_CONNECTED_FAULT_KIND_UNSPECIFIED: PhaseConnectedFaultKind
 PHASE_CONNECTED_FAULT_KIND_LINE_TO_GROUND: PhaseConnectedFaultKind
 PHASE_CONNECTED_FAULT_KIND_LINE_TO_LINE: PhaseConnectedFaultKind
@@ -86,6 +87,7 @@ FAULT_EVENT_TYPE_STARTED: FaultEventType
 FAULT_EVENT_TYPE_LOCATED: FaultEventType
 FAULT_EVENT_TYPE_ENDED: FaultEventType
 FAULT_EVENT_TYPE_UNKNOWN: FaultEventType
+FAULT_EVENT_TYPE_UPDATED: FaultEventType
 
 class Fault(_message.Message):
     __slots__ = ("Id", "description", "kind", "phases", "updatedAt", "faultEventType", "faultyEquipmentId", "faultCurrent", "impactedEquipmentIds", "usedMeasurementIds", "measurementTimestamp", "locationProbability")
