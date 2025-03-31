@@ -27,17 +27,17 @@ import (
 )
 
 func generateFault(
-	faultId string,
+	faultID string,
 	faultKind, phaseCode int32,
 	updatedAt int64,
-	faultyEquipmentId string,
+	faultyEquipmentID string,
 ) *Fault {
 	return &Fault{
-		Id:                faultId,
+		Id:                faultID,
 		Kind:              PhaseConnectedFaultKind(faultKind),
 		UpdatedAt:         updatedAt,
 		Phases:            PhaseCode(phaseCode),
-		FaultyEquipmentId: &faultyEquipmentId,
+		FaultyEquipmentId: &faultyEquipmentID,
 	}
 }
 
