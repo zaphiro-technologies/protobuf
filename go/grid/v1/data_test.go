@@ -33,8 +33,8 @@ func generateData(dataType int32, value uint64, timestamp int64) *Data {
 	}
 }
 
-func generateDataSet(producerId string, data map[string]*Data) *DataSet {
-	return &DataSet{ProducerId: producerId, Data: data}
+func generateDataSet(producerID string, data map[string]*Data) *DataSet {
+	return &DataSet{ProducerId: producerID, Data: data}
 }
 
 func TestData(t *testing.T) {

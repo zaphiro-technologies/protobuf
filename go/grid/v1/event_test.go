@@ -27,7 +27,7 @@ import (
 )
 
 func generateEvent(
-	eventId string,
+	eventID string,
 	eventSourceType int32,
 	eventSource string,
 	occurredAt int64,
@@ -35,7 +35,7 @@ func generateEvent(
 ) *Event {
 	detectedAt := occurredAt + rand.Int63n(40)
 	return &Event{
-		Id:         eventId,
+		Id:         eventID,
 		SourceId:   eventSource,
 		SourceType: EventSourceType(eventSourceType),
 		OccurredAt: occurredAt,
@@ -87,16 +87,16 @@ func BenchmarkEventSerialization(b *testing.B) {
 
 func generateGridEvent(
 	event *Event,
-	componentId string,
+	componentID string,
 	nominalValue float64,
 	referenceLimit float64,
 	probability float64,
-	substationId string,
+	substationID string,
 ) *GridEvent {
 	return &GridEvent{
 		Event:          event,
-		ComponentID:    componentId,
-		SubstationID:   &substationId,
+		ComponentID:    componentID,
+		SubstationID:   &substationID,
 		ReferenceLimit: referenceLimit,
 		Probability:    &probability,
 		Value:          nominalValue,
