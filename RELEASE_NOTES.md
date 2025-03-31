@@ -4,8 +4,10 @@
 
 ### Dependencies
 
-- Bump golangci/golangci-lint-action from 6 to 7 (PR #90 by @dependabot[bot])
 - Bump github.com/ccoveille/go-safecast from 1.6.0 to 1.6.1 (PR #89 by
+  @dependabot[bot])
+- Bump golangci/golangci-lint-action from 6 to 7 (PR #90 by @dependabot[bot])
+- Bump google.golang.org/protobuf from 1.36.5 to 1.36.6 (PR #91 by
   @dependabot[bot])
 - Bump github.com/ccoveille/go-safecast from 1.5.0 to 1.6.0 (PR #88 by
   @dependabot[bot])
