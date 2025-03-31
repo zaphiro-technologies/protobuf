@@ -1,9 +1,10 @@
 # ProtoBuf Release Notes
 
-## 0.0.10-dev - 2025-03-17
+## 0.0.10-dev - 2025-03-31
 
 ### Dependencies
 
+- Bump golangci/golangci-lint-action from 6 to 7 (PR #90 by @dependabot[bot])
 - Bump github.com/ccoveille/go-safecast from 1.5.0 to 1.6.0 (PR #88 by
   @dependabot[bot])
 - Bump google.golang.org/protobuf from 1.36.4 to 1.36.5 (PR #87 by
