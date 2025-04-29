@@ -26,22 +26,22 @@ option go_package = "./c37118/v1";
 
 /* Configuration frame 2
 Headers used in rabbitMQ:
-* `id`: id of the `Conf2Frame`
-* `type`: always `Conf2Frame`
+* `id`: id of the `ConfFrame`
+* `type`: always `ConfFrame`
 * `producerId`: the id of the producer (e.g. a PMU) linked to the configuration
 frame.
 * `timestampId`: related measurement timestamp (if any)
 */
 
-message Conf2Frame {
-  Conf2Header header = 1;      // Configuration frame 2 header
+message ConfFrame {
+  ConfHeader header = 1;       // Configuration frame 2 header
   repeated Config configs = 2; // Set of PMU configurations
   uint32 DATA_RATE = 3;        // Rate of data transmission
 }
 
-/* Configuration frame 2 header */
+/* Configuration frame header */
 
-message Conf2Header {
+message ConfHeader {
   uint32 SYNC = 1;      // Sync byte followed by frame type and version number
   uint32 FRAMESIZE = 2; // Number of bytes in the frame
   uint32 IDCODE = 3;    // Stream source ID number
