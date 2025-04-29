@@ -109,8 +109,8 @@ type ConfFrame struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Header    *ConfHeader `protobuf:"bytes,1,opt,name=header,proto3" json:"header,omitempty"`                      // Configuration frame 2 header
-	Configs   []*Config   `protobuf:"bytes,2,rep,name=configs,proto3" json:"configs,omitempty"`                    // Set of PMU configurations
+	Header    *ConfHeader `protobuf:"bytes,1,opt,name=header,proto3"                   json:"header,omitempty"`    // Configuration frame 2 header
+	Configs   []*Config   `protobuf:"bytes,2,rep,name=configs,proto3"                  json:"configs,omitempty"`   // Set of PMU configurations
 	DATA_RATE uint32      `protobuf:"varint,3,opt,name=DATA_RATE,json=DATARATE,proto3" json:"DATA_RATE,omitempty"` // Rate of data transmission
 }
 
@@ -172,13 +172,13 @@ type ConfHeader struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	SYNC      uint32 `protobuf:"varint,1,opt,name=SYNC,proto3" json:"SYNC,omitempty"`                         // Sync byte followed by frame type and version number
-	FRAMESIZE uint32 `protobuf:"varint,2,opt,name=FRAMESIZE,proto3" json:"FRAMESIZE,omitempty"`               // Number of bytes in the frame
-	IDCODE    uint32 `protobuf:"varint,3,opt,name=IDCODE,proto3" json:"IDCODE,omitempty"`                     // Stream source ID number
-	SOC       uint32 `protobuf:"varint,4,opt,name=SOC,proto3" json:"SOC,omitempty"`                           // SOC time stamp
-	FRACSEC   uint32 `protobuf:"varint,5,opt,name=FRACSEC,proto3" json:"FRACSEC,omitempty"`                   // Fraction of Second and Message Time Quality
+	SYNC      uint32 `protobuf:"varint,1,opt,name=SYNC,proto3"                    json:"SYNC,omitempty"`      // Sync byte followed by frame type and version number
+	FRAMESIZE uint32 `protobuf:"varint,2,opt,name=FRAMESIZE,proto3"               json:"FRAMESIZE,omitempty"` // Number of bytes in the frame
+	IDCODE    uint32 `protobuf:"varint,3,opt,name=IDCODE,proto3"                  json:"IDCODE,omitempty"`    // Stream source ID number
+	SOC       uint32 `protobuf:"varint,4,opt,name=SOC,proto3"                     json:"SOC,omitempty"`       // SOC time stamp
+	FRACSEC   uint32 `protobuf:"varint,5,opt,name=FRACSEC,proto3"                 json:"FRACSEC,omitempty"`   // Fraction of Second and Message Time Quality
 	TIME_BASE uint32 `protobuf:"varint,6,opt,name=TIME_BASE,json=TIMEBASE,proto3" json:"TIME_BASE,omitempty"` // Resolution of FRACSEC time stamp
-	NUM_PMU   uint32 `protobuf:"varint,7,opt,name=NUM_PMU,json=NUMPMU,proto3" json:"NUM_PMU,omitempty"`       // The number of PMUs included in the data frame
+	NUM_PMU   uint32 `protobuf:"varint,7,opt,name=NUM_PMU,json=NUMPMU,proto3"     json:"NUM_PMU,omitempty"`   // The number of PMUs included in the data frame
 }
 
 func (x *ConfHeader) Reset() {
@@ -267,30 +267,30 @@ type Config struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	STN       string     `protobuf:"bytes,1,opt,name=STN,proto3" json:"STN,omitempty"`                                                                       // Station name
-	IDCODE    uint32     `protobuf:"varint,2,opt,name=IDCODE,proto3" json:"IDCODE,omitempty"`                                                                // Data source ID number
-	FORMAT    uint32     `protobuf:"varint,3,opt,name=FORMAT,proto3" json:"FORMAT,omitempty"`                                                                // Data format within data frame
-	PHNMR     uint32     `protobuf:"varint,4,opt,name=PHNMR,proto3" json:"PHNMR,omitempty"`                                                                  // Number of phasors
-	ANNMR     uint32     `protobuf:"varint,5,opt,name=ANNMR,proto3" json:"ANNMR,omitempty"`                                                                  // Number of analog values
-	DGNMR     uint32     `protobuf:"varint,6,opt,name=DGNMR,proto3" json:"DGNMR,omitempty"`                                                                  // Number of digital status words
-	CHNAM     string     `protobuf:"bytes,7,opt,name=CHNAM,proto3" json:"CHNAM,omitempty"`                                                                   // Phasor and channel names
-	PHUNIT    []uint32   `protobuf:"varint,8,rep,packed,name=PHUNIT,proto3" json:"PHUNIT,omitempty"`                                                         // Conversion factor for phasor channels
-	ANUNIT    []uint32   `protobuf:"varint,9,rep,packed,name=ANUNIT,proto3" json:"ANUNIT,omitempty"`                                                         // Conversion factor for analog channels
-	DIGUNIT   []uint32   `protobuf:"varint,10,rep,packed,name=DIGUNIT,proto3" json:"DIGUNIT,omitempty"`                                                      // Mask words for digital status words
-	FNOM      uint32     `protobuf:"varint,11,opt,name=FNOM,proto3" json:"FNOM,omitempty"`                                                                   // Nominal line frequency code and flags
-	CFGCNT    uint32     `protobuf:"varint,12,opt,name=CFGCNT,proto3" json:"CFGCNT,omitempty"`                                                               // Configuration change count
+	STN       string     `protobuf:"bytes,1,opt,name=STN,proto3"                                                                json:"STN,omitempty"`        // Station name
+	IDCODE    uint32     `protobuf:"varint,2,opt,name=IDCODE,proto3"                                                            json:"IDCODE,omitempty"`     // Data source ID number
+	FORMAT    uint32     `protobuf:"varint,3,opt,name=FORMAT,proto3"                                                            json:"FORMAT,omitempty"`     // Data format within data frame
+	PHNMR     uint32     `protobuf:"varint,4,opt,name=PHNMR,proto3"                                                             json:"PHNMR,omitempty"`      // Number of phasors
+	ANNMR     uint32     `protobuf:"varint,5,opt,name=ANNMR,proto3"                                                             json:"ANNMR,omitempty"`      // Number of analog values
+	DGNMR     uint32     `protobuf:"varint,6,opt,name=DGNMR,proto3"                                                             json:"DGNMR,omitempty"`      // Number of digital status words
+	CHNAM     string     `protobuf:"bytes,7,opt,name=CHNAM,proto3"                                                              json:"CHNAM,omitempty"`      // Phasor and channel names
+	PHUNIT    []uint32   `protobuf:"varint,8,rep,packed,name=PHUNIT,proto3"                                                     json:"PHUNIT,omitempty"`     // Conversion factor for phasor channels
+	ANUNIT    []uint32   `protobuf:"varint,9,rep,packed,name=ANUNIT,proto3"                                                     json:"ANUNIT,omitempty"`     // Conversion factor for analog channels
+	DIGUNIT   []uint32   `protobuf:"varint,10,rep,packed,name=DIGUNIT,proto3"                                                   json:"DIGUNIT,omitempty"`    // Mask words for digital status words
+	FNOM      uint32     `protobuf:"varint,11,opt,name=FNOM,proto3"                                                             json:"FNOM,omitempty"`       // Nominal line frequency code and flags
+	CFGCNT    uint32     `protobuf:"varint,12,opt,name=CFGCNT,proto3"                                                           json:"CFGCNT,omitempty"`     // Configuration change count
 	FrameType *FrameType `protobuf:"varint,14,opt,name=frame_type,json=frameType,proto3,enum=zaphiro.c37118.v1.FrameType,oneof" json:"frame_type,omitempty"` // Type of frame derived from SYNC
-	Version   *uint32    `protobuf:"varint,15,opt,name=version,proto3,oneof" json:"version,omitempty"`                                                       // Protocol version derived from SYNC
+	Version   *uint32    `protobuf:"varint,15,opt,name=version,proto3,oneof"                                                    json:"version,omitempty"`    // Protocol version derived from SYNC
 	// --- Config Frame 3 Specific Fields (Optional) ---
-	G_PMU_ID  []byte           `protobuf:"bytes,13,opt,name=G_PMU_ID,json=GPMUID,proto3,oneof" json:"G_PMU_ID,omitempty"`     // 16 bytes. Meaning is user-defined.
-	PHSCALE   []*PhasorScaling `protobuf:"bytes,16,rep,name=PHSCALE,proto3" json:"PHSCALE,omitempty"`                         // Config-3 phasor scaling
-	ANSCALE   []*AnalogScaling `protobuf:"bytes,17,rep,name=ANSCALE,proto3" json:"ANSCALE,omitempty"`                         // Config-3 analog scaling
-	PMU_LAT   *float32         `protobuf:"fixed32,18,opt,name=PMU_LAT,json=PMULAT,proto3,oneof" json:"PMU_LAT,omitempty"`     // Latitude
-	PMU_LON   *float32         `protobuf:"fixed32,19,opt,name=PMU_LON,json=PMULON,proto3,oneof" json:"PMU_LON,omitempty"`     // Longitude
-	PMU_ELEV  *float32         `protobuf:"fixed32,20,opt,name=PMU_ELEV,json=PMUELEV,proto3,oneof" json:"PMU_ELEV,omitempty"`  // Elevation
-	SVC_CLASS *string          `protobuf:"bytes,21,opt,name=SVC_CLASS,json=SVCCLASS,proto3,oneof" json:"SVC_CLASS,omitempty"` // Service Class ('M' or 'P')
-	WINDOW    *uint32          `protobuf:"varint,22,opt,name=WINDOW,proto3,oneof" json:"WINDOW,omitempty"`                    // Phasor Measurement Window Length
-	GRP_DLY   *uint32          `protobuf:"varint,23,opt,name=GRP_DLY,json=GRPDLY,proto3,oneof" json:"GRP_DLY,omitempty"`      // Group Delay
+	G_PMU_ID  []byte           `protobuf:"bytes,13,opt,name=G_PMU_ID,json=GPMUID,proto3,oneof"                                        json:"G_PMU_ID,omitempty"`  // 16 bytes. Meaning is user-defined.
+	PHSCALE   []*PhasorScaling `protobuf:"bytes,16,rep,name=PHSCALE,proto3"                                                           json:"PHSCALE,omitempty"`   // Config-3 phasor scaling
+	ANSCALE   []*AnalogScaling `protobuf:"bytes,17,rep,name=ANSCALE,proto3"                                                           json:"ANSCALE,omitempty"`   // Config-3 analog scaling
+	PMU_LAT   *float32         `protobuf:"fixed32,18,opt,name=PMU_LAT,json=PMULAT,proto3,oneof"                                       json:"PMU_LAT,omitempty"`   // Latitude
+	PMU_LON   *float32         `protobuf:"fixed32,19,opt,name=PMU_LON,json=PMULON,proto3,oneof"                                       json:"PMU_LON,omitempty"`   // Longitude
+	PMU_ELEV  *float32         `protobuf:"fixed32,20,opt,name=PMU_ELEV,json=PMUELEV,proto3,oneof"                                     json:"PMU_ELEV,omitempty"`  // Elevation
+	SVC_CLASS *string          `protobuf:"bytes,21,opt,name=SVC_CLASS,json=SVCCLASS,proto3,oneof"                                     json:"SVC_CLASS,omitempty"` // Service Class ('M' or 'P')
+	WINDOW    *uint32          `protobuf:"varint,22,opt,name=WINDOW,proto3,oneof"                                                     json:"WINDOW,omitempty"`    // Phasor Measurement Window Length
+	GRP_DLY   *uint32          `protobuf:"varint,23,opt,name=GRP_DLY,json=GRPDLY,proto3,oneof"                                        json:"GRP_DLY,omitempty"`   // Group Delay
 }
 
 func (x *Config) Reset() {
@@ -492,9 +492,9 @@ type PhasorScaling struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Scale  *uint32 `protobuf:"varint,1,opt,name=scale,proto3,oneof" json:"scale,omitempty"`   // Scaling factor
+	Scale  *uint32 `protobuf:"varint,1,opt,name=scale,proto3,oneof"  json:"scale,omitempty"`  // Scaling factor
 	Offset *uint32 `protobuf:"varint,2,opt,name=offset,proto3,oneof" json:"offset,omitempty"` // Offset factor
-	Flags  *uint32 `protobuf:"varint,3,opt,name=flags,proto3,oneof" json:"flags,omitempty"`   // Flags associated with phasor scaling/format
+	Flags  *uint32 `protobuf:"varint,3,opt,name=flags,proto3,oneof"  json:"flags,omitempty"`  // Flags associated with phasor scaling/format
 }
 
 func (x *PhasorScaling) Reset() {
@@ -556,7 +556,7 @@ type AnalogScaling struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Scale  *uint32 `protobuf:"varint,1,opt,name=scale,proto3,oneof" json:"scale,omitempty"`   // Scaling factor
+	Scale  *uint32 `protobuf:"varint,1,opt,name=scale,proto3,oneof"  json:"scale,omitempty"`  // Scaling factor
 	Offset *uint32 `protobuf:"varint,2,opt,name=offset,proto3,oneof" json:"offset,omitempty"` // Offset factor
 }
 
@@ -722,7 +722,9 @@ var (
 
 func file_zaphiro_c37118_v1_conf_proto_rawDescGZIP() []byte {
 	file_zaphiro_c37118_v1_conf_proto_rawDescOnce.Do(func() {
-		file_zaphiro_c37118_v1_conf_proto_rawDescData = protoimpl.X.CompressGZIP(file_zaphiro_c37118_v1_conf_proto_rawDescData)
+		file_zaphiro_c37118_v1_conf_proto_rawDescData = protoimpl.X.CompressGZIP(
+			file_zaphiro_c37118_v1_conf_proto_rawDescData,
+		)
 	})
 	return file_zaphiro_c37118_v1_conf_proto_rawDescData
 }
