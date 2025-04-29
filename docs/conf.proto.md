@@ -100,6 +100,7 @@ class ConfHeader {
   + uint32 FRACSEC
   + uint32 TIME_BASE
   + uint32 NUM_PMU
+  + Optional~uint32~ version
 }
 
 ```
@@ -125,8 +126,6 @@ class Config {
   + uint32 FNOM
   + uint32 CFGCNT
   + Optional~bytes~ G_PMU_ID
-  + Optional~FrameType~ frame_type
-  + Optional~uint32~ version
   + List~PhasorScaling~ PHSCALE
   + List~AnalogScaling~ ANSCALE
   + Optional~float~ PMU_LAT
@@ -136,7 +135,6 @@ class Config {
   + Optional~uint32~ WINDOW
   + Optional~uint32~ GRP_DLY
 }
-Config --> `FrameType`
 Config --> `PhasorScaling`
 Config --> `AnalogScaling`
 
@@ -201,15 +199,16 @@ frame.
 Configuration frame header
 
 
-| Field       | Ordinal | Type     | Label | Description                                          |
-|-------------|---------|----------|-------|------------------------------------------------------|
-| `SYNC`      | 1       | `uint32` |       | Sync byte followed by frame type and version number  |
-| `FRAMESIZE` | 2       | `uint32` |       | Number of bytes in the frame                         |
-| `IDCODE`    | 3       | `uint32` |       | Stream source ID number                              |
-| `SOC`       | 4       | `uint32` |       | SOC time stamp                                       |
-| `FRACSEC`   | 5       | `uint32` |       | Fraction of Second and Message Time Quality          |
-| `TIME_BASE` | 6       | `uint32` |       | Resolution of FRACSEC time stamp                     |
-| `NUM_PMU`   | 7       | `uint32` |       | The number of PMUs included in the data frame        |
+| Field       | Ordinal | Type     | Label    | Description                                          |
+|-------------|---------|----------|----------|------------------------------------------------------|
+| `SYNC`      | 1       | `uint32` |          | Sync byte followed by frame type and version number  |
+| `FRAMESIZE` | 2       | `uint32` |          | Number of bytes in the frame                         |
+| `IDCODE`    | 3       | `uint32` |          | Stream source ID number                              |
+| `SOC`       | 4       | `uint32` |          | SOC time stamp                                       |
+| `FRACSEC`   | 5       | `uint32` |          | Fraction of Second and Message Time Quality          |
+| `TIME_BASE` | 6       | `uint32` |          | Resolution of FRACSEC time stamp                     |
+| `NUM_PMU`   | 7       | `uint32` |          | The number of PMUs included in the data frame        |
+| `version`   | 8       | `uint32` | Optional | Protocol version derived from SYNC                   |
 
 
 
@@ -221,31 +220,29 @@ Configuration frame header
 Single PMU configuration according to Configuration frame 2 and 3
 
 
-| Field        | Ordinal | Type            | Label    | Description                                                                           |
-|--------------|---------|-----------------|----------|---------------------------------------------------------------------------------------|
-| `STN`        | 1       | `string`        |          | Station name                                                                          |
-| `IDCODE`     | 2       | `uint32`        |          | Data source ID number                                                                 |
-| `FORMAT`     | 3       | `uint32`        |          | Data format within data frame                                                         |
-| `PHNMR`      | 4       | `uint32`        |          | Number of phasors                                                                     |
-| `ANNMR`      | 5       | `uint32`        |          | Number of analog values                                                               |
-| `DGNMR`      | 6       | `uint32`        |          | Number of digital status words                                                        |
-| `CHNAM`      | 7       | `string`        |          | Phasor and channel names                                                              |
-| `PHUNIT`     | 8       | `uint32`        | Repeated | Conversion factor for phasor channels                                                 |
-| `ANUNIT`     | 9       | `uint32`        | Repeated | Conversion factor for analog channels                                                 |
-| `DIGUNIT`    | 10      | `uint32`        | Repeated | Mask words for digital status words                                                   |
-| `FNOM`       | 11      | `uint32`        |          | Nominal line frequency code and flags                                                 |
-| `CFGCNT`     | 12      | `uint32`        |          | Configuration change count                                                            |
-| `G_PMU_ID`   | 13      | `bytes`         | Optional | --- Config Frame 3 Specific Fields (Optional) --- 16 bytes. Meaning is user-defined.  |
-| `frame_type` | 14      | `FrameType`     | Optional | Type of frame derived from SYNC                                                       |
-| `version`    | 15      | `uint32`        | Optional | Protocol version derived from SYNC                                                    |
-| `PHSCALE`    | 16      | `PhasorScaling` | Repeated | Config-3 phasor scaling                                                               |
-| `ANSCALE`    | 17      | `AnalogScaling` | Repeated | Config-3 analog scaling                                                               |
-| `PMU_LAT`    | 18      | `float`         | Optional | Latitude                                                                              |
-| `PMU_LON`    | 19      | `float`         | Optional | Longitude                                                                             |
-| `PMU_ELEV`   | 20      | `float`         | Optional | Elevation                                                                             |
-| `SVC_CLASS`  | 21      | `string`        | Optional | Service Class ('M' or 'P')                                                            |
-| `WINDOW`     | 22      | `uint32`        | Optional | Phasor Measurement Window Length                                                      |
-| `GRP_DLY`    | 23      | `uint32`        | Optional | Group Delay                                                                           |
+| Field       | Ordinal | Type            | Label    | Description                                                                           |
+|-------------|---------|-----------------|----------|---------------------------------------------------------------------------------------|
+| `STN`       | 1       | `string`        |          | Station name                                                                          |
+| `IDCODE`    | 2       | `uint32`        |          | Data source ID number                                                                 |
+| `FORMAT`    | 3       | `uint32`        |          | Data format within data frame                                                         |
+| `PHNMR`     | 4       | `uint32`        |          | Number of phasors                                                                     |
+| `ANNMR`     | 5       | `uint32`        |          | Number of analog values                                                               |
+| `DGNMR`     | 6       | `uint32`        |          | Number of digital status words                                                        |
+| `CHNAM`     | 7       | `string`        |          | Phasor and channel names                                                              |
+| `PHUNIT`    | 8       | `uint32`        | Repeated | Conversion factor for phasor channels                                                 |
+| `ANUNIT`    | 9       | `uint32`        | Repeated | Conversion factor for analog channels                                                 |
+| `DIGUNIT`   | 10      | `uint32`        | Repeated | Mask words for digital status words                                                   |
+| `FNOM`      | 11      | `uint32`        |          | Nominal line frequency code and flags                                                 |
+| `CFGCNT`    | 12      | `uint32`        |          | Configuration change count                                                            |
+| `G_PMU_ID`  | 13      | `bytes`         | Optional | --- Config Frame 3 Specific Fields (Optional) --- 16 bytes. Meaning is user-defined.  |
+| `PHSCALE`   | 16      | `PhasorScaling` | Repeated | Config-3 phasor scaling                                                               |
+| `ANSCALE`   | 17      | `AnalogScaling` | Repeated | Config-3 analog scaling                                                               |
+| `PMU_LAT`   | 18      | `float`         | Optional | Latitude                                                                              |
+| `PMU_LON`   | 19      | `float`         | Optional | Longitude                                                                             |
+| `PMU_ELEV`  | 20      | `float`         | Optional | Elevation                                                                             |
+| `SVC_CLASS` | 21      | `string`        | Optional | Service Class ('M' or 'P')                                                            |
+| `WINDOW`    | 22      | `uint32`        | Optional | Phasor Measurement Window Length                                                      |
+| `GRP_DLY`   | 23      | `uint32`        | Optional | Group Delay                                                                           |
 
 
 
