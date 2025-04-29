@@ -49,6 +49,7 @@ message ConfHeader {
   uint32 FRACSEC = 5;   // Fraction of Second and Message Time Quality
   uint32 TIME_BASE = 6; // Resolution of FRACSEC time stamp
   uint32 NUM_PMU = 7;   // The number of PMUs included in the data frame
+  optional uint32 version = 8; // Protocol version derived from SYNC
 }
 
 /* Single PMU configuration according to Configuration frame 2 and 3 */
@@ -66,9 +67,6 @@ message Config {
   repeated uint32 DIGUNIT = 10; // Mask words for digital status words
   uint32 FNOM = 11;             // Nominal line frequency code and flags
   uint32 CFGCNT = 12;           // Configuration change count
-
-  optional FrameType frame_type = 14; // Type of frame derived from SYNC
-  optional uint32 version = 15;       // Protocol version derived from SYNC
 
   // --- Config Frame 3 Specific Fields (Optional) ---
   optional bytes G_PMU_ID = 13;        // 16 bytes. Meaning is user-defined.

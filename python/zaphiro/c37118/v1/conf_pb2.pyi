@@ -34,7 +34,7 @@ class ConfFrame(_message.Message):
     def __init__(self, header: _Optional[_Union[ConfHeader, _Mapping]] = ..., configs: _Optional[_Iterable[_Union[Config, _Mapping]]] = ..., DATA_RATE: _Optional[int] = ...) -> None: ...
 
 class ConfHeader(_message.Message):
-    __slots__ = ("SYNC", "FRAMESIZE", "IDCODE", "SOC", "FRACSEC", "TIME_BASE", "NUM_PMU")
+    __slots__ = ("SYNC", "FRAMESIZE", "IDCODE", "SOC", "FRACSEC", "TIME_BASE", "NUM_PMU", "version")
     SYNC_FIELD_NUMBER: _ClassVar[int]
     FRAMESIZE_FIELD_NUMBER: _ClassVar[int]
     IDCODE_FIELD_NUMBER: _ClassVar[int]
@@ -42,6 +42,7 @@ class ConfHeader(_message.Message):
     FRACSEC_FIELD_NUMBER: _ClassVar[int]
     TIME_BASE_FIELD_NUMBER: _ClassVar[int]
     NUM_PMU_FIELD_NUMBER: _ClassVar[int]
+    VERSION_FIELD_NUMBER: _ClassVar[int]
     SYNC: int
     FRAMESIZE: int
     IDCODE: int
@@ -49,10 +50,11 @@ class ConfHeader(_message.Message):
     FRACSEC: int
     TIME_BASE: int
     NUM_PMU: int
-    def __init__(self, SYNC: _Optional[int] = ..., FRAMESIZE: _Optional[int] = ..., IDCODE: _Optional[int] = ..., SOC: _Optional[int] = ..., FRACSEC: _Optional[int] = ..., TIME_BASE: _Optional[int] = ..., NUM_PMU: _Optional[int] = ...) -> None: ...
+    version: int
+    def __init__(self, SYNC: _Optional[int] = ..., FRAMESIZE: _Optional[int] = ..., IDCODE: _Optional[int] = ..., SOC: _Optional[int] = ..., FRACSEC: _Optional[int] = ..., TIME_BASE: _Optional[int] = ..., NUM_PMU: _Optional[int] = ..., version: _Optional[int] = ...) -> None: ...
 
 class Config(_message.Message):
-    __slots__ = ("STN", "IDCODE", "FORMAT", "PHNMR", "ANNMR", "DGNMR", "CHNAM", "PHUNIT", "ANUNIT", "DIGUNIT", "FNOM", "CFGCNT", "frame_type", "version", "G_PMU_ID", "PHSCALE", "ANSCALE", "PMU_LAT", "PMU_LON", "PMU_ELEV", "SVC_CLASS", "WINDOW", "GRP_DLY")
+    __slots__ = ("STN", "IDCODE", "FORMAT", "PHNMR", "ANNMR", "DGNMR", "CHNAM", "PHUNIT", "ANUNIT", "DIGUNIT", "FNOM", "CFGCNT", "G_PMU_ID", "PHSCALE", "ANSCALE", "PMU_LAT", "PMU_LON", "PMU_ELEV", "SVC_CLASS", "WINDOW", "GRP_DLY")
     STN_FIELD_NUMBER: _ClassVar[int]
     IDCODE_FIELD_NUMBER: _ClassVar[int]
     FORMAT_FIELD_NUMBER: _ClassVar[int]
@@ -65,8 +67,6 @@ class Config(_message.Message):
     DIGUNIT_FIELD_NUMBER: _ClassVar[int]
     FNOM_FIELD_NUMBER: _ClassVar[int]
     CFGCNT_FIELD_NUMBER: _ClassVar[int]
-    FRAME_TYPE_FIELD_NUMBER: _ClassVar[int]
-    VERSION_FIELD_NUMBER: _ClassVar[int]
     G_PMU_ID_FIELD_NUMBER: _ClassVar[int]
     PHSCALE_FIELD_NUMBER: _ClassVar[int]
     ANSCALE_FIELD_NUMBER: _ClassVar[int]
@@ -88,8 +88,6 @@ class Config(_message.Message):
     DIGUNIT: _containers.RepeatedScalarFieldContainer[int]
     FNOM: int
     CFGCNT: int
-    frame_type: FrameType
-    version: int
     G_PMU_ID: bytes
     PHSCALE: _containers.RepeatedCompositeFieldContainer[PhasorScaling]
     ANSCALE: _containers.RepeatedCompositeFieldContainer[AnalogScaling]
@@ -99,7 +97,7 @@ class Config(_message.Message):
     SVC_CLASS: str
     WINDOW: int
     GRP_DLY: int
-    def __init__(self, STN: _Optional[str] = ..., IDCODE: _Optional[int] = ..., FORMAT: _Optional[int] = ..., PHNMR: _Optional[int] = ..., ANNMR: _Optional[int] = ..., DGNMR: _Optional[int] = ..., CHNAM: _Optional[str] = ..., PHUNIT: _Optional[_Iterable[int]] = ..., ANUNIT: _Optional[_Iterable[int]] = ..., DIGUNIT: _Optional[_Iterable[int]] = ..., FNOM: _Optional[int] = ..., CFGCNT: _Optional[int] = ..., frame_type: _Optional[_Union[FrameType, str]] = ..., version: _Optional[int] = ..., G_PMU_ID: _Optional[bytes] = ..., PHSCALE: _Optional[_Iterable[_Union[PhasorScaling, _Mapping]]] = ..., ANSCALE: _Optional[_Iterable[_Union[AnalogScaling, _Mapping]]] = ..., PMU_LAT: _Optional[float] = ..., PMU_LON: _Optional[float] = ..., PMU_ELEV: _Optional[float] = ..., SVC_CLASS: _Optional[str] = ..., WINDOW: _Optional[int] = ..., GRP_DLY: _Optional[int] = ...) -> None: ...
+    def __init__(self, STN: _Optional[str] = ..., IDCODE: _Optional[int] = ..., FORMAT: _Optional[int] = ..., PHNMR: _Optional[int] = ..., ANNMR: _Optional[int] = ..., DGNMR: _Optional[int] = ..., CHNAM: _Optional[str] = ..., PHUNIT: _Optional[_Iterable[int]] = ..., ANUNIT: _Optional[_Iterable[int]] = ..., DIGUNIT: _Optional[_Iterable[int]] = ..., FNOM: _Optional[int] = ..., CFGCNT: _Optional[int] = ..., G_PMU_ID: _Optional[bytes] = ..., PHSCALE: _Optional[_Iterable[_Union[PhasorScaling, _Mapping]]] = ..., ANSCALE: _Optional[_Iterable[_Union[AnalogScaling, _Mapping]]] = ..., PMU_LAT: _Optional[float] = ..., PMU_LON: _Optional[float] = ..., PMU_ELEV: _Optional[float] = ..., SVC_CLASS: _Optional[str] = ..., WINDOW: _Optional[int] = ..., GRP_DLY: _Optional[int] = ...) -> None: ...
 
 class PhasorScaling(_message.Message):
     __slots__ = ("scale", "offset", "flags")
