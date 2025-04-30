@@ -148,9 +148,9 @@ direction LR
 %% Scaling information structure used in Config Frame 3 for Phasors.
 
 class PhasorScaling {
-  + Optional~uint32~ scale
-  + Optional~uint32~ offset
   + Optional~uint32~ flags
+  + Optional~float~ scale_factor
+  + Optional~float~ angle_offset
 }
 
 ```
@@ -163,8 +163,8 @@ direction LR
 %% Scaling information structure used in Config Frame 3 for Analogs.
 
 class AnalogScaling {
-  + Optional~uint32~ scale
-  + Optional~uint32~ offset
+  + Optional~float~ scale_factor
+  + Optional~float~ offset
 }
 
 ```
@@ -254,11 +254,11 @@ Single PMU configuration according to Configuration frame 2 and 3
 Scaling information structure used in Config Frame 3 for Phasors.
 
 
-| Field    | Ordinal | Type     | Label    | Description                                  |
-|----------|---------|----------|----------|----------------------------------------------|
-| `scale`  | 1       | `uint32` | Optional | Scaling factor                               |
-| `offset` | 2       | `uint32` | Optional | Offset factor                                |
-| `flags`  | 3       | `uint32` | Optional | Flags associated with phasor scaling/format  |
+| Field          | Ordinal | Type     | Label    | Description                                                    |
+|----------------|---------|----------|----------|----------------------------------------------------------------|
+| `flags`        | 1       | `uint32` | Optional | First 4-byte word (modification flags, type, component, user)  |
+| `scale_factor` | 2       | `float`  | Optional | Second 4-byte word (Y - scale factor)                          |
+| `angle_offset` | 3       | `float`  | Optional | Third 4-byte word (theta - angle offset in radians)            |
 
 
 
@@ -270,10 +270,10 @@ Scaling information structure used in Config Frame 3 for Phasors.
 Scaling information structure used in Config Frame 3 for Analogs.
 
 
-| Field    | Ordinal | Type     | Label    | Description     |
-|----------|---------|----------|----------|-----------------|
-| `scale`  | 1       | `uint32` | Optional | Scaling factor  |
-| `offset` | 2       | `uint32` | Optional | Offset factor   |
+| Field          | Ordinal | Type    | Label    | Description                       |
+|----------------|---------|---------|----------|-----------------------------------|
+| `scale_factor` | 1       | `float` | Optional | First 4 bytes (M - scale factor)  |
+| `offset`       | 2       | `float` | Optional | Last 4 bytes (B - offset)         |
 
 
 
