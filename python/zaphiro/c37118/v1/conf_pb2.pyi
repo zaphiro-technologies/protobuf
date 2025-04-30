@@ -100,19 +100,19 @@ class Config(_message.Message):
     def __init__(self, STN: _Optional[str] = ..., IDCODE: _Optional[int] = ..., FORMAT: _Optional[int] = ..., PHNMR: _Optional[int] = ..., ANNMR: _Optional[int] = ..., DGNMR: _Optional[int] = ..., CHNAM: _Optional[str] = ..., PHUNIT: _Optional[_Iterable[int]] = ..., ANUNIT: _Optional[_Iterable[int]] = ..., DIGUNIT: _Optional[_Iterable[int]] = ..., FNOM: _Optional[int] = ..., CFGCNT: _Optional[int] = ..., G_PMU_ID: _Optional[bytes] = ..., PHSCALE: _Optional[_Iterable[_Union[PhasorScaling, _Mapping]]] = ..., ANSCALE: _Optional[_Iterable[_Union[AnalogScaling, _Mapping]]] = ..., PMU_LAT: _Optional[float] = ..., PMU_LON: _Optional[float] = ..., PMU_ELEV: _Optional[float] = ..., SVC_CLASS: _Optional[str] = ..., WINDOW: _Optional[int] = ..., GRP_DLY: _Optional[int] = ...) -> None: ...
 
 class PhasorScaling(_message.Message):
-    __slots__ = ("scale", "offset", "flags")
-    SCALE_FIELD_NUMBER: _ClassVar[int]
-    OFFSET_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ("flags", "scale_factor", "angle_offset")
     FLAGS_FIELD_NUMBER: _ClassVar[int]
-    scale: int
-    offset: int
+    SCALE_FACTOR_FIELD_NUMBER: _ClassVar[int]
+    ANGLE_OFFSET_FIELD_NUMBER: _ClassVar[int]
     flags: int
-    def __init__(self, scale: _Optional[int] = ..., offset: _Optional[int] = ..., flags: _Optional[int] = ...) -> None: ...
+    scale_factor: float
+    angle_offset: float
+    def __init__(self, flags: _Optional[int] = ..., scale_factor: _Optional[float] = ..., angle_offset: _Optional[float] = ...) -> None: ...
 
 class AnalogScaling(_message.Message):
-    __slots__ = ("scale", "offset")
-    SCALE_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ("scale_factor", "offset")
+    SCALE_FACTOR_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
-    scale: int
-    offset: int
-    def __init__(self, scale: _Optional[int] = ..., offset: _Optional[int] = ...) -> None: ...
+    scale_factor: float
+    offset: float
+    def __init__(self, scale_factor: _Optional[float] = ..., offset: _Optional[float] = ...) -> None: ...

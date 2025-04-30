@@ -95,13 +95,16 @@ enum FrameType {
 
 // Scaling information structure used in Config Frame 3 for Phasors.
 message PhasorScaling {
-  optional uint32 scale = 1;  // Scaling factor
-  optional uint32 offset = 2; // Offset factor
-  optional uint32 flags = 3;  // Flags associated with phasor scaling/format
+  // First 4-byte word (modification flags, type, component, user)
+  optional uint32 flags = 1;
+  // Second 4-byte word (Y - scale factor)
+  optional float scale_factor = 2;
+  // Third 4-byte word (theta - angle offset in radians)
+  optional float angle_offset = 3;
 }
 
 // Scaling information structure used in Config Frame 3 for Analogs.
 message AnalogScaling {
-  optional uint32 scale = 1;  // Scaling factor
-  optional uint32 offset = 2; // Offset factor
+  optional float scale_factor = 1; // First 4 bytes (M - scale factor)
+  optional float offset = 2;       // Last 4 bytes (B - offset)
 }
