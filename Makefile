@@ -36,6 +36,30 @@ cov:
 generate:
 	buf generate
 
+.PHONY: lint-with-docker
+lint-with-docker:
+	@mkdir -p .buf_cache
+	@docker run \
+		--rm \
+		-v "$(shell pwd):/workspace" \
+		-w /workspace \
+		--user "$(shell id -u):$(shell id -g)" \
+		-e BUF_CACHE_DIR=/workspace/.buf_cache \
+		bufbuild/buf \
+		lint
+
+.PHONY: generate-with-docker
+generate-with-docker:
+	@mkdir -p .buf_cache
+	@docker run \
+		--rm \
+		-v "$(shell pwd):/workspace" \
+		-w /workspace \
+		--user "$(shell id -u):$(shell id -g)" \
+		-e BUF_CACHE_DIR=/workspace/.buf_cache \
+		bufbuild/buf \
+		generate
+
 .PHONY: docs
 docs:
 	mkdir -p docs

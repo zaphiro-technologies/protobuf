@@ -1,0 +1,110 @@
+// Copyright 2024 Zaphiro Technologies
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+syntax = "proto3";
+
+/* <!-- markdownlint-disable -->
+Messages describing PMU C37.118 Configurations.
+See
+[C37.118](https://www.typhoon-hil.com/documentation/typhoon-hil-software-manual/References/c37_118_protocol.html)
+protocol.
+*/
+
+package zaphiro.c37118.v1;
+option go_package = "./c37118/v1";
+
+/* Configuration frame 2
+Headers used in rabbitMQ:
+* `id`: id of the `ConfFrame`
+* `type`: always `ConfFrame`
+* `producerId`: the id of the producer (e.g. a PMU) linked to the configuration
+frame.
+* `timestampId`: related measurement timestamp (if any)
+*/
+
+message ConfFrame {
+  ConfHeader header = 1;       // Configuration frame 2 header
+  repeated Config configs = 2; // Set of PMU configurations
+  uint32 DATA_RATE = 3;        // Rate of data transmission
+}
+
+/* Configuration frame header */
+
+message ConfHeader {
+  uint32 SYNC = 1;      // Sync byte followed by frame type and version number
+  uint32 FRAMESIZE = 2; // Number of bytes in the frame
+  uint32 IDCODE = 3;    // Stream source ID number
+  uint32 SOC = 4;       // SOC time stamp
+  uint32 FRACSEC = 5;   // Fraction of Second and Message Time Quality
+  uint32 TIME_BASE = 6; // Resolution of FRACSEC time stamp
+  uint32 NUM_PMU = 7;   // The number of PMUs included in the data frame
+  optional uint32 version = 8; // Protocol version derived from SYNC
+}
+
+/* Single PMU configuration according to Configuration frame 2 and 3 */
+
+message Config {
+  string STN = 1;               // Station name
+  uint32 IDCODE = 2;            // Data source ID number
+  uint32 FORMAT = 3;            // Data format within data frame
+  uint32 PHNMR = 4;             // Number of phasors
+  uint32 ANNMR = 5;             // Number of analog values
+  uint32 DGNMR = 6;             // Number of digital status words
+  string CHNAM = 7;             // Phasor and channel names
+  repeated uint32 PHUNIT = 8;   // Conversion factor for phasor channels
+  repeated uint32 ANUNIT = 9;   // Conversion factor for analog channels
+  repeated uint32 DIGUNIT = 10; // Mask words for digital status words
+  uint32 FNOM = 11;             // Nominal line frequency code and flags
+  uint32 CFGCNT = 12;           // Configuration change count
+
+  // --- Config Frame 3 Specific Fields (Optional) ---
+  optional bytes G_PMU_ID = 13;        // 16 bytes. Meaning is user-defined.
+  repeated PhasorScaling PHSCALE = 16; // Config-3 phasor scaling
+  repeated AnalogScaling ANSCALE = 17; // Config-3 analog scaling
+  optional float PMU_LAT = 18;         // Latitude
+  optional float PMU_LON = 19;         // Longitude
+  optional float PMU_ELEV = 20;        // Elevation
+  optional string SVC_CLASS = 21;      // Service Class ('M' or 'P')
+  optional uint32 WINDOW = 22;         // Phasor Measurement Window Length
+  optional uint32 GRP_DLY = 23;        // Group Delay
+}
+
+// Represents the frame type part of the SYNC word
+// (e.g., 0=Data, 1=Header, 2=CFG1, 3=CFG2, 4=CMD, 5=CFG3)
+// These correspond to the 'X' nibble in the SYNC word 0xAAXY.
+enum FrameType {
+  FRAME_TYPE_UNSPECIFIED = 0;
+  FRAME_TYPE_DATA = 1;
+  FRAME_TYPE_HEADER = 2;
+  FRAME_TYPE_CONFIG_1 = 3;
+  FRAME_TYPE_CONFIG_2 = 4;
+  FRAME_TYPE_COMMAND = 5;
+  FRAME_TYPE_CONFIG_3 = 6;
+}
+
+// Scaling information structure used in Config Frame 3 for Phasors.
+message PhasorScaling {
+  // First 4-byte word (modification flags, type, component, user)
+  optional uint32 flags = 1;
+  // Second 4-byte word (Y - scale factor)
+  optional float scale_factor = 2;
+  // Third 4-byte word (theta - angle offset in radians)
+  optional float angle_offset = 3;
+}
+
+// Scaling information structure used in Config Frame 3 for Analogs.
+message AnalogScaling {
+  optional float scale_factor = 1; // First 4 bytes (M - scale factor)
+  optional float offset = 2;       // Last 4 bytes (B - offset)
+}
