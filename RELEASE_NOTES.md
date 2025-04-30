@@ -4,7 +4,7 @@
 
 ### Features
 
-- Add config 3 compatibility in config proto. (PR #93 by @tejo)
+- Add config 3 compatibility in config proto (PR #93 by @tejo)
 
 ### Dependencies
 
