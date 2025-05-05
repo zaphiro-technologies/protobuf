@@ -1,8 +1,10 @@
 # ProtoBuf Release Notes
 
-## 0.0.11-dev - 2025-04-30
+## 0.0.11-dev - 2025-05-05
 
-- no changes
+### Continuous Integration
+
+- Add auto-approve & auto-merge Dependabot PRs workflow (PR #94 by @chicco785)
 
 ## 0.0.10 - 2025-04-30
 
