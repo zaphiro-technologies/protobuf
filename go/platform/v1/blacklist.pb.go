@@ -18,7 +18,8 @@
 // 	protoc        (unknown)
 // source: zaphiro/platform/v1/blacklist.proto
 
-// <!-- markdownlint-disable -->
+//
+//<!-- markdownlint-disable -->
 //Messages to support coordination among processes/services in the platform.
 
 package v1
