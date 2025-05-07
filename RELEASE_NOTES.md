@@ -1,6 +1,10 @@
 # ProtoBuf Release Notes
 
-## 0.0.11-dev - 2025-05-05
+## 0.0.11-dev - 2025-05-07
+
+### Features
+
+- Add blacklist message (PR #96 by @chicco785)
 
 ### Continuous Integration
 
