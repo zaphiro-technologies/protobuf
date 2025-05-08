@@ -152,7 +152,7 @@ Headers used in rabbitMQ:
 * `type` (string): always `Fault`
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the
 notification.
-* `source_type` (string): the Fault source type
+* `sourceType` (string): the Fault source type
 */
 
 message Fault {
