@@ -157,11 +157,10 @@ type Event struct {
 	Id         string          `protobuf:"bytes,1,opt,name=Id,proto3"                                               json:"Id,omitempty"`         // The uuid of the event.
 	SourceId   string          `protobuf:"bytes,2,opt,name=sourceId,proto3"                                         json:"sourceId,omitempty"`   // The id of the source (e.g. a PMU) that generated the event.
 	SourceType EventSourceType `protobuf:"varint,3,opt,name=sourceType,proto3,enum=zaphiro.grid.v1.EventSourceType" json:"sourceType,omitempty"` // The type of data see `DataType` enum.
-	OccurredAt int64           `protobuf:"varint,4,opt,name=occurredAt,proto3"                                      json:"occurredAt,omitempty"` // The time of occurency of the event (Unix msec
-	// timestamp) usually is the same value as timestampId.
-	DetectedAt *int64       `protobuf:"varint,5,opt,name=detectedAt,proto3,oneof"                                json:"detectedAt,omitempty"` // The time of detection of the event (Unix msec timestamp).
-	Message    string       `protobuf:"bytes,6,opt,name=message,proto3"                                          json:"message,omitempty"`    // Event message.
-	Status     *EventStatus `protobuf:"varint,7,opt,name=status,proto3,enum=zaphiro.grid.v1.EventStatus,oneof"   json:"status,omitempty"`     // The status of the event.
+	OccurredAt int64           `protobuf:"varint,4,opt,name=occurredAt,proto3"                                      json:"occurredAt,omitempty"` // The time of occurency of the event (Unix msec timestamp) usually is the same value as timestampId.
+	DetectedAt *int64          `protobuf:"varint,5,opt,name=detectedAt,proto3,oneof"                                json:"detectedAt,omitempty"` // The time of detection of the event (Unix msec timestamp).
+	Message    string          `protobuf:"bytes,6,opt,name=message,proto3"                                          json:"message,omitempty"`    // Event message.
+	Status     *EventStatus    `protobuf:"varint,7,opt,name=status,proto3,enum=zaphiro.grid.v1.EventStatus,oneof"   json:"status,omitempty"`     // The status of the event.
 }
 
 func (x *Event) Reset() {
