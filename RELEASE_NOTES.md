@@ -1,6 +1,10 @@
 # ProtoBuf Release Notes
 
-## 0.0.11-dev - 2025-05-05
+## 0.0.11-dev - 2025-05-08
+
+### Features
+
+- Add event test service event source type (PR #98 by @tejo)
 
 ### Continuous Integration
 

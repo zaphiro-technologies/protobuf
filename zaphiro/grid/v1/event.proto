@@ -16,7 +16,8 @@ syntax = "proto3";
 
 /*  <!-- markdownlint-disable -->
 Messages to support event detection in the platform.
-The event detected may be originated from different sources: devices (e.g. a PMU, RTU), services (e.g. state estimator), or an external service (e.g. SCADA).
+The event detected may be originated from different sources: devices (e.g. a
+PMU, RTU), services (e.g. state estimator), or an external service (e.g. SCADA).
 */
 
 package zaphiro.grid.v1;
@@ -25,36 +26,47 @@ option go_package = "./grid/v1";
 /* The collection of Event Status defined so far.*/
 
 enum EventStatus {
-    EVENT_STATUS_UNSPECIFIED = 0; //No status defined
-    EVENT_STATUS_STARTED = 1; //Event started
-    EVENT_STATUS_IN_PROGRESS = 2; //Event is still active
-    EVENT_STATUS_ENDED = 3; //Event ended
-    EVENT_STATUS_UNKNOWN = 4; //Information available don't allow us to know if the even is active or complete
+  EVENT_STATUS_UNSPECIFIED = 0; // No status defined
+  EVENT_STATUS_STARTED = 1;     // Event started
+  EVENT_STATUS_IN_PROGRESS = 2; // Event is still active
+  EVENT_STATUS_ENDED = 3;       // Event ended
+  EVENT_STATUS_UNKNOWN = 4; // Information available don't allow us to know if
+                            // the even is active or complete
 }
- 
+
 enum EventSourceType {
-    EVENT_SOURCE_UNSPECIFIED = 0; //No source type defined
-    EVENT_SOURCE_DEVICE = 1; //The source of the event was a device (e.g. PMU)
-    EVENT_SOURCE_SERVICE = 2; //The source of the event was a service (e.g. state estimator)
-    EVENT_SOURCE_EXTERNAL_SERVICE = 3; //The source of the event was a service external to SynchroGuard platform (e.g. SCADA)
+  EVENT_SOURCE_UNSPECIFIED = 0; // No source type defined
+  EVENT_SOURCE_DEVICE = 1; // The source of the event was a device (e.g. PMU)
+  EVENT_SOURCE_SERVICE =
+      2; // The source of the event was a service (e.g. state estimator)
+  EVENT_SOURCE_EXTERNAL_SERVICE =
+      3; // The source of the event was a service external to SynchroGuard
+         // platform (e.g. SCADA)
+  EVENT_SOURCE_TEST_SERVICE =
+      4; // The source of the event was a service in test mode.
 }
 
 /* A generic event.
 Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 * `id` (string): id of the `Event`
 * `type` (string): always `Event` - used for routing.
-* `eventType` (string): the specific type of `Event`, this is required in addition 
-  to `type` for de-serialization of the messages.
-* `sourceId` (string): the id of the source (e.g. a PMU) that generated the event.
+* `eventType` (string): the specific type of `Event`, this is required in
+addition to `type` for de-serialization of the messages.
+* `sourceId` (string): the id of the source (e.g. a PMU) that generated the
+* `sourceType` (string): the Event source type
+event.
 * `timestampId` (int64): related measurement Unix msec timestamp (if any)
 */
 
 message Event {
-  string Id = 1; //The uuid of the event.
-  string sourceId = 2; //The id of the source (e.g. a PMU) that generated the event.
-  EventSourceType sourceType = 3; //The type of data see `DataType` enum.
-  int64 occurredAt = 4; //The time of occurency of the event (Unix msec timestamp) usually is the same value as timestampId.
-  optional int64 detectedAt = 5; //The time of detection of the event (Unix msec timestamp).
-  string message = 6; //Event message.
-  optional EventStatus status = 7; //The status of the event.
+  string Id = 1; // The uuid of the event.
+  string sourceId =
+      2; // The id of the source (e.g. a PMU) that generated the event.
+  EventSourceType sourceType = 3; // The type of data see `DataType` enum.
+  int64 occurredAt = 4; // The time of occurency of the event (Unix msec
+                        // timestamp) usually is the same value as timestampId.
+  optional int64 detectedAt =
+      5; // The time of detection of the event (Unix msec timestamp).
+  string message = 6;              // Event message.
+  optional EventStatus status = 7; // The status of the event.
 }
