@@ -41,13 +41,27 @@ type PhaseConnectedFaultKind int32
 
 const (
 	PhaseConnectedFaultKind_PHASE_CONNECTED_FAULT_KIND_UNSPECIFIED PhaseConnectedFaultKind = 0
-	// The fault connects the indicated phases to ground. The line to line fault impedance is not used and assumed infinite. The full ground impedance is connected between each phase specified in the fault and ground, but not between the phases.
+	// The fault connects the indicated phases to ground. The line to line fault
+	// impedance is not used and assumed infinite. The full ground impedance is
+	// connected between each phase specified in the fault and ground, but not
+	// between the phases.
 	PhaseConnectedFaultKind_PHASE_CONNECTED_FAULT_KIND_LINE_TO_GROUND PhaseConnectedFaultKind = 1
-	// The fault connects the specified phases together without a connection to ground. The ground impedance of this fault is ignored. The line to line impedance is connected between each of the phases specified in the fault. For example three times for a three phase fault, one time for a two phase fault. A single phase fault should not be specified.
+	// The fault connects the specified phases together without a connection to
+	// ground. The ground impedance of this fault is ignored. The line to line
+	// impedance is connected between each of the phases specified in the fault.
+	// For example three times for a three phase fault, one time for a two phase
+	// fault. A single phase fault should not be specified.
 	PhaseConnectedFaultKind_PHASE_CONNECTED_FAULT_KIND_LINE_TO_LINE PhaseConnectedFaultKind = 2
-	// The fault connects the indicated phases to ground and to each other. The line to line impedance is connected between each of the phases specified in the fault in a full mesh. For example three times for a three phase fault, one time for a two phase fault. A single phase fault should not be specified. The full ground impedance is connected between each phase specified in the fault and ground.
+	// The fault connects the indicated phases to ground and to each other. The
+	// line to line impedance is connected between each of the phases specified in
+	// the fault in a full mesh. For example three times for a three phase fault,
+	// one time for a two phase fault. A single phase fault should not be
+	// specified. The full ground impedance is connected between each phase
+	// specified in the fault and ground.
 	PhaseConnectedFaultKind_PHASE_CONNECTED_FAULT_KIND_LINE_TO_LINE_TO_GROUND PhaseConnectedFaultKind = 3
-	// The fault is when the conductor path is broken between two terminals. Additional coexisting faults may be required if the broken conductor also causes connections to grounds or other lines or phases.
+	// The fault is when the conductor path is broken between two terminals.
+	// Additional coexisting faults may be required if the broken conductor also
+	// causes connections to grounds or other lines or phases.
 	PhaseConnectedFaultKind_PHASE_CONNECTED_FAULT_KIND_LINE_OPEN PhaseConnectedFaultKind = 4
 )
 
@@ -99,32 +113,32 @@ func (PhaseConnectedFaultKind) EnumDescriptor() ([]byte, []int) {
 type PhaseCode int32
 
 const (
-	PhaseCode_PHASE_CODE_UNSPECIFIED PhaseCode = 0  //No phases specified.
-	PhaseCode_PHASE_CODE_A           PhaseCode = 1  //Phase A.
-	PhaseCode_PHASE_CODE_B           PhaseCode = 2  //Phase B.
-	PhaseCode_PHASE_CODE_C           PhaseCode = 3  //Phase C.
-	PhaseCode_PHASE_CODE_N           PhaseCode = 4  //Neutral phase.
-	PhaseCode_PHASE_CODE_AB          PhaseCode = 5  //Phases A and B.
-	PhaseCode_PHASE_CODE_AC          PhaseCode = 6  //Phases A and C.
-	PhaseCode_PHASE_CODE_BC          PhaseCode = 7  //Phases B and C.
-	PhaseCode_PHASE_CODE_AN          PhaseCode = 8  //Phases A and neutral.
-	PhaseCode_PHASE_CODE_BN          PhaseCode = 9  //Phases B and neutral.
-	PhaseCode_PHASE_CODE_CN          PhaseCode = 10 //Phases C and neutral.
-	PhaseCode_PHASE_CODE_ABC         PhaseCode = 11 //Phases A, B, and C.
-	PhaseCode_PHASE_CODE_ABN         PhaseCode = 12 //Phases A, B, and neutral.
-	PhaseCode_PHASE_CODE_ACN         PhaseCode = 13 //Phases A, C and neutral.
-	PhaseCode_PHASE_CODE_BCN         PhaseCode = 14 //Phases B, C, and neutral.
-	PhaseCode_PHASE_CODE_ABCN        PhaseCode = 15 //Phases A, B, C, and N.
-	PhaseCode_PHASE_CODE_S1N         PhaseCode = 16 //Secondary phase 1 and neutral.
-	PhaseCode_PHASE_CODE_S2N         PhaseCode = 17 //Secondary phase 2 and neutral.
-	PhaseCode_PHASE_CODE_S12N        PhaseCode = 18 //Secondary phases 1, 2, and neutral.
-	PhaseCode_PHASE_CODE_S1          PhaseCode = 19 //Secondary phase 1.
-	PhaseCode_PHASE_CODE_S2          PhaseCode = 20 //Secondary phase 2.
-	PhaseCode_PHASE_CODE_S12         PhaseCode = 21 //Secondary phase 1 and 2.
-	PhaseCode_PHASE_CODE_X           PhaseCode = 22 //Unknown non-neutral phase.
-	PhaseCode_PHASE_CODE_XY          PhaseCode = 23 //Two unknown non-neutral phases.
-	PhaseCode_PHASE_CODE_XN          PhaseCode = 24 //Unknown non-neutral phase plus neutral.
-	PhaseCode_PHASE_CODE_XYN         PhaseCode = 25 //Two unknown non-neutral phases plus neutral.
+	PhaseCode_PHASE_CODE_UNSPECIFIED PhaseCode = 0  // No phases specified.
+	PhaseCode_PHASE_CODE_A           PhaseCode = 1  // Phase A.
+	PhaseCode_PHASE_CODE_B           PhaseCode = 2  // Phase B.
+	PhaseCode_PHASE_CODE_C           PhaseCode = 3  // Phase C.
+	PhaseCode_PHASE_CODE_N           PhaseCode = 4  // Neutral phase.
+	PhaseCode_PHASE_CODE_AB          PhaseCode = 5  // Phases A and B.
+	PhaseCode_PHASE_CODE_AC          PhaseCode = 6  // Phases A and C.
+	PhaseCode_PHASE_CODE_BC          PhaseCode = 7  // Phases B and C.
+	PhaseCode_PHASE_CODE_AN          PhaseCode = 8  // Phases A and neutral.
+	PhaseCode_PHASE_CODE_BN          PhaseCode = 9  // Phases B and neutral.
+	PhaseCode_PHASE_CODE_CN          PhaseCode = 10 // Phases C and neutral.
+	PhaseCode_PHASE_CODE_ABC         PhaseCode = 11 // Phases A, B, and C.
+	PhaseCode_PHASE_CODE_ABN         PhaseCode = 12 // Phases A, B, and neutral.
+	PhaseCode_PHASE_CODE_ACN         PhaseCode = 13 // Phases A, C and neutral.
+	PhaseCode_PHASE_CODE_BCN         PhaseCode = 14 // Phases B, C, and neutral.
+	PhaseCode_PHASE_CODE_ABCN        PhaseCode = 15 // Phases A, B, C, and N.
+	PhaseCode_PHASE_CODE_S1N         PhaseCode = 16 // Secondary phase 1 and neutral.
+	PhaseCode_PHASE_CODE_S2N         PhaseCode = 17 // Secondary phase 2 and neutral.
+	PhaseCode_PHASE_CODE_S12N        PhaseCode = 18 // Secondary phases 1, 2, and neutral.
+	PhaseCode_PHASE_CODE_S1          PhaseCode = 19 // Secondary phase 1.
+	PhaseCode_PHASE_CODE_S2          PhaseCode = 20 // Secondary phase 2.
+	PhaseCode_PHASE_CODE_S12         PhaseCode = 21 // Secondary phase 1 and 2.
+	PhaseCode_PHASE_CODE_X           PhaseCode = 22 // Unknown non-neutral phase.
+	PhaseCode_PHASE_CODE_XY          PhaseCode = 23 // Two unknown non-neutral phases.
+	PhaseCode_PHASE_CODE_XN          PhaseCode = 24 // Unknown non-neutral phase plus neutral.
+	PhaseCode_PHASE_CODE_XYN         PhaseCode = 25 // Two unknown non-neutral phases plus neutral.
 )
 
 // Enum value maps for PhaseCode.
@@ -217,12 +231,13 @@ func (PhaseCode) EnumDescriptor() ([]byte, []int) {
 type FaultEventType int32
 
 const (
-	FaultEventType_FAULT_EVENT_TYPE_UNSPECIFIED FaultEventType = 0 //No status defined
-	FaultEventType_FAULT_EVENT_TYPE_STARTED     FaultEventType = 1 //Fault started
-	FaultEventType_FAULT_EVENT_TYPE_LOCATED     FaultEventType = 2 //Fault located
-	FaultEventType_FAULT_EVENT_TYPE_ENDED       FaultEventType = 3 //Fault ended
-	FaultEventType_FAULT_EVENT_TYPE_UNKNOWN     FaultEventType = 4 //Information available don't allow us to know if the Fault is active or complete
-	FaultEventType_FAULT_EVENT_TYPE_UPDATED     FaultEventType = 5 //Fault data requires to be updated
+	FaultEventType_FAULT_EVENT_TYPE_UNSPECIFIED FaultEventType = 0 // No status defined
+	FaultEventType_FAULT_EVENT_TYPE_STARTED     FaultEventType = 1 // Fault started
+	FaultEventType_FAULT_EVENT_TYPE_LOCATED     FaultEventType = 2 // Fault located
+	FaultEventType_FAULT_EVENT_TYPE_ENDED       FaultEventType = 3 // Fault ended
+	FaultEventType_FAULT_EVENT_TYPE_UNKNOWN     FaultEventType = 4 // Information available don't allow us to know
+	// if the Fault is active or complete
+	FaultEventType_FAULT_EVENT_TYPE_UPDATED FaultEventType = 5 // Fault data requires to be updated
 )
 
 // Enum value maps for FaultEventType.
@@ -272,23 +287,82 @@ func (FaultEventType) EnumDescriptor() ([]byte, []int) {
 	return file_zaphiro_grid_v1_fault_proto_rawDescGZIP(), []int{2}
 }
 
+type FaultSourceType int32
+
+const (
+	FaultSourceType_FAULT_SOURCE_UNSPECIFIED      FaultSourceType = 0 // No source type defined
+	FaultSourceType_FAULT_SOURCE_DEVICE           FaultSourceType = 1 // The source of the fault was a device (e.g. PMU)
+	FaultSourceType_FAULT_SOURCE_SERVICE          FaultSourceType = 2 // The source of the fault was a service (e.g. state estimator)
+	FaultSourceType_FAULT_SOURCE_EXTERNAL_SERVICE FaultSourceType = 3 // The source of the fault was a service external to SynchroGuard
+	// platform (e.g. SCADA)
+	FaultSourceType_FAULT_SOURCE_TEST_SERVICE FaultSourceType = 4 // The source of the fault was a service in test mode.
+)
+
+// Enum value maps for FaultSourceType.
+var (
+	FaultSourceType_name = map[int32]string{
+		0: "FAULT_SOURCE_UNSPECIFIED",
+		1: "FAULT_SOURCE_DEVICE",
+		2: "FAULT_SOURCE_SERVICE",
+		3: "FAULT_SOURCE_EXTERNAL_SERVICE",
+		4: "FAULT_SOURCE_TEST_SERVICE",
+	}
+	FaultSourceType_value = map[string]int32{
+		"FAULT_SOURCE_UNSPECIFIED":      0,
+		"FAULT_SOURCE_DEVICE":           1,
+		"FAULT_SOURCE_SERVICE":          2,
+		"FAULT_SOURCE_EXTERNAL_SERVICE": 3,
+		"FAULT_SOURCE_TEST_SERVICE":     4,
+	}
+)
+
+func (x FaultSourceType) Enum() *FaultSourceType {
+	p := new(FaultSourceType)
+	*p = x
+	return p
+}
+
+func (x FaultSourceType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (FaultSourceType) Descriptor() protoreflect.EnumDescriptor {
+	return file_zaphiro_grid_v1_fault_proto_enumTypes[3].Descriptor()
+}
+
+func (FaultSourceType) Type() protoreflect.EnumType {
+	return &file_zaphiro_grid_v1_fault_proto_enumTypes[3]
+}
+
+func (x FaultSourceType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use FaultSourceType.Descriptor instead.
+func (FaultSourceType) EnumDescriptor() ([]byte, []int) {
+	return file_zaphiro_grid_v1_fault_proto_rawDescGZIP(), []int{3}
+}
+
 type Fault struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id                   string                  `protobuf:"bytes,1,opt,name=Id,proto3"                                                  json:"Id,omitempty"`                   //The textual id of the fault.
-	Description          *string                 `protobuf:"bytes,2,opt,name=description,proto3,oneof"                                   json:"description,omitempty"`          //The textual description of the fault.
-	Kind                 PhaseConnectedFaultKind `protobuf:"varint,3,opt,name=kind,proto3,enum=zaphiro.grid.v1.PhaseConnectedFaultKind"  json:"kind,omitempty"`                 //The kind of phase fault.
-	Phases               PhaseCode               `protobuf:"varint,4,opt,name=phases,proto3,enum=zaphiro.grid.v1.PhaseCode"              json:"phases,omitempty"`               //The phases participating in the fault. The fault connections into these phases are further specified by the type of fault.
-	UpdatedAt            int64                   `protobuf:"varint,5,opt,name=updatedAt,proto3"                                          json:"updatedAt,omitempty"`            //The date and time at which the fault started/located/ended depending on the Fault Status (Unix msec timestamp).
-	FaultEventType       FaultEventType          `protobuf:"varint,6,opt,name=faultEventType,proto3,enum=zaphiro.grid.v1.FaultEventType" json:"faultEventType,omitempty"`       //The type of the fault event.
-	FaultyEquipmentId    *string                 `protobuf:"bytes,7,opt,name=faultyEquipmentId,proto3,oneof"                             json:"faultyEquipmentId,omitempty"`    //The equipment with the fault.
-	FaultCurrent         *float32                `protobuf:"fixed32,8,opt,name=faultCurrent,proto3,oneof"                                json:"faultCurrent,omitempty"`         //The current associated to the fault.
-	ImpactedEquipmentIds []string                `protobuf:"bytes,9,rep,name=impactedEquipmentIds,proto3"                                json:"impactedEquipmentIds,omitempty"` //The set of IDs of equipments impacted by the fault.
-	UsedMeasurementIds   []*FaultMeasurement     `protobuf:"bytes,10,rep,name=usedMeasurementIds,proto3"                                 json:"usedMeasurementIds,omitempty"`   //The set of measurements used to locate the fault.
-	MeasurementTimestamp *int64                  `protobuf:"varint,11,opt,name=measurementTimestamp,proto3,oneof"                        json:"measurementTimestamp,omitempty"` // The timestamp of the measurements used to compute the fault location.
-	LocationProbability  *float32                `protobuf:"fixed32,12,opt,name=locationProbability,proto3,oneof"                        json:"locationProbability,omitempty"`  // The probability associated to the location. (This is relevant because multiple locations can be returned for a fault)
+	Id          string                  `protobuf:"bytes,1,opt,name=Id,proto3"                                                  json:"Id,omitempty"`          // The textual id of the fault.
+	Description *string                 `protobuf:"bytes,2,opt,name=description,proto3,oneof"                                   json:"description,omitempty"` // The textual description of the fault.
+	Kind        PhaseConnectedFaultKind `protobuf:"varint,3,opt,name=kind,proto3,enum=zaphiro.grid.v1.PhaseConnectedFaultKind"  json:"kind,omitempty"`        // The kind of phase fault.
+	Phases      PhaseCode               `protobuf:"varint,4,opt,name=phases,proto3,enum=zaphiro.grid.v1.PhaseCode"              json:"phases,omitempty"`      // The phases participating in the fault. The fault connections into
+	// these phases are further specified by the type of fault.
+	UpdatedAt int64 `protobuf:"varint,5,opt,name=updatedAt,proto3"                                          json:"updatedAt,omitempty"` // The date and time at which the fault started/located/ended depending
+	// on the Fault Status (Unix msec timestamp).
+	FaultEventType       FaultEventType      `protobuf:"varint,6,opt,name=faultEventType,proto3,enum=zaphiro.grid.v1.FaultEventType" json:"faultEventType,omitempty"`       // The type of the fault event.
+	FaultyEquipmentId    *string             `protobuf:"bytes,7,opt,name=faultyEquipmentId,proto3,oneof"                             json:"faultyEquipmentId,omitempty"`    // The equipment with the fault.
+	FaultCurrent         *float32            `protobuf:"fixed32,8,opt,name=faultCurrent,proto3,oneof"                                json:"faultCurrent,omitempty"`         // The current associated to the fault.
+	ImpactedEquipmentIds []string            `protobuf:"bytes,9,rep,name=impactedEquipmentIds,proto3"                                json:"impactedEquipmentIds,omitempty"` // The set of IDs of equipments impacted by the fault.
+	UsedMeasurementIds   []*FaultMeasurement `protobuf:"bytes,10,rep,name=usedMeasurementIds,proto3"                                 json:"usedMeasurementIds,omitempty"`   // The set of measurements used to locate the fault.
+	MeasurementTimestamp *int64              `protobuf:"varint,11,opt,name=measurementTimestamp,proto3,oneof"                        json:"measurementTimestamp,omitempty"` // The timestamp of the measurements used to compute the fault
+	// location.
+	LocationProbability *float32 `protobuf:"fixed32,12,opt,name=locationProbability,proto3,oneof"                        json:"locationProbability,omitempty"` // The probability associated to the location. (This is relevant
 }
 
 func (x *Fault) Reset() {
@@ -412,9 +486,10 @@ type LineFault struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Fault               *Fault   `protobuf:"bytes,1,opt,name=fault,proto3"                       json:"fault,omitempty"`               //The base fault message.
-	LengthFromTerminal1 *float32 `protobuf:"fixed32,2,opt,name=lengthFromTerminal1,proto3,oneof" json:"lengthFromTerminal1,omitempty"` //The length to the place where the fault is located starting from terminal with sequence number 1 of the faulted line segment.
-	LengthUncertainty   *float32 `protobuf:"fixed32,3,opt,name=lengthUncertainty,proto3,oneof"   json:"lengthUncertainty,omitempty"`   //The +/- uncertainty on the reported length.
+	Fault               *Fault   `protobuf:"bytes,1,opt,name=fault,proto3"                       json:"fault,omitempty"`               // The base fault message.
+	LengthFromTerminal1 *float32 `protobuf:"fixed32,2,opt,name=lengthFromTerminal1,proto3,oneof" json:"lengthFromTerminal1,omitempty"` // The length to the place where the fault is located starting from
+	// terminal with sequence number 1 of the faulted line segment.
+	LengthUncertainty *float32 `protobuf:"fixed32,3,opt,name=lengthUncertainty,proto3,oneof"   json:"lengthUncertainty,omitempty"` // The +/- uncertainty on the reported length.
 }
 
 func (x *LineFault) Reset() {
@@ -475,8 +550,8 @@ type EquipmentFault struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Fault      *Fault  `protobuf:"bytes,1,opt,name=fault,proto3"            json:"fault,omitempty"`      //The base fault message.
-	TerminalID *string `protobuf:"bytes,2,opt,name=terminalID,proto3,oneof" json:"terminalID,omitempty"` //The terminal connecting to the bus to which the fault is applied.
+	Fault      *Fault  `protobuf:"bytes,1,opt,name=fault,proto3"            json:"fault,omitempty"`      // The base fault message.
+	TerminalID *string `protobuf:"bytes,2,opt,name=terminalID,proto3,oneof" json:"terminalID,omitempty"` // The terminal connecting to the bus to which the fault is applied.
 }
 
 func (x *EquipmentFault) Reset() {
@@ -530,7 +605,8 @@ type FaultMeasurement struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	PositiveSign  bool   `protobuf:"varint,1,opt,name=positiveSign,proto3" json:"positiveSign,omitempty"`  // The sign to be used for the measurement (`true` positive, `false` negative).
+	PositiveSign bool `protobuf:"varint,1,opt,name=positiveSign,proto3" json:"positiveSign,omitempty"` // The sign to be used for the measurement (`true`
+	// positive, `false` negative).
 	MeasurementID string `protobuf:"bytes,2,opt,name=measurementID,proto3" json:"measurementID,omitempty"` // The ID of a measurement used to locate the fault.
 }
 
@@ -719,8 +795,18 @@ var file_zaphiro_grid_v1_fault_proto_rawDesc = []byte{
 	0x5f, 0x45, 0x56, 0x45, 0x4e, 0x54, 0x5f, 0x54, 0x59, 0x50, 0x45, 0x5f, 0x55, 0x4e, 0x4b, 0x4e,
 	0x4f, 0x57, 0x4e, 0x10, 0x04, 0x12, 0x1c, 0x0a, 0x18, 0x46, 0x41, 0x55, 0x4c, 0x54, 0x5f, 0x45,
 	0x56, 0x45, 0x4e, 0x54, 0x5f, 0x54, 0x59, 0x50, 0x45, 0x5f, 0x55, 0x50, 0x44, 0x41, 0x54, 0x45,
-	0x44, 0x10, 0x05, 0x42, 0x0b, 0x5a, 0x09, 0x2e, 0x2f, 0x67, 0x72, 0x69, 0x64, 0x2f, 0x76, 0x31,
-	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x44, 0x10, 0x05, 0x2a, 0xa4, 0x01, 0x0a, 0x0f, 0x46, 0x61, 0x75, 0x6c, 0x74, 0x53, 0x6f, 0x75,
+	0x72, 0x63, 0x65, 0x54, 0x79, 0x70, 0x65, 0x12, 0x1c, 0x0a, 0x18, 0x46, 0x41, 0x55, 0x4c, 0x54,
+	0x5f, 0x53, 0x4f, 0x55, 0x52, 0x43, 0x45, 0x5f, 0x55, 0x4e, 0x53, 0x50, 0x45, 0x43, 0x49, 0x46,
+	0x49, 0x45, 0x44, 0x10, 0x00, 0x12, 0x17, 0x0a, 0x13, 0x46, 0x41, 0x55, 0x4c, 0x54, 0x5f, 0x53,
+	0x4f, 0x55, 0x52, 0x43, 0x45, 0x5f, 0x44, 0x45, 0x56, 0x49, 0x43, 0x45, 0x10, 0x01, 0x12, 0x18,
+	0x0a, 0x14, 0x46, 0x41, 0x55, 0x4c, 0x54, 0x5f, 0x53, 0x4f, 0x55, 0x52, 0x43, 0x45, 0x5f, 0x53,
+	0x45, 0x52, 0x56, 0x49, 0x43, 0x45, 0x10, 0x02, 0x12, 0x21, 0x0a, 0x1d, 0x46, 0x41, 0x55, 0x4c,
+	0x54, 0x5f, 0x53, 0x4f, 0x55, 0x52, 0x43, 0x45, 0x5f, 0x45, 0x58, 0x54, 0x45, 0x52, 0x4e, 0x41,
+	0x4c, 0x5f, 0x53, 0x45, 0x52, 0x56, 0x49, 0x43, 0x45, 0x10, 0x03, 0x12, 0x1d, 0x0a, 0x19, 0x46,
+	0x41, 0x55, 0x4c, 0x54, 0x5f, 0x53, 0x4f, 0x55, 0x52, 0x43, 0x45, 0x5f, 0x54, 0x45, 0x53, 0x54,
+	0x5f, 0x53, 0x45, 0x52, 0x56, 0x49, 0x43, 0x45, 0x10, 0x04, 0x42, 0x0b, 0x5a, 0x09, 0x2e, 0x2f,
+	0x67, 0x72, 0x69, 0x64, 0x2f, 0x76, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -737,24 +823,25 @@ func file_zaphiro_grid_v1_fault_proto_rawDescGZIP() []byte {
 	return file_zaphiro_grid_v1_fault_proto_rawDescData
 }
 
-var file_zaphiro_grid_v1_fault_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
+var file_zaphiro_grid_v1_fault_proto_enumTypes = make([]protoimpl.EnumInfo, 4)
 var file_zaphiro_grid_v1_fault_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_zaphiro_grid_v1_fault_proto_goTypes = []interface{}{
 	(PhaseConnectedFaultKind)(0), // 0: zaphiro.grid.v1.PhaseConnectedFaultKind
 	(PhaseCode)(0),               // 1: zaphiro.grid.v1.PhaseCode
 	(FaultEventType)(0),          // 2: zaphiro.grid.v1.FaultEventType
-	(*Fault)(nil),                // 3: zaphiro.grid.v1.Fault
-	(*LineFault)(nil),            // 4: zaphiro.grid.v1.LineFault
-	(*EquipmentFault)(nil),       // 5: zaphiro.grid.v1.EquipmentFault
-	(*FaultMeasurement)(nil),     // 6: zaphiro.grid.v1.FaultMeasurement
+	(FaultSourceType)(0),         // 3: zaphiro.grid.v1.FaultSourceType
+	(*Fault)(nil),                // 4: zaphiro.grid.v1.Fault
+	(*LineFault)(nil),            // 5: zaphiro.grid.v1.LineFault
+	(*EquipmentFault)(nil),       // 6: zaphiro.grid.v1.EquipmentFault
+	(*FaultMeasurement)(nil),     // 7: zaphiro.grid.v1.FaultMeasurement
 }
 var file_zaphiro_grid_v1_fault_proto_depIdxs = []int32{
 	0, // 0: zaphiro.grid.v1.Fault.kind:type_name -> zaphiro.grid.v1.PhaseConnectedFaultKind
 	1, // 1: zaphiro.grid.v1.Fault.phases:type_name -> zaphiro.grid.v1.PhaseCode
 	2, // 2: zaphiro.grid.v1.Fault.faultEventType:type_name -> zaphiro.grid.v1.FaultEventType
-	6, // 3: zaphiro.grid.v1.Fault.usedMeasurementIds:type_name -> zaphiro.grid.v1.FaultMeasurement
-	3, // 4: zaphiro.grid.v1.LineFault.fault:type_name -> zaphiro.grid.v1.Fault
-	3, // 5: zaphiro.grid.v1.EquipmentFault.fault:type_name -> zaphiro.grid.v1.Fault
+	7, // 3: zaphiro.grid.v1.Fault.usedMeasurementIds:type_name -> zaphiro.grid.v1.FaultMeasurement
+	4, // 4: zaphiro.grid.v1.LineFault.fault:type_name -> zaphiro.grid.v1.Fault
+	4, // 5: zaphiro.grid.v1.EquipmentFault.fault:type_name -> zaphiro.grid.v1.Fault
 	6, // [6:6] is the sub-list for method output_type
 	6, // [6:6] is the sub-list for method input_type
 	6, // [6:6] is the sub-list for extension type_name
@@ -825,7 +912,7 @@ func file_zaphiro_grid_v1_fault_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_zaphiro_grid_v1_fault_proto_rawDesc,
-			NumEnums:      3,
+			NumEnums:      4,
 			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   0,

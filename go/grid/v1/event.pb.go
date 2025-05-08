@@ -20,7 +20,8 @@
 
 //  <!-- markdownlint-disable -->
 //Messages to support event detection in the platform.
-//The event detected may be originated from different sources: devices (e.g. a PMU, RTU), services (e.g. state estimator), or an external service (e.g. SCADA).
+//The event detected may be originated from different sources: devices (e.g. a
+//PMU, RTU), services (e.g. state estimator), or an external service (e.g. SCADA).
 
 package v1
 
@@ -41,11 +42,11 @@ const (
 type EventStatus int32
 
 const (
-	EventStatus_EVENT_STATUS_UNSPECIFIED EventStatus = 0 //No status defined
-	EventStatus_EVENT_STATUS_STARTED     EventStatus = 1 //Event started
-	EventStatus_EVENT_STATUS_IN_PROGRESS EventStatus = 2 //Event is still active
-	EventStatus_EVENT_STATUS_ENDED       EventStatus = 3 //Event ended
-	EventStatus_EVENT_STATUS_UNKNOWN     EventStatus = 4 //Information available don't allow us to know if the even is active or complete
+	EventStatus_EVENT_STATUS_UNSPECIFIED EventStatus = 0 // No status defined
+	EventStatus_EVENT_STATUS_STARTED     EventStatus = 1 // Event started
+	EventStatus_EVENT_STATUS_IN_PROGRESS EventStatus = 2 // Event is still active
+	EventStatus_EVENT_STATUS_ENDED       EventStatus = 3 // Event ended
+	EventStatus_EVENT_STATUS_UNKNOWN     EventStatus = 4 // Information available don't allow us to know if
 )
 
 // Enum value maps for EventStatus.
@@ -96,10 +97,12 @@ func (EventStatus) EnumDescriptor() ([]byte, []int) {
 type EventSourceType int32
 
 const (
-	EventSourceType_EVENT_SOURCE_UNSPECIFIED      EventSourceType = 0 //No source type defined
-	EventSourceType_EVENT_SOURCE_DEVICE           EventSourceType = 1 //The source of the event was a device (e.g. PMU)
-	EventSourceType_EVENT_SOURCE_SERVICE          EventSourceType = 2 //The source of the event was a service (e.g. state estimator)
-	EventSourceType_EVENT_SOURCE_EXTERNAL_SERVICE EventSourceType = 3 //The source of the event was a service external to SynchroGuard platform (e.g. SCADA)
+	EventSourceType_EVENT_SOURCE_UNSPECIFIED      EventSourceType = 0 // No source type defined
+	EventSourceType_EVENT_SOURCE_DEVICE           EventSourceType = 1 // The source of the event was a device (e.g. PMU)
+	EventSourceType_EVENT_SOURCE_SERVICE          EventSourceType = 2 // The source of the event was a service (e.g. state estimator)
+	EventSourceType_EVENT_SOURCE_EXTERNAL_SERVICE EventSourceType = 3 // The source of the event was a service external to SynchroGuard
+	// platform (e.g. SCADA)
+	EventSourceType_EVENT_SOURCE_TEST_SERVICE EventSourceType = 4 // The source of the event was a service in test mode.
 )
 
 // Enum value maps for EventSourceType.
@@ -109,12 +112,14 @@ var (
 		1: "EVENT_SOURCE_DEVICE",
 		2: "EVENT_SOURCE_SERVICE",
 		3: "EVENT_SOURCE_EXTERNAL_SERVICE",
+		4: "EVENT_SOURCE_TEST_SERVICE",
 	}
 	EventSourceType_value = map[string]int32{
 		"EVENT_SOURCE_UNSPECIFIED":      0,
 		"EVENT_SOURCE_DEVICE":           1,
 		"EVENT_SOURCE_SERVICE":          2,
 		"EVENT_SOURCE_EXTERNAL_SERVICE": 3,
+		"EVENT_SOURCE_TEST_SERVICE":     4,
 	}
 )
 
@@ -150,13 +155,14 @@ type Event struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id         string          `protobuf:"bytes,1,opt,name=Id,proto3"                                               json:"Id,omitempty"`         //The uuid of the event.
-	SourceId   string          `protobuf:"bytes,2,opt,name=sourceId,proto3"                                         json:"sourceId,omitempty"`   //The id of the source (e.g. a PMU) that generated the event.
-	SourceType EventSourceType `protobuf:"varint,3,opt,name=sourceType,proto3,enum=zaphiro.grid.v1.EventSourceType" json:"sourceType,omitempty"` //The type of data see `DataType` enum.
-	OccurredAt int64           `protobuf:"varint,4,opt,name=occurredAt,proto3"                                      json:"occurredAt,omitempty"` //The time of occurency of the event (Unix msec timestamp) usually is the same value as timestampId.
-	DetectedAt *int64          `protobuf:"varint,5,opt,name=detectedAt,proto3,oneof"                                json:"detectedAt,omitempty"` //The time of detection of the event (Unix msec timestamp).
-	Message    string          `protobuf:"bytes,6,opt,name=message,proto3"                                          json:"message,omitempty"`    //Event message.
-	Status     *EventStatus    `protobuf:"varint,7,opt,name=status,proto3,enum=zaphiro.grid.v1.EventStatus,oneof"   json:"status,omitempty"`     //The status of the event.
+	Id         string          `protobuf:"bytes,1,opt,name=Id,proto3"                                               json:"Id,omitempty"`         // The uuid of the event.
+	SourceId   string          `protobuf:"bytes,2,opt,name=sourceId,proto3"                                         json:"sourceId,omitempty"`   // The id of the source (e.g. a PMU) that generated the event.
+	SourceType EventSourceType `protobuf:"varint,3,opt,name=sourceType,proto3,enum=zaphiro.grid.v1.EventSourceType" json:"sourceType,omitempty"` // The type of data see `DataType` enum.
+	OccurredAt int64           `protobuf:"varint,4,opt,name=occurredAt,proto3"                                      json:"occurredAt,omitempty"` // The time of occurency of the event (Unix msec
+	// timestamp) usually is the same value as timestampId.
+	DetectedAt *int64       `protobuf:"varint,5,opt,name=detectedAt,proto3,oneof"                                json:"detectedAt,omitempty"` // The time of detection of the event (Unix msec timestamp).
+	Message    string       `protobuf:"bytes,6,opt,name=message,proto3"                                          json:"message,omitempty"`    // Event message.
+	Status     *EventStatus `protobuf:"varint,7,opt,name=status,proto3,enum=zaphiro.grid.v1.EventStatus,oneof"   json:"status,omitempty"`     // The status of the event.
 }
 
 func (x *Event) Reset() {
@@ -274,7 +280,7 @@ var file_zaphiro_grid_v1_event_proto_rawDesc = []byte{
 	0x12, 0x16, 0x0a, 0x12, 0x45, 0x56, 0x45, 0x4e, 0x54, 0x5f, 0x53, 0x54, 0x41, 0x54, 0x55, 0x53,
 	0x5f, 0x45, 0x4e, 0x44, 0x45, 0x44, 0x10, 0x03, 0x12, 0x18, 0x0a, 0x14, 0x45, 0x56, 0x45, 0x4e,
 	0x54, 0x5f, 0x53, 0x54, 0x41, 0x54, 0x55, 0x53, 0x5f, 0x55, 0x4e, 0x4b, 0x4e, 0x4f, 0x57, 0x4e,
-	0x10, 0x04, 0x2a, 0x85, 0x01, 0x0a, 0x0f, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x53, 0x6f, 0x75, 0x72,
+	0x10, 0x04, 0x2a, 0xa4, 0x01, 0x0a, 0x0f, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x53, 0x6f, 0x75, 0x72,
 	0x63, 0x65, 0x54, 0x79, 0x70, 0x65, 0x12, 0x1c, 0x0a, 0x18, 0x45, 0x56, 0x45, 0x4e, 0x54, 0x5f,
 	0x53, 0x4f, 0x55, 0x52, 0x43, 0x45, 0x5f, 0x55, 0x4e, 0x53, 0x50, 0x45, 0x43, 0x49, 0x46, 0x49,
 	0x45, 0x44, 0x10, 0x00, 0x12, 0x17, 0x0a, 0x13, 0x45, 0x56, 0x45, 0x4e, 0x54, 0x5f, 0x53, 0x4f,
@@ -282,8 +288,10 @@ var file_zaphiro_grid_v1_event_proto_rawDesc = []byte{
 	0x14, 0x45, 0x56, 0x45, 0x4e, 0x54, 0x5f, 0x53, 0x4f, 0x55, 0x52, 0x43, 0x45, 0x5f, 0x53, 0x45,
 	0x52, 0x56, 0x49, 0x43, 0x45, 0x10, 0x02, 0x12, 0x21, 0x0a, 0x1d, 0x45, 0x56, 0x45, 0x4e, 0x54,
 	0x5f, 0x53, 0x4f, 0x55, 0x52, 0x43, 0x45, 0x5f, 0x45, 0x58, 0x54, 0x45, 0x52, 0x4e, 0x41, 0x4c,
-	0x5f, 0x53, 0x45, 0x52, 0x56, 0x49, 0x43, 0x45, 0x10, 0x03, 0x42, 0x0b, 0x5a, 0x09, 0x2e, 0x2f,
-	0x67, 0x72, 0x69, 0x64, 0x2f, 0x76, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x5f, 0x53, 0x45, 0x52, 0x56, 0x49, 0x43, 0x45, 0x10, 0x03, 0x12, 0x1d, 0x0a, 0x19, 0x45, 0x56,
+	0x45, 0x4e, 0x54, 0x5f, 0x53, 0x4f, 0x55, 0x52, 0x43, 0x45, 0x5f, 0x54, 0x45, 0x53, 0x54, 0x5f,
+	0x53, 0x45, 0x52, 0x56, 0x49, 0x43, 0x45, 0x10, 0x04, 0x42, 0x0b, 0x5a, 0x09, 0x2e, 0x2f, 0x67,
+	0x72, 0x69, 0x64, 0x2f, 0x76, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (

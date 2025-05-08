@@ -1,10 +1,14 @@
 # ProtoBuf Release Notes
 
-## 0.0.11-dev - 2025-05-08
+## 0.0.12-dev - 2025-05-08
+
+- Add blacklist message (PR #96 by @chicco785)
+
+## 0.0.11 - 2025-05-08
 
 ### Features
 
-- Add blacklist message (PR #96 by @chicco785)
+- Add event test service event source type (PR #98 by @tejo)
 
 ### Continuous Integration
 

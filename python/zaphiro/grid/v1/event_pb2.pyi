@@ -19,6 +19,7 @@ class EventSourceType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     EVENT_SOURCE_DEVICE: _ClassVar[EventSourceType]
     EVENT_SOURCE_SERVICE: _ClassVar[EventSourceType]
     EVENT_SOURCE_EXTERNAL_SERVICE: _ClassVar[EventSourceType]
+    EVENT_SOURCE_TEST_SERVICE: _ClassVar[EventSourceType]
 EVENT_STATUS_UNSPECIFIED: EventStatus
 EVENT_STATUS_STARTED: EventStatus
 EVENT_STATUS_IN_PROGRESS: EventStatus
@@ -28,6 +29,7 @@ EVENT_SOURCE_UNSPECIFIED: EventSourceType
 EVENT_SOURCE_DEVICE: EventSourceType
 EVENT_SOURCE_SERVICE: EventSourceType
 EVENT_SOURCE_EXTERNAL_SERVICE: EventSourceType
+EVENT_SOURCE_TEST_SERVICE: EventSourceType
 
 class Event(_message.Message):
     __slots__ = ("Id", "sourceId", "sourceType", "occurredAt", "detectedAt", "message", "status")
