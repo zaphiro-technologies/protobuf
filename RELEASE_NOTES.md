@@ -2,6 +2,8 @@
 
 ## 0.0.12-dev - 2025-05-08
 
+### Features
+
 - Add blacklist message (PR #96 by @chicco785)
 
 ## 0.0.11 - 2025-05-08
