@@ -27,17 +27,18 @@ Messages describing faults.
 
  The type of fault connection among phases.
 
- This message is modeled after [CIM PhaseConnectedFaultKind](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/PhaseConnectedFaultKind).
+ This message is modeled after [CIM
+ PhaseConnectedFaultKind](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/PhaseConnectedFaultKind).
 
 
 
-| Name                                                | Ordinal | Description                                                                                                                                                                                                                                                                                                                                                                                                 |
-|-----------------------------------------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `PHASE_CONNECTED_FAULT_KIND_UNSPECIFIED`            | 0       |                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `PHASE_CONNECTED_FAULT_KIND_LINE_TO_GROUND`         | 1       | The fault connects the indicated phases to ground. The line to line fault impedance is not used and assumed infinite. The full ground impedance is connected between each phase specified in the fault and ground, but not between the phases.                                                                                                                                                              |
-| `PHASE_CONNECTED_FAULT_KIND_LINE_TO_LINE`           | 2       | The fault connects the specified phases together without a connection to ground. The ground impedance of this fault is ignored. The line to line impedance is connected between each of the phases specified in the fault. For example three times for a three phase fault, one time for a two phase fault. A single phase fault should not be specified.                                                   |
-| `PHASE_CONNECTED_FAULT_KIND_LINE_TO_LINE_TO_GROUND` | 3       | The fault connects the indicated phases to ground and to each other. The line to line impedance is connected between each of the phases specified in the fault in a full mesh. For example three times for a three phase fault, one time for a two phase fault. A single phase fault should not be specified. The full ground impedance is connected between each phase specified in the fault and ground.  |
-| `PHASE_CONNECTED_FAULT_KIND_LINE_OPEN`              | 4       | The fault is when the conductor path is broken between two terminals. Additional coexisting faults may be required if the broken conductor also causes connections to grounds or other lines or phases.                                                                                                                                                                                                     |
+| Name                                                | Ordinal | Description                                                                                                                                                                                                                                                                                                                                                                                                                |
+|-----------------------------------------------------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `PHASE_CONNECTED_FAULT_KIND_UNSPECIFIED`            | 0       |                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `PHASE_CONNECTED_FAULT_KIND_LINE_TO_GROUND`         | 1       | The fault connects the indicated phases to ground. The line to line fault  * impedance is not used and assumed infinite. The full ground impedance is  * connected between each phase specified in the fault and ground, but not  * between the phases.                                                                                                                                                                    |
+| `PHASE_CONNECTED_FAULT_KIND_LINE_TO_LINE`           | 2       | The fault connects the specified phases together without a connection to  * ground. The ground impedance of this fault is ignored. The line to line  * impedance is connected between each of the phases specified in the fault.  * For example three times for a three phase fault, one time for a two phase  * fault. A single phase fault should not be specified.                                                      |
+| `PHASE_CONNECTED_FAULT_KIND_LINE_TO_LINE_TO_GROUND` | 3       | The fault connects the indicated phases to ground and to each other. The  * line to line impedance is connected between each of the phases specified in  * the fault in a full mesh. For example three times for a three phase fault,  * one time for a two phase fault. A single phase fault should not be  * specified. The full ground impedance is connected between each phase  * specified in the fault and ground.  |
+| `PHASE_CONNECTED_FAULT_KIND_LINE_OPEN`              | 4       | The fault is when the conductor path is broken between two terminals.  * Additional coexisting faults may be required if the broken conductor also  * causes connections to grounds or other lines or phases.                                                                                                                                                                                                              |
 
 
 ## Enum: PhaseCode
@@ -45,11 +46,20 @@ Messages describing faults.
 **FQN**: zaphiro.grid.v1.PhaseCode
 
 
-An unordered enumeration of phase identifiers. Allows designation of phases for both transmission and distribution equipment, circuits and loads. The enumeration, by itself, does not describe how the phases are connected together or connected to ground. Ground is not explicitly denoted as a phase.
-Residential and small commercial loads are often served from single-phase, or split-phase, secondary circuits. For the example of s12N, phases 1 and 2 refer to hot wires that are 180 degrees out of phase, while N refers to the neutral wire. Through single-phase transformer connections, these secondary circuits may be served from one or two of the primary phases A, B, and C. For three-phase loads, use the A, B, C phase codes instead of s12N.
-The integer values are from IEC 61968-9 to support revenue metering applications.
+An unordered enumeration of phase identifiers. Allows designation of phases for
+both transmission and distribution equipment, circuits and loads. The
+enumeration, by itself, does not describe how the phases are connected together
+or connected to ground. Ground is not explicitly denoted as a phase. Residential
+and small commercial loads are often served from single-phase, or split-phase,
+secondary circuits. For the example of s12N, phases 1 and 2 refer to hot wires
+that are 180 degrees out of phase, while N refers to the neutral wire. Through
+single-phase transformer connections, these secondary circuits may be served
+from one or two of the primary phases A, B, and C. For three-phase loads, use
+the A, B, C phase codes instead of s12N. The integer values are from IEC 61968-9
+to support revenue metering applications.
 
-This message is modeled after [CIM PhaseCode](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Core/PhaseCode/).
+This message is modeled after [CIM
+PhaseCode](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Core/PhaseCode/).
 
 
 
@@ -90,14 +100,30 @@ This message is modeled after [CIM PhaseCode](https://zepben.github.io/evolve/do
 The collection of Fault Event Types defined so far.
 
 
-| Name                           | Ordinal | Description                                                                      |
-|--------------------------------|---------|----------------------------------------------------------------------------------|
-| `FAULT_EVENT_TYPE_UNSPECIFIED` | 0       | No status defined                                                                |
-| `FAULT_EVENT_TYPE_STARTED`     | 1       | Fault started                                                                    |
-| `FAULT_EVENT_TYPE_LOCATED`     | 2       | Fault located                                                                    |
-| `FAULT_EVENT_TYPE_ENDED`       | 3       | Fault ended                                                                      |
-| `FAULT_EVENT_TYPE_UNKNOWN`     | 4       | Information available don't allow us to know if the Fault is active or complete  |
-| `FAULT_EVENT_TYPE_UPDATED`     | 5       | Fault data requires to be updated                                                |
+| Name                           | Ordinal | Description                                                           |
+|--------------------------------|---------|-----------------------------------------------------------------------|
+| `FAULT_EVENT_TYPE_UNSPECIFIED` | 0       | No status defined                                                     |
+| `FAULT_EVENT_TYPE_STARTED`     | 1       | Fault started                                                         |
+| `FAULT_EVENT_TYPE_LOCATED`     | 2       | Fault located                                                         |
+| `FAULT_EVENT_TYPE_ENDED`       | 3       | Fault ended                                                           |
+| `FAULT_EVENT_TYPE_UNKNOWN`     | 4       | Information available don't allow us to know                          |
+| `FAULT_EVENT_TYPE_UPDATED`     | 5       | if the Fault is active or complete Fault data requires to be updated  |
+
+
+## Enum: FaultSourceType
+
+**FQN**: zaphiro.grid.v1.FaultSourceType
+
+
+
+
+| Name                            | Ordinal | Description                                                                |
+|---------------------------------|---------|----------------------------------------------------------------------------|
+| `FAULT_SOURCE_UNSPECIFIED`      | 0       | No source type defined                                                     |
+| `FAULT_SOURCE_DEVICE`           | 1       | The source of the fault was a device (e.g. PMU)                            |
+| `FAULT_SOURCE_SERVICE`          | 2       | The source of the fault was a service (e.g. state estimator)               |
+| `FAULT_SOURCE_EXTERNAL_SERVICE` | 3       | The source of the fault was a service external to SynchroGuard             |
+| `FAULT_SOURCE_TEST_SERVICE`     | 4       | platform (e.g. SCADA) The source of the fault was a service in test mode.  |
 
 
 
@@ -109,7 +135,8 @@ direction LR
 %% 
 %%  The type of fault connection among phases.
 %% 
-%%  This message is modeled after [CIM PhaseConnectedFaultKind](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/PhaseConnectedFaultKind).
+%%  This message is modeled after [CIM
+%%  PhaseConnectedFaultKind](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/PhaseConnectedFaultKind).
 %% 
 
 class PhaseConnectedFaultKind{
@@ -127,11 +154,20 @@ class PhaseConnectedFaultKind{
 classDiagram
 direction LR
 %% 
-%% An unordered enumeration of phase identifiers. Allows designation of phases for both transmission and distribution equipment, circuits and loads. The enumeration, by itself, does not describe how the phases are connected together or connected to ground. Ground is not explicitly denoted as a phase.
-%% Residential and small commercial loads are often served from single-phase, or split-phase, secondary circuits. For the example of s12N, phases 1 and 2 refer to hot wires that are 180 degrees out of phase, while N refers to the neutral wire. Through single-phase transformer connections, these secondary circuits may be served from one or two of the primary phases A, B, and C. For three-phase loads, use the A, B, C phase codes instead of s12N.
-%% The integer values are from IEC 61968-9 to support revenue metering applications.
+%% An unordered enumeration of phase identifiers. Allows designation of phases for
+%% both transmission and distribution equipment, circuits and loads. The
+%% enumeration, by itself, does not describe how the phases are connected together
+%% or connected to ground. Ground is not explicitly denoted as a phase. Residential
+%% and small commercial loads are often served from single-phase, or split-phase,
+%% secondary circuits. For the example of s12N, phases 1 and 2 refer to hot wires
+%% that are 180 degrees out of phase, while N refers to the neutral wire. Through
+%% single-phase transformer connections, these secondary circuits may be served
+%% from one or two of the primary phases A, B, and C. For three-phase loads, use
+%% the A, B, C phase codes instead of s12N. The integer values are from IEC 61968-9
+%% to support revenue metering applications.
 %% 
-%% This message is modeled after [CIM PhaseCode](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Core/PhaseCode/).
+%% This message is modeled after [CIM
+%% PhaseCode](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Core/PhaseCode/).
 %% 
 
 class PhaseCode{
@@ -181,24 +217,57 @@ class FaultEventType{
   FAULT_EVENT_TYPE_UPDATED
 }
 ```
+### FaultSourceType Diagram
+
+```mermaid
+classDiagram
+direction LR
+%% 
+
+class FaultSourceType{
+  <<enumeration>>
+  FAULT_SOURCE_UNSPECIFIED
+  FAULT_SOURCE_DEVICE
+  FAULT_SOURCE_SERVICE
+  FAULT_SOURCE_EXTERNAL_SERVICE
+  FAULT_SOURCE_TEST_SERVICE
+}
+```
 ### Fault Diagram
 
 ```mermaid
 classDiagram
 direction LR
 
-%% Abnormal condition causing current flow through conducting equipment, such as caused by equipment failure or short circuits from objects not typically modelled (for example, a tree falling on a line).
+%% Abnormal condition causing current flow through conducting equipment, such as
+%% caused by equipment failure or short circuits from objects not typically
+%% modelled (for example, a tree falling on a line).
 %% 
-%% This message is modelled after [CIM Fault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/Fault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.
+%% This message is modelled after [CIM
+%% Fault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/Fault)
+%% according to the extensions defined in the
+%% [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures)
+%% feature.
 %% 
-%% Faults messages represent events linked to a given fault (identified by the id). From the point of view of storage the sequence of events may be handled in a way that does not map totally to the single event, e.g. by combining multiple events in a single database row.
+%% Faults messages represent events linked to a given fault (identified by the id).
+%% From the point of view of storage the sequence of events may be handled in a way
+%% that does not map totally to the single event, e.g. by combining multiple events
+%% in a single database row.
 %% 
-%% When a fault is detected, an `Fault` message event of type `FAULT_EVENT_TYPE_STARTED` is generated, when a fault is located (and multiple locations can occur for the same fault) and a `Fault` event message of type `FAULT_EVENT_TYPE_LOCATED` is generated. When a fault ends, a `Fault` event message of type `FAULT_EVENT_TYPE_ENDED` is generated. Certain fields of the Fault event message may be populated only in case of event type `FAULT_EVENT_TYPE_LOCATED` (i.e. `locationProbability`, `measurementTimestamp`).
+%% When a fault is detected, an `Fault` message event of type
+%% `FAULT_EVENT_TYPE_STARTED` is generated, when a fault is located (and multiple
+%% locations can occur for the same fault) and a `Fault` event message of type
+%% `FAULT_EVENT_TYPE_LOCATED` is generated. When a fault ends, a `Fault` event
+%% message of type `FAULT_EVENT_TYPE_ENDED` is generated. Certain fields of the
+%% Fault event message may be populated only in case of event type
+%% `FAULT_EVENT_TYPE_LOCATED` (i.e. `locationProbability`, `measurementTimestamp`).
 %% 
 %% Headers used in rabbitMQ:
 %% * `id` (string): id of the `Fault`
 %% * `type` (string): always `Fault`
-%% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the notification.
+%% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the
+%% notification.
+%% * `sourceType` (string): the Fault source type
 %% 
 
 class Fault {
@@ -229,14 +298,21 @@ direction LR
 
 %% A fault that occurs on an AC line segment at some point along the length.
 %% 
-%% This message is modeled after [CIM LineFault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/LineFault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.
+%% This message is modeled after [CIM
+%% LineFault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/LineFault)
+%% according to the extensions defined in the
+%% [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures)
+%% feature.
 %% 
-%% Certain fields of the `LineFault` event message may be populated only in case of event type `FAULT_EVENT_TYPE_LOCATED` (i.e. `lengthFromTerminal1`, `lengthUncertainty`).
+%% Certain fields of the `LineFault` event message may be populated only in case of
+%% event type `FAULT_EVENT_TYPE_LOCATED` (i.e. `lengthFromTerminal1`,
+%% `lengthUncertainty`).
 %% 
 %% Headers used in rabbitMQ:
 %% * `id` (string): id of the `Fault`
 %% * `type` (string): always `LineFault`
-%% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the notification.
+%% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the
+%% notification.
 %% 
 
 class LineFault {
@@ -254,16 +330,23 @@ classDiagram
 direction LR
 
 %% 
-%% A fault applied at the terminal, external to the equipment. This class is not used to specify faults internal to the equipment.
+%% A fault applied at the terminal, external to the equipment. This class is not
+%% used to specify faults internal to the equipment.
 %% 
-%% This message is modeled after [CIM EquipmentFault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/EquipmentFault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.
+%% This message is modeled after [CIM
+%% EquipmentFault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/EquipmentFault)
+%% according to the extensions defined in the
+%% [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures)
+%% feature.
 %% 
-%% Certain fields of the `EquipmentFault` event message may be populated only in case of event type `FAULT_EVENT_TYPE_LOCATED` (i.e. `terminalID`).
+%% Certain fields of the `EquipmentFault` event message may be populated only in
+%% case of event type `FAULT_EVENT_TYPE_LOCATED` (i.e. `terminalID`).
 %% 
 %% Headers used in rabbitMQ:
 %% * `id` (string): id of the `Fault`
 %% * `type` (string): always `EquipmentFault`
-%% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the notification.
+%% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the
+%% notification.
 %% 
 
 class EquipmentFault {
@@ -292,35 +375,52 @@ class FaultMeasurement {
 
 **FQN**: zaphiro.grid.v1.Fault
 
-Abnormal condition causing current flow through conducting equipment, such as caused by equipment failure or short circuits from objects not typically modelled (for example, a tree falling on a line).
+Abnormal condition causing current flow through conducting equipment, such as
+caused by equipment failure or short circuits from objects not typically
+modelled (for example, a tree falling on a line).
 
-This message is modelled after [CIM Fault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/Fault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.
+This message is modelled after [CIM
+Fault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/Fault)
+according to the extensions defined in the
+[fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures)
+feature.
 
-Faults messages represent events linked to a given fault (identified by the id). From the point of view of storage the sequence of events may be handled in a way that does not map totally to the single event, e.g. by combining multiple events in a single database row.
+Faults messages represent events linked to a given fault (identified by the id).
+From the point of view of storage the sequence of events may be handled in a way
+that does not map totally to the single event, e.g. by combining multiple events
+in a single database row.
 
-When a fault is detected, an `Fault` message event of type `FAULT_EVENT_TYPE_STARTED` is generated, when a fault is located (and multiple locations can occur for the same fault) and a `Fault` event message of type `FAULT_EVENT_TYPE_LOCATED` is generated. When a fault ends, a `Fault` event message of type `FAULT_EVENT_TYPE_ENDED` is generated. Certain fields of the Fault event message may be populated only in case of event type `FAULT_EVENT_TYPE_LOCATED` (i.e. `locationProbability`, `measurementTimestamp`).
+When a fault is detected, an `Fault` message event of type
+`FAULT_EVENT_TYPE_STARTED` is generated, when a fault is located (and multiple
+locations can occur for the same fault) and a `Fault` event message of type
+`FAULT_EVENT_TYPE_LOCATED` is generated. When a fault ends, a `Fault` event
+message of type `FAULT_EVENT_TYPE_ENDED` is generated. Certain fields of the
+Fault event message may be populated only in case of event type
+`FAULT_EVENT_TYPE_LOCATED` (i.e. `locationProbability`, `measurementTimestamp`).
 
 Headers used in rabbitMQ:
 * `id` (string): id of the `Fault`
 * `type` (string): always `Fault`
-* `producerId` (string): the id of the producer (e.g. a PMU) linked to the notification.
+* `producerId` (string): the id of the producer (e.g. a PMU) linked to the
+notification.
+* `sourceType` (string): the Fault source type
 
 
 
-| Field                  | Ordinal | Type                      | Label    | Description                                                                                                                 |
-|------------------------|---------|---------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------|
-| `Id`                   | 1       | `string`                  |          | The textual id of the fault.                                                                                                |
-| `description`          | 2       | `string`                  | Optional | The textual description of the fault.                                                                                       |
-| `kind`                 | 3       | `PhaseConnectedFaultKind` |          | The kind of phase fault.                                                                                                    |
-| `phases`               | 4       | `PhaseCode`               |          | The phases participating in the fault. The fault connections into these phases are further specified by the type of fault.  |
-| `updatedAt`            | 5       | `int64`                   |          | The date and time at which the fault started/located/ended depending on the Fault Status (Unix msec timestamp).             |
-| `faultEventType`       | 6       | `FaultEventType`          |          | The type of the fault event.                                                                                                |
-| `faultyEquipmentId`    | 7       | `string`                  | Optional | The equipment with the fault.                                                                                               |
-| `faultCurrent`         | 8       | `float`                   | Optional | The current associated to the fault.                                                                                        |
-| `impactedEquipmentIds` | 9       | `string`                  | Repeated | The set of IDs of equipments impacted by the fault.                                                                         |
-| `usedMeasurementIds`   | 10      | `FaultMeasurement`        | Repeated | The set of measurements used to locate the fault.                                                                           |
-| `measurementTimestamp` | 11      | `int64`                   | Optional | The timestamp of the measurements used to compute the fault location.                                                       |
-| `locationProbability`  | 12      | `float`                   | Optional | The probability associated to the location. (This is relevant because multiple locations can be returned for a fault)       |
+| Field                  | Ordinal | Type                      | Label    | Description                                                                                                                    |
+|------------------------|---------|---------------------------|----------|--------------------------------------------------------------------------------------------------------------------------------|
+| `Id`                   | 1       | `string`                  |          | The textual id of the fault.                                                                                                   |
+| `description`          | 2       | `string`                  | Optional | The textual description of the fault.                                                                                          |
+| `kind`                 | 3       | `PhaseConnectedFaultKind` |          | The kind of phase fault.                                                                                                       |
+| `phases`               | 4       | `PhaseCode`               |          | The phases participating in the fault. The fault connections into                                                              |
+| `updatedAt`            | 5       | `int64`                   |          | these phases are further specified by the type of fault. The date and time at which the fault started/located/ended depending  |
+| `faultEventType`       | 6       | `FaultEventType`          |          | on the Fault Status (Unix msec timestamp). The type of the fault event.                                                        |
+| `faultyEquipmentId`    | 7       | `string`                  | Optional | The equipment with the fault.                                                                                                  |
+| `faultCurrent`         | 8       | `float`                   | Optional | The current associated to the fault.                                                                                           |
+| `impactedEquipmentIds` | 9       | `string`                  | Repeated | The set of IDs of equipments impacted by the fault.                                                                            |
+| `usedMeasurementIds`   | 10      | `FaultMeasurement`        | Repeated | The set of measurements used to locate the fault.                                                                              |
+| `measurementTimestamp` | 11      | `int64`                   | Optional | The timestamp of the measurements used to compute the fault                                                                    |
+| `locationProbability`  | 12      | `float`                   | Optional | location. The probability associated to the location. (This is relevant                                                        |
 
 
 
@@ -331,22 +431,29 @@ Headers used in rabbitMQ:
 
 A fault that occurs on an AC line segment at some point along the length.
 
-This message is modeled after [CIM LineFault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/LineFault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.
+This message is modeled after [CIM
+LineFault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/LineFault)
+according to the extensions defined in the
+[fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures)
+feature.
 
-Certain fields of the `LineFault` event message may be populated only in case of event type `FAULT_EVENT_TYPE_LOCATED` (i.e. `lengthFromTerminal1`, `lengthUncertainty`).
+Certain fields of the `LineFault` event message may be populated only in case of
+event type `FAULT_EVENT_TYPE_LOCATED` (i.e. `lengthFromTerminal1`,
+`lengthUncertainty`).
 
 Headers used in rabbitMQ:
 * `id` (string): id of the `Fault`
 * `type` (string): always `LineFault`
-* `producerId` (string): the id of the producer (e.g. a PMU) linked to the notification.
+* `producerId` (string): the id of the producer (e.g. a PMU) linked to the
+notification.
 
 
 
-| Field                 | Ordinal | Type    | Label    | Description                                                                                                                    |
-|-----------------------|---------|---------|----------|--------------------------------------------------------------------------------------------------------------------------------|
-| `fault`               | 1       | `Fault` |          | The base fault message.                                                                                                        |
-| `lengthFromTerminal1` | 2       | `float` | Optional | The length to the place where the fault is located starting from terminal with sequence number 1 of the faulted line segment.  |
-| `lengthUncertainty`   | 3       | `float` | Optional | The +/- uncertainty on the reported length.                                                                                    |
+| Field                 | Ordinal | Type    | Label    | Description                                                                                               |
+|-----------------------|---------|---------|----------|-----------------------------------------------------------------------------------------------------------|
+| `fault`               | 1       | `Fault` |          | The base fault message.                                                                                   |
+| `lengthFromTerminal1` | 2       | `float` | Optional | The length to the place where the fault is located starting from                                          |
+| `lengthUncertainty`   | 3       | `float` | Optional | terminal with sequence number 1 of the faulted line segment. The +/- uncertainty on the reported length.  |
 
 
 
@@ -356,16 +463,23 @@ Headers used in rabbitMQ:
 **FQN**: zaphiro.grid.v1.EquipmentFault
 
 
-A fault applied at the terminal, external to the equipment. This class is not used to specify faults internal to the equipment.
+A fault applied at the terminal, external to the equipment. This class is not
+used to specify faults internal to the equipment.
 
-This message is modeled after [CIM EquipmentFault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/EquipmentFault) according to the extensions defined in the [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures) feature.
+This message is modeled after [CIM
+EquipmentFault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/EquipmentFault)
+according to the extensions defined in the
+[fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures)
+feature.
 
-Certain fields of the `EquipmentFault` event message may be populated only in case of event type `FAULT_EVENT_TYPE_LOCATED` (i.e. `terminalID`).
+Certain fields of the `EquipmentFault` event message may be populated only in
+case of event type `FAULT_EVENT_TYPE_LOCATED` (i.e. `terminalID`).
 
 Headers used in rabbitMQ:
 * `id` (string): id of the `Fault`
 * `type` (string): always `EquipmentFault`
-* `producerId` (string): the id of the producer (e.g. a PMU) linked to the notification.
+* `producerId` (string): the id of the producer (e.g. a PMU) linked to the
+notification.
 
 
 
@@ -384,10 +498,10 @@ Headers used in rabbitMQ:
 
 
 
-| Field           | Ordinal | Type     | Label | Description                                                                   |
-|-----------------|---------|----------|-------|-------------------------------------------------------------------------------|
-| `positiveSign`  | 1       | `bool`   |       | The sign to be used for the measurement (`true` positive, `false` negative).  |
-| `measurementID` | 2       | `string` |       | The ID of a measurement used to locate the fault.                             |
+| Field           | Ordinal | Type     | Label | Description                                                                     |
+|-----------------|---------|----------|-------|---------------------------------------------------------------------------------|
+| `positiveSign`  | 1       | `bool`   |       | The sign to be used for the measurement (`true`                                 |
+| `measurementID` | 2       | `string` |       | positive, `false` negative). The ID of a measurement used to locate the fault.  |
 
 
 

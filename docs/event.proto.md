@@ -100,6 +100,7 @@ direction LR
 %% * `eventType` (string): the specific type of `Event`, this is required in
 %% addition to `type` for de-serialization of the messages.
 %% * `sourceId` (string): the id of the source (e.g. a PMU) that generated the
+%% * `sourceType` (string): the Event source type
 %% event.
 %% * `timestampId` (int64): related measurement Unix msec timestamp (if any)
 %% 
@@ -129,6 +130,7 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 * `eventType` (string): the specific type of `Event`, this is required in
 addition to `type` for de-serialization of the messages.
 * `sourceId` (string): the id of the source (e.g. a PMU) that generated the
+* `sourceType` (string): the Event source type
 event.
 * `timestampId` (int64): related measurement Unix msec timestamp (if any)
 
