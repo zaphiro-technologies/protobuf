@@ -107,21 +107,16 @@ enum FaultEventType {
   FAULT_EVENT_TYPE_STARTED = 1;     // Fault started
   FAULT_EVENT_TYPE_LOCATED = 2;     // Fault located
   FAULT_EVENT_TYPE_ENDED = 3;       // Fault ended
-  FAULT_EVENT_TYPE_UNKNOWN = 4; // Information available don't allow us to know
-                                // if the Fault is active or complete
+  FAULT_EVENT_TYPE_UNKNOWN = 4; // Information available don't allow us to know if the Fault is active or complete
   FAULT_EVENT_TYPE_UPDATED = 5; // Fault data requires to be updated
 }
 
 enum FaultSourceType {
   FAULT_SOURCE_UNSPECIFIED = 0; // No source type defined
   FAULT_SOURCE_DEVICE = 1; // The source of the fault was a device (e.g. PMU)
-  FAULT_SOURCE_SERVICE =
-      2; // The source of the fault was a service (e.g. state estimator)
-  FAULT_SOURCE_EXTERNAL_SERVICE =
-      3; // The source of the fault was a service external to SynchroGuard
-         // platform (e.g. SCADA)
-  FAULT_SOURCE_TEST_SERVICE =
-      4; // The source of the fault was a service in test mode.
+  FAULT_SOURCE_SERVICE = 2; // The source of the fault was a service (e.g. state estimator)
+  FAULT_SOURCE_EXTERNAL_SERVICE = 3; // The source of the fault was a service external to SynchroGuard platform (e.g. SCADA)
+  FAULT_SOURCE_TEST_SERVICE = 4; // The source of the fault was a service in test mode.
 }
 
 /* Abnormal condition causing current flow through conducting equipment, such as
@@ -159,25 +154,15 @@ message Fault {
   string Id = 1;                    // The textual id of the fault.
   optional string description = 2;  // The textual description of the fault.
   PhaseConnectedFaultKind kind = 3; // The kind of phase fault.
-  PhaseCode phases =
-      4; // The phases participating in the fault. The fault connections into
-         // these phases are further specified by the type of fault.
-  int64 updatedAt =
-      5; // The date and time at which the fault started/located/ended depending
-         // on the Fault Status (Unix msec timestamp).
+  PhaseCode phases = 4; // The phases participating in the fault. The fault connections into these phases are further specified by the type of fault.
+  int64 updatedAt = 5; // The date and time at which the fault started/located/ended depending on the Fault Status (Unix msec timestamp).
   FaultEventType faultEventType = 6;     // The type of the fault event.
   optional string faultyEquipmentId = 7; // The equipment with the fault.
   optional float faultCurrent = 8;       // The current associated to the fault.
-  repeated string impactedEquipmentIds =
-      9; // The set of IDs of equipments impacted by the fault.
-  repeated FaultMeasurement usedMeasurementIds =
-      10; // The set of measurements used to locate the fault.
-  optional int64 measurementTimestamp =
-      11; // The timestamp of the measurements used to compute the fault
-          // location.
-  optional float locationProbability =
-      12; // The probability associated to the location. (This is relevant
-          // because multiple locations can be returned for a fault)
+  repeated string impactedEquipmentIds = 9; // The set of IDs of equipments impacted by the fault.
+  repeated FaultMeasurement usedMeasurementIds =  10; // The set of measurements used to locate the fault.
+  optional int64 measurementTimestamp = 11; // The timestamp of the measurements used to compute the fault location.
+  optional float locationProbability = 12; // The probability associated to the location. (This is relevant because multiple locations can be returned for a fault)
 }
 
 /* A fault that occurs on an AC line segment at some point along the length.
@@ -201,11 +186,8 @@ notification.
 
 message LineFault {
   Fault fault = 1; // The base fault message.
-  optional float lengthFromTerminal1 =
-      2; // The length to the place where the fault is located starting from
-         // terminal with sequence number 1 of the faulted line segment.
-  optional float lengthUncertainty =
-      3; // The +/- uncertainty on the reported length.
+  optional float lengthFromTerminal1 = 2; // The length to the place where the fault is located starting from terminal with sequence number 1 of the faulted line segment.
+  optional float lengthUncertainty = 3; // The +/- uncertainty on the reported length.
 }
 
 /*
@@ -230,12 +212,10 @@ notification.
 
 message EquipmentFault {
   Fault fault = 1; // The base fault message.
-  optional string terminalID =
-      2; // The terminal connecting to the bus to which the fault is applied.
+  optional string terminalID = 2; // The terminal connecting to the bus to which the fault is applied.
 }
 
 message FaultMeasurement {
-  bool positiveSign = 1;    // The sign to be used for the measurement (`true`
-                            // positive, `false` negative).
+  bool positiveSign = 1;    // The sign to be used for the measurement (`true` positive, `false` negative).
   string measurementID = 2; // The ID of a measurement used to locate the fault.
 }

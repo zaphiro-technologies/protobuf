@@ -46,7 +46,7 @@ const (
 	EventStatus_EVENT_STATUS_STARTED     EventStatus = 1 // Event started
 	EventStatus_EVENT_STATUS_IN_PROGRESS EventStatus = 2 // Event is still active
 	EventStatus_EVENT_STATUS_ENDED       EventStatus = 3 // Event ended
-	EventStatus_EVENT_STATUS_UNKNOWN     EventStatus = 4 // Information available don't allow us to know if
+	EventStatus_EVENT_STATUS_UNKNOWN     EventStatus = 4 // Information available don't allow us to know if the even is active or complete
 )
 
 // Enum value maps for EventStatus.
@@ -100,9 +100,8 @@ const (
 	EventSourceType_EVENT_SOURCE_UNSPECIFIED      EventSourceType = 0 // No source type defined
 	EventSourceType_EVENT_SOURCE_DEVICE           EventSourceType = 1 // The source of the event was a device (e.g. PMU)
 	EventSourceType_EVENT_SOURCE_SERVICE          EventSourceType = 2 // The source of the event was a service (e.g. state estimator)
-	EventSourceType_EVENT_SOURCE_EXTERNAL_SERVICE EventSourceType = 3 // The source of the event was a service external to SynchroGuard
-	// platform (e.g. SCADA)
-	EventSourceType_EVENT_SOURCE_TEST_SERVICE EventSourceType = 4 // The source of the event was a service in test mode.
+	EventSourceType_EVENT_SOURCE_EXTERNAL_SERVICE EventSourceType = 3 // The source of the event was a service external to SynchroGuard platform (e.g. SCADA)
+	EventSourceType_EVENT_SOURCE_TEST_SERVICE     EventSourceType = 4 // The source of the event was a service in test mode.
 )
 
 // Enum value maps for EventSourceType.
@@ -155,14 +154,13 @@ type Event struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id         string          `protobuf:"bytes,1,opt,name=Id,proto3"                                               json:"Id,omitempty"`         // The uuid of the event.
-	SourceId   string          `protobuf:"bytes,2,opt,name=sourceId,proto3"                                         json:"sourceId,omitempty"`   // The id of the source (e.g. a PMU) that generated the event.
+	Id         string          `protobuf:"bytes,1,opt,name=Id,proto3" json:"Id,omitempty"`                                                       // The uuid of the event.
+	SourceId   string          `protobuf:"bytes,2,opt,name=sourceId,proto3" json:"sourceId,omitempty"`                                           // The id of the source (e.g. a PMU) that generated the event.
 	SourceType EventSourceType `protobuf:"varint,3,opt,name=sourceType,proto3,enum=zaphiro.grid.v1.EventSourceType" json:"sourceType,omitempty"` // The type of data see `DataType` enum.
-	OccurredAt int64           `protobuf:"varint,4,opt,name=occurredAt,proto3"                                      json:"occurredAt,omitempty"` // The time of occurency of the event (Unix msec
-	// timestamp) usually is the same value as timestampId.
-	DetectedAt *int64       `protobuf:"varint,5,opt,name=detectedAt,proto3,oneof"                                json:"detectedAt,omitempty"` // The time of detection of the event (Unix msec timestamp).
-	Message    string       `protobuf:"bytes,6,opt,name=message,proto3"                                          json:"message,omitempty"`    // Event message.
-	Status     *EventStatus `protobuf:"varint,7,opt,name=status,proto3,enum=zaphiro.grid.v1.EventStatus,oneof"   json:"status,omitempty"`     // The status of the event.
+	OccurredAt int64           `protobuf:"varint,4,opt,name=occurredAt,proto3" json:"occurredAt,omitempty"`                                      // The time of occurency of the event (Unix msec timestamp) usually is the same value as timestampId.
+	DetectedAt *int64          `protobuf:"varint,5,opt,name=detectedAt,proto3,oneof" json:"detectedAt,omitempty"`                                // The time of detection of the event (Unix msec timestamp).
+	Message    string          `protobuf:"bytes,6,opt,name=message,proto3" json:"message,omitempty"`                                             // Event message.
+	Status     *EventStatus    `protobuf:"varint,7,opt,name=status,proto3,enum=zaphiro.grid.v1.EventStatus,oneof" json:"status,omitempty"`       // The status of the event.
 }
 
 func (x *Event) Reset() {
@@ -301,9 +299,7 @@ var (
 
 func file_zaphiro_grid_v1_event_proto_rawDescGZIP() []byte {
 	file_zaphiro_grid_v1_event_proto_rawDescOnce.Do(func() {
-		file_zaphiro_grid_v1_event_proto_rawDescData = protoimpl.X.CompressGZIP(
-			file_zaphiro_grid_v1_event_proto_rawDescData,
-		)
+		file_zaphiro_grid_v1_event_proto_rawDescData = protoimpl.X.CompressGZIP(file_zaphiro_grid_v1_event_proto_rawDescData)
 	})
 	return file_zaphiro_grid_v1_event_proto_rawDescData
 }
