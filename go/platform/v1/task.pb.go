@@ -18,11 +18,9 @@
 // 	protoc        (unknown)
 // source: zaphiro/platform/v1/task.proto
 
-// <!-- markdownlint-disable -->
+//
+//<!-- markdownlint-disable -->
 //Messages to support coordination among processes/services in the platform.
-//At the time being this is a proof of concept. Different changes may occurs
-//when we actually start to use the event driven approach to coordinate
-//services.
 
 package v1
 
