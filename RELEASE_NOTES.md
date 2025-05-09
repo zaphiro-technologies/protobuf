@@ -1,8 +1,10 @@
 # ProtoBuf Release Notes
 
-## 0.0.13-dev - 2025-05-08
+## 0.0.13-dev - 2025-05-09
 
-- no changes
+### Dependencies
+
+- Bump golangci/golangci-lint-action from 7 to 8 (PR #95 by @dependabot[bot])
 
 ## 0.0.12 - 2025-05-08
 
