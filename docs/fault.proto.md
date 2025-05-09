@@ -267,7 +267,7 @@ direction LR
 %% * `type` (string): always `Fault`
 %% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the
 %% notification.
-%% * `sourceType` (string): the Fault source type
+%% * `sourceType` (string): the Fault source type. cf enum EventSourceType
 %% 
 
 class Fault {
@@ -313,6 +313,7 @@ direction LR
 %% * `type` (string): always `LineFault`
 %% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the
 %% notification.
+%% * `sourceType` (string): the Fault source type. cf enum EventSourceType
 %% 
 
 class LineFault {
@@ -347,6 +348,7 @@ direction LR
 %% * `type` (string): always `EquipmentFault`
 %% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the
 %% notification.
+%% * `sourceType` (string): the Fault source type. cf enum EventSourceType
 %% 
 
 class EquipmentFault {
@@ -403,7 +405,7 @@ Headers used in rabbitMQ:
 * `type` (string): always `Fault`
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the
 notification.
-* `sourceType` (string): the Fault source type
+* `sourceType` (string): the Fault source type. cf enum EventSourceType
 
 
 
@@ -446,6 +448,7 @@ Headers used in rabbitMQ:
 * `type` (string): always `LineFault`
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the
 notification.
+* `sourceType` (string): the Fault source type. cf enum EventSourceType
 
 
 
@@ -480,6 +483,7 @@ Headers used in rabbitMQ:
 * `type` (string): always `EquipmentFault`
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the
 notification.
+* `sourceType` (string): the Fault source type. cf enum EventSourceType
 
 
 

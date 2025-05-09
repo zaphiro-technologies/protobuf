@@ -47,7 +47,8 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 * `type` (string): always `Event` - used for routing.
 * `eventType` (string): the specific type of `Event`, this is required in
 addition to `type` for de-serialization of the messages.
-* `sourceId` (string): the id of the source (e.g. a PMU) that generated the
+* `sourceId` (string): DEPRECATED: use: producerId. the id of the source (e.g. a PMU) that generated the event
+* `producerId` (string): the id of the producer (e.g. a PMU) that generated the event
 * `sourceType` (string): the Event source type
 event.
 * `timestampId` (int64): related measurement Unix msec timestamp (if any)
@@ -55,8 +56,8 @@ event.
 
 message Event {
   string Id = 1; // The uuid of the event.
-  string sourceId = 2; // The id of the source (e.g. a PMU) that generated the event.
-  EventSourceType sourceType = 3; // The type of data see `DataType` enum.
+  string sourceId = 2 [deprecated = true]; // The id of the source (e.g. a PMU) that generated the event.
+  EventSourceType sourceType = 3 [deprecated = true]; // The type of data see `DataType` enum.
   int64 occurredAt = 4; // The time of occurency of the event (Unix msec timestamp) usually is the same value as timestampId.
   optional int64 detectedAt = 5; // The time of detection of the event (Unix msec timestamp).
   string message = 6;              // Event message.

@@ -30,7 +30,10 @@ Headers used in rabbitMQ:
 * `type`: always `Event` - used for routing.
 * `eventType`: the specific type of `DeviceEvent`, this is required in addition 
   to `type` for de-serialization of the messages.
-* `sourceId`: the id of the source (e.g. a PMU) that generated the event.
+* `sourceId` (string): DEPRECATED: use: producerId. the id of the source (e.g. a PMU) that generated the event
+* `producerId` (string): the id of the producer (e.g. a PMU) that generated the event
+* `sourceType` (string): the Event source type
+event. cf enum EventSourceType
 * `timestampId`: related measurement Unix msec timestamp (if any)
 */
 

@@ -147,7 +147,7 @@ Headers used in rabbitMQ:
 * `type` (string): always `Fault`
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the
 notification.
-* `sourceType` (string): the Fault source type
+* `sourceType` (string): the Fault source type. cf enum EventSourceType
 */
 
 message Fault {
@@ -182,6 +182,7 @@ Headers used in rabbitMQ:
 * `type` (string): always `LineFault`
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the
 notification.
+* `sourceType` (string): the Fault source type. cf enum EventSourceType
 */
 
 message LineFault {
@@ -208,6 +209,7 @@ Headers used in rabbitMQ:
 * `type` (string): always `EquipmentFault`
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the
 notification.
+* `sourceType` (string): the Fault source type. cf enum EventSourceType
 */
 
 message EquipmentFault {
