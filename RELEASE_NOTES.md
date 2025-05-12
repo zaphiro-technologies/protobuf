@@ -1,10 +1,15 @@
 # ProtoBuf Release Notes
 
-## 0.0.13-dev - 2025-05-09
+## 0.0.13-dev - 2025-05-12
 
 ### Dependencies
 
 - Bump golangci/golangci-lint-action from 7 to 8 (PR #95 by @dependabot[bot])
+
+### Refactoring
+
+- `Event` message: deprecate `sourceId` and `sourceType` and move to headers (PR
+  #100 by @chicco785)
 
 ## 0.0.12 - 2025-05-08
 

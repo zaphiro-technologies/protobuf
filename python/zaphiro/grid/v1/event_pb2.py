@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1bzaphiro/grid/v1/event.proto\x12\x0fzaphiro.grid.v1\"\xa9\x02\n\x05\x45vent\x12\x0e\n\x02Id\x18\x01 \x01(\tR\x02Id\x12\x1a\n\x08sourceId\x18\x02 \x01(\tR\x08sourceId\x12@\n\nsourceType\x18\x03 \x01(\x0e\x32 .zaphiro.grid.v1.EventSourceTypeR\nsourceType\x12\x1e\n\noccurredAt\x18\x04 \x01(\x03R\noccurredAt\x12#\n\ndetectedAt\x18\x05 \x01(\x03H\x00R\ndetectedAt\x88\x01\x01\x12\x18\n\x07message\x18\x06 \x01(\tR\x07message\x12\x39\n\x06status\x18\x07 \x01(\x0e\x32\x1c.zaphiro.grid.v1.EventStatusH\x01R\x06status\x88\x01\x01\x42\r\n\x0b_detectedAtB\t\n\x07_status*\x95\x01\n\x0b\x45ventStatus\x12\x1c\n\x18\x45VENT_STATUS_UNSPECIFIED\x10\x00\x12\x18\n\x14\x45VENT_STATUS_STARTED\x10\x01\x12\x1c\n\x18\x45VENT_STATUS_IN_PROGRESS\x10\x02\x12\x16\n\x12\x45VENT_STATUS_ENDED\x10\x03\x12\x18\n\x14\x45VENT_STATUS_UNKNOWN\x10\x04*\xa4\x01\n\x0f\x45ventSourceType\x12\x1c\n\x18\x45VENT_SOURCE_UNSPECIFIED\x10\x00\x12\x17\n\x13\x45VENT_SOURCE_DEVICE\x10\x01\x12\x18\n\x14\x45VENT_SOURCE_SERVICE\x10\x02\x12!\n\x1d\x45VENT_SOURCE_EXTERNAL_SERVICE\x10\x03\x12\x1d\n\x19\x45VENT_SOURCE_TEST_SERVICE\x10\x04\x42\x0bZ\t./grid/v1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1bzaphiro/grid/v1/event.proto\x12\x0fzaphiro.grid.v1\"\xb1\x02\n\x05\x45vent\x12\x0e\n\x02Id\x18\x01 \x01(\tR\x02Id\x12\x1e\n\x08sourceId\x18\x02 \x01(\tB\x02\x18\x01R\x08sourceId\x12\x44\n\nsourceType\x18\x03 \x01(\x0e\x32 .zaphiro.grid.v1.EventSourceTypeB\x02\x18\x01R\nsourceType\x12\x1e\n\noccurredAt\x18\x04 \x01(\x03R\noccurredAt\x12#\n\ndetectedAt\x18\x05 \x01(\x03H\x00R\ndetectedAt\x88\x01\x01\x12\x18\n\x07message\x18\x06 \x01(\tR\x07message\x12\x39\n\x06status\x18\x07 \x01(\x0e\x32\x1c.zaphiro.grid.v1.EventStatusH\x01R\x06status\x88\x01\x01\x42\r\n\x0b_detectedAtB\t\n\x07_status*\x95\x01\n\x0b\x45ventStatus\x12\x1c\n\x18\x45VENT_STATUS_UNSPECIFIED\x10\x00\x12\x18\n\x14\x45VENT_STATUS_STARTED\x10\x01\x12\x1c\n\x18\x45VENT_STATUS_IN_PROGRESS\x10\x02\x12\x16\n\x12\x45VENT_STATUS_ENDED\x10\x03\x12\x18\n\x14\x45VENT_STATUS_UNKNOWN\x10\x04*\xa4\x01\n\x0f\x45ventSourceType\x12\x1c\n\x18\x45VENT_SOURCE_UNSPECIFIED\x10\x00\x12\x17\n\x13\x45VENT_SOURCE_DEVICE\x10\x01\x12\x18\n\x14\x45VENT_SOURCE_SERVICE\x10\x02\x12!\n\x1d\x45VENT_SOURCE_EXTERNAL_SERVICE\x10\x03\x12\x1d\n\x19\x45VENT_SOURCE_TEST_SERVICE\x10\x04\x42\x0bZ\t./grid/v1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -22,10 +22,14 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'zaphiro.grid.v1.event_pb2',
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z\t./grid/v1'
-  _globals['_EVENTSTATUS']._serialized_start=349
-  _globals['_EVENTSTATUS']._serialized_end=498
-  _globals['_EVENTSOURCETYPE']._serialized_start=501
-  _globals['_EVENTSOURCETYPE']._serialized_end=665
+  _globals['_EVENT'].fields_by_name['sourceId']._loaded_options = None
+  _globals['_EVENT'].fields_by_name['sourceId']._serialized_options = b'\030\001'
+  _globals['_EVENT'].fields_by_name['sourceType']._loaded_options = None
+  _globals['_EVENT'].fields_by_name['sourceType']._serialized_options = b'\030\001'
+  _globals['_EVENTSTATUS']._serialized_start=357
+  _globals['_EVENTSTATUS']._serialized_end=506
+  _globals['_EVENTSOURCETYPE']._serialized_start=509
+  _globals['_EVENTSOURCETYPE']._serialized_end=673
   _globals['_EVENT']._serialized_start=49
-  _globals['_EVENT']._serialized_end=346
+  _globals['_EVENT']._serialized_end=354
 # @@protoc_insertion_point(module_scope)

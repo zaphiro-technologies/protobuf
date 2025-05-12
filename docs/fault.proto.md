@@ -100,14 +100,14 @@ PhaseCode](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base
 The collection of Fault Event Types defined so far.
 
 
-| Name                           | Ordinal | Description                                                           |
-|--------------------------------|---------|-----------------------------------------------------------------------|
-| `FAULT_EVENT_TYPE_UNSPECIFIED` | 0       | No status defined                                                     |
-| `FAULT_EVENT_TYPE_STARTED`     | 1       | Fault started                                                         |
-| `FAULT_EVENT_TYPE_LOCATED`     | 2       | Fault located                                                         |
-| `FAULT_EVENT_TYPE_ENDED`       | 3       | Fault ended                                                           |
-| `FAULT_EVENT_TYPE_UNKNOWN`     | 4       | Information available don't allow us to know                          |
-| `FAULT_EVENT_TYPE_UPDATED`     | 5       | if the Fault is active or complete Fault data requires to be updated  |
+| Name                           | Ordinal | Description                                                                      |
+|--------------------------------|---------|----------------------------------------------------------------------------------|
+| `FAULT_EVENT_TYPE_UNSPECIFIED` | 0       | No status defined                                                                |
+| `FAULT_EVENT_TYPE_STARTED`     | 1       | Fault started                                                                    |
+| `FAULT_EVENT_TYPE_LOCATED`     | 2       | Fault located                                                                    |
+| `FAULT_EVENT_TYPE_ENDED`       | 3       | Fault ended                                                                      |
+| `FAULT_EVENT_TYPE_UNKNOWN`     | 4       | Information available don't allow us to know if the Fault is active or complete  |
+| `FAULT_EVENT_TYPE_UPDATED`     | 5       | Fault data requires to be updated                                                |
 
 
 ## Enum: FaultSourceType
@@ -117,13 +117,13 @@ The collection of Fault Event Types defined so far.
 
 
 
-| Name                            | Ordinal | Description                                                                |
-|---------------------------------|---------|----------------------------------------------------------------------------|
-| `FAULT_SOURCE_UNSPECIFIED`      | 0       | No source type defined                                                     |
-| `FAULT_SOURCE_DEVICE`           | 1       | The source of the fault was a device (e.g. PMU)                            |
-| `FAULT_SOURCE_SERVICE`          | 2       | The source of the fault was a service (e.g. state estimator)               |
-| `FAULT_SOURCE_EXTERNAL_SERVICE` | 3       | The source of the fault was a service external to SynchroGuard             |
-| `FAULT_SOURCE_TEST_SERVICE`     | 4       | platform (e.g. SCADA) The source of the fault was a service in test mode.  |
+| Name                            | Ordinal | Description                                                                           |
+|---------------------------------|---------|---------------------------------------------------------------------------------------|
+| `FAULT_SOURCE_UNSPECIFIED`      | 0       | No source type defined                                                                |
+| `FAULT_SOURCE_DEVICE`           | 1       | The source of the fault was a device (e.g. PMU)                                       |
+| `FAULT_SOURCE_SERVICE`          | 2       | The source of the fault was a service (e.g. state estimator)                          |
+| `FAULT_SOURCE_EXTERNAL_SERVICE` | 3       | The source of the fault was a service external to SynchroGuard platform (e.g. SCADA)  |
+| `FAULT_SOURCE_TEST_SERVICE`     | 4       | The source of the fault was a service in test mode.                                   |
 
 
 
@@ -267,7 +267,7 @@ direction LR
 %% * `type` (string): always `Fault`
 %% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the
 %% notification.
-%% * `sourceType` (string): the Fault source type
+%% * `sourceType` (string): the Fault source type. cf enum EventSourceType
 %% 
 
 class Fault {
@@ -313,6 +313,7 @@ direction LR
 %% * `type` (string): always `LineFault`
 %% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the
 %% notification.
+%% * `sourceType` (string): the Fault source type. cf enum EventSourceType
 %% 
 
 class LineFault {
@@ -347,6 +348,7 @@ direction LR
 %% * `type` (string): always `EquipmentFault`
 %% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the
 %% notification.
+%% * `sourceType` (string): the Fault source type. cf enum EventSourceType
 %% 
 
 class EquipmentFault {
@@ -403,24 +405,24 @@ Headers used in rabbitMQ:
 * `type` (string): always `Fault`
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the
 notification.
-* `sourceType` (string): the Fault source type
+* `sourceType` (string): the Fault source type. cf enum EventSourceType
 
 
 
-| Field                  | Ordinal | Type                      | Label    | Description                                                                                                                    |
-|------------------------|---------|---------------------------|----------|--------------------------------------------------------------------------------------------------------------------------------|
-| `Id`                   | 1       | `string`                  |          | The textual id of the fault.                                                                                                   |
-| `description`          | 2       | `string`                  | Optional | The textual description of the fault.                                                                                          |
-| `kind`                 | 3       | `PhaseConnectedFaultKind` |          | The kind of phase fault.                                                                                                       |
-| `phases`               | 4       | `PhaseCode`               |          | The phases participating in the fault. The fault connections into                                                              |
-| `updatedAt`            | 5       | `int64`                   |          | these phases are further specified by the type of fault. The date and time at which the fault started/located/ended depending  |
-| `faultEventType`       | 6       | `FaultEventType`          |          | on the Fault Status (Unix msec timestamp). The type of the fault event.                                                        |
-| `faultyEquipmentId`    | 7       | `string`                  | Optional | The equipment with the fault.                                                                                                  |
-| `faultCurrent`         | 8       | `float`                   | Optional | The current associated to the fault.                                                                                           |
-| `impactedEquipmentIds` | 9       | `string`                  | Repeated | The set of IDs of equipments impacted by the fault.                                                                            |
-| `usedMeasurementIds`   | 10      | `FaultMeasurement`        | Repeated | The set of measurements used to locate the fault.                                                                              |
-| `measurementTimestamp` | 11      | `int64`                   | Optional | The timestamp of the measurements used to compute the fault                                                                    |
-| `locationProbability`  | 12      | `float`                   | Optional | location. The probability associated to the location. (This is relevant                                                        |
+| Field                  | Ordinal | Type                      | Label    | Description                                                                                                                 |
+|------------------------|---------|---------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------|
+| `Id`                   | 1       | `string`                  |          | The textual id of the fault.                                                                                                |
+| `description`          | 2       | `string`                  | Optional | The textual description of the fault.                                                                                       |
+| `kind`                 | 3       | `PhaseConnectedFaultKind` |          | The kind of phase fault.                                                                                                    |
+| `phases`               | 4       | `PhaseCode`               |          | The phases participating in the fault. The fault connections into these phases are further specified by the type of fault.  |
+| `updatedAt`            | 5       | `int64`                   |          | The date and time at which the fault started/located/ended depending on the Fault Status (Unix msec timestamp).             |
+| `faultEventType`       | 6       | `FaultEventType`          |          | The type of the fault event.                                                                                                |
+| `faultyEquipmentId`    | 7       | `string`                  | Optional | The equipment with the fault.                                                                                               |
+| `faultCurrent`         | 8       | `float`                   | Optional | The current associated to the fault.                                                                                        |
+| `impactedEquipmentIds` | 9       | `string`                  | Repeated | The set of IDs of equipments impacted by the fault.                                                                         |
+| `usedMeasurementIds`   | 10      | `FaultMeasurement`        | Repeated | The set of measurements used to locate the fault.                                                                           |
+| `measurementTimestamp` | 11      | `int64`                   | Optional | The timestamp of the measurements used to compute the fault location.                                                       |
+| `locationProbability`  | 12      | `float`                   | Optional | The probability associated to the location. (This is relevant because multiple locations can be returned for a fault)       |
 
 
 
@@ -446,14 +448,15 @@ Headers used in rabbitMQ:
 * `type` (string): always `LineFault`
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the
 notification.
+* `sourceType` (string): the Fault source type. cf enum EventSourceType
 
 
 
-| Field                 | Ordinal | Type    | Label    | Description                                                                                               |
-|-----------------------|---------|---------|----------|-----------------------------------------------------------------------------------------------------------|
-| `fault`               | 1       | `Fault` |          | The base fault message.                                                                                   |
-| `lengthFromTerminal1` | 2       | `float` | Optional | The length to the place where the fault is located starting from                                          |
-| `lengthUncertainty`   | 3       | `float` | Optional | terminal with sequence number 1 of the faulted line segment. The +/- uncertainty on the reported length.  |
+| Field                 | Ordinal | Type    | Label    | Description                                                                                                                    |
+|-----------------------|---------|---------|----------|--------------------------------------------------------------------------------------------------------------------------------|
+| `fault`               | 1       | `Fault` |          | The base fault message.                                                                                                        |
+| `lengthFromTerminal1` | 2       | `float` | Optional | The length to the place where the fault is located starting from terminal with sequence number 1 of the faulted line segment.  |
+| `lengthUncertainty`   | 3       | `float` | Optional | The +/- uncertainty on the reported length.                                                                                    |
 
 
 
@@ -480,6 +483,7 @@ Headers used in rabbitMQ:
 * `type` (string): always `EquipmentFault`
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the
 notification.
+* `sourceType` (string): the Fault source type. cf enum EventSourceType
 
 
 
@@ -498,10 +502,10 @@ notification.
 
 
 
-| Field           | Ordinal | Type     | Label | Description                                                                     |
-|-----------------|---------|----------|-------|---------------------------------------------------------------------------------|
-| `positiveSign`  | 1       | `bool`   |       | The sign to be used for the measurement (`true`                                 |
-| `measurementID` | 2       | `string` |       | positive, `false` negative). The ID of a measurement used to locate the fault.  |
+| Field           | Ordinal | Type     | Label | Description                                                                   |
+|-----------------|---------|----------|-------|-------------------------------------------------------------------------------|
+| `positiveSign`  | 1       | `bool`   |       | The sign to be used for the measurement (`true` positive, `false` negative).  |
+| `measurementID` | 2       | `string` |       | The ID of a measurement used to locate the fault.                             |
 
 
 
