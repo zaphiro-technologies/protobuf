@@ -1,8 +1,10 @@
 # ProtoBuf Release Notes
 
-## 0.0.14-dev - 2025-05-19
+## 0.0.14-dev - 2025-06-17
 
-- no changes
+### Dependencies
+
+- Bump protobuf from 5.26.0 to 5.29.5 (PR #102 by @dependabot[bot])
 
 ## 0.0.13 - 2025-05-12
 
