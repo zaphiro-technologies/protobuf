@@ -1,10 +1,15 @@
 # ProtoBuf Release Notes
 
-## 0.0.14-dev - 2025-06-17
+## 0.0.14-dev - 2025-06-19
 
 ### Dependencies
 
 - Bump protobuf from 5.26.0 to 5.29.5 (PR #102 by @dependabot[bot])
+
+### Refactoring
+
+- Refactor blacklist proto to support blacklisting specific for service (PR #104
+  by @chicco785)
 
 ## 0.0.13 - 2025-05-12
 
