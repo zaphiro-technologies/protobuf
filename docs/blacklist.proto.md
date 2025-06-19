@@ -50,7 +50,7 @@ The measurement id set to be ignored by the real time processing.
 
 | Field                | Ordinal | Type     | Label    | Description                                                                |
 |----------------------|---------|----------|----------|----------------------------------------------------------------------------|
-| `common`             | 1       | `string` | Repeated | The set of measurements to be blacklisted common for all services          |
+| `common`             | 1       | `string` | Repeated | The set of measurements to be blacklisted common to all services           |
 | `fault_locator`      | 2       | `string` | Repeated | The set of measurements to be blacklisted specific for fault locator       |
 | `event_handler`      | 3       | `string` | Repeated | The set of measurements to be blacklisted specific for event handler       |
 | `state_estimator`    | 4       | `string` | Repeated | The set of measurements to be blacklisted specific for state estimator     |
