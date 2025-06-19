@@ -31,7 +31,12 @@ direction LR
 %% The measurement id set to be ignored by the real time processing.
 
 class Blacklist {
-  + List~string~ measurementIds
+  + List~string~ common
+  + List~string~ fault_locator
+  + List~string~ event_handler
+  + List~string~ state_estimator
+  + List~string~ topology_processor
+  + List~string~ storer
 }
 
 ```
@@ -43,9 +48,14 @@ class Blacklist {
 The measurement id set to be ignored by the real time processing.
 
 
-| Field            | Ordinal | Type     | Label    | Description                                |
-|------------------|---------|----------|----------|--------------------------------------------|
-| `measurementIds` | 1       | `string` | Repeated | The set of measurements to be blacklisted  |
+| Field                | Ordinal | Type     | Label    | Description                                                                |
+|----------------------|---------|----------|----------|----------------------------------------------------------------------------|
+| `common`             | 1       | `string` | Repeated | The set of measurements to be blacklisted common to all services           |
+| `fault_locator`      | 2       | `string` | Repeated | The set of measurements to be blacklisted specific for fault locator       |
+| `event_handler`      | 3       | `string` | Repeated | The set of measurements to be blacklisted specific for event handler       |
+| `state_estimator`    | 4       | `string` | Repeated | The set of measurements to be blacklisted specific for state estimator     |
+| `topology_processor` | 5       | `string` | Repeated | The set of measurements to be blacklisted specific for topology processor  |
+| `storer`             | 6       | `string` | Repeated | The set of measurements to be blacklisted specific for storer              |
 
 
 
