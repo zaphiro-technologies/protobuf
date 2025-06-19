@@ -1,6 +1,10 @@
 # ProtoBuf Release Notes
 
-## 0.0.14-dev - 2025-06-19
+## 0.0.15-dev - 2025-06-19
+
+- no changes
+
+## 0.0.14 - 2025-06-19
 
 ### Dependencies
 
