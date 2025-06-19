@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#zaphiro/platform/v1/blacklist.proto\x12\x13zaphiro.platform.v1\"3\n\tBlacklist\x12&\n\x0emeasurementIds\x18\x01 \x03(\tR\x0emeasurementIdsB\x0fZ\r./platform/v1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#zaphiro/platform/v1/blacklist.proto\x12\x13zaphiro.platform.v1\"\xdd\x01\n\tBlacklist\x12\x16\n\x06\x63ommon\x18\x01 \x03(\tR\x06\x63ommon\x12#\n\rfault_locator\x18\x02 \x03(\tR\x0c\x66\x61ultLocator\x12#\n\revent_handler\x18\x03 \x03(\tR\x0c\x65ventHandler\x12\'\n\x0fstate_estimator\x18\x04 \x03(\tR\x0estateEstimator\x12-\n\x12topology_processor\x18\x05 \x03(\tR\x11topologyProcessor\x12\x16\n\x06storer\x18\x06 \x03(\tR\x06storerB\x0fZ\r./platform/v1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -22,6 +22,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'zaphiro.platform.v1.blackli
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z\r./platform/v1'
-  _globals['_BLACKLIST']._serialized_start=60
-  _globals['_BLACKLIST']._serialized_end=111
+  _globals['_BLACKLIST']._serialized_start=61
+  _globals['_BLACKLIST']._serialized_end=282
 # @@protoc_insertion_point(module_scope)
