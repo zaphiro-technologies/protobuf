@@ -25,10 +25,10 @@ option go_package = "./platform/v1";
 //The measurement id set to be ignored by the real time processing.
 
 message Blacklist {
-    repeated string common = 1; //The set of measurements to be blacklisted for all services
-    repeated string fault_locator = 2; //The set of measurements to be blacklisted for fault locator
-    repeated string event_handler = 3; //The set of measurements to be blacklisted for event handler
-    repeated string state_estimator = 4; //The set of measurements to be blacklisted for state estimator
-    repeated string topology_processor = 5; //The set of measurements to be blacklisted for topology processor
-    repeated string storer = 6; //The set of measurements to be blacklisted for storer
+    repeated string common = 1; //The set of measurements to be blacklisted common for all services
+    repeated string fault_locator = 2; //The set of measurements to be blacklisted specific for fault locator
+    repeated string event_handler = 3; //The set of measurements to be blacklisted specific for event handler
+    repeated string state_estimator = 4; //The set of measurements to be blacklisted specific for state estimator
+    repeated string topology_processor = 5; //The set of measurements to be blacklisted specific for topology processor
+    repeated string storer = 6; //The set of measurements to be blacklisted specific for storer
 }

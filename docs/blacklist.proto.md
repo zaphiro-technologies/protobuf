@@ -48,14 +48,14 @@ class Blacklist {
 The measurement id set to be ignored by the real time processing.
 
 
-| Field                | Ordinal | Type     | Label    | Description                                                       |
-|----------------------|---------|----------|----------|-------------------------------------------------------------------|
-| `common`             | 1       | `string` | Repeated | The set of measurements to be blacklisted for all services        |
-| `fault_locator`      | 2       | `string` | Repeated | The set of measurements to be blacklisted for fault locator       |
-| `event_handler`      | 3       | `string` | Repeated | The set of measurements to be blacklisted for event handler       |
-| `state_estimator`    | 4       | `string` | Repeated | The set of measurements to be blacklisted for state estimator     |
-| `topology_processor` | 5       | `string` | Repeated | The set of measurements to be blacklisted for topology processor  |
-| `storer`             | 6       | `string` | Repeated | The set of measurements to be blacklisted for storer              |
+| Field                | Ordinal | Type     | Label    | Description                                                                |
+|----------------------|---------|----------|----------|----------------------------------------------------------------------------|
+| `common`             | 1       | `string` | Repeated | The set of measurements to be blacklisted common for all services          |
+| `fault_locator`      | 2       | `string` | Repeated | The set of measurements to be blacklisted specific for fault locator       |
+| `event_handler`      | 3       | `string` | Repeated | The set of measurements to be blacklisted specific for event handler       |
+| `state_estimator`    | 4       | `string` | Repeated | The set of measurements to be blacklisted specific for state estimator     |
+| `topology_processor` | 5       | `string` | Repeated | The set of measurements to be blacklisted specific for topology processor  |
+| `storer`             | 6       | `string` | Repeated | The set of measurements to be blacklisted specific for storer              |
 
 
 
