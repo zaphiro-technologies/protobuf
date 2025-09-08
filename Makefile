@@ -12,6 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+PYPROJECT_FILE ?= pyproject.toml
+
 all: proto-lint generate lint test docs
 
 .PHONY: lint
@@ -94,6 +96,47 @@ example-measurements-go:
 .PHONY: example-faults-go
 example-faults-go:
 	cd examples/go/faults && go run main.go
+
+.PHONY: release
+release: validate-tag check-version update-pyproject
+	@echo "✅ Version update completed successfully!"
+
+# Validate that TAG parameter is provided and follows version format
+validate-tag:
+	@if [ -z "$(TAG)" ]; then \
+		echo "❌ Error: TAG parameter is required"; \
+		echo "Usage: make update-version TAG=1.2.3"; \
+		exit 1; \
+	fi
+	@echo "Validating tag format: $(TAG)"
+	@if ! echo "$(TAG)" | grep -E "^[0-9]+\.[0-9]+\.[0-9]+.*$$" > /dev/null; then \
+		echo "❌ Tag $(TAG) does not follow version format (*.*.*)"; \
+		echo "Skipping version file update."; \
+		exit 1; \
+	fi
+	@echo "Valid version tag detected: $(TAG)"
+
+
+# Update version in pyproject.toml
+update-pyproject: validate-tag
+	@echo "Updating version in $(PYPROJECT_FILE)"
+	@if [ ! -f "$(PYPROJECT_FILE)" ]; then \
+		echo "⚠️  Warning: $(PYPROJECT_FILE) not found, skipping pyproject.toml update"; \
+	else \
+		sed -i 's/version = ".*"/version = "$(TAG)"/g' $(PYPROJECT_FILE); \
+		echo "✅ Updated $(PYPROJECT_FILE) with version $(TAG)"; \
+		grep "version = " $(PYPROJECT_FILE) || true; \
+	fi
+
+# Check current versions
+check-version:
+	@echo "🔍 Current version information:"
+	@if [ -f "$(PYPROJECT_FILE)" ]; then \
+		echo "$(PYPROJECT_FILE):"; \
+		grep "version = " $(PYPROJECT_FILE) || echo "No version found in $(PYPROJECT_FILE)"; \
+	else \
+		echo "$(PYPROJECT_FILE): not found"; \
+	fi
 
 # Mandatory
 ci-test: cov
