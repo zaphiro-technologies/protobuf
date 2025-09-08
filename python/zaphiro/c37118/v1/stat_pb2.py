@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1czaphiro/c37118/v1/stat.proto\x12\x11zaphiro.c37118.v1\"\xb8\x02\n\x04Stat\x12\x1e\n\nmeasuredAt\x18\x01 \x01(\x03R\nmeasuredAt\x12\x14\n\x05\x65rror\x18\x02 \x01(\rR\x05\x65rror\x12\x12\n\x04sync\x18\x03 \x01(\x08R\x04sync\x12\x18\n\x07sorting\x18\x04 \x01(\x08R\x07sorting\x12\x18\n\x07trigger\x18\x05 \x01(\x08R\x07trigger\x12\"\n\x0c\x63onfigChange\x18\x06 \x01(\x08R\x0c\x63onfigChange\x12\"\n\x0c\x64\x61taModified\x18\x07 \x01(\x08R\x0c\x64\x61taModified\x12 \n\x0btimeQuality\x18\x08 \x01(\rR\x0btimeQuality\x12\"\n\x0cunlockedTime\x18\t \x01(\rR\x0cunlockedTime\x12$\n\rtriggerReason\x18\n \x01(\rR\rtriggerReasonB\rZ\x0b./c37118/v1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1czaphiro/c37118/v1/stat.proto\x12\x11zaphiro.c37118.v1\"\xd2\x02\n\x04Stat\x12\x1e\n\nmeasuredAt\x18\x01 \x01(\x03R\nmeasuredAt\x12\x14\n\x05\x65rror\x18\x02 \x01(\rR\x05\x65rror\x12\x12\n\x04sync\x18\x03 \x01(\x08R\x04sync\x12\x18\n\x07sorting\x18\x04 \x01(\x08R\x07sorting\x12\x18\n\x07trigger\x18\x05 \x01(\x08R\x07trigger\x12\"\n\x0c\x63onfigChange\x18\x06 \x01(\x08R\x0c\x63onfigChange\x12\"\n\x0c\x64\x61taModified\x18\x07 \x01(\x08R\x0c\x64\x61taModified\x12 \n\x0btimeQuality\x18\x08 \x01(\rR\x0btimeQuality\x12\"\n\x0cunlockedTime\x18\t \x01(\rR\x0cunlockedTime\x12$\n\rtriggerReason\x18\n \x01(\rR\rtriggerReason\x12\x18\n\x07latency\x18\x0b \x01(\x03R\x07latencyB\rZ\x0b./c37118/v1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -23,5 +23,5 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z\013./c37118/v1'
   _globals['_STAT']._serialized_start=52
-  _globals['_STAT']._serialized_end=364
+  _globals['_STAT']._serialized_end=390
 # @@protoc_insertion_point(module_scope)
