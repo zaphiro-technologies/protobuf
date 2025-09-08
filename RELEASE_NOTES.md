@@ -4,9 +4,10 @@
 
 ### Dependencies
 
+- Bump actions/checkout from 4 to 5 (PR #106 by @dependabot[bot])
 - Bump google.golang.org/protobuf from 1.36.6 to 1.36.7 (PR #105 by
   @dependabot[bot])
-- Bump actions/checkout from 4 to 5 (PR #106 by @dependabot[bot])
+- Bump actions/setup-go from 5 to 6 (PR #109 by @dependabot[bot])
 
 ## 0.0.14 - 2025-06-19
 
