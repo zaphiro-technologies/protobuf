@@ -21,11 +21,11 @@ jobs:
   proto:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         if: ${{ startsWith(github.event_name, 'pull_request') }}
         with:
           ref: ${{github.event.pull_request.head.ref}}
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         if: ${{ !startsWith(github.event_name, 'pull_request') }}
       - run: git config --global url.https://$GH_ACCESS_TOKEN@github.com/.insteadOf https://github.com/
       - uses: bufbuild/buf-setup-action@v1
@@ -33,7 +33,7 @@ jobs:
       # - uses: bufbuild/buf-breaking-action@v1
       #   with:
       #     # The 'main' branch of the GitHub repository that defines the module.
-      #     against: "https://github.com/${GITHUB_REPOSITORY}.git#branch=main"   
+      #     against: "https://github.com/${GITHUB_REPOSITORY}.git#branch=main"
       #     input: "proto"
       - name: Set up Go
         uses: actions/setup-go@v5
