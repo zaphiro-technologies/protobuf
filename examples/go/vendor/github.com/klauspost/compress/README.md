@@ -51,7 +51,6 @@ This package provides various compression algorithms.
 
 - Dec 1st, 2023 -
   [v1.17.4](https://github.com/klauspost/compress/releases/tag/v1.17.4)
-
   - huff0: Speed up symbol counting by @greatroar in
     https://github.com/klauspost/compress/pull/887
   - huff0: Remove byteReader by @greatroar in
@@ -65,7 +64,6 @@ This package provides various compression algorithms.
 
 - Nov 15th, 2023 -
   [v1.17.3](https://github.com/klauspost/compress/releases/tag/v1.17.3)
-
   - fse: Fix max header size https://github.com/klauspost/compress/pull/881
   - zstd: Improve better/best compression
     https://github.com/klauspost/compress/pull/877
@@ -74,13 +72,11 @@ This package provides various compression algorithms.
 
 - Oct 22nd, 2023 -
   [v1.17.2](https://github.com/klauspost/compress/releases/tag/v1.17.2)
-
   - zstd: Fix rare _CORRUPTION_ output in "best" mode. See
     https://github.com/klauspost/compress/pull/876
 
 - Oct 14th, 2023 -
   [v1.17.1](https://github.com/klauspost/compress/releases/tag/v1.17.1)
-
   - s2: Fix S2 "best" dictionary wrong encoding by @klauspost in
     https://github.com/klauspost/compress/pull/871
   - flate: Reduce allocations in decompressor and minor code improvements by
@@ -107,7 +103,6 @@ This package provides various compression algorithms.
 
 - July 1st, 2023 -
   [v1.16.7](https://github.com/klauspost/compress/releases/tag/v1.16.7)
-
   - zstd: Fix default level first dictionary encode
     https://github.com/klauspost/compress/pull/829
   - s2: add GetBufferCapacity() method by @GiedriusS in
@@ -115,7 +110,6 @@ This package provides various compression algorithms.
 
 - June 13, 2023 -
   [v1.16.6](https://github.com/klauspost/compress/releases/tag/v1.16.6)
-
   - zstd: correctly ignore WithEncoderPadding(1) by @ianlancetaylor in
     https://github.com/klauspost/compress/pull/806
   - zstd: Add amd64 match length assembly
@@ -127,7 +121,6 @@ This package provides various compression algorithms.
 
 - Apr 16, 2023 -
   [v1.16.5](https://github.com/klauspost/compress/releases/tag/v1.16.5)
-
   - zstd: readByte needs to use io.ReadFull by @jnoxon in
     https://github.com/klauspost/compress/pull/802
   - gzip: Fix WriterTo after initial read
@@ -135,7 +128,6 @@ This package provides various compression algorithms.
 
 - Apr 5, 2023 -
   [v1.16.4](https://github.com/klauspost/compress/releases/tag/v1.16.4)
-
   - zstd: Improve zstd best efficiency by @greatroar and @klauspost in
     https://github.com/klauspost/compress/pull/784
   - zstd: Respect WithAllLitEntropyCompression
@@ -154,7 +146,6 @@ This package provides various compression algorithms.
 
 - Mar 13, 2023 -
   [v1.16.1](https://github.com/klauspost/compress/releases/tag/v1.16.1)
-
   - zstd: Speed up + improve best encoder by @greatroar in
     https://github.com/klauspost/compress/pull/776
   - gzhttp: Add optional
@@ -193,7 +184,6 @@ decoding. https://github.com/klauspost/compress/pull/746
 	* gzhttp: Add SuffixETag() and DropETag() options to prevent ETag collisions on compressed responses by @willbicks in https://github.com/klauspost/compress/pull/740
 
 - Jan 3rd, 2023 (v1.15.14)
-
   - flate: Improve speed in big stateless blocks
     https://github.com/klauspost/compress/pull/718
   - zstd: Minor speed tweaks by @greatroar in
@@ -205,7 +195,6 @@ decoding. https://github.com/klauspost/compress/pull/746
     https://github.com/klauspost/compress/pull/723
 
 - Dec 11, 2022 (v1.15.13)
-
   - zstd: Add
     [MaxEncodedSize](https://pkg.go.dev/github.com/klauspost/compress@v1.15.13/zstd#Encoder.MaxEncodedSize)
     to encoder https://github.com/klauspost/compress/pull/691
@@ -223,13 +212,11 @@ decoding. https://github.com/klauspost/compress/pull/746
     https://github.com/klauspost/compress/pull/708
 
 - Oct 26, 2022 (v1.15.12)
-
   - zstd: Tweak decoder allocs. https://github.com/klauspost/compress/pull/680
   - gzhttp: Always delete `HeaderNoCompression`
     https://github.com/klauspost/compress/pull/683
 
 - Sept 26, 2022 (v1.15.11)
-
   - flate: Improve level 1-3 compression
     https://github.com/klauspost/compress/pull/678
   - zstd: Improve "best" compression by @nightwolfz in
@@ -240,7 +227,6 @@ decoding. https://github.com/klauspost/compress/pull/746
     https://github.com/klauspost/compress/pull/667
 
 - Sept 16, 2022 (v1.15.10)
-
   - zstd: Add
     [WithDecodeAllCapLimit](https://pkg.go.dev/github.com/klauspost/compress@v1.15.10/zstd#WithDecodeAllCapLimit)
     https://github.com/klauspost/compress/pull/649
@@ -260,7 +246,6 @@ decoding. https://github.com/klauspost/compress/pull/746
     https://github.com/klauspost/compress/pull/659
 
 - July 21, 2022 (v1.15.9)
-
   - zstd: Fix decoder crash on amd64 (no BMI) on invalid input
     https://github.com/klauspost/compress/pull/645
   - zstd: Disable decoder extended memory copies (amd64) due to possible crashes
@@ -269,7 +254,6 @@ decoding. https://github.com/klauspost/compress/pull/746
     https://github.com/klauspost/compress/pull/643
 
 - July 13, 2022 (v1.15.8)
-
   - gzip: fix stack exhaustion bug in Reader.Read
     https://github.com/klauspost/compress/pull/641
   - s2: Add Index header trim/restore
@@ -285,7 +269,6 @@ decoding. https://github.com/klauspost/compress/pull/746
     https://github.com/klauspost/compress/pull/639
 
 - June 29, 2022 (v1.15.7)
-
   - s2: Fix absolute forward seeks
     https://github.com/klauspost/compress/pull/633
   - zip: Merge upstream https://github.com/klauspost/compress/pull/631
@@ -296,7 +279,6 @@ decoding. https://github.com/klauspost/compress/pull/746
   - deflate: Use compound hcode https://github.com/klauspost/compress/pull/622
 
 - June 3, 2022 (v1.15.6)
-
   - s2: Improve coding for long, close matches
     https://github.com/klauspost/compress/pull/613
   - s2c: Add Snappy/S2 stream recompression
@@ -318,7 +300,6 @@ decoding. https://github.com/klauspost/compress/pull/746
     https://github.com/klauspost/compress/pull/610
 
 - May 25, 2022 (v1.15.5)
-
   - s2: Add concurrent stream decompression
     https://github.com/klauspost/compress/pull/602
   - s2: Fix final emit oob read crash on amd64
@@ -339,7 +320,6 @@ decoding. https://github.com/klauspost/compress/pull/746
     https://github.com/klauspost/compress/pull/590
 
 - May 11, 2022 (v1.15.4)
-
   - huff0: decompress directly into output by @WojciechMula in
     [#577](https://github.com/klauspost/compress/pull/577)
   - inflate: Keep dict on stack
@@ -349,14 +329,12 @@ decoding. https://github.com/klauspost/compress/pull/746
   - zstd: Fix ignored crc [#580](https://github.com/klauspost/compress/pull/580)
 
 - May 5, 2022 (v1.15.3)
-
   - zstd: Allow to ignore checksum checking by @WojciechMula
     [#572](https://github.com/klauspost/compress/pull/572)
   - s2: Fix incorrect seek for io.SeekEnd in
     [#575](https://github.com/klauspost/compress/pull/575)
 
 - Apr 26, 2022 (v1.15.2)
-
   - zstd: Add x86-64 assembly for decompression on streams and blocks.
     Contributed by [@WojciechMula](https://github.com/WojciechMula). Typically
     2x faster. [#528](https://github.com/klauspost/compress/pull/528)
@@ -370,7 +348,6 @@ decoding. https://github.com/klauspost/compress/pull/746
   - Minimum version is Go 1.16, added CI test on 1.18.
 
 - Mar 11, 2022 (v1.15.1)
-
   - huff0: Add x86 assembly of Decode4X by @WojciechMula in
     [#512](https://github.com/klauspost/compress/pull/512)
   - zstd: Reuse zip decoders in
@@ -421,7 +398,6 @@ upgrading.
 	* huff0: Use static decompression buffer up to 30% faster by @klauspost in [#499](https://github.com/klauspost/compress/pull/499) [#500](https://github.com/klauspost/compress/pull/500)
 
 - Feb 17, 2022 (v1.14.3)
-
   - flate: Improve fastest levels compression speed ~10% more throughput.
     [#482](https://github.com/klauspost/compress/pull/482)
     [#489](https://github.com/klauspost/compress/pull/489)
@@ -436,7 +412,6 @@ upgrading.
     [#486](https://github.com/klauspost/compress/pull/486)
 
 - Jan 25, 2022 (v1.14.2)
-
   - zstd: improve header decoder by @dsnet
     [#476](https://github.com/klauspost/compress/pull/476)
   - zstd: Add bigger default blocks
@@ -479,14 +454,12 @@ garbled for binaries for s2 in
 	* Removed golang/snappy as external dependency for tests [#421](https://github.com/klauspost/compress/pull/421)
 
 - Aug 12, 2021 (v1.13.4)
-
   - Add
     [snappy replacement package](https://github.com/klauspost/compress/tree/master/snappy).
   - zstd: Fix incorrect encoding in "best" mode
     [#415](https://github.com/klauspost/compress/pull/415)
 
 - Aug 3, 2021 (v1.13.3)
-
   - zstd: Improve Best compression
     [#404](https://github.com/klauspost/compress/pull/404)
   - zstd: Fix WriteTo error forwarding
@@ -501,7 +474,6 @@ garbled for binaries for s2 in
     [#410](https://github.com/klauspost/compress/pull/410)
 
 - Jun 14, 2021 (v1.13.1)
-
   - s2: Add full Snappy output support
     [#396](https://github.com/klauspost/compress/pull/396)
   - zstd: Add configurable
@@ -529,7 +501,6 @@ goroutine only if needed. [#380](https://github.com/klauspost/compress/pull/380)
 	* zstd: Forward read errors [#373](https://github.com/klauspost/compress/pull/373)
 
 - Apr 27, 2021 (v1.12.2)
-
   - zstd: Improve better/best compression
     [#360](https://github.com/klauspost/compress/pull/360)
     [#364](https://github.com/klauspost/compress/pull/364)
@@ -571,14 +542,12 @@ problem with amd64 assembly and profilers
 	* s2: Clean up and minor performance improvement in best [#341](https://github.com/klauspost/compress/pull/341)
 
 - Mar 5, 2021 (v1.11.12)
-
   - s2: Add `s2sx` binary that creates
     [self extracting archives](https://github.com/klauspost/compress/tree/master/s2#s2sx-self-extracting-archives).
   - s2: Speed up decompression on non-assembly platforms
     [#328](https://github.com/klauspost/compress/pull/328)
 
 - Mar 1, 2021 (v1.11.9)
-
   - s2: Add ARM64 decompression assembly. Around 2x output speed.
     [#324](https://github.com/klauspost/compress/pull/324)
   - s2: Improve "better" speed and efficiency.
@@ -596,7 +565,6 @@ problem with amd64 assembly and profilers
   - zip: Fix zip64 headers.
     [#313](https://github.com/klauspost/compress/pull/313)
 - Jan 14, 2021 (v1.11.7)
-
   - Use Bytes() interface to get bytes across packages.
     [#309](https://github.com/klauspost/compress/pull/309)
   - s2: Add 'best' compression option.
@@ -608,14 +576,12 @@ problem with amd64 assembly and profilers
   - s2: Clean up decoder. [#312](https://github.com/klauspost/compress/pull/312)
 
 - Jan 7, 2021 (v1.11.6)
-
   - zstd: Make decoder allocations smaller
     [#306](https://github.com/klauspost/compress/pull/306)
   - zstd: Free Decoder resources when Reset is called with a nil io.Reader
     [#305](https://github.com/klauspost/compress/pull/305)
 
 - Dec 20, 2020 (v1.11.4)
-
   - zstd: Add Best compression mode
     [#304](https://github.com/klauspost/compress/pull/304)
   - Add header decoder [#299](https://github.com/klauspost/compress/pull/299)
@@ -627,19 +593,16 @@ problem with amd64 assembly and profilers
     [#303](https://github.com/klauspost/compress/pull/303)
 
 - Nov 15, 2020 (v1.11.3)
-
   - inflate: 10-15% faster decompression
     [#293](https://github.com/klauspost/compress/pull/293)
   - zstd: Tweak DecodeAll default allocation
     [#295](https://github.com/klauspost/compress/pull/295)
 
 - Oct 11, 2020 (v1.11.2)
-
   - s2: Fix out of bounds read in "better" block compression
     [#291](https://github.com/klauspost/compress/pull/291)
 
 - Oct 1, 2020 (v1.11.1)
-
   - zstd: Set allLitEntropy true in default configuration
     [#286](https://github.com/klauspost/compress/pull/286)
 
