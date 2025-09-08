@@ -1,27 +1,27 @@
 # Package: zaphiro.grid.v1
 
-Copyright 2024 Zaphiro Technologies Licensed under the Apache License, Version
-2.0 (the "License"); you may not use this file except in compliance with the
-License. You may obtain a copy of the License at
-http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or
-agreed to in writing, software distributed under the License is distributed on
-an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
-or implied. See the License for the specific language governing permissions and
-limitations under the License. <!-- markdownlint-disable --> Messages to support
-grid event detection in the platform. Grid events are sub classes of Events.
+Copyright 2024 Zaphiro Technologies Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. <!-- markdownlint-disable -->
+Messages to support grid event detection in the platform. Grid events are sub classes of Events.
+
+
 
 ## Imports
 
 | Import                      | Description |
-| --------------------------- | ----------- |
+|-----------------------------|-------------|
 | zaphiro/grid/v1/event.proto |             |
 | zaphiro/grid/v1/fault.proto |             |
+
+
 
 ## Options
 
 | Name       | Value     | Description |
-| ---------- | --------- | ----------- |
+|------------|-----------|-------------|
 | go_package | ./grid/v1 |             |
+
+
+
 
 ### GridEvent Diagram
 
@@ -33,14 +33,14 @@ direction LR
 %% Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 %% * `id` (string): id of the `Event`
 %% * `type` (string): always `Event` - used for routing.
-%% * `eventType` (string): the specific type of `GridEvent`, this is required in addition
+%% * `eventType` (string): the specific type of `GridEvent`, this is required in addition 
 %%  to `type` for de-serialization of the messages.
 %% * `sourceId` (string): DEPRECATED: use: producerId. the id of the source (e.g. a PMU) that generated the event
 %% * `producerId` (string): the id of the producer (e.g. a PMU) that generated the event
 %% * `sourceType` (string): the Event source type
 %% event. cf enum EventSourceType
 %% * `timestampId` (int64): related measurement Unix msec timestamp (if any)
-%%
+%% 
 
 class GridEvent {
   + Event event
@@ -53,14 +53,13 @@ class GridEvent {
 GridEvent --> `Event`
 
 ```
-
 ### VoltageEvent Diagram
 
 ```mermaid
 classDiagram
 direction LR
 
-%%
+%% 
 
 class VoltageEvent {
   + GridEvent event
@@ -70,14 +69,13 @@ VoltageEvent --> `GridEvent`
 VoltageEvent --> `PhaseCode`
 
 ```
-
 ### CurrentEvent Diagram
 
 ```mermaid
 classDiagram
 direction LR
 
-%%
+%% 
 
 class CurrentEvent {
   + GridEvent event
@@ -85,14 +83,13 @@ class CurrentEvent {
 CurrentEvent --> `GridEvent`
 
 ```
-
 ### PhaseEvent Diagram
 
 ```mermaid
 classDiagram
 direction LR
 
-%%
+%% 
 
 class PhaseEvent {
   + GridEvent event
@@ -100,14 +97,13 @@ class PhaseEvent {
 PhaseEvent --> `GridEvent`
 
 ```
-
 ### FrequencyEvent Diagram
 
 ```mermaid
 classDiagram
 direction LR
 
-%%
+%% 
 
 class FrequencyEvent {
   + GridEvent event
@@ -115,14 +111,13 @@ class FrequencyEvent {
 FrequencyEvent --> `GridEvent`
 
 ```
-
 ### LineCongestion Diagram
 
 ```mermaid
 classDiagram
 direction LR
 
-%%
+%% 
 
 class LineCongestion {
   + CurrentEvent event
@@ -130,14 +125,13 @@ class LineCongestion {
 LineCongestion --> `CurrentEvent`
 
 ```
-
 ### TransformerCongestion Diagram
 
 ```mermaid
 classDiagram
 direction LR
 
-%%
+%% 
 
 class TransformerCongestion {
   + CurrentEvent event
@@ -145,14 +139,13 @@ class TransformerCongestion {
 TransformerCongestion --> `CurrentEvent`
 
 ```
-
 ### VoltageUnbalance Diagram
 
 ```mermaid
 classDiagram
 direction LR
 
-%%
+%% 
 
 class VoltageUnbalance {
   + VoltageEvent event
@@ -160,14 +153,13 @@ class VoltageUnbalance {
 VoltageUnbalance --> `VoltageEvent`
 
 ```
-
 ### VoltageDip Diagram
 
 ```mermaid
 classDiagram
 direction LR
 
-%%
+%% 
 
 class VoltageDip {
   + VoltageEvent event
@@ -175,14 +167,13 @@ class VoltageDip {
 VoltageDip --> `VoltageEvent`
 
 ```
-
 ### VoltageInterruption Diagram
 
 ```mermaid
 classDiagram
 direction LR
 
-%%
+%% 
 
 class VoltageInterruption {
   + VoltageEvent event
@@ -190,14 +181,13 @@ class VoltageInterruption {
 VoltageInterruption --> `VoltageEvent`
 
 ```
-
 ### VoltageSwell Diagram
 
 ```mermaid
 classDiagram
 direction LR
 
-%%
+%% 
 
 class VoltageSwell {
   + VoltageEvent event
@@ -205,14 +195,13 @@ class VoltageSwell {
 VoltageSwell --> `VoltageEvent`
 
 ```
-
 ### VoltageLimit Diagram
 
 ```mermaid
 classDiagram
 direction LR
 
-%%
+%% 
 
 class VoltageLimit {
   + VoltageEvent event
@@ -220,14 +209,13 @@ class VoltageLimit {
 VoltageLimit --> `VoltageEvent`
 
 ```
-
 ### VoltageRapidChange Diagram
 
 ```mermaid
 classDiagram
 direction LR
 
-%%
+%% 
 
 class VoltageRapidChange {
   + VoltageEvent event
@@ -235,14 +223,13 @@ class VoltageRapidChange {
 VoltageRapidChange --> `VoltageEvent`
 
 ```
-
 ### OverFrequency Diagram
 
 ```mermaid
 classDiagram
 direction LR
 
-%%
+%% 
 
 class OverFrequency {
   + FrequencyEvent event
@@ -250,14 +237,13 @@ class OverFrequency {
 OverFrequency --> `FrequencyEvent`
 
 ```
-
 ### UnderFrequency Diagram
 
 ```mermaid
 classDiagram
 direction LR
 
-%%
+%% 
 
 class UnderFrequency {
   + FrequencyEvent event
@@ -265,14 +251,13 @@ class UnderFrequency {
 UnderFrequency --> `FrequencyEvent`
 
 ```
-
 ### FrequencyVariation Diagram
 
 ```mermaid
 classDiagram
 direction LR
 
-%%
+%% 
 
 class FrequencyVariation {
   + FrequencyEvent event
@@ -280,14 +265,13 @@ class FrequencyVariation {
 FrequencyVariation --> `FrequencyEvent`
 
 ```
-
 ### SteadyOscillation Diagram
 
 ```mermaid
 classDiagram
 direction LR
 
-%%
+%% 
 
 class SteadyOscillation {
   + PhaseEvent event
@@ -295,14 +279,13 @@ class SteadyOscillation {
 SteadyOscillation --> `PhaseEvent`
 
 ```
-
 ### TransientOscillation Diagram
 
 ```mermaid
 classDiagram
 direction LR
 
-%%
+%% 
 
 class TransientOscillation {
   + PhaseEvent event
@@ -315,164 +298,272 @@ TransientOscillation --> `PhaseEvent`
 
 **FQN**: zaphiro.grid.v1.GridEvent
 
-A grid event. Headers used in rabbitMQ (only if not sent as part of `DataSet`):
+A grid event.
+Headers used in rabbitMQ (only if not sent as part of `DataSet`):
+* `id` (string): id of the `Event`
+* `type` (string): always `Event` - used for routing.
+* `eventType` (string): the specific type of `GridEvent`, this is required in addition 
+ to `type` for de-serialization of the messages.
+* `sourceId` (string): DEPRECATED: use: producerId. the id of the source (e.g. a PMU) that generated the event
+* `producerId` (string): the id of the producer (e.g. a PMU) that generated the event
+* `sourceType` (string): the Event source type
+event. cf enum EventSourceType
+* `timestampId` (int64): related measurement Unix msec timestamp (if any)
 
-- `id` (string): id of the `Event`
-- `type` (string): always `Event` - used for routing.
-- `eventType` (string): the specific type of `GridEvent`, this is required in
-  addition to `type` for de-serialization of the messages.
-- `sourceId` (string): DEPRECATED: use: producerId. the id of the source (e.g. a
-  PMU) that generated the event
-- `producerId` (string): the id of the producer (e.g. a PMU) that generated the
-  event
-- `sourceType` (string): the Event source type event. cf enum EventSourceType
-- `timestampId` (int64): related measurement Unix msec timestamp (if any)
 
-| Field            | Ordinal | Type     | Label    | Description                                                                                                                                                          |
-| ---------------- | ------- | -------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `event`          | 1       | `Event`  |          | The base event message                                                                                                                                               |
-| `componentID`    | 2       | `string` |          | The ID of the component where the event occurred.                                                                                                                    |
-| `substationID`   | 3       | `string` | Optional | The ID of the substation where the event occurred.                                                                                                                   |
-| `value`          | 4       | `double` |          | The measured / estimated value in relation to the event (e.g. in the case of a `VoltageEvent` is the voltage, in the case of a `CurrentEvent` is the current event). |
-| `referenceLimit` | 5       | `double` |          | The reference limit or expected value.                                                                                                                               |
-| `probability`    | 6       | `double` | Optional | The probability that the event actually occurred.                                                                                                                    |
+
+| Field            | Ordinal | Type     | Label    | Description                                                                                                                                                           |
+|------------------|---------|----------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `event`          | 1       | `Event`  |          | The base event message                                                                                                                                                |
+| `componentID`    | 2       | `string` |          | The ID of the component where the event occurred.                                                                                                                     |
+| `substationID`   | 3       | `string` | Optional | The ID of the substation where the event occurred.                                                                                                                    |
+| `value`          | 4       | `double` |          | The measured / estimated value in relation to the event (e.g. in the case of a `VoltageEvent` is the voltage, in the case of a `CurrentEvent` is the current event).  |
+| `referenceLimit` | 5       | `double` |          | The reference limit or expected value.                                                                                                                                |
+| `probability`    | 6       | `double` | Optional | The probability that the event actually occurred.                                                                                                                     |
+
+
+
 
 ## Message: VoltageEvent
 
 **FQN**: zaphiro.grid.v1.VoltageEvent
 
-| Field       | Ordinal | Type        | Label    | Description                           |
-| ----------- | ------- | ----------- | -------- | ------------------------------------- |
-| `event`     | 1       | `GridEvent` |          | The base grid event message           |
-| `phaseCode` | 2       | `PhaseCode` | Optional | The phase for which the event occured |
+
+
+
+| Field       | Ordinal | Type        | Label    | Description                            |
+|-------------|---------|-------------|----------|----------------------------------------|
+| `event`     | 1       | `GridEvent` |          | The base grid event message            |
+| `phaseCode` | 2       | `PhaseCode` | Optional | The phase for which the event occured  |
+
+
+
 
 ## Message: CurrentEvent
 
 **FQN**: zaphiro.grid.v1.CurrentEvent
 
-| Field   | Ordinal | Type        | Label | Description                 |
-| ------- | ------- | ----------- | ----- | --------------------------- |
-| `event` | 1       | `GridEvent` |       | The base grid event message |
+
+
+
+| Field   | Ordinal | Type        | Label | Description                  |
+|---------|---------|-------------|-------|------------------------------|
+| `event` | 1       | `GridEvent` |       | The base grid event message  |
+
+
+
 
 ## Message: PhaseEvent
 
 **FQN**: zaphiro.grid.v1.PhaseEvent
 
-| Field   | Ordinal | Type        | Label | Description                 |
-| ------- | ------- | ----------- | ----- | --------------------------- |
-| `event` | 1       | `GridEvent` |       | The base grid event message |
+
+
+
+| Field   | Ordinal | Type        | Label | Description                  |
+|---------|---------|-------------|-------|------------------------------|
+| `event` | 1       | `GridEvent` |       | The base grid event message  |
+
+
+
 
 ## Message: FrequencyEvent
 
 **FQN**: zaphiro.grid.v1.FrequencyEvent
 
-| Field   | Ordinal | Type        | Label | Description                 |
-| ------- | ------- | ----------- | ----- | --------------------------- |
-| `event` | 1       | `GridEvent` |       | The base grid event message |
+
+
+
+| Field   | Ordinal | Type        | Label | Description                  |
+|---------|---------|-------------|-------|------------------------------|
+| `event` | 1       | `GridEvent` |       | The base grid event message  |
+
+
+
 
 ## Message: LineCongestion
 
 **FQN**: zaphiro.grid.v1.LineCongestion
 
-| Field   | Ordinal | Type           | Label | Description                         |
-| ------- | ------- | -------------- | ----- | ----------------------------------- |
-| `event` | 1       | `CurrentEvent` |       | The base current grid event message |
+
+
+
+| Field   | Ordinal | Type           | Label | Description                          |
+|---------|---------|----------------|-------|--------------------------------------|
+| `event` | 1       | `CurrentEvent` |       | The base current grid event message  |
+
+
+
 
 ## Message: TransformerCongestion
 
 **FQN**: zaphiro.grid.v1.TransformerCongestion
 
-| Field   | Ordinal | Type           | Label | Description                         |
-| ------- | ------- | -------------- | ----- | ----------------------------------- |
-| `event` | 1       | `CurrentEvent` |       | The base current grid event message |
+
+
+
+| Field   | Ordinal | Type           | Label | Description                          |
+|---------|---------|----------------|-------|--------------------------------------|
+| `event` | 1       | `CurrentEvent` |       | The base current grid event message  |
+
+
+
 
 ## Message: VoltageUnbalance
 
 **FQN**: zaphiro.grid.v1.VoltageUnbalance
 
-| Field   | Ordinal | Type           | Label | Description                         |
-| ------- | ------- | -------------- | ----- | ----------------------------------- |
-| `event` | 1       | `VoltageEvent` |       | The base voltage grid event message |
+
+
+
+| Field   | Ordinal | Type           | Label | Description                          |
+|---------|---------|----------------|-------|--------------------------------------|
+| `event` | 1       | `VoltageEvent` |       | The base voltage grid event message  |
+
+
+
 
 ## Message: VoltageDip
 
 **FQN**: zaphiro.grid.v1.VoltageDip
 
-| Field   | Ordinal | Type           | Label | Description                         |
-| ------- | ------- | -------------- | ----- | ----------------------------------- |
-| `event` | 1       | `VoltageEvent` |       | The base voltage grid event message |
+
+
+
+| Field   | Ordinal | Type           | Label | Description                          |
+|---------|---------|----------------|-------|--------------------------------------|
+| `event` | 1       | `VoltageEvent` |       | The base voltage grid event message  |
+
+
+
 
 ## Message: VoltageInterruption
 
 **FQN**: zaphiro.grid.v1.VoltageInterruption
 
-| Field   | Ordinal | Type           | Label | Description                         |
-| ------- | ------- | -------------- | ----- | ----------------------------------- |
-| `event` | 1       | `VoltageEvent` |       | The base voltage grid event message |
+
+
+
+| Field   | Ordinal | Type           | Label | Description                          |
+|---------|---------|----------------|-------|--------------------------------------|
+| `event` | 1       | `VoltageEvent` |       | The base voltage grid event message  |
+
+
+
 
 ## Message: VoltageSwell
 
 **FQN**: zaphiro.grid.v1.VoltageSwell
 
-| Field   | Ordinal | Type           | Label | Description                         |
-| ------- | ------- | -------------- | ----- | ----------------------------------- |
-| `event` | 1       | `VoltageEvent` |       | The base voltage grid event message |
+
+
+
+| Field   | Ordinal | Type           | Label | Description                          |
+|---------|---------|----------------|-------|--------------------------------------|
+| `event` | 1       | `VoltageEvent` |       | The base voltage grid event message  |
+
+
+
 
 ## Message: VoltageLimit
 
 **FQN**: zaphiro.grid.v1.VoltageLimit
 
-| Field   | Ordinal | Type           | Label | Description                         |
-| ------- | ------- | -------------- | ----- | ----------------------------------- |
-| `event` | 1       | `VoltageEvent` |       | The base voltage grid event message |
+
+
+
+| Field   | Ordinal | Type           | Label | Description                          |
+|---------|---------|----------------|-------|--------------------------------------|
+| `event` | 1       | `VoltageEvent` |       | The base voltage grid event message  |
+
+
+
 
 ## Message: VoltageRapidChange
 
 **FQN**: zaphiro.grid.v1.VoltageRapidChange
 
-| Field   | Ordinal | Type           | Label | Description                         |
-| ------- | ------- | -------------- | ----- | ----------------------------------- |
-| `event` | 1       | `VoltageEvent` |       | The base voltage grid event message |
+
+
+
+| Field   | Ordinal | Type           | Label | Description                          |
+|---------|---------|----------------|-------|--------------------------------------|
+| `event` | 1       | `VoltageEvent` |       | The base voltage grid event message  |
+
+
+
 
 ## Message: OverFrequency
 
 **FQN**: zaphiro.grid.v1.OverFrequency
 
-| Field   | Ordinal | Type             | Label | Description                           |
-| ------- | ------- | ---------------- | ----- | ------------------------------------- |
-| `event` | 1       | `FrequencyEvent` |       | The base frequency grid event message |
+
+
+
+| Field   | Ordinal | Type             | Label | Description                            |
+|---------|---------|------------------|-------|----------------------------------------|
+| `event` | 1       | `FrequencyEvent` |       | The base frequency grid event message  |
+
+
+
 
 ## Message: UnderFrequency
 
 **FQN**: zaphiro.grid.v1.UnderFrequency
 
-| Field   | Ordinal | Type             | Label | Description                           |
-| ------- | ------- | ---------------- | ----- | ------------------------------------- |
-| `event` | 1       | `FrequencyEvent` |       | The base frequency grid event message |
+
+
+
+| Field   | Ordinal | Type             | Label | Description                            |
+|---------|---------|------------------|-------|----------------------------------------|
+| `event` | 1       | `FrequencyEvent` |       | The base frequency grid event message  |
+
+
+
 
 ## Message: FrequencyVariation
 
 **FQN**: zaphiro.grid.v1.FrequencyVariation
 
-| Field   | Ordinal | Type             | Label | Description                           |
-| ------- | ------- | ---------------- | ----- | ------------------------------------- |
-| `event` | 1       | `FrequencyEvent` |       | The base frequency grid event message |
+
+
+
+| Field   | Ordinal | Type             | Label | Description                            |
+|---------|---------|------------------|-------|----------------------------------------|
+| `event` | 1       | `FrequencyEvent` |       | The base frequency grid event message  |
+
+
+
 
 ## Message: SteadyOscillation
 
 **FQN**: zaphiro.grid.v1.SteadyOscillation
 
-| Field   | Ordinal | Type         | Label | Description                       |
-| ------- | ------- | ------------ | ----- | --------------------------------- |
-| `event` | 1       | `PhaseEvent` |       | The base phase grid event message |
+
+
+
+| Field   | Ordinal | Type         | Label | Description                        |
+|---------|---------|--------------|-------|------------------------------------|
+| `event` | 1       | `PhaseEvent` |       | The base phase grid event message  |
+
+
+
 
 ## Message: TransientOscillation
 
 **FQN**: zaphiro.grid.v1.TransientOscillation
 
-| Field   | Ordinal | Type         | Label | Description                       |
-| ------- | ------- | ------------ | ----- | --------------------------------- |
-| `event` | 1       | `PhaseEvent` |       | The base phase grid event message |
+
+
+
+| Field   | Ordinal | Type         | Label | Description                        |
+|---------|---------|--------------|-------|------------------------------------|
+| `event` | 1       | `PhaseEvent` |       | The base phase grid event message  |
+
+
+
+
+
 
 <!-- Created by: Proto Diagram Tool -->
 <!-- https://github.com/GoogleCloudPlatform/proto-gen-md-diagrams -->
