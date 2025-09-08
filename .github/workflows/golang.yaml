@@ -33,7 +33,7 @@ jobs:
       # - uses: bufbuild/buf-breaking-action@v1
       #   with:
       #     # The 'main' branch of the GitHub repository that defines the module.
-      #     against: "https://github.com/${GITHUB_REPOSITORY}.git#branch=main"   
+      #     against: "https://github.com/${GITHUB_REPOSITORY}.git#branch=main"
       #     input: "proto"
       - name: Set up Go
         uses: actions/setup-go@v5
