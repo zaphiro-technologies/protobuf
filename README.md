@@ -33,8 +33,10 @@ packages:
     inherited by:
     - `GridEvent`: messages that represent grid events.
     - `DeviceEvent`: messages that represent events related to devices.
-- _Platform_ package collects platform related messages, which currently include:
-  - [`Task`](./platform/v1/task.proto.md) dedicated to platform tasks and notifications.
+- _Platform_ package collects platform related messages, which currently
+  include:
+  - [`Task`](./platform/v1/task.proto.md) dedicated to platform tasks and
+    notifications.
   - [`Blacklist`](./platform/v1/blacklist.proto.md) dedicated to management of
     measurements blacklist.
 - _Platform_ package collects platform related messages, defined in
