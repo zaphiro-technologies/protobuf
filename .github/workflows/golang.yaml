@@ -72,4 +72,3 @@ jobs:
   golang:
     needs: proto
     uses: zaphiro-technologies/github-workflows/.github/workflows/golang.yaml@main
-    secrets: inherit

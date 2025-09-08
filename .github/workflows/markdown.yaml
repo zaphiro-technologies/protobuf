@@ -9,9 +9,8 @@ on:
 jobs:
   markdown-checker:
     uses: zaphiro-technologies/github-workflows/.github/workflows/markdown.yaml@main
-    secrets: inherit
     with:
       md-lint-globs: |
         **/*.{md,MD}
         #.github
-        #docs/*.{md,MD}
+        #docs/**/*.{md,MD}
