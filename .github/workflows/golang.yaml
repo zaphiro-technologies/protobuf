@@ -36,7 +36,7 @@ jobs:
       #     against: "https://github.com/${GITHUB_REPOSITORY}.git#branch=main"
       #     input: "proto"
       - name: Set up Go
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
           go-version-file: go.mod
       ## it would be good to compile it else where so we can just download the exec
