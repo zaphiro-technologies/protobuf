@@ -4,10 +4,10 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: 'Tag to be created (when empty, it will be automatically computed)'
+        description: "Tag to be created (when empty, it will be automatically computed)"
         required: false
         type: string
-        default: ''
+        default: ""
 
 jobs:
   create-new-tag:
@@ -15,5 +15,4 @@ jobs:
     secrets: inherit
     with:
       tag: ${{ inputs.tag }}
-      language: 'python'
-
+      language: "python"

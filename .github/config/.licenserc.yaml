@@ -8,32 +8,32 @@ header:
     copyright-owner: Zaphiro Technologies
 
   paths-ignore:
-    - '.github'
-    - '.docker'
-    - '**/*.{md,MD}'
-    - 'docs/*.proto.md'
-    - 'examples/go/vendor'
-    - 'python/**'
-    - 'go/**'
-    - '*.yaml'
-    - '.snyk'
-    - '**/*.json'
-    - 'LICENSE'
-    - 'NOTICE'
-    - 'go.mod'
-    - 'go.sum'
-    - 'sonar-project.properties'
-    - '*.toml'
-    - '*.lock'
-    - '*.xml'
-    - '.gitignore'
+    - ".github"
+    - ".docker"
+    - "**/*.{md,MD}"
+    - "docs/*.proto.md"
+    - "examples/go/vendor"
+    - "python/**"
+    - "go/**"
+    - "*.yaml"
+    - ".snyk"
+    - "**/*.json"
+    - "LICENSE"
+    - "NOTICE"
+    - "go.mod"
+    - "go.sum"
+    - "sonar-project.properties"
+    - "*.toml"
+    - "*.lock"
+    - "*.xml"
+    - ".gitignore"
 
   comment: on-failure
 
 # If you don't want to check dependencies' license compatibility, remove the following part
 dependency:
   files:
-    - go.mod            # If this is a Go project.
+    - go.mod # If this is a Go project.
   licenses:
     # these are not real licenses, but the desired compatibility
     - name: github.com/zaphiro-technologies/cim-measurements-go
@@ -44,7 +44,7 @@ dependency:
       license: Apache-2.0
     - name: github.com/zaphiro-technologies/protobuf
       license: Apache-2.0
-    - name: github.com/zaphiro-technologies/roger 
+    - name: github.com/zaphiro-technologies/roger
       license: Apache-2.0
-    - name: github.com/zaphiro-technologies/golib 
+    - name: github.com/zaphiro-technologies/golib
       license: Apache-2.0
