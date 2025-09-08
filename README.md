@@ -28,14 +28,21 @@ packages:
       equipment. This class is not used to specify faults internal to the
       equipment.
   - `Topology` protocol buffer package, that includes the following messages:
-    - `Topology`: an message represented an topology computed by the system.
+    - `Topology`: a message represented an topology computed by the system.
   - `Event` protocol buffer package that define general event messages,
     inherited by:
-    - `GridEvent`: a message that represent grid events.
+    - `GridEvent`: messages that represent grid events.
+    - `DeviceEvent`: messages that represent events related to devices.
+- _Platform_ package collects platform related messages, which currently include:
+  - [`Task`](./platform/v1/task.proto.md) dedicated to platform tasks and notifications.
+  - [`Blacklist`](./platform/v1/blacklist.proto.md) dedicated to management of
+    measurements blacklist.
 - _Platform_ package collects platform related messages, defined in
   [`zaphiro/platform/v1`](./zaphiro/platform/v1/), which currently include:
   - `Task`: a task to be performed by an service in the platform.
   - `Notification`: a notification produced by a service in the platform.
+  - `Blacklist`: a message that describes for each service which measurement to
+    not use.
 - _C37118_ package collects messages related to the IEEE c37.118 standard,
   defined in [`zaphiro/c37118/v1`](./zaphiro/c37118/v1/), which currently
   include:
