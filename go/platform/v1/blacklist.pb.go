@@ -43,12 +43,12 @@ type Blacklist struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Common            []string `protobuf:"bytes,1,rep,name=common,proto3" json:"common,omitempty"`                                                //The set of measurements to be blacklisted common to all services
-	FaultLocator      []string `protobuf:"bytes,2,rep,name=fault_locator,json=faultLocator,proto3" json:"fault_locator,omitempty"`                //The set of measurements to be blacklisted specific for fault locator
-	EventHandler      []string `protobuf:"bytes,3,rep,name=event_handler,json=eventHandler,proto3" json:"event_handler,omitempty"`                //The set of measurements to be blacklisted specific for event handler
-	StateEstimator    []string `protobuf:"bytes,4,rep,name=state_estimator,json=stateEstimator,proto3" json:"state_estimator,omitempty"`          //The set of measurements to be blacklisted specific for state estimator
+	Common            []string `protobuf:"bytes,1,rep,name=common,proto3"                                    json:"common,omitempty"`             //The set of measurements to be blacklisted common to all services
+	FaultLocator      []string `protobuf:"bytes,2,rep,name=fault_locator,json=faultLocator,proto3"           json:"fault_locator,omitempty"`      //The set of measurements to be blacklisted specific for fault locator
+	EventHandler      []string `protobuf:"bytes,3,rep,name=event_handler,json=eventHandler,proto3"           json:"event_handler,omitempty"`      //The set of measurements to be blacklisted specific for event handler
+	StateEstimator    []string `protobuf:"bytes,4,rep,name=state_estimator,json=stateEstimator,proto3"       json:"state_estimator,omitempty"`    //The set of measurements to be blacklisted specific for state estimator
 	TopologyProcessor []string `protobuf:"bytes,5,rep,name=topology_processor,json=topologyProcessor,proto3" json:"topology_processor,omitempty"` //The set of measurements to be blacklisted specific for topology processor
-	Storer            []string `protobuf:"bytes,6,rep,name=storer,proto3" json:"storer,omitempty"`                                                //The set of measurements to be blacklisted specific for storer
+	Storer            []string `protobuf:"bytes,6,rep,name=storer,proto3"                                    json:"storer,omitempty"`             //The set of measurements to be blacklisted specific for storer
 }
 
 func (x *Blacklist) Reset() {
@@ -157,7 +157,9 @@ var (
 
 func file_zaphiro_platform_v1_blacklist_proto_rawDescGZIP() []byte {
 	file_zaphiro_platform_v1_blacklist_proto_rawDescOnce.Do(func() {
-		file_zaphiro_platform_v1_blacklist_proto_rawDescData = protoimpl.X.CompressGZIP(file_zaphiro_platform_v1_blacklist_proto_rawDescData)
+		file_zaphiro_platform_v1_blacklist_proto_rawDescData = protoimpl.X.CompressGZIP(
+			file_zaphiro_platform_v1_blacklist_proto_rawDescData,
+		)
 	})
 	return file_zaphiro_platform_v1_blacklist_proto_rawDescData
 }

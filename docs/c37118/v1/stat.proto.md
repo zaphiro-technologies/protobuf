@@ -45,7 +45,7 @@ class Stat {
   + uint32 timeQuality
   + uint32 unlockedTime
   + uint32 triggerReason
-  + int64 latency
+  + Optional~int64~ latency
 }
 
 ```
@@ -62,19 +62,19 @@ Headers used in rabbitMQ:
 
 
 
-| Field           | Ordinal | Type     | Label | Description                                                   |
-|-----------------|---------|----------|-------|---------------------------------------------------------------|
-| `measuredAt`    | 1       | `int64`  |       | The time of creation of the stat data (Unix msec timestamp).  |
-| `error`         | 2       | `uint32` |       | Error code uint8                                              |
-| `sync`          | 3       | `bool`   |       | Synchronization status                                        |
-| `sorting`       | 4       | `bool`   |       | Sorting status                                                |
-| `trigger`       | 5       | `bool`   |       | Trigger status                                                |
-| `configChange`  | 6       | `bool`   |       | Configuration change status                                   |
-| `dataModified`  | 7       | `bool`   |       | Data modification status                                      |
-| `timeQuality`   | 8       | `uint32` |       | Time quality uint8                                            |
-| `unlockedTime`  | 9       | `uint32` |       | Unlocked time uint8                                           |
-| `triggerReason` | 10      | `uint32` |       | Trigger reason uint8                                          |
-| `latency`       | 11      | `int64`  |       | Latency in msec                                               |
+| Field           | Ordinal | Type     | Label    | Description                                                   |
+|-----------------|---------|----------|----------|---------------------------------------------------------------|
+| `measuredAt`    | 1       | `int64`  |          | The time of creation of the stat data (Unix msec timestamp).  |
+| `error`         | 2       | `uint32` |          | Error code uint8                                              |
+| `sync`          | 3       | `bool`   |          | Synchronization status                                        |
+| `sorting`       | 4       | `bool`   |          | Sorting status                                                |
+| `trigger`       | 5       | `bool`   |          | Trigger status                                                |
+| `configChange`  | 6       | `bool`   |          | Configuration change status                                   |
+| `dataModified`  | 7       | `bool`   |          | Data modification status                                      |
+| `timeQuality`   | 8       | `uint32` |          | Time quality uint8                                            |
+| `unlockedTime`  | 9       | `uint32` |          | Unlocked time uint8                                           |
+| `triggerReason` | 10      | `uint32` |          | Trigger reason uint8                                          |
+| `latency`       | 11      | `int64`  | Optional | Latency in msec                                               |
 
 
 
