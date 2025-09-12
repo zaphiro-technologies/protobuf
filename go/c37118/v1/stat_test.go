@@ -24,6 +24,7 @@ import (
 )
 
 func generateStat(timestamp int64) *Stat {
+	latency := rand.Int63n(1000)
 	return &Stat{
 		Error:         rand.Uint32() % 8,
 		Sync:          rand.Intn(2) == 1,
@@ -34,7 +35,7 @@ func generateStat(timestamp int64) *Stat {
 		TimeQuality:   rand.Uint32() % 8,
 		UnlockedTime:  rand.Uint32() % 8,
 		TriggerReason: rand.Uint32() % 8,
-		Latency:       rand.Int63n(1000),
+		Latency:       &latency,
 		MeasuredAt:    timestamp,
 	}
 }
