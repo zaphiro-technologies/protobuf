@@ -51,6 +51,7 @@ func TestData(t *testing.T) {
 		assert.Equal(t, data.MeasuredAt, test.MeasuredAt)
 		assert.Equal(t, data.Latency, test.Latency)
 		assert.Equal(t, data.TimeQuality, test.TimeQuality)
+		assert.Equal(t, data.ConfigChange, test.ConfigChange)
 	}
 }
 
