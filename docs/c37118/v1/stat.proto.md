@@ -45,7 +45,7 @@ class Stat {
   + uint32 timeQuality
   + uint32 unlockedTime
   + uint32 triggerReason
-  + Optional~int64~ latency
+  + Optional~uint32~ latency
 }
 
 ```
@@ -74,7 +74,7 @@ Headers used in rabbitMQ:
 | `timeQuality`   | 8       | `uint32` |          | Time quality uint8                                            |
 | `unlockedTime`  | 9       | `uint32` |          | Unlocked time uint8                                           |
 | `triggerReason` | 10      | `uint32` |          | Trigger reason uint8                                          |
-| `latency`       | 11      | `int64`  | Optional | Latency in msec                                               |
+| `latency`       | 11      | `uint32` | Optional | Latency in msec                                               |
 
 
 
