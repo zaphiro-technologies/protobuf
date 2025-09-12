@@ -24,7 +24,7 @@ import (
 )
 
 func generateStat(timestamp int64) *Stat {
-	latency := rand.Int63n(1000)
+	latency := rand.Uint32() % 1000
 	return &Stat{
 		Error:         rand.Uint32() % 8,
 		Sync:          rand.Intn(2) == 1,

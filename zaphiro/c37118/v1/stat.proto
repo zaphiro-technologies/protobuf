@@ -39,5 +39,5 @@ message Stat {
 	uint32 timeQuality    = 8; // Time quality uint8
 	uint32 unlockedTime   = 9; // Unlocked time uint8
 	uint32 triggerReason  = 10; // Trigger reason uint8
-	optional int64 latency        = 11; // Latency in msec
+	optional uint32 latency        = 11; // Latency in msec
 }

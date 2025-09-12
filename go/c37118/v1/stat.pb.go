@@ -42,17 +42,17 @@ type Stat struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	MeasuredAt    int64  `protobuf:"varint,1,opt,name=measuredAt,proto3"     json:"measuredAt,omitempty"`    // The time of creation of the stat data (Unix msec timestamp).
-	Error         uint32 `protobuf:"varint,2,opt,name=error,proto3"          json:"error,omitempty"`         // Error code uint8
-	Sync          bool   `protobuf:"varint,3,opt,name=sync,proto3"           json:"sync,omitempty"`          // Synchronization status
-	Sorting       bool   `protobuf:"varint,4,opt,name=sorting,proto3"        json:"sorting,omitempty"`       // Sorting status
-	Trigger       bool   `protobuf:"varint,5,opt,name=trigger,proto3"        json:"trigger,omitempty"`       // Trigger status
-	ConfigChange  bool   `protobuf:"varint,6,opt,name=configChange,proto3"   json:"configChange,omitempty"`  // Configuration change status
-	DataModified  bool   `protobuf:"varint,7,opt,name=dataModified,proto3"   json:"dataModified,omitempty"`  // Data modification status
-	TimeQuality   uint32 `protobuf:"varint,8,opt,name=timeQuality,proto3"    json:"timeQuality,omitempty"`   // Time quality uint8
-	UnlockedTime  uint32 `protobuf:"varint,9,opt,name=unlockedTime,proto3"   json:"unlockedTime,omitempty"`  // Unlocked time uint8
-	TriggerReason uint32 `protobuf:"varint,10,opt,name=triggerReason,proto3" json:"triggerReason,omitempty"` // Trigger reason uint8
-	Latency       *int64 `protobuf:"varint,11,opt,name=latency,proto3,oneof" json:"latency,omitempty"`       // Latency in msec
+	MeasuredAt    int64   `protobuf:"varint,1,opt,name=measuredAt,proto3"     json:"measuredAt,omitempty"`    // The time of creation of the stat data (Unix msec timestamp).
+	Error         uint32  `protobuf:"varint,2,opt,name=error,proto3"          json:"error,omitempty"`         // Error code uint8
+	Sync          bool    `protobuf:"varint,3,opt,name=sync,proto3"           json:"sync,omitempty"`          // Synchronization status
+	Sorting       bool    `protobuf:"varint,4,opt,name=sorting,proto3"        json:"sorting,omitempty"`       // Sorting status
+	Trigger       bool    `protobuf:"varint,5,opt,name=trigger,proto3"        json:"trigger,omitempty"`       // Trigger status
+	ConfigChange  bool    `protobuf:"varint,6,opt,name=configChange,proto3"   json:"configChange,omitempty"`  // Configuration change status
+	DataModified  bool    `protobuf:"varint,7,opt,name=dataModified,proto3"   json:"dataModified,omitempty"`  // Data modification status
+	TimeQuality   uint32  `protobuf:"varint,8,opt,name=timeQuality,proto3"    json:"timeQuality,omitempty"`   // Time quality uint8
+	UnlockedTime  uint32  `protobuf:"varint,9,opt,name=unlockedTime,proto3"   json:"unlockedTime,omitempty"`  // Unlocked time uint8
+	TriggerReason uint32  `protobuf:"varint,10,opt,name=triggerReason,proto3" json:"triggerReason,omitempty"` // Trigger reason uint8
+	Latency       *uint32 `protobuf:"varint,11,opt,name=latency,proto3,oneof" json:"latency,omitempty"`       // Latency in msec
 }
 
 func (x *Stat) Reset() {
@@ -157,7 +157,7 @@ func (x *Stat) GetTriggerReason() uint32 {
 	return 0
 }
 
-func (x *Stat) GetLatency() int64 {
+func (x *Stat) GetLatency() uint32 {
 	if x != nil && x.Latency != nil {
 		return *x.Latency
 	}
@@ -190,7 +190,7 @@ var file_zaphiro_c37118_v1_stat_proto_rawDesc = []byte{
 	0x65, 0x64, 0x54, 0x69, 0x6d, 0x65, 0x12, 0x24, 0x0a, 0x0d, 0x74, 0x72, 0x69, 0x67, 0x67, 0x65,
 	0x72, 0x52, 0x65, 0x61, 0x73, 0x6f, 0x6e, 0x18, 0x0a, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x0d, 0x74,
 	0x72, 0x69, 0x67, 0x67, 0x65, 0x72, 0x52, 0x65, 0x61, 0x73, 0x6f, 0x6e, 0x12, 0x1d, 0x0a, 0x07,
-	0x6c, 0x61, 0x74, 0x65, 0x6e, 0x63, 0x79, 0x18, 0x0b, 0x20, 0x01, 0x28, 0x03, 0x48, 0x00, 0x52,
+	0x6c, 0x61, 0x74, 0x65, 0x6e, 0x63, 0x79, 0x18, 0x0b, 0x20, 0x01, 0x28, 0x0d, 0x48, 0x00, 0x52,
 	0x07, 0x6c, 0x61, 0x74, 0x65, 0x6e, 0x63, 0x79, 0x88, 0x01, 0x01, 0x42, 0x0a, 0x0a, 0x08, 0x5f,
 	0x6c, 0x61, 0x74, 0x65, 0x6e, 0x63, 0x79, 0x42, 0x0d, 0x5a, 0x0b, 0x2e, 0x2f, 0x63, 0x33, 0x37,
 	0x31, 0x31, 0x38, 0x2f, 0x76, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
