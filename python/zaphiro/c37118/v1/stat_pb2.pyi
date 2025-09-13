@@ -5,7 +5,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Stat(_message.Message):
-    __slots__ = ("measuredAt", "error", "sync", "sorting", "trigger", "configChange", "dataModified", "timeQuality", "unlockedTime", "triggerReason", "latency")
+    __slots__ = ("measuredAt", "error", "sync", "sorting", "trigger", "configChange", "dataModified", "timeQuality", "unlockedTime", "triggerReason")
     MEASUREDAT_FIELD_NUMBER: _ClassVar[int]
     ERROR_FIELD_NUMBER: _ClassVar[int]
     SYNC_FIELD_NUMBER: _ClassVar[int]
@@ -16,7 +16,6 @@ class Stat(_message.Message):
     TIMEQUALITY_FIELD_NUMBER: _ClassVar[int]
     UNLOCKEDTIME_FIELD_NUMBER: _ClassVar[int]
     TRIGGERREASON_FIELD_NUMBER: _ClassVar[int]
-    LATENCY_FIELD_NUMBER: _ClassVar[int]
     measuredAt: int
     error: int
     sync: bool
@@ -27,5 +26,4 @@ class Stat(_message.Message):
     timeQuality: int
     unlockedTime: int
     triggerReason: int
-    latency: int
-    def __init__(self, measuredAt: _Optional[int] = ..., error: _Optional[int] = ..., sync: bool = ..., sorting: bool = ..., trigger: bool = ..., configChange: bool = ..., dataModified: bool = ..., timeQuality: _Optional[int] = ..., unlockedTime: _Optional[int] = ..., triggerReason: _Optional[int] = ..., latency: _Optional[int] = ...) -> None: ...
+    def __init__(self, measuredAt: _Optional[int] = ..., error: _Optional[int] = ..., sync: bool = ..., sorting: bool = ..., trigger: bool = ..., configChange: bool = ..., dataModified: bool = ..., timeQuality: _Optional[int] = ..., unlockedTime: _Optional[int] = ..., triggerReason: _Optional[int] = ...) -> None: ...

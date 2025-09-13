@@ -26,6 +26,7 @@ Headers used in rabbitMQ:
 * `id` (string): id of the `Stat` message.
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
 * `timestampId` (int64): related measurement Unix msec timestamp (if any)
+* `latency` (int64): arrival latency in milliseconds between the measurement timestamp of the stat data and the injection in the platform.
 */
 
 message Stat {
@@ -39,5 +40,4 @@ message Stat {
 	uint32 timeQuality    = 8; // Time quality uint8
 	uint32 unlockedTime   = 9; // Unlocked time uint8
 	uint32 triggerReason  = 10; // Trigger reason uint8
-	optional uint32 latency        = 11; // Latency in msec
 }

@@ -24,7 +24,6 @@ import (
 )
 
 func generateStat(timestamp int64) *Stat {
-	latency := rand.Uint32() % 1000
 	return &Stat{
 		Error:         rand.Uint32() % 8,
 		Sync:          rand.Intn(2) == 1,
@@ -35,7 +34,6 @@ func generateStat(timestamp int64) *Stat {
 		TimeQuality:   rand.Uint32() % 8,
 		UnlockedTime:  rand.Uint32() % 8,
 		TriggerReason: rand.Uint32() % 8,
-		Latency:       &latency,
 		MeasuredAt:    timestamp,
 	}
 }
@@ -49,7 +47,6 @@ func TestData(t *testing.T) {
 		err = proto.Unmarshal(buf, data)
 		assert.NoError(t, err)
 		assert.Equal(t, data.MeasuredAt, test.MeasuredAt)
-		assert.Equal(t, data.Latency, test.Latency)
 		assert.Equal(t, data.TimeQuality, test.TimeQuality)
 		assert.Equal(t, data.ConfigChange, test.ConfigChange)
 	}
