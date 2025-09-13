@@ -189,6 +189,8 @@ direction LR
 %% * `timestampId` (int64): related measurement Unix msec timestamp (if any)
 %% * `aligned` (bool, default true): whether the DataSet has to be time-aligned or not.
 %% * `latency` (int64): arrival latency in milliseconds between the measurement timestamp and their injection in the platform.
+%% * `samplingPeriod` (string): optional, used to identify timestamps that match
+%%  `second` or `minute`.
 %% 
 
 class DataSet {
@@ -235,6 +237,8 @@ Headers used in rabbitMQ:
 * `timestampId` (int64): related measurement Unix msec timestamp (if any)
 * `aligned` (bool, default true): whether the DataSet has to be time-aligned or not.
 * `latency` (int64): arrival latency in milliseconds between the measurement timestamp and their injection in the platform.
+* `samplingPeriod` (string): optional, used to identify timestamps that match
+ `second` or `minute`.
 
 
 
