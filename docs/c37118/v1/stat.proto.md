@@ -31,8 +31,8 @@ direction LR
 %% Headers used in rabbitMQ:
 %% * `id` (string): id of the `Stat` message.
 %% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
-%% * `timestampId` (int64): related measurement Unix msec timestamp (if any)
-%% * `latency` (int64): arrival latency in milliseconds between the measurement timestamp of the stat data and the injection in the platform.
+%% * `timestampId` (int64): related measurement Unix msec timestamp (if any).
+%% * `latency` (int64): arrival latency in milliseconds between the stat timestamp and their injection in the platform.
 %% 
 
 class Stat {
@@ -58,8 +58,8 @@ A Stat of PMU data, check IEEE C37.118 standard for more details.
 Headers used in rabbitMQ:
 * `id` (string): id of the `Stat` message.
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
-* `timestampId` (int64): related measurement Unix msec timestamp (if any)
-* `latency` (int64): arrival latency in milliseconds between the measurement timestamp of the stat data and the injection in the platform.
+* `timestampId` (int64): related measurement Unix msec timestamp (if any).
+* `latency` (int64): arrival latency in milliseconds between the stat timestamp and their injection in the platform.
 
 
 
