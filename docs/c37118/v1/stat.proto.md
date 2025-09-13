@@ -32,6 +32,7 @@ direction LR
 %% * `id` (string): id of the `Stat` message.
 %% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
 %% * `timestampId` (int64): related measurement Unix msec timestamp (if any)
+%% * `latency` (int64): arrival latency in milliseconds between the measurement timestamp of the stat data and the injection in the platform.
 %% 
 
 class Stat {
@@ -45,7 +46,6 @@ class Stat {
   + uint32 timeQuality
   + uint32 unlockedTime
   + uint32 triggerReason
-  + Optional~uint32~ latency
 }
 
 ```
@@ -59,22 +59,22 @@ Headers used in rabbitMQ:
 * `id` (string): id of the `Stat` message.
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
 * `timestampId` (int64): related measurement Unix msec timestamp (if any)
+* `latency` (int64): arrival latency in milliseconds between the measurement timestamp of the stat data and the injection in the platform.
 
 
 
-| Field           | Ordinal | Type     | Label    | Description                                                   |
-|-----------------|---------|----------|----------|---------------------------------------------------------------|
-| `measuredAt`    | 1       | `int64`  |          | The time of creation of the stat data (Unix msec timestamp).  |
-| `error`         | 2       | `uint32` |          | Error code uint8                                              |
-| `sync`          | 3       | `bool`   |          | Synchronization status                                        |
-| `sorting`       | 4       | `bool`   |          | Sorting status                                                |
-| `trigger`       | 5       | `bool`   |          | Trigger status                                                |
-| `configChange`  | 6       | `bool`   |          | Configuration change status                                   |
-| `dataModified`  | 7       | `bool`   |          | Data modification status                                      |
-| `timeQuality`   | 8       | `uint32` |          | Time quality uint8                                            |
-| `unlockedTime`  | 9       | `uint32` |          | Unlocked time uint8                                           |
-| `triggerReason` | 10      | `uint32` |          | Trigger reason uint8                                          |
-| `latency`       | 11      | `uint32` | Optional | Latency in msec                                               |
+| Field           | Ordinal | Type     | Label | Description                                                   |
+|-----------------|---------|----------|-------|---------------------------------------------------------------|
+| `measuredAt`    | 1       | `int64`  |       | The time of creation of the stat data (Unix msec timestamp).  |
+| `error`         | 2       | `uint32` |       | Error code uint8                                              |
+| `sync`          | 3       | `bool`   |       | Synchronization status                                        |
+| `sorting`       | 4       | `bool`   |       | Sorting status                                                |
+| `trigger`       | 5       | `bool`   |       | Trigger status                                                |
+| `configChange`  | 6       | `bool`   |       | Configuration change status                                   |
+| `dataModified`  | 7       | `bool`   |       | Data modification status                                      |
+| `timeQuality`   | 8       | `uint32` |       | Time quality uint8                                            |
+| `unlockedTime`  | 9       | `uint32` |       | Unlocked time uint8                                           |
+| `triggerReason` | 10      | `uint32` |       | Trigger reason uint8                                          |
 
 
 
