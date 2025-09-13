@@ -164,8 +164,7 @@ direction LR
 %% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
 %% * `timestampId` (int64): related measurement Unix msec timestamp (if any)
 %% * `aligned` (bool, default true): whether the DataSet has to be time-aligned or not.
-%% * `samplingPeriod` (string): optional, used to identify timestamps that match
-%%  `second` or `minute`.
+%% * `latency` (int64): arrival latency in milliseconds between the measurement timestamp and their injection in the platform.
 %% 
 
 class Data {
@@ -189,6 +188,7 @@ direction LR
 %% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
 %% * `timestampId` (int64): related measurement Unix msec timestamp (if any)
 %% * `aligned` (bool, default true): whether the DataSet has to be time-aligned or not.
+%% * `latency` (int64): arrival latency in milliseconds between the measurement timestamp and their injection in the platform.
 %% * `samplingPeriod` (string): optional, used to identify timestamps that match
 %%  `second` or `minute`.
 %% 
@@ -212,8 +212,7 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
 * `timestampId` (int64): related measurement Unix msec timestamp (if any)
 * `aligned` (bool, default true): whether the DataSet has to be time-aligned or not.
-* `samplingPeriod` (string): optional, used to identify timestamps that match
- `second` or `minute`.
+* `latency` (int64): arrival latency in milliseconds between the measurement timestamp and their injection in the platform.
 
 
 
@@ -237,6 +236,7 @@ Headers used in rabbitMQ:
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
 * `timestampId` (int64): related measurement Unix msec timestamp (if any)
 * `aligned` (bool, default true): whether the DataSet has to be time-aligned or not.
+* `latency` (int64): arrival latency in milliseconds between the measurement timestamp and their injection in the platform.
 * `samplingPeriod` (string): optional, used to identify timestamps that match
  `second` or `minute`.
 
