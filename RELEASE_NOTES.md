@@ -1,14 +1,18 @@
 # ProtoBuf Release Notes
 
-## 0.0.15-dev - 2025-09-08
+## 0.0.15-dev - 2025-09-15
+
+### Features
+
+- stats and dataset proto: add latency header (PR #110 by @chicco785)
 
 ### Dependencies
 
+- Bump github.com/stretchr/testify from 1.10.0 to 1.11.0 (PR #107 by
+  @dependabot[bot])
 - Bump actions/setup-go from 5 to 6 (PR #109 by @dependabot[bot])
 - Bump actions/checkout from 4 to 5 (PR #106 by @dependabot[bot])
 - Bump google.golang.org/protobuf from 1.36.6 to 1.36.7 (PR #105 by
-  @dependabot[bot])
-- Bump github.com/stretchr/testify from 1.10.0 to 1.11.0 (PR #107 by
   @dependabot[bot])
 
 ## 0.0.14 - 2025-06-19
