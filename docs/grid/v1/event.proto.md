@@ -99,7 +99,7 @@ direction LR
 %% * `type` (string): always `Event` - used for routing.
 %% * `eventType` (string): the specific type of `Event`, this is required in
 %% addition to `type` for de-serialization of the messages.
-%% * `sourceId` (string): DEPRECATED: use: producerId. the id of the source (e.g. a PMU) that generated the event
+%% * `sourceId` (string): [DEPRECATED] use producerId. the id of the source (e.g. a PMU) that generated the event
 %% * `producerId` (string): the id of the producer (e.g. a PMU) that generated the event
 %% * `sourceType` (string): the Event source type
 %% event.
@@ -130,7 +130,7 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 * `type` (string): always `Event` - used for routing.
 * `eventType` (string): the specific type of `Event`, this is required in
 addition to `type` for de-serialization of the messages.
-* `sourceId` (string): DEPRECATED: use: producerId. the id of the source (e.g. a PMU) that generated the event
+* `sourceId` (string): [DEPRECATED] use producerId. the id of the source (e.g. a PMU) that generated the event
 * `producerId` (string): the id of the producer (e.g. a PMU) that generated the event
 * `sourceType` (string): the Event source type
 event.
