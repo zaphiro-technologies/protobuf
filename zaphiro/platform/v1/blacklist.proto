@@ -22,7 +22,11 @@ Messages to support coordination among processes/services in the platform.
 package zaphiro.platform.v1;
 option go_package = "./platform/v1";
 
-//The measurement id set to be ignored by the real time processing.
+/* A Blacklist of measurement to ignore:
+* `id` (string): id of the `Blacklist` message.
+* `producerId` (string): the id of the producer of the list.
+* `timestampId` (int64): the creation Unix msec timestamp.
+*/
 
 message Blacklist {
     repeated string common = 1; //The set of measurements to be blacklisted common to all services
