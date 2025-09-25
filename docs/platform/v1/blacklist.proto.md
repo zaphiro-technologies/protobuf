@@ -28,7 +28,11 @@ Messages to support coordination among processes/services in the platform.
 classDiagram
 direction LR
 
-%% The measurement id set to be ignored by the real time processing.
+%% A Blacklist of measurement to ignore:
+%% * `id` (string): id of the `Blacklist` message.
+%% * `producerId` (string): the id of the producer of the list.
+%% * `timestampId` (int64): the creation Unix msec timestamp.
+%% 
 
 class Blacklist {
   + List~string~ common
@@ -45,7 +49,11 @@ class Blacklist {
 
 **FQN**: zaphiro.platform.v1.Blacklist
 
-The measurement id set to be ignored by the real time processing.
+A Blacklist of measurement to ignore:
+* `id` (string): id of the `Blacklist` message.
+* `producerId` (string): the id of the producer of the list.
+* `timestampId` (int64): the creation Unix msec timestamp.
+
 
 
 | Field                | Ordinal | Type     | Label    | Description                                                                |
