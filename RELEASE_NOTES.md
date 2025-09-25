@@ -1,8 +1,15 @@
 # ProtoBuf Release Notes
 
-## 0.0.16-dev - 2025-09-15
+## 0.0.16-dev - 2025-09-25
 
-- no changes
+### Dependencies
+
+- Bump google.golang.org/protobuf from 1.36.7 to 1.36.9 (PR #111 by
+  @dependabot[bot])
+
+### Refactoring
+
+- Deprecate `message` field in `Event` (PR #112 by @chicco785)
 
 ## 0.0.15 - 2025-09-15
 
