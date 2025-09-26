@@ -22,8 +22,9 @@ Messages to support coordination among processes/services in the platform.
 package zaphiro.platform.v1;
 option go_package = "./platform/v1";
 
-/* A Blacklist of measurement to ignore:
-* `id` (string): id of the `Blacklist` message.
+/* A Blacklist of measurement to ignore.
+* Headers used in rabbitMQ:
+* `id` (string): id of the `Blacklist` message (a random uuid).
 * `producerId` (string): the id of the producer of the list.
 * `timestampId` (int64): the creation Unix msec timestamp.
 */
