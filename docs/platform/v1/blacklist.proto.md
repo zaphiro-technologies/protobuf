@@ -28,8 +28,9 @@ Messages to support coordination among processes/services in the platform.
 classDiagram
 direction LR
 
-%% A Blacklist of measurement to ignore:
-%% * `id` (string): id of the `Blacklist` message.
+%% A Blacklist of measurement to ignore.
+%% * Headers used in rabbitMQ:
+%% * `id` (string): id of the `Blacklist` message (a random uuid).
 %% * `producerId` (string): the id of the producer of the list.
 %% * `timestampId` (int64): the creation Unix msec timestamp.
 %% 
@@ -49,8 +50,9 @@ class Blacklist {
 
 **FQN**: zaphiro.platform.v1.Blacklist
 
-A Blacklist of measurement to ignore:
-* `id` (string): id of the `Blacklist` message.
+A Blacklist of measurement to ignore.
+* Headers used in rabbitMQ:
+* `id` (string): id of the `Blacklist` message (a random uuid).
 * `producerId` (string): the id of the producer of the list.
 * `timestampId` (int64): the creation Unix msec timestamp.
 
