@@ -79,6 +79,7 @@ enum DataType {
 	DATA_TYPE_TEMPERATURE_ALARM = 48; //Temperature Alarm. It maps to Boolean.
 	DATA_TYPE_PRESSURE_ALARM = 49; //Pressure Alarm. It maps to Boolean.
 	DATA_TYPE_DOOR_ALARM = 50; //Door Alarm. It maps to Boolean.
+	DATA_TYPE_ABSOLUTE_RESIDUAL = 51; //Absolute Residual. It maps to Analog.
 }
 
 /* A single data.
