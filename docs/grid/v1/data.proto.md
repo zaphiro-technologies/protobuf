@@ -27,7 +27,7 @@ Data are grouped into sets, where each id identifies a specific measurement. The
 **FQN**: zaphiro.grid.v1.DataType
 
 The collection of Data Types defined so far. They are useful to map
-measurements to their rappresentation. Some of the descriptions are taken from [here](https://github.com/3lbits/Grunnprofil/blob/main/DIGIN10/docs/MeasurementType.adoc) This is important since all measurements
+measurements to their representation. Some of the descriptions are taken from [CIM4NoUtility](https://github.com/3lbits/CIM4NoUtility/blob/main/Telemark-120/docs/MeasurementType.adoc). This is important since all measurements
 are any how cast to UINT64 in the real time platform
 
 
@@ -94,7 +94,7 @@ are any how cast to UINT64 in the real time platform
 classDiagram
 direction LR
 %% The collection of Data Types defined so far. They are useful to map
-%% measurements to their rappresentation. Some of the descriptions are taken from [here](https://github.com/3lbits/Grunnprofil/blob/main/DIGIN10/docs/MeasurementType.adoc) This is important since all measurements
+%% measurements to their representation. Some of the descriptions are taken from [CIM4NoUtility](https://github.com/3lbits/CIM4NoUtility/blob/main/Telemark-120/docs/MeasurementType.adoc). This is important since all measurements
 %% are any how cast to UINT64 in the real time platform
 
 class DataType{
