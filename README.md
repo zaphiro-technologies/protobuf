@@ -140,7 +140,7 @@ in
 In particular, it is important - even more within the same version - to preserve
 compatibility, to avoid services breaking up.
 
-You find contributing guidelines [here](CONTRIBUTING.md).
+You find contributing guidelines in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ### Requirements
 
@@ -148,7 +148,6 @@ You find contributing guidelines [here](CONTRIBUTING.md).
 1. [Protocol Buffer Compiler](https://grpc.io/docs/protoc-installation/)
 1. [Go plugins for the protocol compiler](https://grpc.io/docs/languages/go/quickstart/#prerequisites)
 1. [Buf](https://buf.build/docs/installation)
-1. [proto-gen-md-diagrams](https://github.com/GoogleCloudPlatform/proto-gen-md-diagrams)
 
 ### Generate Code from Protocol Buffers
 
