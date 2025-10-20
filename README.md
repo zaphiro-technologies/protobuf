@@ -159,6 +159,7 @@ make generate
 ### Generate Documentation from Protocol Buffers
 
 ```bash
+make install-proto-gen-md
 make docs
 ```
 
