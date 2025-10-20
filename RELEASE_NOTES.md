@@ -2,6 +2,10 @@
 
 ## 0.0.16-dev - 2025-10-20
 
+### Features
+
+- Add absolute residual data type (PR #116 by @hiimjako)
+
 ### Documentation
 
 - Add blacklist headers to identify the message (PR #113 by @hiimjako)
