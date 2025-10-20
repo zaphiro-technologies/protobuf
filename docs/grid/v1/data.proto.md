@@ -84,6 +84,7 @@ are any how cast to UINT64 in the real time platform
 | `DATA_TYPE_TEMPERATURE_ALARM`           | 48      | Temperature Alarm. It maps to Boolean.                                   |
 | `DATA_TYPE_PRESSURE_ALARM`              | 49      | Pressure Alarm. It maps to Boolean.                                      |
 | `DATA_TYPE_DOOR_ALARM`                  | 50      | Door Alarm. It maps to Boolean.                                          |
+| `DATA_TYPE_ABSOLUTE_RESIDUAL`           | 51      | Absolute Residual. It maps to Analog.                                    |
 
 
 
@@ -149,6 +150,7 @@ class DataType{
   DATA_TYPE_TEMPERATURE_ALARM
   DATA_TYPE_PRESSURE_ALARM
   DATA_TYPE_DOOR_ALARM
+  DATA_TYPE_ABSOLUTE_RESIDUAL
 }
 ```
 ### Data Diagram

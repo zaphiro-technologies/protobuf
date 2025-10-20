@@ -157,7 +157,7 @@ type Parameter struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Name  string     `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`   //The parameter name
+	Name  string     `protobuf:"bytes,1,opt,name=name,proto3"  json:"name,omitempty"`  //The parameter name
 	Value *anypb.Any `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"` //The parameter value
 }
 
@@ -212,9 +212,9 @@ type Task struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	TaskType   TaskType     `protobuf:"varint,1,opt,name=taskType,proto3,enum=zaphiro.platform.v1.TaskType" json:"taskType,omitempty"` //Type of the task
-	CreatedAt  int64        `protobuf:"varint,2,opt,name=createdAt,proto3" json:"createdAt,omitempty"`                                 //Task creation time (Unix msec timestamp)
-	Parameters []*Parameter `protobuf:"bytes,3,rep,name=parameters,proto3" json:"parameters,omitempty"`
+	TaskType   TaskType     `protobuf:"varint,1,opt,name=taskType,proto3,enum=zaphiro.platform.v1.TaskType" json:"taskType,omitempty"`  //Type of the task
+	CreatedAt  int64        `protobuf:"varint,2,opt,name=createdAt,proto3"                                  json:"createdAt,omitempty"` //Task creation time (Unix msec timestamp)
+	Parameters []*Parameter `protobuf:"bytes,3,rep,name=parameters,proto3"                                  json:"parameters,omitempty"`
 }
 
 func (x *Task) Reset() {
@@ -276,9 +276,9 @@ type Notification struct {
 	unknownFields protoimpl.UnknownFields
 
 	NotificationType NotificationType `protobuf:"varint,1,opt,name=notificationType,proto3,enum=zaphiro.platform.v1.NotificationType" json:"notificationType,omitempty"` //Notification type
-	CreatedAt        int64            `protobuf:"varint,2,opt,name=createdAt,proto3" json:"createdAt,omitempty"`                                                         //Notification creation time (Unix msec timestamp)
-	Message          string           `protobuf:"bytes,3,opt,name=message,proto3" json:"message,omitempty"`                                                              //Notification message, it can be a string or a integer (which maps to a enum value).
-	Parameters       []*Parameter     `protobuf:"bytes,4,rep,name=parameters,proto3" json:"parameters,omitempty"`
+	CreatedAt        int64            `protobuf:"varint,2,opt,name=createdAt,proto3"                                                  json:"createdAt,omitempty"`        //Notification creation time (Unix msec timestamp)
+	Message          string           `protobuf:"bytes,3,opt,name=message,proto3"                                                     json:"message,omitempty"`          //Notification message, it can be a string or a integer (which maps to a enum value).
+	Parameters       []*Parameter     `protobuf:"bytes,4,rep,name=parameters,proto3"                                                  json:"parameters,omitempty"`
 }
 
 func (x *Notification) Reset() {
@@ -413,7 +413,9 @@ var (
 
 func file_zaphiro_platform_v1_task_proto_rawDescGZIP() []byte {
 	file_zaphiro_platform_v1_task_proto_rawDescOnce.Do(func() {
-		file_zaphiro_platform_v1_task_proto_rawDescData = protoimpl.X.CompressGZIP(file_zaphiro_platform_v1_task_proto_rawDescData)
+		file_zaphiro_platform_v1_task_proto_rawDescData = protoimpl.X.CompressGZIP(
+			file_zaphiro_platform_v1_task_proto_rawDescData,
+		)
 	})
 	return file_zaphiro_platform_v1_task_proto_rawDescData
 }
