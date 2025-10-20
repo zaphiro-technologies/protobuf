@@ -1,6 +1,10 @@
 # ProtoBuf Release Notes
 
-## 0.0.16-dev - 2025-10-10
+## 0.0.16-dev - 2025-10-20
+
+### Documentation
+
+- Add blacklist headers to identify the message (PR #113 by @hiimjako)
 
 ### Dependencies
 
