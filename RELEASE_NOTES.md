@@ -4,7 +4,7 @@
 
 ### Features
 
-- Add absolute residual data type (PR #116 by @hiimjako)
+- data proto: add absolute residual data type (PR #116 by @hiimjako)
 
 ### Documentation
 
