@@ -14,6 +14,17 @@
 
 PYPROJECT_FILE ?= pyproject.toml
 
+.PHONY: install-proto-gen-md
+install-proto-gen-md:
+	@echo "Installing latest proto-gen-md-diagrams version..."
+	@rm -rf /tmp/proto-gen-md-diagrams
+	@git clone --depth 1 https://github.com/GoogleCloudPlatform/proto-gen-md-diagrams /tmp/proto-gen-md-diagrams
+	@cd /tmp/proto-gen-md-diagrams && \
+		go build -o proto-gen-md-diagrams . && \
+		mkdir -p $(CURDIR)/bin && \
+		cp -f proto-gen-md-diagrams $(CURDIR)/bin/proto-gen-md-diagrams && \
+		echo "Installed to $(CURDIR)/bin/proto-gen-md-diagrams"
+
 all: proto-lint generate lint test docs
 
 .PHONY: lint
@@ -65,7 +76,7 @@ generate-with-docker:
 .PHONY: docs
 docs:
 	mkdir -p docs
-	../proto-gen-md-diagrams/proto-gen-md-diagrams -d zaphiro -o docs -md true
+	bin/proto-gen-md-diagrams -d zaphiro -o docs -md true
 
 .PHONY: proto-lint
 proto-lint:

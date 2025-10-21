@@ -40,14 +40,9 @@ jobs:
         with:
           go-version-file: go.mod
       ## it would be good to compile it else where so we can just download the exec
-      - name: Clone and build proto-gen-md-diagrams
+      - name: Install proto-gen-md-diagrams
         run: |
-          cd ..
-          git clone https://github.com/GoogleCloudPlatform/proto-gen-md-diagrams.git
-          cd proto-gen-md-diagrams
-          go build
-          cd ..
-          cd protobuf
+          make install-proto-gen-md
       - name: Generate docs
         run: |
           make docs
