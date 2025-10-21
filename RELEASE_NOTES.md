@@ -1,6 +1,10 @@
 # ProtoBuf Release Notes
 
-## 0.0.16-dev - 2025-10-20
+## 0.0.16-dev - 2025-10-21
+
+### Continuous Integration
+
+- Install locally proto-gen-md-diagrams (PR #117 by @chicco785)
 
 ### Documentation
 
