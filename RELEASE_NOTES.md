@@ -12,6 +12,8 @@
 
 ### Dependencies
 
+- Bump github.com/ccoveille/go-safecast from 1.6.1 to 1.7.0 (PR #115 by
+  @dependabot[bot])
 - Bump google.golang.org/protobuf from 1.36.9 to 1.36.10 (PR #114 by
   @dependabot[bot])
 - Bump google.golang.org/protobuf from 1.36.7 to 1.36.9 (PR #111 by
