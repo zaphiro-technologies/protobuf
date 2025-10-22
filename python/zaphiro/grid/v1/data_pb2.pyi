@@ -59,6 +59,7 @@ class DataType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     DATA_TYPE_TEMPERATURE_ALARM: _ClassVar[DataType]
     DATA_TYPE_PRESSURE_ALARM: _ClassVar[DataType]
     DATA_TYPE_DOOR_ALARM: _ClassVar[DataType]
+    DATA_TYPE_ABSOLUTE_RESIDUAL: _ClassVar[DataType]
 DATA_TYPE_UNSPECIFIED: DataType
 DATA_TYPE_ACTIVE_POWER: DataType
 DATA_TYPE_ANGLE: DataType
@@ -110,6 +111,7 @@ DATA_TYPE_SWITCH_POSITION_CHECK: DataType
 DATA_TYPE_TEMPERATURE_ALARM: DataType
 DATA_TYPE_PRESSURE_ALARM: DataType
 DATA_TYPE_DOOR_ALARM: DataType
+DATA_TYPE_ABSOLUTE_RESIDUAL: DataType
 
 class Data(_message.Message):
     __slots__ = ("dataType", "measuredAt", "value")
