@@ -30,8 +30,13 @@ install-stringer:
 	@echo "Installing latest stringer version..."
 	go install golang.org/x/tools/cmd/stringer@latest
 
+.PHONY: install-gomarkdoc
+install-stringer:
+	@echo "Installing latest gomarkdocversion..."
+	go install github.com/princjef/gomarkdoc/cmd/gomarkdoc@latest
+
 .PHONY: install
-install: install-proto-gen-md install-stringer
+install: install-proto-gen-md install-stringer install-gomarkdoc
 
 all: proto-lint install generate lint test docs
 
@@ -62,6 +67,7 @@ generate:
 docs:
 	mkdir -p docs
 	bin/proto-gen-md-diagrams -d zaphiro -o docs -md true
+	gomarkdoc ./go/constants > docs/constants.md
 
 .PHONY: proto-lint
 proto-lint:

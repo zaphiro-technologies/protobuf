@@ -193,7 +193,7 @@ direction LR
 %% * `latency` (int64): arrival latency in milliseconds between the measurement timestamp and their injection in the platform.
 %% * `samplingPeriod` (string): optional, used to identify timestamps that match
 %%  `second` or `minute`.
-%% * `sourceType` (SourceType): the source type of the measurement.
+%% * `sourceType` (SourceType): the [source type](../../constants.md) of the measurement.
 %% 
 
 class DataSet {
@@ -242,7 +242,7 @@ Headers used in rabbitMQ:
 * `latency` (int64): arrival latency in milliseconds between the measurement timestamp and their injection in the platform.
 * `samplingPeriod` (string): optional, used to identify timestamps that match
  `second` or `minute`.
-* `sourceType` (SourceType): the source type of the measurement.
+* `sourceType` (SourceType): the [source type](../../constants.md) of the measurement.
 
 
 
