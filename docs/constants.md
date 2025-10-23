@@ -11,7 +11,9 @@ Package constants package that contains all the enums or constants that can be u
 ## Index
 
 - [type SourceType](<#SourceType>)
+  - [func NewSourceType\(raw int8\) \(SourceType, error\)](<#NewSourceType>)
   - [func \(i SourceType\) String\(\) string](<#SourceType.String>)
+  - [func \(st SourceType\) ToInt8\(\) int8](<#SourceType.ToInt8>)
 
 
 <a name="SourceType"></a>
@@ -20,7 +22,7 @@ Package constants package that contains all the enums or constants that can be u
 
 
 ```go
-type SourceType int
+type SourceType int8
 ```
 
 <a name="SourceTypeUnspecified"></a>
@@ -32,14 +34,33 @@ const (
     SourceTypeService         SourceType = 2 // The source of the event was a service (e.g. state estimator)
     SourceTypeExternalService SourceType = 3 // The source of the event was a service external to SynchroGuard platform (e.g. SCADA)
     SourceTypeTestService     SourceType = 4 // The source of the event was a service in test mode.
+
 )
 ```
+
+<a name="NewSourceType"></a>
+### func NewSourceType
+
+```go
+func NewSourceType(raw int8) (SourceType, error)
+```
+
+
 
 <a name="SourceType.String"></a>
 ### func \(SourceType\) String
 
 ```go
 func (i SourceType) String() string
+```
+
+
+
+<a name="SourceType.ToInt8"></a>
+### func \(SourceType\) ToInt8
+
+```go
+func (st SourceType) ToInt8() int8
 ```
 
 
