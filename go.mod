@@ -1,6 +1,6 @@
 module github.com/zaphiro-technologies/protobuf
 
-go 1.23.2
+go 1.25.3
 
 require (
 	github.com/ccoveille/go-safecast v1.7.0

@@ -25,7 +25,20 @@ install-proto-gen-md:
 		cp -f proto-gen-md-diagrams $(CURDIR)/bin/proto-gen-md-diagrams && \
 		echo "Installed to $(CURDIR)/bin/proto-gen-md-diagrams"
 
-all: proto-lint generate lint test docs
+.PHONY: install-stringer
+install-stringer:
+	@echo "Installing latest stringer version..."
+	go install golang.org/x/tools/cmd/stringer@latest
+
+.PHONY: install-gomarkdoc
+install-gomarkdoc:
+	@echo "Installing latest gomarkdoc version..."
+	go install github.com/princjef/gomarkdoc/cmd/gomarkdoc@latest
+
+.PHONY: install
+install: install-proto-gen-md install-stringer install-gomarkdoc
+
+all: proto-lint install generate lint test docs
 
 .PHONY: lint
 lint:
@@ -48,35 +61,13 @@ cov:
 .PHONY: generate
 generate:
 	buf generate
-
-.PHONY: lint-with-docker
-lint-with-docker:
-	@mkdir -p .buf_cache
-	@docker run \
-		--rm \
-		-v "$(shell pwd):/workspace" \
-		-w /workspace \
-		--user "$(shell id -u):$(shell id -g)" \
-		-e BUF_CACHE_DIR=/workspace/.buf_cache \
-		bufbuild/buf \
-		lint
-
-.PHONY: generate-with-docker
-generate-with-docker:
-	@mkdir -p .buf_cache
-	@docker run \
-		--rm \
-		-v "$(shell pwd):/workspace" \
-		-w /workspace \
-		--user "$(shell id -u):$(shell id -g)" \
-		-e BUF_CACHE_DIR=/workspace/.buf_cache \
-		bufbuild/buf \
-		generate
+	go generate ./...
 
 .PHONY: docs
 docs:
 	mkdir -p docs
 	bin/proto-gen-md-diagrams -d zaphiro -o docs -md true
+	gomarkdoc ./go/constants > docs/constants.md
 
 .PHONY: proto-lint
 proto-lint:
