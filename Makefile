@@ -31,8 +31,8 @@ install-stringer:
 	go install golang.org/x/tools/cmd/stringer@latest
 
 .PHONY: install-gomarkdoc
-install-stringer:
-	@echo "Installing latest gomarkdocversion..."
+install-gomarkdoc:
+	@echo "Installing latest gomarkdoc version..."
 	go install github.com/princjef/gomarkdoc/cmd/gomarkdoc@latest
 
 .PHONY: install
