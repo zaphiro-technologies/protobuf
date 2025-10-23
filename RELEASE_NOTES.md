@@ -1,8 +1,10 @@
 # ProtoBuf Release Notes
 
-## 0.0.17-dev - 2025-10-22
+## 0.0.17-dev - 2025-10-23
 
-- no changes
+### Features
+
+- Add shared constants to model message headers (PR #119 by @hiimjako)
 
 ## 0.0.16 - 2025-10-21
 
