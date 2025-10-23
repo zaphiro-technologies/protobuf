@@ -1,6 +1,14 @@
 # ProtoBuf Release Notes
 
-## 0.0.16-dev - 2025-10-21
+## 0.0.17-dev - 2025-10-22
+
+- no changes
+
+## 0.0.16 - 2025-10-21
+
+### Features
+
+- data proto: add absolute residual data type (PR #116 by @hiimjako)
 
 ### Continuous Integration
 
