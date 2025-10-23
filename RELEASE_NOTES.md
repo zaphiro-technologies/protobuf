@@ -2,7 +2,9 @@
 
 ## 0.0.18-dev - 2025-10-23
 
-- no changes
+### Features
+
+- Add casting methods for constants (PR #120 by @hiimjako)
 
 ## 0.0.17 - 2025-10-23
 
