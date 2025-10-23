@@ -10,6 +10,10 @@
 
 ## 0.0.17 - 2025-10-23
 
+- no changes
+
+## 0.0.17 - 2025-10-23
+
 ### Features
 
 - Add shared constants to model message headers (PR #119 by @hiimjako)
