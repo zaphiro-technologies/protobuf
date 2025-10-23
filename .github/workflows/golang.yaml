@@ -40,7 +40,7 @@ jobs:
         with:
           go-version-file: go.mod
       ## it would be good to compile it else where so we can just download the exec
-      - name: Install dependences
+      - name: Install dependencies
         run: |
           make install
       - name: Generate docs
