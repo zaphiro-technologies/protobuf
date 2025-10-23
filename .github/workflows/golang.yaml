@@ -40,9 +40,9 @@ jobs:
         with:
           go-version-file: go.mod
       ## it would be good to compile it else where so we can just download the exec
-      - name: Install proto-gen-md-diagrams
+      - name: Install dependencies
         run: |
-          make install-proto-gen-md
+          make install
       - name: Generate docs
         run: |
           make docs
@@ -62,7 +62,7 @@ jobs:
         run: |
           git config --global user.name 'Bot'
           git config --global user.email 'bot@zaphiro.ch'
-          git add --all && git commit -m "Buf re-generated protos" || echo "No changes to commit"
+          git commit -am "Buf re-generated protos [dependabot skip]" || echo "No changes to commit"
           git push
   golang:
     needs: proto
