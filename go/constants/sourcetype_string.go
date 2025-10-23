@@ -13,11 +13,12 @@ func _() {
 	_ = x[SourceTypeService-2]
 	_ = x[SourceTypeExternalService-3]
 	_ = x[SourceTypeTestService-4]
+	_ = x[_sourceTypeTag-5]
 }
 
-const _SourceType_name = "SourceTypeUnspecifiedSourceTypeDeviceSourceTypeServiceSourceTypeExternalServiceSourceTypeTestService"
+const _SourceType_name = "SourceTypeUnspecifiedSourceTypeDeviceSourceTypeServiceSourceTypeExternalServiceSourceTypeTestService_sourceTypeTag"
 
-var _SourceType_index = [...]uint8{0, 21, 37, 54, 79, 100}
+var _SourceType_index = [...]uint8{0, 21, 37, 54, 79, 100, 114}
 
 func (i SourceType) String() string {
 	idx := int(i) - 0
