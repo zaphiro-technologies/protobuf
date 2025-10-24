@@ -7,11 +7,10 @@ import (
 )
 
 func TestNewSourceType(t *testing.T) {
-	st, err := NewSourceType(3)
-	assert.Equal(t, SourceTypeExternalService, st)
-	assert.NoError(t, err)
-
-	st, err = NewSourceType(_sourceTypeTag.ToInt8())
-	assert.Equal(t, SourceTypeUnspecified, st)
+	_, err := NewSourceType("foo")
 	assert.Error(t, err)
+
+	st, err := NewSourceType(SourceTypeExternalService.String())
+	assert.NoError(t, err)
+	assert.Equal(t, SourceTypeExternalService, st)
 }

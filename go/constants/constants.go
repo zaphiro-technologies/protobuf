@@ -1,31 +1,39 @@
 // Package constants package that contains all the enums or constants that can be used in the headers of the proto.
 // (For message headers only)
-// WARN: do not remove any constant to avoid to break compatibility. Just mark them as deprecated.
-//
-//go:generate stringer -type=SourceType
+// WARN: do not remove/rename any constant to avoid to break compatibility. Just mark them as deprecated.
+// Also all the string must be in PascalCase.
 package constants
 
 import "fmt"
 
-type SourceType int8
+type SourceType string
 
+//nolint:lll
 const (
-	SourceTypeUnspecified     SourceType = 0 // No source type defined
-	SourceTypeDevice          SourceType = 1 // The source of the event was a device (e.g. PMU)
-	SourceTypeService         SourceType = 2 // The source of the event was a service (e.g. state estimator)
-	SourceTypeExternalService SourceType = 3 // The source of the event was a service external to SynchroGuard platform (e.g. SCADA)
-	SourceTypeTestService     SourceType = 4 // The source of the event was a service in test mode.
-	_sourceTypeTag            SourceType = iota
+	SourceTypeUnspecified     SourceType = "Unspecified"     // No source type defined
+	SourceTypeDevice          SourceType = "Device"          // The source of the event was a device (e.g. PMU)
+	SourceTypeService         SourceType = "Service"         // The source of the event was a service (e.g. state estimator)
+	SourceTypeExternalService SourceType = "ExternalService" // The source of the event was a service external to SynchroGuard platform (e.g. SCADA)
+	SourceTypeTestService     SourceType = "TestService"     // The source of the event was a service in test mode.
 )
 
-func NewSourceType(raw int8) (SourceType, error) {
-	if raw >= int8(_sourceTypeTag) {
-		return SourceTypeUnspecified, fmt.Errorf("invalid source type %d", raw)
-	}
-
-	return SourceType(raw), nil
+func (st SourceType) String() string {
+	return string(st)
 }
 
-func (st SourceType) ToInt8() int8 {
-	return int8(st)
+func NewSourceType(s string) (SourceType, error) {
+	switch SourceType(s) {
+	case SourceTypeUnspecified:
+		return SourceTypeUnspecified, nil
+	case SourceTypeDevice:
+		return SourceTypeDevice, nil
+	case SourceTypeService:
+		return SourceTypeService, nil
+	case SourceTypeExternalService:
+		return SourceTypeExternalService, nil
+	case SourceTypeTestService:
+		return SourceTypeTestService, nil
+	default:
+		return SourceTypeUnspecified, fmt.Errorf("unexpected SourceType %q", s)
+	}
 }

@@ -25,18 +25,13 @@ install-proto-gen-md:
 		cp -f proto-gen-md-diagrams $(CURDIR)/bin/proto-gen-md-diagrams && \
 		echo "Installed to $(CURDIR)/bin/proto-gen-md-diagrams"
 
-.PHONY: install-stringer
-install-stringer:
-	@echo "Installing latest stringer version..."
-	go install golang.org/x/tools/cmd/stringer@latest
-
 .PHONY: install-gomarkdoc
 install-gomarkdoc:
 	@echo "Installing latest gomarkdoc version..."
 	go install github.com/princjef/gomarkdoc/cmd/gomarkdoc@latest
 
 .PHONY: install
-install: install-proto-gen-md install-stringer install-gomarkdoc
+install: install-proto-gen-md install-gomarkdoc
 
 all: proto-lint install generate lint test docs
 
@@ -61,7 +56,6 @@ cov:
 .PHONY: generate
 generate:
 	buf generate
-	go generate ./...
 
 .PHONY: docs
 docs:
