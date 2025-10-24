@@ -6,14 +6,13 @@
 import "github.com/zaphiro-technologies/protobuf/go/constants"
 ```
 
-Package constants package that contains all the enums or constants that can be used in the headers of the proto. \(For message headers only\) WARN: do not remove any constant to avoid to break compatibility. Just mark them as deprecated.
+Package constants package that contains all the enums or constants that can be used in the headers of the proto. \(For message headers only\) WARN: do not remove/rename any constant to avoid to break compatibility. Just mark them as deprecated. Also all the string must be in PascalCase.
 
 ## Index
 
 - [type SourceType](<#SourceType>)
-  - [func NewSourceType\(raw int8\) \(SourceType, error\)](<#NewSourceType>)
-  - [func \(i SourceType\) String\(\) string](<#SourceType.String>)
-  - [func \(st SourceType\) ToInt8\(\) int8](<#SourceType.ToInt8>)
+  - [func NewSourceType\(s string\) \(SourceType, error\)](<#NewSourceType>)
+  - [func \(st SourceType\) String\(\) string](<#SourceType.String>)
 
 
 <a name="SourceType"></a>
@@ -22,19 +21,18 @@ Package constants package that contains all the enums or constants that can be u
 
 
 ```go
-type SourceType int8
+type SourceType string
 ```
 
 <a name="SourceTypeUnspecified"></a>
 
 ```go
 const (
-    SourceTypeUnspecified     SourceType = 0 // No source type defined
-    SourceTypeDevice          SourceType = 1 // The source of the event was a device (e.g. PMU)
-    SourceTypeService         SourceType = 2 // The source of the event was a service (e.g. state estimator)
-    SourceTypeExternalService SourceType = 3 // The source of the event was a service external to SynchroGuard platform (e.g. SCADA)
-    SourceTypeTestService     SourceType = 4 // The source of the event was a service in test mode.
-
+    SourceTypeUnspecified     SourceType = "Unspecified"     // No source type defined
+    SourceTypeDevice          SourceType = "Device"          // The source of the event was a device (e.g. PMU)
+    SourceTypeService         SourceType = "Service"         // The source of the event was a service (e.g. state estimator)
+    SourceTypeExternalService SourceType = "ExternalService" // The source of the event was a service external to SynchroGuard platform (e.g. SCADA)
+    SourceTypeTestService     SourceType = "TestService"     // The source of the event was a service in test mode.
 )
 ```
 
@@ -42,7 +40,7 @@ const (
 ### func NewSourceType
 
 ```go
-func NewSourceType(raw int8) (SourceType, error)
+func NewSourceType(s string) (SourceType, error)
 ```
 
 
@@ -51,16 +49,7 @@ func NewSourceType(raw int8) (SourceType, error)
 ### func \(SourceType\) String
 
 ```go
-func (i SourceType) String() string
-```
-
-
-
-<a name="SourceType.ToInt8"></a>
-### func \(SourceType\) ToInt8
-
-```go
-func (st SourceType) ToInt8() int8
+func (st SourceType) String() string
 ```
 
 
