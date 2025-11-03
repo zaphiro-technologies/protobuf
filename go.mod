@@ -3,7 +3,7 @@ module github.com/zaphiro-technologies/protobuf
 go 1.25.3
 
 require (
-	github.com/ccoveille/go-safecast v1.7.0
+	github.com/ccoveille/go-safecast v1.8.1
 	github.com/google/uuid v1.6.0
 	github.com/stretchr/testify v1.11.1
 	google.golang.org/protobuf v1.36.10
