@@ -1,8 +1,11 @@
 # ProtoBuf Release Notes
 
-## 0.0.20-dev - 2025-10-24
+## 0.0.20-dev - 2025-11-07
 
-- no changes
+### Dependencies
+
+- Bump github.com/ccoveille/go-safecast from 1.7.0 to 1.8.1 (PR #122 by
+  @dependabot[bot])
 
 ## 0.0.19 - 2025-10-24
 
