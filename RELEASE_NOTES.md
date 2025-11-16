@@ -1,8 +1,12 @@
 # ProtoBuf Release Notes
 
-## 0.0.20-dev - 2025-10-24
+## 0.0.20-dev - 2025-11-16
 
-- no changes
+### Dependencies
+
+- Bump golangci/golangci-lint-action from 8 to 9 (PR #123 by @dependabot[bot])
+- Bump github.com/ccoveille/go-safecast from 1.7.0 to 1.8.2 (PR #124 by
+  @dependabot[bot])
 
 ## 0.0.19 - 2025-10-24
 
