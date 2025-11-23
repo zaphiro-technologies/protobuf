@@ -1,6 +1,6 @@
 # ProtoBuf Release Notes
 
-## 0.0.20-dev - 2025-11-22
+## 0.0.20-dev - 2025-11-23
 
 ### Dependencies
 
