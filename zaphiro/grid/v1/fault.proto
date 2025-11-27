@@ -156,6 +156,7 @@ message Fault {
   repeated FaultMeasurement usedMeasurementIds = 10; // The set of measurements used to locate the fault.
   optional int64 measurementTimestamp = 11; // The timestamp of the measurements used to compute the fault location.
   optional float locationProbability = 12; // The probability associated to the location. (This is relevant because multiple locations can be returned for a fault)
+  optional string eventGroupId = 13; // This allows to track relationship between evolving events.
 }
 
 /* A fault that occurs on an AC line segment at some point along the length.

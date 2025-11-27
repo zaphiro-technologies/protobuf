@@ -90,7 +90,7 @@ FAULT_EVENT_TYPE_UNKNOWN: FaultEventType
 FAULT_EVENT_TYPE_UPDATED: FaultEventType
 
 class Fault(_message.Message):
-    __slots__ = ("Id", "description", "kind", "phases", "updatedAt", "faultEventType", "faultyEquipmentId", "faultCurrent", "impactedEquipmentIds", "usedMeasurementIds", "measurementTimestamp", "locationProbability")
+    __slots__ = ("Id", "description", "kind", "phases", "updatedAt", "faultEventType", "faultyEquipmentId", "faultCurrent", "impactedEquipmentIds", "usedMeasurementIds", "measurementTimestamp", "locationProbability", "eventGroupId")
     ID_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     KIND_FIELD_NUMBER: _ClassVar[int]
@@ -103,6 +103,7 @@ class Fault(_message.Message):
     USEDMEASUREMENTIDS_FIELD_NUMBER: _ClassVar[int]
     MEASUREMENTTIMESTAMP_FIELD_NUMBER: _ClassVar[int]
     LOCATIONPROBABILITY_FIELD_NUMBER: _ClassVar[int]
+    EVENTGROUPID_FIELD_NUMBER: _ClassVar[int]
     Id: str
     description: str
     kind: PhaseConnectedFaultKind
@@ -115,7 +116,8 @@ class Fault(_message.Message):
     usedMeasurementIds: _containers.RepeatedCompositeFieldContainer[FaultMeasurement]
     measurementTimestamp: int
     locationProbability: float
-    def __init__(self, Id: _Optional[str] = ..., description: _Optional[str] = ..., kind: _Optional[_Union[PhaseConnectedFaultKind, str]] = ..., phases: _Optional[_Union[PhaseCode, str]] = ..., updatedAt: _Optional[int] = ..., faultEventType: _Optional[_Union[FaultEventType, str]] = ..., faultyEquipmentId: _Optional[str] = ..., faultCurrent: _Optional[float] = ..., impactedEquipmentIds: _Optional[_Iterable[str]] = ..., usedMeasurementIds: _Optional[_Iterable[_Union[FaultMeasurement, _Mapping]]] = ..., measurementTimestamp: _Optional[int] = ..., locationProbability: _Optional[float] = ...) -> None: ...
+    eventGroupId: str
+    def __init__(self, Id: _Optional[str] = ..., description: _Optional[str] = ..., kind: _Optional[_Union[PhaseConnectedFaultKind, str]] = ..., phases: _Optional[_Union[PhaseCode, str]] = ..., updatedAt: _Optional[int] = ..., faultEventType: _Optional[_Union[FaultEventType, str]] = ..., faultyEquipmentId: _Optional[str] = ..., faultCurrent: _Optional[float] = ..., impactedEquipmentIds: _Optional[_Iterable[str]] = ..., usedMeasurementIds: _Optional[_Iterable[_Union[FaultMeasurement, _Mapping]]] = ..., measurementTimestamp: _Optional[int] = ..., locationProbability: _Optional[float] = ..., eventGroupId: _Optional[str] = ...) -> None: ...
 
 class LineFault(_message.Message):
     __slots__ = ("fault", "lengthFromTerminal1", "lengthUncertainty")
