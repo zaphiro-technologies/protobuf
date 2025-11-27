@@ -97,33 +97,17 @@ PhaseCode](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base
 
 **FQN**: zaphiro.grid.v1.FaultEventType
 
-The collection of Fault Event Types defined so far.
+The collection of Fault Event Types messages defined so far.
 
 
 | Name                           | Ordinal | Description                                                                      |
 |--------------------------------|---------|----------------------------------------------------------------------------------|
 | `FAULT_EVENT_TYPE_UNSPECIFIED` | 0       | No status defined                                                                |
-| `FAULT_EVENT_TYPE_STARTED`     | 1       | Fault started                                                                    |
-| `FAULT_EVENT_TYPE_LOCATED`     | 2       | Fault located                                                                    |
-| `FAULT_EVENT_TYPE_ENDED`       | 3       | Fault ended                                                                      |
+| `FAULT_EVENT_TYPE_STARTED`     | 1       | Fault started message                                                            |
+| `FAULT_EVENT_TYPE_LOCATED`     | 2       | Fault located message                                                            |
+| `FAULT_EVENT_TYPE_ENDED`       | 3       | Fault ended message                                                              |
 | `FAULT_EVENT_TYPE_UNKNOWN`     | 4       | Information available don't allow us to know if the Fault is active or complete  |
-| `FAULT_EVENT_TYPE_UPDATED`     | 5       | Fault data requires to be updated                                                |
-
-
-## Enum: FaultSourceType
-
-**FQN**: zaphiro.grid.v1.FaultSourceType
-
-
-
-
-| Name                            | Ordinal | Description                                                                           |
-|---------------------------------|---------|---------------------------------------------------------------------------------------|
-| `FAULT_SOURCE_UNSPECIFIED`      | 0       | No source type defined                                                                |
-| `FAULT_SOURCE_DEVICE`           | 1       | The source of the fault was a device (e.g. PMU)                                       |
-| `FAULT_SOURCE_SERVICE`          | 2       | The source of the fault was a service (e.g. state estimator)                          |
-| `FAULT_SOURCE_EXTERNAL_SERVICE` | 3       | The source of the fault was a service external to SynchroGuard platform (e.g. SCADA)  |
-| `FAULT_SOURCE_TEST_SERVICE`     | 4       | The source of the fault was a service in test mode.                                   |
+| `FAULT_EVENT_TYPE_UPDATED`     | 5       | Fault in progress message                                                        |
 
 
 
@@ -205,7 +189,7 @@ class PhaseCode{
 ```mermaid
 classDiagram
 direction LR
-%% The collection of Fault Event Types defined so far.
+%% The collection of Fault Event Types messages defined so far.
 
 class FaultEventType{
   <<enumeration>>
@@ -215,22 +199,6 @@ class FaultEventType{
   FAULT_EVENT_TYPE_ENDED
   FAULT_EVENT_TYPE_UNKNOWN
   FAULT_EVENT_TYPE_UPDATED
-}
-```
-### FaultSourceType Diagram
-
-```mermaid
-classDiagram
-direction LR
-%% 
-
-class FaultSourceType{
-  <<enumeration>>
-  FAULT_SOURCE_UNSPECIFIED
-  FAULT_SOURCE_DEVICE
-  FAULT_SOURCE_SERVICE
-  FAULT_SOURCE_EXTERNAL_SERVICE
-  FAULT_SOURCE_TEST_SERVICE
 }
 ```
 ### Fault Diagram
@@ -334,7 +302,7 @@ direction LR
 %% A fault applied at the terminal, external to the equipment. This class is not
 %% used to specify faults internal to the equipment.
 %% 
-%% This message is modeled after [CIM
+%% This message is modelled after [CIM
 %% EquipmentFault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/EquipmentFault)
 %% according to the extensions defined in the
 %% [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures)
@@ -416,7 +384,7 @@ notification.
 | `kind`                 | 3       | `PhaseConnectedFaultKind` |          | The kind of phase fault.                                                                                                    |
 | `phases`               | 4       | `PhaseCode`               |          | The phases participating in the fault. The fault connections into these phases are further specified by the type of fault.  |
 | `updatedAt`            | 5       | `int64`                   |          | The date and time at which the fault started/located/ended depending on the Fault Status (Unix msec timestamp).             |
-| `faultEventType`       | 6       | `FaultEventType`          |          | The type of the fault event.                                                                                                |
+| `faultEventType`       | 6       | `FaultEventType`          |          | The type of the fault event message.                                                                                        |
 | `faultyEquipmentId`    | 7       | `string`                  | Optional | The equipment with the fault.                                                                                               |
 | `faultCurrent`         | 8       | `float`                   | Optional | The current associated to the fault.                                                                                        |
 | `impactedEquipmentIds` | 9       | `string`                  | Repeated | The set of IDs of equipments impacted by the fault.                                                                         |
@@ -469,7 +437,7 @@ notification.
 A fault applied at the terminal, external to the equipment. This class is not
 used to specify faults internal to the equipment.
 
-This message is modeled after [CIM
+This message is modelled after [CIM
 EquipmentFault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/EquipmentFault)
 according to the extensions defined in the
 [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures)

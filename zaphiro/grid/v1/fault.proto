@@ -100,23 +100,16 @@ enum PhaseCode {
   PHASE_CODE_XYN = 25;        // Two unknown non-neutral phases plus neutral.
 }
 
-/* The collection of Fault Event Types defined so far.*/
+/* The collection of Fault Event Types messages defined so far.*/
 
 enum FaultEventType {
   FAULT_EVENT_TYPE_UNSPECIFIED = 0; // No status defined
-  FAULT_EVENT_TYPE_STARTED = 1;     // Fault started
-  FAULT_EVENT_TYPE_LOCATED = 2;     // Fault located
-  FAULT_EVENT_TYPE_ENDED = 3;       // Fault ended
+  FAULT_EVENT_TYPE_STARTED = 1;     // Fault started message
+  FAULT_EVENT_TYPE_LOCATED = 2;     // Fault located message
+  FAULT_EVENT_TYPE_ENDED = 3;       // Fault ended message
   FAULT_EVENT_TYPE_UNKNOWN = 4; // Information available don't allow us to know if the Fault is active or complete
-  FAULT_EVENT_TYPE_UPDATED = 5; // Fault data requires to be updated
-}
-
-enum FaultSourceType {
-  FAULT_SOURCE_UNSPECIFIED = 0; // No source type defined
-  FAULT_SOURCE_DEVICE = 1; // The source of the fault was a device (e.g. PMU)
-  FAULT_SOURCE_SERVICE = 2; // The source of the fault was a service (e.g. state estimator)
-  FAULT_SOURCE_EXTERNAL_SERVICE = 3; // The source of the fault was a service external to SynchroGuard platform (e.g. SCADA)
-  FAULT_SOURCE_TEST_SERVICE = 4; // The source of the fault was a service in test mode.
+  FAULT_EVENT_TYPE_UPDATED = 5; // Fault in progress message
+  // TODO: rename when SH is deprecated
 }
 
 /* Abnormal condition causing current flow through conducting equipment, such as
@@ -152,11 +145,11 @@ notification.
 
 message Fault {
   string Id = 1;                    // The textual id of the fault.
-  optional string description = 2;  // The textual description of the fault.
+  optional string description = 2 [deprecated = true];  // The textual description of the fault.
   PhaseConnectedFaultKind kind = 3; // The kind of phase fault.
   PhaseCode phases = 4; // The phases participating in the fault. The fault connections into these phases are further specified by the type of fault.
   int64 updatedAt = 5; // The date and time at which the fault started/located/ended depending on the Fault Status (Unix msec timestamp).
-  FaultEventType faultEventType = 6; // The type of the fault event.
+  FaultEventType faultEventType = 6; // The type of the fault event message.
   optional string faultyEquipmentId = 7; // The equipment with the fault.
   optional float faultCurrent = 8; // The current associated to the fault.
   repeated string impactedEquipmentIds = 9; // The set of IDs of equipments impacted by the fault.
@@ -195,7 +188,7 @@ message LineFault {
 A fault applied at the terminal, external to the equipment. This class is not
 used to specify faults internal to the equipment.
 
-This message is modeled after [CIM
+This message is modelled after [CIM
 EquipmentFault](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Faults/EquipmentFault)
 according to the extensions defined in the
 [fault-data-storage](https://github.com/zaphiro-technologies/architecture/blob/main/features/31-fault-data-storage.md#data-structures)
