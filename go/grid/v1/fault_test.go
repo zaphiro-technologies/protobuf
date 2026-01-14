@@ -43,7 +43,7 @@ func generateFault(
 
 func TestFault(t *testing.T) {
 	for k := int32(0); k < 5; k++ {
-		randPhaseCode, err := safecast.ToInt32(rand.Intn(26))
+		randPhaseCode, err := safecast.Convert[int32](rand.Intn(26))
 		if err != nil {
 			t.Fatalf("Failed to convert int to int32: %v", err)
 		}
@@ -67,11 +67,11 @@ func TestFault(t *testing.T) {
 }
 
 func BenchmarkFaultSerialization(b *testing.B) {
-	randFaultKind, err := safecast.ToInt32(rand.Intn(4))
+	randFaultKind, err := safecast.Convert[int32](rand.Intn(4))
 	if err != nil {
 		b.Fatalf("Failed to convert int to int32: %v", err)
 	}
-	randPhaseCode, err := safecast.ToInt32(rand.Intn(26))
+	randPhaseCode, err := safecast.Convert[int32](rand.Intn(26))
 	if err != nil {
 		b.Fatalf("Failed to convert int to int32: %v", err)
 	}
@@ -101,7 +101,7 @@ func generateLineFault(
 
 func TestLineFault(t *testing.T) {
 	for k := int32(0); k < 5; k++ {
-		randPhaseCode, err := safecast.ToInt32(rand.Intn(26))
+		randPhaseCode, err := safecast.Convert[int32](rand.Intn(26))
 		if err != nil {
 			t.Fatalf("Failed to convert int to int32: %v", err)
 		}
@@ -117,11 +117,11 @@ func TestLineFault(t *testing.T) {
 }
 
 func BenchmarkLineFaultSerialization(b *testing.B) {
-	randFaultKind, err := safecast.ToInt32(rand.Intn(4))
+	randFaultKind, err := safecast.Convert[int32](rand.Intn(4))
 	if err != nil {
 		b.Fatalf("Failed to convert int to int32: %v", err)
 	}
-	randPhaseCode, err := safecast.ToInt32(rand.Intn(26))
+	randPhaseCode, err := safecast.Convert[int32](rand.Intn(26))
 	if err != nil {
 		b.Fatalf("Failed to convert int to int32: %v", err)
 	}
@@ -152,7 +152,7 @@ func generateEquipmentFault(
 
 func TestEquipmentFault(t *testing.T) {
 	for k := int32(0); k < 5; k++ {
-		randPhaseCode, err := safecast.ToInt32(rand.Intn(26))
+		randPhaseCode, err := safecast.Convert[int32](rand.Intn(26))
 		if err != nil {
 			t.Fatalf("Failed to convert int to int32: %v", err)
 		}
@@ -174,11 +174,11 @@ func TestEquipmentFault(t *testing.T) {
 }
 
 func BenchmarkEquipmentFaultSerialization(b *testing.B) {
-	randFaultKind, err := safecast.ToInt32(rand.Intn(4))
+	randFaultKind, err := safecast.Convert[int32](rand.Intn(4))
 	if err != nil {
 		b.Fatalf("Failed to convert int to int32: %v", err)
 	}
-	randPhaseCode, err := safecast.ToInt32(rand.Intn(26))
+	randPhaseCode, err := safecast.Convert[int32](rand.Intn(26))
 	if err != nil {
 		b.Fatalf("Failed to convert int to int32: %v", err)
 	}

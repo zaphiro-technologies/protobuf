@@ -67,7 +67,7 @@ func TestEvent(t *testing.T) {
 }
 
 func BenchmarkEventSerialization(b *testing.B) {
-	randEventSourceType, err := safecast.ToInt32(rand.Intn(4))
+	randEventSourceType, err := safecast.Convert[int32](rand.Intn(4))
 	if err != nil {
 		b.Fatalf("Failed to convert int to int32: %v", err)
 	}
@@ -132,7 +132,7 @@ func TestGridEvent(t *testing.T) {
 }
 
 func BenchmarkGridEventSerialization(b *testing.B) {
-	randEventSourceType, err := safecast.ToInt32(rand.Intn(4))
+	randEventSourceType, err := safecast.Convert[int32](rand.Intn(4))
 	if err != nil {
 		b.Fatalf("Failed to convert int to int32: %v", err)
 	}
