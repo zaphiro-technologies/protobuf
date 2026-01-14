@@ -45,6 +45,7 @@ message GridEvent {
   double value = 4; //The measured / estimated value in relation to the event (e.g. in the case of a `VoltageEvent` is the voltage, in the case of a `CurrentEvent` is the current event).
   double referenceLimit = 5; //The reference limit or expected value.
   optional double probability = 6; //The probability that the event actually occurred.
+  optional double movingAverage = 7; //The moving average value of the measurement related to the event.
 }
 
 message VoltageEvent {
@@ -53,15 +54,15 @@ message VoltageEvent {
 }
 
 message CurrentEvent {
-  GridEvent event = 1;  //The base grid event message
+  GridEvent event = 1; //The base grid event message
 }
 
 message PhaseEvent {
-  GridEvent event = 1;  //The base grid event message
+  GridEvent event = 1; //The base grid event message
 }
 
 message FrequencyEvent {
-  GridEvent event = 1;  //The base grid event message
+  GridEvent event = 1; //The base grid event message
 }
 
 message LineCongestion  {
@@ -93,7 +94,7 @@ message VoltageLimit {
 }
 
 message VoltageRapidChange {
-  VoltageEvent event = 1; //The base voltage grid event message 
+  VoltageEvent event = 1; //The base voltage grid event message
 }
 
 message OverFrequency {

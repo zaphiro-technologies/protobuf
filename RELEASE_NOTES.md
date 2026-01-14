@@ -1,15 +1,23 @@
 # ProtoBuf Release Notes
 
-## 0.0.20-dev - 2026-01-14
+## 0.0.21-dev - 2026-01-14
+
+- no changes
+
+## 0.0.20 - 2026-01-14
+
+### Features
+
+- Add moving average field to grid event (PR #128 by @chicco785)
 
 ### Dependencies
 
+- Bump github.com/ccoveille/go-safecast from 1.7.0 to 1.8.2 (PR #124 by
+  @dependabot[bot])
 - Bump google.golang.org/protobuf from 1.36.10 to 1.36.11 (PR #127 by
   @dependabot[bot])
 - Bump actions/checkout from 5 to 6 (PR #125 by @dependabot[bot])
 - Bump golangci/golangci-lint-action from 8 to 9 (PR #123 by @dependabot[bot])
-- Bump github.com/ccoveille/go-safecast from 1.7.0 to 1.8.2 (PR #124 by
-  @dependabot[bot])
 
 ## 0.0.19 - 2025-10-24
 

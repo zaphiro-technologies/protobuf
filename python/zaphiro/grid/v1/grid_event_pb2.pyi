@@ -7,20 +7,22 @@ from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Opti
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class GridEvent(_message.Message):
-    __slots__ = ("event", "componentID", "substationID", "value", "referenceLimit", "probability")
+    __slots__ = ("event", "componentID", "substationID", "value", "referenceLimit", "probability", "movingAverage")
     EVENT_FIELD_NUMBER: _ClassVar[int]
     COMPONENTID_FIELD_NUMBER: _ClassVar[int]
     SUBSTATIONID_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
     REFERENCELIMIT_FIELD_NUMBER: _ClassVar[int]
     PROBABILITY_FIELD_NUMBER: _ClassVar[int]
+    MOVINGAVERAGE_FIELD_NUMBER: _ClassVar[int]
     event: _event_pb2.Event
     componentID: str
     substationID: str
     value: float
     referenceLimit: float
     probability: float
-    def __init__(self, event: _Optional[_Union[_event_pb2.Event, _Mapping]] = ..., componentID: _Optional[str] = ..., substationID: _Optional[str] = ..., value: _Optional[float] = ..., referenceLimit: _Optional[float] = ..., probability: _Optional[float] = ...) -> None: ...
+    movingAverage: float
+    def __init__(self, event: _Optional[_Union[_event_pb2.Event, _Mapping]] = ..., componentID: _Optional[str] = ..., substationID: _Optional[str] = ..., value: _Optional[float] = ..., referenceLimit: _Optional[float] = ..., probability: _Optional[float] = ..., movingAverage: _Optional[float] = ...) -> None: ...
 
 class VoltageEvent(_message.Message):
     __slots__ = ("event", "phaseCode")
