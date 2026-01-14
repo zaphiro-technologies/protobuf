@@ -49,6 +49,7 @@ class GridEvent {
   + double value
   + double referenceLimit
   + Optional~double~ probability
+  + Optional~double~ movingAverage
 }
 GridEvent --> `Event`
 
@@ -320,6 +321,7 @@ event. cf enum EventSourceType
 | `value`          | 4       | `double` |          | The measured / estimated value in relation to the event (e.g. in the case of a `VoltageEvent` is the voltage, in the case of a `CurrentEvent` is the current event).  |
 | `referenceLimit` | 5       | `double` |          | The reference limit or expected value.                                                                                                                                |
 | `probability`    | 6       | `double` | Optional | The probability that the event actually occurred.                                                                                                                     |
+| `movingAverage`  | 7       | `double` | Optional | The moving average value of the measurement related to the event.                                                                                                     |
 
 
 
