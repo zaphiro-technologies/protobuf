@@ -67,7 +67,7 @@ func TestDataSet(t *testing.T) {
 }
 
 func BenchmarkDataSerialization(b *testing.B) {
-	randDataType, err := safecast.ToInt32(rand.Intn(46))
+	randDataType, err := safecast.Convert[int32](rand.Intn(46))
 	if err != nil {
 		b.Fatalf("Failed to convert int to int32: %v", err)
 	}
