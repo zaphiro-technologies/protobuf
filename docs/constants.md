@@ -16,7 +16,7 @@ Package constants package that contains all the enums or constants that can be u
 
 
 <a name="SourceType"></a>
-## type SourceType
+## type [SourceType](<https://github.com/zaphiro-technologies/protobuf/blob/main/go/constants/constants.go#L9>)
 
 
 
@@ -37,7 +37,7 @@ const (
 ```
 
 <a name="NewSourceType"></a>
-### func NewSourceType
+### func [NewSourceType](<https://github.com/zaphiro-technologies/protobuf/blob/main/go/constants/constants.go#L24>)
 
 ```go
 func NewSourceType(s string) (SourceType, error)
@@ -46,7 +46,7 @@ func NewSourceType(s string) (SourceType, error)
 
 
 <a name="SourceType.String"></a>
-### func \(SourceType\) String
+### func \(SourceType\) [String](<https://github.com/zaphiro-technologies/protobuf/blob/main/go/constants/constants.go#L20>)
 
 ```go
 func (st SourceType) String() string
