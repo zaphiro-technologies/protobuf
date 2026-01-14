@@ -95,7 +95,7 @@ func TestTriggerNotification(t *testing.T) {
 }
 
 func BenchmarkNotificationSerialization(b *testing.B) {
-	randInt32, err := safecast.ToInt32(rand.Intn(4))
+	randInt32, err := safecast.Convert[int32](rand.Intn(4))
 	if err != nil {
 		b.Fatalf("Failed to convert int to int32: %v", err)
 	}
@@ -112,7 +112,7 @@ func BenchmarkNotificationSerialization(b *testing.B) {
 }
 
 func BenchmarkTaskSerialization(b *testing.B) {
-	randInt32, err := safecast.ToInt32(rand.Intn(5))
+	randInt32, err := safecast.Convert[int32](rand.Intn(5))
 	if err != nil {
 		b.Fatalf("Failed to convert int to int32: %v", err)
 	}
