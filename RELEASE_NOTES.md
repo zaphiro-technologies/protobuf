@@ -1,6 +1,10 @@
 # ProtoBuf Release Notes
 
-## 0.0.21-dev - 2026-01-15
+## 0.0.22-dev - 2026-01-15
+
+- no changes
+
+## 0.0.21 - 2026-01-15
 
 ### Features
 
