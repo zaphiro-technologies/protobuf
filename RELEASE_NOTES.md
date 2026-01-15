@@ -1,8 +1,10 @@
 # ProtoBuf Release Notes
 
-## 0.0.21-dev - 2026-01-14
+## 0.0.21-dev - 2026-01-15
 
-- no changes
+### Features
+
+- Update fault protobuffer (PR #126 by @chicco785)
 
 ## 0.0.20 - 2026-01-14
 
