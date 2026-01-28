@@ -26,8 +26,6 @@ go.work
 .DS_Store
 output.txt
 /dist
-
-*.pyc
 /bin
 
 # Poetry
