@@ -19,16 +19,17 @@ This example shows how to:
 
 ## Installation
 
-Install the required Python dependencies:
+Install the required Python dependencies using Poetry:
+
+```bash
+cd examples/python
+poetry install
+```
+
+Or if using pip:
 
 ```bash
 pip install pika protobuf-zaphiro
-```
-
-Or if using poetry:
-
-```bash
-poetry add pika protobuf-zaphiro
 ```
 
 ## Running the Example
@@ -38,9 +39,10 @@ poetry add pika protobuf-zaphiro
    make docker-start
    ```
 
-2. Run the example:
+2. Run the example using Poetry:
    ```bash
-   python examples/python/faults/main.py
+   cd examples/python
+   poetry run python faults/main.py
    ```
    
    Or using the Makefile:

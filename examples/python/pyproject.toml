@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "protobuf-zaphiro-examples"
+version = "0.0.19"
+description = "Python examples for Zaphiro Protocol Buffers"
+authors = ["Federico M. Facca <federico.facca@zaphiro.ch>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = ">=3.9,<4.0"
+rstream = ">=0.15.0"
+pika = ">=1.3.0"
+protobuf = "^5.29.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

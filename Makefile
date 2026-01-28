@@ -95,11 +95,11 @@ example-faults-go:
 
 .PHONY: example-measurements-python
 example-measurements-python:
-	cd examples/python/measurements && python main.py
+	cd examples/python && poetry run python measurements/main.py
 
 .PHONY: example-faults-python
 example-faults-python:
-	cd examples/python/faults && python main.py
+	cd examples/python && poetry run python faults/main.py
 
 .PHONY: release
 release: validate-tag check-version update-pyproject

@@ -79,7 +79,7 @@ code to:
 ### Requirements
 
 - For Go examples: Golang 1.21
-- For Python examples: Python 3.8 or higher
+- For Python examples: Python 3.9 or higher
 - [Docker](https://docs.docker.com/get-docker/)
 
 ### Produce and consume measurements
@@ -113,7 +113,7 @@ consumer name: my_consumer, measurement_id: Dev0000-0007, measurement_time 17206
 #### Python
 
 1. Set-up the infrastructure using `make docker-start`.
-1. Install Python dependencies: `pip install -r examples/python/requirements.txt`
+1. Install Python dependencies: `cd examples/python && poetry install`
 1. Launch the example `make example-measurements-python`
 1. Press Ctrl+C to stop.
 
@@ -151,7 +151,7 @@ Received a line fault event message: 1948cd36-f835-4dc5-83c2-ba5a7612362a, event
 #### Python
 
 1. Set-up the infrastructure using `make docker-start`.
-1. Install Python dependencies: `pip install -r examples/python/requirements.txt`
+1. Install Python dependencies: `cd examples/python && poetry install`
 1. Launch the example `make example-faults-python`
 1. Press Ctrl+C to stop.
 
