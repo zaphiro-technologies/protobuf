@@ -17,7 +17,9 @@ Example demonstrating how to produce and consume measurement data using
 Protocol Buffers and RabbitMQ Streams.
 """
 
+import asyncio
 import math
+import os
 import random
 import struct
 import sys
@@ -25,10 +27,15 @@ import time
 import uuid
 from typing import Dict
 
+# Add the python directory to the path for imports
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "../../../python"))
+
 from rstream import (
     AMQPMessage,
     Consumer,
+    ConsumerOffsetSpecification,
     MessageContext,
+    OffsetType,
     Producer,
     StreamDoesNotExist,
     amqp_decoder,
@@ -72,9 +79,9 @@ def generate_data_id(pmu_id: int, n_measures: int) -> Dict[str, data_pb2.Data]:
         timestamp_ms = round(timestamp_ms / 20) * 20
         
         data_id[measurement_id] = data_pb2.Data(
-            data_type=data_type_int,
+            dataType=data_type_int,
             value=value,
-            measured_at=timestamp_ms
+            measuredAt=timestamp_ms
         )
     
     return data_id
@@ -86,7 +93,7 @@ def generate_pmu_data_id(n_pmu: int, n_measures: int) -> list:
     for k in range(n_pmu):
         producer_id = f"Dev{k:04d}"
         data = generate_data_id(k, n_measures)
-        dataset = data_pb2.DataSet(producer_id=producer_id, data=data)
+        dataset = data_pb2.DataSet(producerId=producer_id, data=data)
         pmu_data.append(dataset)
     return pmu_data
 
@@ -131,7 +138,7 @@ async def publish_measurements():
                     "Id": str(uuid.uuid4()),
                     "type": "DataSet",
                     "timestampId": timestamp_ms,
-                    "producerId": data.producer_id,
+                    "producerId": data.producerId,
                     "aligned": False,
                     "samplingPeriod": "second"
                 }
@@ -160,8 +167,8 @@ async def consume_measurements():
         for measurement_id, measurement in dataset.data.items():
             print(
                 f"consumer name: my_consumer, measurement_id: {measurement_id}, "
-                f"measurement_time {measurement.measured_at}, "
-                f"measurement_type {measurement.data_type}, "
+                f"measurement_time {measurement.measuredAt}, "
+                f"measurement_type {measurement.dataType}, "
                 f"measurement_value {measurement.value}"
             )
     
@@ -180,7 +187,7 @@ async def consume_measurements():
             stream=stream_name,
             callback=on_message,
             decoder=amqp_decoder,
-            offset_specification=consumer.OffsetTypeFirst()
+            offset_specification=ConsumerOffsetSpecification(OffsetType.FIRST, None)
         )
         
         print("Press Ctrl+C to stop\n")

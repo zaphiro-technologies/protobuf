@@ -19,11 +19,15 @@ Protocol Buffers and RabbitMQ AMQP exchanges.
 
 import asyncio
 import math
+import os
 import random
 import sys
 import time
 import uuid
 from typing import List, Optional
+
+# Add the python directory to the path for imports
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "../../../python"))
 
 import pika
 
@@ -47,23 +51,23 @@ def generate_fault(
     
     fault = fault_pb2.Fault(
         description=description,
-        id=fault_id,
+        Id=fault_id,
         kind=fault_pb2.PHASE_CONNECTED_FAULT_KIND_LINE_TO_GROUND,
         phases=fault_pb2.PHASE_CODE_ABC,
-        updated_at=timestamp_ms,
-        fault_event_type=event_type,
-        measurement_timestamp=measurement_timestamp,
-        fault_current=fault_current,
-        impacted_equipment_ids=impacted_equipments
+        updatedAt=timestamp_ms,
+        faultEventType=event_type,
+        measurementTimestamp=measurement_timestamp,
+        faultCurrent=fault_current,
+        impactedEquipmentIds=impacted_equipments
     )
     
     if faulty_equipment:
-        fault.faulty_equipment_id = faulty_equipment
+        fault.faultyEquipmentId = faulty_equipment
     
     if location_probability is not None:
-        fault.location_probability = location_probability
+        fault.locationProbability = location_probability
     
-    fault.used_measurement_ids.extend(used_measurements)
+    fault.usedMeasurementIds.extend(used_measurements)
     
     return fault
 
@@ -95,8 +99,8 @@ def generate_line_fault(
     
     line_fault = fault_pb2.LineFault(
         fault=fault,
-        length_from_terminal1=length_from_terminal1,
-        length_uncertainty=length_uncertainty
+        lengthFromTerminal1=length_from_terminal1,
+        lengthUncertainty=length_uncertainty
     )
     
     return line_fault
@@ -125,19 +129,19 @@ def consume_callback(ch, method, properties, body):
         fault = fault_pb2.Fault()
         fault.ParseFromString(body)
         print(
-            f"Received a fault event message: {fault.id}, "
-            f"event type: {fault_pb2.FaultEventType.Name(fault.fault_event_type)}"
+            f"Received a fault event message: {fault.Id}, "
+            f"event type: {fault_pb2.FaultEventType.Name(fault.faultEventType)}"
         )
     
     elif msg_type == "LineFault":
         line_fault = fault_pb2.LineFault()
         line_fault.ParseFromString(body)
         print(
-            f"Received a line fault event message: {line_fault.fault.id}, "
-            f"event type: {fault_pb2.FaultEventType.Name(line_fault.fault.fault_event_type)}, "
-            f"faulty line: {line_fault.fault.faulty_equipment_id}, "
-            f"probability: {line_fault.fault.location_probability:.6f}, "
-            f"length from t1: {line_fault.length_from_terminal1:.6f}"
+            f"Received a line fault event message: {line_fault.fault.Id}, "
+            f"event type: {fault_pb2.FaultEventType.Name(line_fault.fault.faultEventType)}, "
+            f"faulty line: {line_fault.fault.faultyEquipmentId}, "
+            f"probability: {line_fault.fault.locationProbability:.6f}, "
+            f"length from t1: {line_fault.lengthFromTerminal1:.6f}"
         )
 
 
@@ -188,9 +192,9 @@ def main():
     fault_current = 100000.0
     impacted_equipments = ["EQ-1", "EQ-2", "EQ-3"]
     used_measurements = [
-        fault_pb2.FaultMeasurement(positive_sign=True, measurement_id="M-1"),
-        fault_pb2.FaultMeasurement(positive_sign=True, measurement_id="M-2"),
-        fault_pb2.FaultMeasurement(positive_sign=True, measurement_id="M-3"),
+        fault_pb2.FaultMeasurement(positiveSign=True, measurementID="M-1"),
+        fault_pb2.FaultMeasurement(positiveSign=True, measurementID="M-2"),
+        fault_pb2.FaultMeasurement(positiveSign=True, measurementID="M-3"),
     ]
     
     # Send STARTED event
