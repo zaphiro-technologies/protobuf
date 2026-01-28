@@ -61,7 +61,7 @@ poetry add pika protobuf-zaphiro
 ## Expected Output
 
 ```
-Getting started with AMPQ client for RabbitMQ
+Getting started with AMQP client for RabbitMQ
 Connecting to RabbitMQ ...
 Press Ctrl+C to stop
 

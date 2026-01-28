@@ -42,7 +42,7 @@ This example shows how to:
 ## Expected Output
 
 ```
-Getting started with AMPQ client for RabbitMQ
+Getting started with AMQP client for RabbitMQ
 Connecting to RabbitMQ ...
 Received a fault event message: 1948cd36-f835-4dc5-83c2-ba5a7612362a, event type: FAULT_EVENT_TYPE_STARTED
 Press any key to stop

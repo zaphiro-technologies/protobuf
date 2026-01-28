@@ -17,7 +17,6 @@ Example demonstrating how to produce and consume fault event messages using
 Protocol Buffers and RabbitMQ AMQP exchanges.
 """
 
-import asyncio
 import math
 import os
 import random
@@ -147,7 +146,7 @@ def consume_callback(ch, method, properties, body):
 
 def main():
     """Main entry point."""
-    print("Getting started with AMPQ client for RabbitMQ")
+    print("Getting started with AMQP client for RabbitMQ")
     print("Connecting to RabbitMQ ...")
     
     # Connect to RabbitMQ

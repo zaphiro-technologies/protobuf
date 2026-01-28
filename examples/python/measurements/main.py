@@ -119,7 +119,7 @@ async def publish_measurements():
                 stream_name,
                 arguments={"max-length-bytes": 2 * 1024 * 1024 * 1024}  # 2GB
             )
-        except Exception as e:
+        except StreamDoesNotExist:
             # Stream might already exist, which is fine
             pass
         
@@ -215,8 +215,6 @@ async def consume_measurements():
 
 async def main():
     """Main entry point - publish then consume."""
-    import asyncio
-    
     # First publish messages
     await publish_measurements()
     
@@ -225,8 +223,6 @@ async def main():
 
 
 if __name__ == "__main__":
-    import asyncio
-    
     try:
         asyncio.run(main())
     except KeyboardInterrupt:
