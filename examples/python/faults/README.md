@@ -1,10 +1,12 @@
 # Python Faults Example
 
-This example demonstrates how to produce and consume fault event messages using Protocol Buffers and RabbitMQ AMQP exchanges in Python.
+This example demonstrates how to produce and consume fault event messages using
+Protocol Buffers and RabbitMQ AMQP exchanges in Python.
 
 ## Overview
 
 This example shows how to:
+
 - Connect to RabbitMQ using AMQP 0.9.1 via the `pika` library
 - Create an exchange for fault events
 - Produce fault event messages (Fault and LineFault)
@@ -35,17 +37,20 @@ pip install pika protobuf-zaphiro
 ## Running the Example
 
 1. Start the RabbitMQ infrastructure:
+
    ```bash
    make docker-start
    ```
 
 2. Run the example using Poetry:
+
    ```bash
    cd examples/python
    poetry run python faults/main.py
    ```
-   
+
    Or using the Makefile:
+
    ```bash
    make example-faults-python
    ```
@@ -79,6 +84,7 @@ Received a line fault event message: 1948cd36-f835-4dc5-83c2-ba5a7612362a, event
 ### Producer
 
 The producer (in the `main()` function):
+
 1. Connects to RabbitMQ using AMQP 0.9.1 via `pika.BlockingConnection`
 2. Declares a headers exchange named "fault"
 3. Generates fault events with different types:
@@ -91,6 +97,7 @@ The producer (in the `main()` function):
 ### Consumer
 
 The consumer (callback function):
+
 1. Creates a durable queue "fault-storer"
 2. Binds the queue to the "fault" exchange
 3. Consumes messages with auto-acknowledgment
@@ -104,6 +111,7 @@ The consumer (callback function):
 ### Fault
 
 Represents a generic fault event with:
+
 - `id`: Unique fault identifier (UUID)
 - `description`: Human-readable description
 - `kind`: Fault kind (e.g., LINE_TO_GROUND)
@@ -119,6 +127,7 @@ Represents a generic fault event with:
 ### LineFault
 
 Extends `Fault` for line-specific faults with:
+
 - `fault`: Embedded fault information
 - `length_from_terminal1`: Distance from terminal 1 (normalized, 0-1)
 - `length_uncertainty`: Uncertainty in meters
@@ -146,6 +155,7 @@ The example demonstrates a typical fault event sequence:
 ## Message Headers
 
 Each message includes headers:
+
 - **id**: Fault UUID
 - **producerId**: Producer identifier (e.g., "FL" for Fault Locator)
 - **type**: Message type ("Fault" or "LineFault")
@@ -162,5 +172,7 @@ Each message includes headers:
 - Messages are persistent (delivery_mode=2)
 - The consumer and producer run in the same process
 - Messages are published before the consumer starts, so they're queued
-- All three fault locations share the same fault ID but represent different equipment
-- The example uses `FaultEventType.Name()` to convert enum values to readable strings
+- All three fault locations share the same fault ID but represent different
+  equipment
+- The example uses `FaultEventType.Name()` to convert enum values to readable
+  strings

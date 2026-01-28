@@ -1,10 +1,12 @@
 # Python Examples
 
-This directory contains Python examples demonstrating how to use Zaphiro Protocol Buffers with RabbitMQ.
+This directory contains Python examples demonstrating how to use Zaphiro
+Protocol Buffers with RabbitMQ.
 
 ## Examples
 
-- **measurements/** - Produce and consume measurement data using RabbitMQ Streams
+- **measurements/** - Produce and consume measurement data using RabbitMQ
+  Streams
 - **faults/** - Produce and consume fault events using RabbitMQ AMQP
 
 ## Installation

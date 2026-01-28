@@ -70,8 +70,8 @@ go get -v github.com/zaphiro-technologies/protobuf/go@v0.0.7
 
 ## Examples
 
-For your convenience, in the [examples](examples) folder we provide Go and Python
-code to:
+For your convenience, in the [examples](examples) folder we provide Go and
+Python code to:
 
 - Produce and consume measurements (uses RabbitMQ streams).
 - Produce and consume faults (uses RabbitMQ exchanges).

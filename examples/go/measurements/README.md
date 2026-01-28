@@ -1,10 +1,12 @@
 # Go Measurements Example
 
-This example demonstrates how to produce and consume measurement data using Protocol Buffers and RabbitMQ Streams.
+This example demonstrates how to produce and consume measurement data using
+Protocol Buffers and RabbitMQ Streams.
 
 ## Overview
 
 This example shows how to:
+
 - Connect to RabbitMQ Streams
 - Create a stream for measurements
 - Produce `DataSet` messages containing measurement data
@@ -20,11 +22,13 @@ This example shows how to:
 ## Running the Example
 
 1. Start the RabbitMQ infrastructure:
+
    ```bash
    make docker-start
    ```
 
 2. Run the example:
+
    ```bash
    make example-measurements-go
    ```
@@ -56,6 +60,7 @@ consumer name: my_consumer, measurement_id: Dev0000-0006, measurement_time 17206
 ### Producer
 
 The producer:
+
 1. Connects to RabbitMQ Streams using the `rabbitmq-stream-go-client`
 2. Declares a stream with a 2GB max length
 3. Generates synthetic measurement data using `generatePmuDataID()`
@@ -66,6 +71,7 @@ The producer:
 ### Consumer
 
 The consumer:
+
 1. Creates a consumer for the stream
 2. Starts consuming from the beginning (offset: first)
 3. Unmarshals received protobuf messages
@@ -96,5 +102,6 @@ The consumer:
 
 - The example deletes the stream when stopping (for demonstration purposes)
 - In production, streams should not be deleted automatically
-- Values are stored as uint64 representation of float64 (using `math.Float64bits`)
+- Values are stored as uint64 representation of float64 (using
+  `math.Float64bits`)
 - Measurements are timestamped and rounded to 20ms intervals

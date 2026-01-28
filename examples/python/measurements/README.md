@@ -1,10 +1,12 @@
 # Python Measurements Example
 
-This example demonstrates how to produce and consume measurement data using Protocol Buffers and RabbitMQ Streams in Python.
+This example demonstrates how to produce and consume measurement data using
+Protocol Buffers and RabbitMQ Streams in Python.
 
 ## Overview
 
 This example shows how to:
+
 - Connect to RabbitMQ Streams using the `rstream` library
 - Create a stream for measurements
 - Produce `DataSet` messages containing measurement data
@@ -35,17 +37,20 @@ pip install rstream protobuf-zaphiro
 ## Running the Example
 
 1. Start the RabbitMQ infrastructure:
+
    ```bash
    make docker-start
    ```
 
 2. Run the example using Poetry:
+
    ```bash
    cd examples/python
    poetry run python measurements/main.py
    ```
-   
+
    Or using the Makefile:
+
    ```bash
    make example-measurements-python
    ```
@@ -77,6 +82,7 @@ consumer name: my_consumer, measurement_id: Dev0000-0006, measurement_time 17206
 ### Producer
 
 The `publish_measurements()` function:
+
 1. Connects to RabbitMQ Streams using the `rstream.Producer`
 2. Creates a stream with a 2GB max length
 3. Generates synthetic measurement data using `generate_pmu_data_id()`
@@ -87,6 +93,7 @@ The `publish_measurements()` function:
 ### Consumer
 
 The `consume_measurements()` function:
+
 1. Creates a consumer for the stream using `rstream.Consumer`
 2. Subscribes to consume from the beginning (offset: first)
 3. Parses received protobuf messages
@@ -96,6 +103,7 @@ The `consume_measurements()` function:
 ### Data Generation
 
 The `generate_data_id()` function creates synthetic measurement data:
+
 - Generates measurement IDs in the format `DevXXXX-YYYY`
 - Assigns data types based on measurement index
 - Creates random float values converted to uint64 representation

@@ -1,10 +1,12 @@
 # Go Faults Example
 
-This example demonstrates how to produce and consume fault event messages using Protocol Buffers and RabbitMQ AMQP exchanges.
+This example demonstrates how to produce and consume fault event messages using
+Protocol Buffers and RabbitMQ AMQP exchanges.
 
 ## Overview
 
 This example shows how to:
+
 - Connect to RabbitMQ using AMQP 0.9.1
 - Create an exchange for fault events
 - Produce fault event messages (Fault and LineFault)
@@ -20,11 +22,13 @@ This example shows how to:
 ## Running the Example
 
 1. Start the RabbitMQ infrastructure:
+
    ```bash
    make docker-start
    ```
 
 2. Run the example:
+
    ```bash
    make example-faults-go
    ```
@@ -58,6 +62,7 @@ Received a line fault event message: 1948cd36-f835-4dc5-83c2-ba5a7612362a, event
 ### Producer
 
 The producer:
+
 1. Connects to RabbitMQ using AMQP 0.9.1
 2. Declares a headers exchange named "fault"
 3. Generates fault events with different types:
@@ -70,6 +75,7 @@ The producer:
 ### Consumer
 
 The consumer:
+
 1. Creates a durable queue "fault-storer"
 2. Consumes messages with auto-acknowledgment
 3. Unmarshals messages based on the "type" header:
@@ -82,6 +88,7 @@ The consumer:
 ### Fault
 
 Represents a generic fault event with:
+
 - `Id`: Unique fault identifier (UUID)
 - `Description`: Human-readable description
 - `Kind`: Fault kind (e.g., LINE_TO_GROUND)
@@ -97,6 +104,7 @@ Represents a generic fault event with:
 ### LineFault
 
 Extends `Fault` for line-specific faults with:
+
 - `Fault`: Embedded fault information
 - `LengthFromTerminal1`: Distance from terminal 1 (normalized)
 - `LengthUncertainty`: Uncertainty in meters
@@ -124,6 +132,7 @@ The example demonstrates a typical fault event sequence:
 ## Message Headers
 
 Each message includes headers:
+
 - **id**: Fault UUID
 - **producerId**: Producer identifier (e.g., "FL" for Fault Locator)
 - **type**: Message type ("Fault" or "LineFault")
