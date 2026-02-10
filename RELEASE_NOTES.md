@@ -1,8 +1,14 @@
 # ProtoBuf Release Notes
 
-## 0.0.22-dev - 2026-01-15
+## 0.0.22-dev - 2026-01-28
 
-- no changes
+### Continuous Integration
+
+- Add scheduled trigger to Project Management workflow (PR #129 by @chicco785)
+
+### Documentation
+
+- Add Python examples (PR #132 by @Copilot)
 
 ## 0.0.21 - 2026-01-15
 

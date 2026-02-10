@@ -26,6 +26,11 @@ go.work
 .DS_Store
 output.txt
 /dist
-
-*.pyc
 /bin
+
+# Poetry
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+poetry.lock.bak
