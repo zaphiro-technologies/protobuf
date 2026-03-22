@@ -1,0 +1,10 @@
+{
+  "label": "Data Format",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Find out more about Protocol Buffers used by SynchroGuard.",
+    "slug": "/integrations/api/real-time/data_format"
+  },
+  "customProps": {"icon": "package"}
+}
