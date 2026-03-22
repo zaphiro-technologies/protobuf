@@ -42,6 +42,6 @@ The Real Time API provides the following benefits:
 
 - Reduced latency: the data is exchanged in real time, without the need to store
   it in a database first.
-- Repliabiility: the data is exchanged using a reliable messaging system, which ensures that
+- Repliability: the data is exchanged using a reliable messaging system, which ensures that
   the data is delivered to the consumers even in case of failures (up to 3
   days).
