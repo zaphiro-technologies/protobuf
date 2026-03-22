@@ -23,7 +23,7 @@ The data available in the data stream includes:
 - Faults: the faults detected (and eventually located) by the fault location
   service.
 - Topology changes: the changes in the grid topology detected by the topology
-  proceessing service.
+  processing service.
 
 Optionally, the data stream can be configured to be consumed by external systems
 as well, to make the data available to third party applications.
