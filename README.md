@@ -158,7 +158,7 @@ make generate
 ### Generate Documentation from Protocol Buffers
 
 ```bash
-make install-doc-deps
+make install
 make docs
 ```
 
