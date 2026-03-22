@@ -8,7 +8,7 @@ different services part of SynchroGuard Real Time processing layer (i.e., state
 estimation, grid event detection, fault location, topology processing)
 to perform their tasks.
 
-The results of the the Real Time processing layer are stored in data stream as
+The results of the Real Time processing layer are stored in data stream as
 well, and made available to other services
 (e.g., the data storing and scada integration services).
 
