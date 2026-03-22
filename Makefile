@@ -14,8 +14,8 @@
 
 PYPROJECT_FILE ?= pyproject.toml
 
-.PHONY: install-proto-gen-md
-install-proto-gen-md:
+.PHONY: install
+install:
 	@echo "Installing latest proto-gen-md-diagrams version..."
 	@rm -rf /tmp/proto-gen-md-diagrams
 	@git clone --depth 1 https://github.com/GoogleCloudPlatform/proto-gen-md-diagrams /tmp/proto-gen-md-diagrams
@@ -24,14 +24,8 @@ install-proto-gen-md:
 		mkdir -p $(CURDIR)/bin && \
 		cp -f proto-gen-md-diagrams $(CURDIR)/bin/proto-gen-md-diagrams && \
 		echo "Installed to $(CURDIR)/bin/proto-gen-md-diagrams"
-
-.PHONY: install-gomarkdoc
-install-gomarkdoc:
-	@echo "Installing latest gomarkdoc version..."
+	go install github.com/pseudomuto/protoc-gen-doc/cmd/protoc-gen-doc@latest
 	go install github.com/princjef/gomarkdoc/cmd/gomarkdoc@latest
-
-.PHONY: install
-install: install-proto-gen-md install-gomarkdoc
 
 all: proto-lint install generate lint test docs
 
@@ -57,11 +51,14 @@ cov:
 generate:
 	buf generate
 
+PROTO_FILES := $(shell find zaphiro -type f -name "*.proto")
+
 .PHONY: docs
 docs:
 	mkdir -p docs
 	bin/proto-gen-md-diagrams -d zaphiro -o docs -md true
 	gomarkdoc ./go/constants > docs/constants.md
+	protoc --doc_out=./docs --doc_opt=json,proto_workspace.json --proto_path=. $(PROTO_FILES)
 
 .PHONY: proto-lint
 proto-lint:
