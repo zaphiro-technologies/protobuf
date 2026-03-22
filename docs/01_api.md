@@ -26,7 +26,7 @@ The following exchanges[^exchange] are currently used in SynchroGuard and can be
 to customer-dedicated queues for the Real Time API:
 
 - `estimated-measurement`: state estimation are published here.
-- `event`: power quality, grid load events and faults are pubslished here.
+- `event`: power quality, grid load events and faults are published here.
 
 ### Messaging Format
 
