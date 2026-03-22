@@ -55,9 +55,9 @@ PROTO_FILES := $(shell find zaphiro -type f -name "*.proto")
 
 .PHONY: docs
 docs:
-	mkdir -p docs
-	bin/proto-gen-md-diagrams -d zaphiro -o docs -md true
-	gomarkdoc ./go/constants > docs/constants.md
+	mkdir -p docs/data_format
+	bin/proto-gen-md-diagrams -d zaphiro -o docs/data_format -md true
+	gomarkdoc ./go/constants > docs/data_format/constants.md
 	protoc --doc_out=./docs --doc_opt=json,proto_workspace.json --proto_path=. $(PROTO_FILES)
 
 .PHONY: proto-lint

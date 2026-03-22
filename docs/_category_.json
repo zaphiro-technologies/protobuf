@@ -1,0 +1,10 @@
+{
+  "label": "Real Time",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Find out more about SynchroGuard Real Time API.",
+    "slug": "/integrations/api/real-time"
+  },
+  "customProps": {"icon": "fast-forward"}
+}
