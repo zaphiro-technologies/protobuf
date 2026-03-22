@@ -1,4 +1,4 @@
-# The Real Time API
+# Real Time API
 
 The Real Time API defines the data format of the data stream, and the protocol to
 exchange data between the different components of the system, and with external
