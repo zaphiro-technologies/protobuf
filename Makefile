@@ -24,6 +24,30 @@ install:
 		mkdir -p $(CURDIR)/bin && \
 		cp -f proto-gen-md-diagrams $(CURDIR)/bin/proto-gen-md-diagrams && \
 		echo "Installed to $(CURDIR)/bin/proto-gen-md-diagrams"
+	@echo "Installing protoc..."
+	@if command -v protoc >/dev/null 2>&1; then \
+		echo "protoc already installed"; \
+	else \
+		OS=$$(uname -s); \
+		if [ "$$OS" = "Darwin" ]; then \
+			if ! command -v brew >/dev/null 2>&1; then \
+				echo "Homebrew not found. Please install brew first."; \
+				exit 1; \
+			fi; \
+			brew install protobuf; \
+		elif [ "$$OS" = "Linux" ]; then \
+			echo "Installing protoc locally..."; \
+			PROTOC_VERSION=25.3; \
+			curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v$$PROTOC_VERSION/protoc-$$PROTOC_VERSION-linux-x86_64.zip; \
+			unzip -o protoc-$$PROTOC_VERSION-linux-x86_64.zip -d $$HOME/.local; \
+			rm protoc-$$PROTOC_VERSION-linux-x86_64.zip; \
+			echo "Add $$HOME/.local/bin to PATH if not already"; \
+		else \
+			echo "Unsupported OS: $$OS"; \
+			exit 1; \
+		fi; \
+	fi
+	@echo "Installing Go tools..."
 	go install github.com/pseudomuto/protoc-gen-doc/cmd/protoc-gen-doc@latest
 	go install github.com/princjef/gomarkdoc/cmd/gomarkdoc@latest
 
