@@ -15,7 +15,7 @@ well, and consumed by other servoices, and made available to other services
 The data available in the data stream includes:
 
 - Sensor Measurements: the data collected from devices in the field (such as PMUs,
-  IEDs, etc.), and the [SCADA](../scada) system.
+  IEDs, etc.), and the [SCADA](../../../scada) system.
 - Estimated Measurements: the measurements computed by the state estimation
   service, for not monitored nodes.
 - Grid Events: the power quality and grid load events detected by the grid event
