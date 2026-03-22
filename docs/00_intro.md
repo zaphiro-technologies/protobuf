@@ -9,7 +9,7 @@ estimation, grid event detection, fault location, topology processing)
 to perform their tasks.
 
 The results of the the Real Time processing layer are stored in data stream as
-well, and consumed by other servoices, and made available to other services
+well, and made available to other services
 (e.g., the data storing and scada integration services).
 
 The data available in the data stream includes:
