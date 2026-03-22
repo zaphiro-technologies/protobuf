@@ -32,14 +32,14 @@ The different messages published in the data stream are defined using [Protocol
 Buffers], and organized in different packages, depending on the type of data
 they represent. The following ones are typically available in the Real Time API:
 
-- [`Data`](./data_format/grid/v1/data.proto.md) dedicated to measurements related
+- [`Data`](../data_format/grid/v1/data.proto) dedicated to measurements related
 messages, used in `measurement` and `estimated-measurement`.
-- [`Fault`](./data_format/grid/v1/fault.proto.md) dedicated to faults related
+- [`Fault`](../data_format/grid/v1/fault.proto) dedicated to faults related
   messages, used in `event`.
-- [`GridEvent`](./data_format/grid/v1/grid_event.proto.md): events related
+- [`GridEvent`](../data_format/grid/v1/grid_event.proto): events related
     to grid, used in `event`.
 
-Protocol Buffers messages are discussed in the [Data Format](./data_format) section.
+Protocol Buffers messages are discussed in the [Data Format](../data_format) section.
 
 #### Metadata
 
