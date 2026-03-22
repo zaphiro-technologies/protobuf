@@ -7,6 +7,8 @@ systems.
 The Real Time API relies on [RabbitMQ] to provide the message brokering system,
 and on [Protocol Buffers] to specify the messaging format.
 
+![Real Time API Conceptual Architecture](./img/api_architecture.svg)
+
 ## Messaging Protocol
 
 [RabbitMQ] supports both queue-based and stream-based messaging patterns.
@@ -16,7 +18,7 @@ The following streams are currently used in SynchroGuard and available in the
 Real Time API:
 
 - `measurement`: the stream of sensor measurements collected from devices in the
-  field (such as PMUs, IEDs, etc.), and the [SCADA](../scada) system.
+  field (such as PMUs, IEDs, etc.), and the [SCADA](../../scada) system.
 - `topology`: the stream of topology changes detected by the topology processing
   service.
 
@@ -32,11 +34,11 @@ The different messages published in the data stream are defined using [Protocol
 Buffers], and organized in different packages, depending on the type of data
 they represent. The following ones are typically available in the Real Time API:
 
-- [`Data`](../data_format/grid/v1/data.proto) dedicated to measurements related
+- [`Data`](../data_format/zaphiro/grid/v1/data.proto/) dedicated to measurements related
 messages, used in `measurement` and `estimated-measurement`.
-- [`Fault`](../data_format/grid/v1/fault.proto) dedicated to faults related
+- [`Fault`](../data_format/zaphiro/grid/v1/fault.proto) dedicated to faults related
   messages, used in `event`.
-- [`GridEvent`](../data_format/grid/v1/grid_event.proto): events related
+- [`GridEvent`](../data_format/zaphiro/grid/v1/grid_event.proto): events related
     to grid, used in `event`.
 
 Protocol Buffers messages are discussed in the [Data Format](../data_format) section.

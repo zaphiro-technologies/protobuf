@@ -31,3 +31,17 @@ as well, to make the data available to third party applications.
 The Real Time API defines the data format of the data stream, and the protocol to
 exchange data between the different components of the system, and with external
 systems.
+
+## Benefits of the Real Time API
+
+The Real Time API provides a unified and standardized way to exchange data in
+real time between the different components of the system, and with external
+systems.
+
+The Real Time API provides the following benefits:
+
+- Reduced latency: the data is exchanged in real time, without the need to store
+  it in a database first.
+- Repliabiility: the data is exchanged using a reliable messaging system, which ensures that
+  the data is delivered to the consumers even in case of failures (up to 3
+  days).
