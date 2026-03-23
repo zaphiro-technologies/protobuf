@@ -1,3 +1,5 @@
+import VersionedSectionLink from "@site/src/components/VersionedSectionLink";
+
 # What is the Real Time API?
 
 SynchroGuard relies on a data stream to exchange data between the different
@@ -10,12 +12,12 @@ to perform their tasks.
 
 The results of the Real Time processing layer are stored in data stream as
 well, and made available to other services
-(e.g., the data storing and scada integration services).
+(e.g., the data storing and SCADA integration services).
 
 The data available in the data stream includes:
 
 - Sensor Measurements: the data collected from devices in the field (such as PMUs,
-  IEDs, etc.), and the [SCADA](../../../scada) system.
+  IEDs, etc.), and the <VersionedSectionLink sourcePluginId="default" targetPluginId="default" targetPath="/integrations/scada/">SCADA</VersionedSectionLink> system.
 - Estimated Measurements: the measurements computed by the state estimation
   service, for not monitored nodes.
 - Grid Events: the power quality and grid load events detected by the grid event
