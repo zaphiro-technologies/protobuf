@@ -30,7 +30,7 @@ classDiagram
 direction LR
 
 %% A grid event.
-%% Headers used in rabbitMQ (only if not sent as part of `DataSet`):
+%% Headers used in RabbitMQ:
 %% * `id` (string): id of the `Event`
 %% * `type` (string): always `Event` - used for routing.
 %% * `eventType` (string): the specific type of `GridEvent`, this is required in addition 
@@ -300,7 +300,7 @@ TransientOscillation --> `PhaseEvent`
 **FQN**: zaphiro.grid.v1.GridEvent
 
 A grid event.
-Headers used in rabbitMQ (only if not sent as part of `DataSet`):
+Headers used in RabbitMQ:
 * `id` (string): id of the `Event`
 * `type` (string): always `Event` - used for routing.
 * `eventType` (string): the specific type of `GridEvent`, this is required in addition 

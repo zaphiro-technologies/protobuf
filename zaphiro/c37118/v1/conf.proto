@@ -25,7 +25,7 @@ package zaphiro.c37118.v1;
 option go_package = "./c37118/v1";
 
 /* Configuration frame 2
-Headers used in rabbitMQ:
+Headers used in RabbitMQ:
 * `id`: id of the `ConfFrame`
 * `type`: always `ConfFrame`
 * `producerId`: the id of the producer (e.g. a PMU) linked to the configuration
@@ -34,39 +34,39 @@ frame.
 */
 
 message ConfFrame {
-  ConfHeader header = 1;       // Configuration frame 2 header
+  ConfHeader header = 1; // Configuration frame 2 header
   repeated Config configs = 2; // Set of PMU configurations
-  uint32 DATA_RATE = 3;        // Rate of data transmission
+  uint32 DATA_RATE = 3; // Rate of data transmission
 }
 
 /* Configuration frame header */
 
 message ConfHeader {
-  uint32 SYNC = 1;      // Sync byte followed by frame type and version number
+  uint32 SYNC = 1; // Sync byte followed by frame type and version number
   uint32 FRAMESIZE = 2; // Number of bytes in the frame
-  uint32 IDCODE = 3;    // Stream source ID number
-  uint32 SOC = 4;       // SOC time stamp
-  uint32 FRACSEC = 5;   // Fraction of Second and Message Time Quality
+  uint32 IDCODE = 3; // Stream source ID number
+  uint32 SOC = 4; // SOC time stamp
+  uint32 FRACSEC = 5; // Fraction of Second and Message Time Quality
   uint32 TIME_BASE = 6; // Resolution of FRACSEC time stamp
-  uint32 NUM_PMU = 7;   // The number of PMUs included in the data frame
+  uint32 NUM_PMU = 7; // The number of PMUs included in the data frame
   optional uint32 version = 8; // Protocol version derived from SYNC
 }
 
 /* Single PMU configuration according to Configuration frame 2 and 3 */
 
 message Config {
-  string STN = 1;               // Station name
-  uint32 IDCODE = 2;            // Data source ID number
-  uint32 FORMAT = 3;            // Data format within data frame
-  uint32 PHNMR = 4;             // Number of phasors
-  uint32 ANNMR = 5;             // Number of analog values
-  uint32 DGNMR = 6;             // Number of digital status words
-  string CHNAM = 7;             // Phasor and channel names
-  repeated uint32 PHUNIT = 8;   // Conversion factor for phasor channels
-  repeated uint32 ANUNIT = 9;   // Conversion factor for analog channels
+  string STN = 1; // Station name
+  uint32 IDCODE = 2; // Data source ID number
+  uint32 FORMAT = 3; // Data format within data frame
+  uint32 PHNMR = 4; // Number of phasors
+  uint32 ANNMR = 5; // Number of analog values
+  uint32 DGNMR = 6; // Number of digital status words
+  string CHNAM = 7; // Phasor and channel names
+  repeated uint32 PHUNIT = 8; // Conversion factor for phasor channels
+  repeated uint32 ANUNIT = 9; // Conversion factor for analog channels
   repeated uint32 DIGUNIT = 10; // Mask words for digital status words
-  uint32 FNOM = 11;             // Nominal line frequency code and flags
-  uint32 CFGCNT = 12;           // Configuration change count
+  uint32 FNOM = 11; // Nominal line frequency code and flags
+  uint32 CFGCNT = 12; // Configuration change count
 
   // --- Config Frame 3 Specific Fields (Optional) ---
   optional bytes G_PMU_ID = 13;        // 16 bytes. Meaning is user-defined.

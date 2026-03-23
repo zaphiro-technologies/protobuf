@@ -54,7 +54,7 @@ enum DataType {
 	DATA_TYPE_PMU_TIME_QUALITY = 23; //PMU time quality. It maps to Discrete
 	DATA_TYPE_PMU_TRIGGER_DETECTED = 24; //PMU trigger detected. It maps to Discrete (True or False)
 	DATA_TYPE_POWER = 25; //Apparent power in a non-three phase circuit. It maps to Analog.
-	DATA_TYPE_POWER_FACTOR = 26;  //Power factor. It maps to Analog.
+	DATA_TYPE_POWER_FACTOR = 26; //Power factor. It maps to Analog.
 	DATA_TYPE_PRESSURE = 27; //Pressure. It maps to Analog.
 	DATA_TYPE_RATE_OF_CHANGE_OF_FREQUENCY = 28; //Rate of change of frequency. It maps to Analog.
 	DATA_TYPE_REACTIVE_POWER = 29; //Reactive power in a non-three phase circuit. It maps to Analog.
@@ -67,7 +67,7 @@ enum DataType {
 	DATA_TYPE_THREE_PHASE_POWER_FACTOR = 36; //Three phase power factor. It maps to Analog.
 	DATA_TYPE_THREE_PHASE_REACTIVE_POWER = 37; //Total reactive power in a three phase circuit. It maps to Analog.
 	DATA_TYPE_TRIGGER_REASON = 38; //Trigger reason. It maps to Discrete.
-	DATA_TYPE_UNLOCKED_TIME = 39;  //Unlocked time. //Three phase active power. It maps to Discrete.
+	DATA_TYPE_UNLOCKED_TIME = 39; //Unlocked time. //Three phase active power. It maps to Discrete.
 	DATA_TYPE_VOLTAGE_SEQUENCE_NEGATIVE = 40; //Voltage negative sequence in a three phase circuit. It maps to Phasor.
 	DATA_TYPE_VOLTAGE_SEQUENCE_POSITIVE = 41; //Voltage positive sequence in a three phase circuit. It maps to Phasor.
 	DATA_TYPE_VOLTAGE_SEQUENCE_ZERO = 42; //Voltage zero sequence in a three phase circuit. It maps to Phasor.
@@ -83,7 +83,7 @@ enum DataType {
 }
 
 /* A single data.
-Headers used in rabbitMQ (only if not sent as part of `DataSet`):
+Headers used in RabbitMQ (only if not sent as part of `DataSet`):
 * `id` (string): id of the `Data`
 * `type` (string): always `Data`
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
@@ -99,7 +99,7 @@ message Data {
 }
 
 /* A set of data.
-Headers used in rabbitMQ:
+Headers used in RabbitMQ:
 * `id` (string): id of the `DataSet`
 * `type` (string): always `DataSet`
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.

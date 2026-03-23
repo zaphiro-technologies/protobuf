@@ -28,7 +28,7 @@ classDiagram
 direction LR
 
 %% A topology computed information.
-%% Headers used in rabbitMQ:
+%% Headers used in RabbitMQ:
 %% * `id` (string): id of the `Topology`
 %% * `type` (string): always `Topology`
 %% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
@@ -101,7 +101,7 @@ classDiagram
 direction LR
 
 %% A processed topology information.
-%% Headers used in rabbitMQ:
+%% Headers used in RabbitMQ:
 %% * `id` (string): id of the `Topology`
 %% * `type` (string): always `ComputedTopology`
 %% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
@@ -124,7 +124,7 @@ ComputedTopology .. ` BranchConnection`
 **FQN**: zaphiro.grid.v1.Topology
 
 A topology computed information.
-Headers used in rabbitMQ:
+Headers used in RabbitMQ:
 * `id` (string): id of the `Topology`
 * `type` (string): always `Topology`
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
@@ -200,7 +200,7 @@ A wrapper in order to use an array in the map in TopologicalIsland.
 **FQN**: zaphiro.grid.v1.ComputedTopology
 
 A processed topology information.
-Headers used in rabbitMQ:
+Headers used in RabbitMQ:
 * `id` (string): id of the `Topology`
 * `type` (string): always `ComputedTopology`
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.

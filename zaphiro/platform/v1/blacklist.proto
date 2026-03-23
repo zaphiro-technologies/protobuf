@@ -23,7 +23,7 @@ package zaphiro.platform.v1;
 option go_package = "./platform/v1";
 
 /* A Blacklist of measurement to ignore.
-* Headers used in rabbitMQ:
+* Headers used in RabbitMQ:
 * `id` (string): id of the `Blacklist` message (a random uuid).
 * `producerId` (string): the id of the producer of the list.
 * `timestampId` (int64): the creation Unix msec timestamp.

@@ -25,7 +25,7 @@ option go_package = "./grid/v1";
 import "zaphiro/grid/v1/event.proto";
 
 /* A device event.
-Headers used in rabbitMQ:
+Headers used in RabbitMQ:
 * `id`: id of the `Event`
 * `type`: always `Event` - used for routing.
 * `eventType`: the specific type of `DeviceEvent`, this is required in addition 
@@ -47,29 +47,29 @@ message DeviceEvent {
 }
 
 message CommunicationError {
-  DeviceEvent event = 1;  //The base device event message
+  DeviceEvent event = 1; //The base device event message
 }
 
 message TimeQuality {
-  DeviceEvent event = 1;  //The base device event message
+  DeviceEvent event = 1; //The base device event message
 }
 
 message SyncStatus {
-  DeviceEvent event = 1;  //The base device event message
+  DeviceEvent event = 1; //The base device event message
 }
 
 message Power {
-  DeviceEvent event = 1;  //The base device event message
+  DeviceEvent event = 1; //The base device event message
 }
 
 message Config {
-  DeviceEvent event = 1;  //The base device event message
+  DeviceEvent event = 1; //The base device event message
 }
 
 message Trigger {
-  DeviceEvent event = 1;  //The base device event message
+  DeviceEvent event = 1; //The base device event message
 }
 
 message DataError {
-  DeviceEvent event = 1;  //The base device event message
+  DeviceEvent event = 1; //The base device event message
 }

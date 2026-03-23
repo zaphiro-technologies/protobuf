@@ -67,7 +67,7 @@ classDiagram
 direction LR
 
 %% Configuration frame 2
-%% Headers used in rabbitMQ:
+%% Headers used in RabbitMQ:
 %% * `id`: id of the `ConfFrame`
 %% * `type`: always `ConfFrame`
 %% * `producerId`: the id of the producer (e.g. a PMU) linked to the configuration
@@ -174,7 +174,7 @@ class AnalogScaling {
 **FQN**: zaphiro.c37118.v1.ConfFrame
 
 Configuration frame 2
-Headers used in rabbitMQ:
+Headers used in RabbitMQ:
 * `id`: id of the `ConfFrame`
 * `type`: always `ConfFrame`
 * `producerId`: the id of the producer (e.g. a PMU) linked to the configuration

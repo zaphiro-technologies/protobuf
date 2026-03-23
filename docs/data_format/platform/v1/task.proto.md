@@ -135,7 +135,7 @@ classDiagram
 direction LR
 
 %% A notification message.
-%% Headers used in rabbitMQ:
+%% Headers used in RabbitMQ:
 %% * `id` (string): id of the `Notification`
 %% * `type` (string): always `Notification`
 %% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the notification.
@@ -197,7 +197,7 @@ Headers used in rabbitMQ:
 **FQN**: zaphiro.platform.v1.Notification
 
 A notification message.
-Headers used in rabbitMQ:
+Headers used in RabbitMQ:
 * `id` (string): id of the `Notification`
 * `type` (string): always `Notification`
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the notification.

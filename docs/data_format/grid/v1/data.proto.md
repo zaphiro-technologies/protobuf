@@ -160,7 +160,7 @@ classDiagram
 direction LR
 
 %% A single data.
-%% Headers used in rabbitMQ (only if not sent as part of `DataSet`):
+%% Headers used in RabbitMQ (only if not sent as part of `DataSet`):
 %% * `id` (string): id of the `Data`
 %% * `type` (string): always `Data`
 %% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
@@ -184,7 +184,7 @@ classDiagram
 direction LR
 
 %% A set of data.
-%% Headers used in rabbitMQ:
+%% Headers used in RabbitMQ:
 %% * `id` (string): id of the `DataSet`
 %% * `type` (string): always `DataSet`
 %% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
@@ -209,7 +209,7 @@ DataSet .. ` Data`
 **FQN**: zaphiro.grid.v1.Data
 
 A single data.
-Headers used in rabbitMQ (only if not sent as part of `DataSet`):
+Headers used in RabbitMQ (only if not sent as part of `DataSet`):
 * `id` (string): id of the `Data`
 * `type` (string): always `Data`
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
@@ -233,7 +233,7 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 **FQN**: zaphiro.grid.v1.DataSet
 
 A set of data.
-Headers used in rabbitMQ:
+Headers used in RabbitMQ:
 * `id` (string): id of the `DataSet`
 * `type` (string): always `DataSet`
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.

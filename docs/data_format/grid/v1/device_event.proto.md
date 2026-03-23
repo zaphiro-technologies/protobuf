@@ -29,7 +29,7 @@ classDiagram
 direction LR
 
 %% A device event.
-%% Headers used in rabbitMQ:
+%% Headers used in RabbitMQ:
 %% * `id`: id of the `Event`
 %% * `type`: always `Event` - used for routing.
 %% * `eventType`: the specific type of `DeviceEvent`, this is required in addition 
@@ -156,7 +156,7 @@ DataError --> `DeviceEvent`
 **FQN**: zaphiro.grid.v1.DeviceEvent
 
 A device event.
-Headers used in rabbitMQ:
+Headers used in RabbitMQ:
 * `id`: id of the `Event`
 * `type`: always `Event` - used for routing.
 * `eventType`: the specific type of `DeviceEvent`, this is required in addition 

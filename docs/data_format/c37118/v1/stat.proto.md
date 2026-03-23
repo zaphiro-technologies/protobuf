@@ -28,7 +28,7 @@ classDiagram
 direction LR
 
 %% A Stat of PMU data, check IEEE C37.118 standard for more details.
-%% Headers used in rabbitMQ:
+%% Headers used in RabbitMQ:
 %% * `id` (string): id of the `Stat` message.
 %% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
 %% * `timestampId` (int64): related measurement Unix msec timestamp (if any).
@@ -55,7 +55,7 @@ class Stat {
 **FQN**: zaphiro.c37118.v1.Stat
 
 A Stat of PMU data, check IEEE C37.118 standard for more details.
-Headers used in rabbitMQ:
+Headers used in RabbitMQ:
 * `id` (string): id of the `Stat` message.
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
 * `timestampId` (int64): related measurement Unix msec timestamp (if any).

@@ -94,7 +94,7 @@ classDiagram
 direction LR
 
 %% A generic event.
-%% Headers used in rabbitMQ (only if not sent as part of `DataSet`):
+%% Headers used in RabbitMQ:
 %% * `id` (string): id of the `Event`
 %% * `type` (string): always `Event` - used for routing.
 %% * `eventType` (string): the specific type of `Event`, this is required in
@@ -125,7 +125,7 @@ Event --> `EventStatus`
 **FQN**: zaphiro.grid.v1.Event
 
 A generic event.
-Headers used in rabbitMQ (only if not sent as part of `DataSet`):
+Headers used in RabbitMQ:
 * `id` (string): id of the `Event`
 * `type` (string): always `Event` - used for routing.
 * `eventType` (string): the specific type of `Event`, this is required in

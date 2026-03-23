@@ -29,7 +29,7 @@ classDiagram
 direction LR
 
 %% A Blacklist of measurement to ignore.
-%% * Headers used in rabbitMQ:
+%% * Headers used in RabbitMQ:
 %% * `id` (string): id of the `Blacklist` message (a random uuid).
 %% * `producerId` (string): the id of the producer of the list.
 %% * `timestampId` (int64): the creation Unix msec timestamp.
@@ -51,7 +51,7 @@ class Blacklist {
 **FQN**: zaphiro.platform.v1.Blacklist
 
 A Blacklist of measurement to ignore.
-* Headers used in rabbitMQ:
+* Headers used in RabbitMQ:
 * `id` (string): id of the `Blacklist` message (a random uuid).
 * `producerId` (string): the id of the producer of the list.
 * `timestampId` (int64): the creation Unix msec timestamp.
