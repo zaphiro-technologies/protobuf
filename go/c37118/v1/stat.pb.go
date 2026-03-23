@@ -20,6 +20,10 @@
 
 //  <!-- markdownlint-disable -->
 //Messages to support stat data injection exchange in the platform.
+//
+//> [!WARNING]
+//>
+//> These messages are only for internal use in the platform and are not intended to be used by external services.
 
 package v1
 
