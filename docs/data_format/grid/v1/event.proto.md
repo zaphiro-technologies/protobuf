@@ -1,4 +1,6 @@
-# Package: zaphiro.grid.v1
+# event.proto.md
+
+**Package: zaphiro.grid.v1**
 
 <!-- markdownlint-disable -->
 Messages to support event detection in the platform.

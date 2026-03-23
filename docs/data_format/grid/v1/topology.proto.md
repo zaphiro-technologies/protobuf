@@ -1,4 +1,6 @@
-# Package: zaphiro.grid.v1
+# topology.proto.md
+
+**Package: zaphiro.grid.v1**
 
 <!-- markdownlint-disable -->
 Messages to support topology data exchange in the platform.

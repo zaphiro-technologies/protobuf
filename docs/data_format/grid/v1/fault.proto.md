@@ -1,4 +1,6 @@
-# Package: zaphiro.grid.v1
+# fault.proto.md
+
+**Package: zaphiro.grid.v1**
 
 <!-- markdownlint-disable -->
 Messages describing faults.

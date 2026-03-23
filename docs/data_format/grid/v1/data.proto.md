@@ -1,4 +1,6 @@
-# Package: zaphiro.grid.v1
+# data.proto.md
+
+**Package: zaphiro.grid.v1**
 
 <!-- markdownlint-disable -->
 Messages to support data injection in the platform.

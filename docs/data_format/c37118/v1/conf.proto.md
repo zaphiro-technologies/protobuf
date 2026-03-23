@@ -1,4 +1,6 @@
-# Package: zaphiro.c37118.v1
+# conf.proto.md
+
+**Package: zaphiro.c37118.v1**
 
 <!-- markdownlint-disable -->
 Messages describing PMU C37.118 Configurations.

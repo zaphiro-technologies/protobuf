@@ -1,4 +1,6 @@
-# Package: zaphiro.platform.v1
+# blacklist.proto.md
+
+**Package: zaphiro.platform.v1**
 
 <!-- markdownlint-disable --> 
 Messages to support coordination among processes/services in the platform.

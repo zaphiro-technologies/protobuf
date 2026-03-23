@@ -1,4 +1,6 @@
-# Package: zaphiro.grid.v1
+# grid_event.proto.md
+
+**Package: zaphiro.grid.v1**
 
 <!-- markdownlint-disable -->
 Messages to support grid event detection in the platform. Grid events are sub classes of Events.

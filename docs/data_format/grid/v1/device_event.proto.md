@@ -1,4 +1,6 @@
-# Package: zaphiro.grid.v1
+# device_event.proto.md
+
+**Package: zaphiro.grid.v1**
 
 <!-- markdownlint-disable -->
 Messages to support device event detection in the platform. Device events are sub classes of Events.
