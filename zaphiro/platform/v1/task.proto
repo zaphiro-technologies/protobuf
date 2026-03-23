@@ -14,8 +14,7 @@
 
 syntax = "proto3";
 
-/* 
-<!-- markdownlint-disable --> 
+/*  <!-- markdownlint-disable --> 
 Messages to support coordination among processes/services in the platform.
 */
 

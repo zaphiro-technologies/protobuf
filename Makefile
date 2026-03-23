@@ -82,7 +82,12 @@ docs:
 	mkdir -p docs/data_format
 	bin/proto-gen-md-diagrams -d zaphiro -o docs/data_format -md true
 	gomarkdoc ./go/constants > docs/data_format/constants.md
-	protoc --doc_out=./docs --doc_opt=json,proto_workspace.json --proto_path=. $(PROTO_FILES)
+	find docs/data_format -type f -name "*.md" -exec sh -c '\
+	for file do \
+		echo "Processing $$file..."; \
+		sed "s/^.*<!-- markdownlint-disable -->/<!-- markdownlint-disable -->/" "$$file" > "$$file.tmp" && mv "$$file.tmp" "$$file"; \
+	done' sh {} +
+
 
 .PHONY: proto-lint
 proto-lint:
