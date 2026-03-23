@@ -38,7 +38,7 @@ they represent. The following ones are typically available in the Real Time API:
 messages, used in `measurement` and `estimated-measurement`.
 - [`Fault`](./data_format/grid/v1/fault.proto.md) dedicated to faults related
   messages, used in `event`.
-- [`GridEvent`](./data_format/zaphiro/v1/grid_event.proto.md): events related
+- [`GridEvent`](./data_format/grid/v1/grid_event.proto.md): events related
     to grid, used in `event`.
 
 > [!IMPORTANT]
