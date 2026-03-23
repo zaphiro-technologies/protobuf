@@ -20,6 +20,10 @@
 
 //  <!-- markdownlint-disable -->
 //Messages to support topology data exchange in the platform.
+//
+//> [!WARNING]
+//>
+//> These messages are only for internal use in the platform and are not intended to be used by external services.
 
 package v1
 
@@ -288,7 +292,7 @@ func (x *BranchConnection) GetTopologicalNodeIds() []string {
 }
 
 // A processed topology information.
-// Headers used in rabbitMQ:
+// Headers used in RabbitMQ:
 // `id` (string): id of the `Topology`
 // `type` (string): always `ComputedTopology`
 // `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.

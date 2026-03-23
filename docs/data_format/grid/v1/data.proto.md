@@ -1,6 +1,8 @@
-# Package: zaphiro.grid.v1
+# data.proto
 
-Copyright 2024 Zaphiro Technologies Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. <!-- markdownlint-disable -->
+**Package: zaphiro.grid.v1**
+
+<!-- markdownlint-disable -->
 Messages to support data injection in the platform.
 The data injected may be originated from different sources (e.g. a PMU, RTU, an external service).
 
@@ -160,7 +162,7 @@ classDiagram
 direction LR
 
 %% A single data.
-%% Headers used in rabbitMQ (only if not sent as part of `DataSet`):
+%% Headers used in RabbitMQ (only if not sent as part of `DataSet`):
 %% * `id` (string): id of the `Data`
 %% * `type` (string): always `Data`
 %% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
@@ -184,7 +186,7 @@ classDiagram
 direction LR
 
 %% A set of data.
-%% Headers used in rabbitMQ:
+%% Headers used in RabbitMQ:
 %% * `id` (string): id of the `DataSet`
 %% * `type` (string): always `DataSet`
 %% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
@@ -209,7 +211,7 @@ DataSet .. ` Data`
 **FQN**: zaphiro.grid.v1.Data
 
 A single data.
-Headers used in rabbitMQ (only if not sent as part of `DataSet`):
+Headers used in RabbitMQ (only if not sent as part of `DataSet`):
 * `id` (string): id of the `Data`
 * `type` (string): always `Data`
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
@@ -233,7 +235,7 @@ Headers used in rabbitMQ (only if not sent as part of `DataSet`):
 **FQN**: zaphiro.grid.v1.DataSet
 
 A set of data.
-Headers used in rabbitMQ:
+Headers used in RabbitMQ:
 * `id` (string): id of the `DataSet`
 * `type` (string): always `DataSet`
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.

@@ -27,9 +27,9 @@ option go_package = "./grid/v1";
 
 enum EventStatus {
   EVENT_STATUS_UNSPECIFIED = 0; // No status defined
-  EVENT_STATUS_STARTED = 1;     // Event started
+  EVENT_STATUS_STARTED = 1; // Event started
   EVENT_STATUS_IN_PROGRESS = 2; // Event is still active
-  EVENT_STATUS_ENDED = 3;       // Event ended
+  EVENT_STATUS_ENDED = 3; // Event ended
   EVENT_STATUS_UNKNOWN = 4; // Information available don't allow us to know if the even is active or complete
 }
 
@@ -42,7 +42,7 @@ enum EventSourceType {
 }
 
 /* A generic event.
-Headers used in rabbitMQ (only if not sent as part of `DataSet`):
+Headers used in RabbitMQ:
 * `id` (string): id of the `Event`
 * `type` (string): always `Event` - used for routing.
 * `eventType` (string): the specific type of `Event`, this is required in
@@ -60,6 +60,6 @@ message Event {
   EventSourceType sourceType = 3 [deprecated = true]; // The type of data see `DataType` enum.
   int64 occurredAt = 4; // The time of occurency of the event (Unix msec timestamp) usually is the same value as timestampId.
   optional int64 detectedAt = 5; // The time of detection of the event (Unix msec timestamp).
-  string message = 6 [deprecated = true];              // Event message.
+  string message = 6 [deprecated = true]; // Event message.
   optional EventStatus status = 7; // The status of the event.
 }

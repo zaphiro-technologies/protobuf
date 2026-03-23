@@ -1,8 +1,18 @@
 # ProtoBuf Release Notes
 
-## 0.0.22-dev - 2026-01-15
+## 0.0.22-dev - 2026-03-23
 
-- no changes
+### Continuous Integration
+
+- Add scheduled trigger to Project Management workflow (PR #129 by @chicco785)
+
+### Documentation
+
+- Documentation integration (PR #134 by @chicco785)
+
+### Dependencies
+
+- Bump protobuf from 5.29.5 to 5.29.6 (PR #133 by @dependabot[bot])
 
 ## 0.0.21 - 2026-01-15
 

@@ -1,8 +1,13 @@
-# Package: zaphiro.platform.v1
+# blacklist.proto
 
-Copyright 2024 Zaphiro Technologies Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+**Package: zaphiro.platform.v1**
+
 <!-- markdownlint-disable --> 
 Messages to support coordination among processes/services in the platform.
+
+> [!WARNING] 
+> 
+> These messages are only for internal use in the platform and are not intended to be used by external services.
 
 
 
@@ -29,7 +34,7 @@ classDiagram
 direction LR
 
 %% A Blacklist of measurement to ignore.
-%% * Headers used in rabbitMQ:
+%% * Headers used in RabbitMQ:
 %% * `id` (string): id of the `Blacklist` message (a random uuid).
 %% * `producerId` (string): the id of the producer of the list.
 %% * `timestampId` (int64): the creation Unix msec timestamp.
@@ -51,7 +56,7 @@ class Blacklist {
 **FQN**: zaphiro.platform.v1.Blacklist
 
 A Blacklist of measurement to ignore.
-* Headers used in rabbitMQ:
+* Headers used in RabbitMQ:
 * `id` (string): id of the `Blacklist` message (a random uuid).
 * `producerId` (string): the id of the producer of the list.
 * `timestampId` (int64): the creation Unix msec timestamp.

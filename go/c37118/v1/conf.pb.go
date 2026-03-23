@@ -23,6 +23,10 @@
 //See
 //[C37.118](https://www.typhoon-hil.com/documentation/typhoon-hil-software-manual/References/c37_118_protocol.html)
 //protocol.
+//
+//> [!WARNING]
+//>
+//> These messages are only for internal use in the platform and are not intended to be used by external services.
 
 package v1
 

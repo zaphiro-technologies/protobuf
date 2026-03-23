@@ -1,6 +1,8 @@
-# Package: zaphiro.grid.v1
+# fault.proto
 
-Copyright 2024 Zaphiro Technologies Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. <!-- markdownlint-disable -->
+**Package: zaphiro.grid.v1**
+
+<!-- markdownlint-disable -->
 Messages describing faults.
 
 
@@ -230,7 +232,7 @@ direction LR
 %% Fault event message may be populated only in case of event type
 %% `FAULT_EVENT_TYPE_LOCATED` (i.e. `locationProbability`, `measurementTimestamp`).
 %% 
-%% Headers used in rabbitMQ:
+%% Headers used in RabbitMQ:
 %% * `id` (string): id of the `Fault`
 %% * `type` (string): always `Fault`
 %% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the
@@ -277,7 +279,7 @@ direction LR
 %% event type `FAULT_EVENT_TYPE_LOCATED` (i.e. `lengthFromTerminal1`,
 %% `lengthUncertainty`).
 %% 
-%% Headers used in rabbitMQ:
+%% Headers used in RabbitMQ:
 %% * `id` (string): id of the `Fault`
 %% * `type` (string): always `LineFault`
 %% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the
@@ -312,7 +314,7 @@ direction LR
 %% Certain fields of the `EquipmentFault` event message may be populated only in
 %% case of event type `FAULT_EVENT_TYPE_LOCATED` (i.e. `terminalID`).
 %% 
-%% Headers used in rabbitMQ:
+%% Headers used in RabbitMQ:
 %% * `id` (string): id of the `Fault`
 %% * `type` (string): always `EquipmentFault`
 %% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the
@@ -369,7 +371,7 @@ message of type `FAULT_EVENT_TYPE_ENDED` is generated. Certain fields of the
 Fault event message may be populated only in case of event type
 `FAULT_EVENT_TYPE_LOCATED` (i.e. `locationProbability`, `measurementTimestamp`).
 
-Headers used in rabbitMQ:
+Headers used in RabbitMQ:
 * `id` (string): id of the `Fault`
 * `type` (string): always `Fault`
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the
@@ -413,7 +415,7 @@ Certain fields of the `LineFault` event message may be populated only in case of
 event type `FAULT_EVENT_TYPE_LOCATED` (i.e. `lengthFromTerminal1`,
 `lengthUncertainty`).
 
-Headers used in rabbitMQ:
+Headers used in RabbitMQ:
 * `id` (string): id of the `Fault`
 * `type` (string): always `LineFault`
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the
@@ -448,7 +450,7 @@ feature.
 Certain fields of the `EquipmentFault` event message may be populated only in
 case of event type `FAULT_EVENT_TYPE_LOCATED` (i.e. `terminalID`).
 
-Headers used in rabbitMQ:
+Headers used in RabbitMQ:
 * `id` (string): id of the `Fault`
 * `type` (string): always `EquipmentFault`
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the
