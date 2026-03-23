@@ -43,7 +43,7 @@ messages, used in `measurement` and `estimated-measurement`.
 
 > [!IMPORTANT]
 >
-> All Protocol Buffers messages are discussed in the [Data Format](./data_format)
+> All Protocol Buffers messages are discussed in the <VersionedSectionLink sourcePluginId="default" targetPluginId="default" targetPath="/integrations/api/real-time/data_format">Data Format</VersionedSectionLink>
 > section. Only the ones listed above are currently available in the Real Time
 > API, the other messages defined in the data format are for internal use in the
 > platform, and are not intended to be used by external services.
