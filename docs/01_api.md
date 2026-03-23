@@ -34,57 +34,32 @@ The different messages published in the data stream are defined using [Protocol
 Buffers], and organized in different packages, depending on the type of data
 they represent. The following ones are typically available in the Real Time API:
 
-- [`Data`](../data_format/zaphiro/grid/v1/data.proto/) dedicated to measurements related
+- [`Data`](./data_format/grid/v1/data.proto.md) dedicated to measurements related
 messages, used in `measurement` and `estimated-measurement`.
-- [`Fault`](../data_format/zaphiro/grid/v1/fault.proto) dedicated to faults related
+- [`Fault`](./data_format/grid/v1/fault.proto.md) dedicated to faults related
   messages, used in `event`.
-- [`GridEvent`](../data_format/zaphiro/grid/v1/grid_event.proto): events related
+- [`GridEvent`](./data_format/zaphiro/v1/grid_event.proto.md): events related
     to grid, used in `event`.
 
-Protocol Buffers messages are discussed in the [Data Format](../data_format) section.
+> [!IMPORTANT]
+>
+> All Protocol Buffers messages are discussed in the [Data Format](./data_format)
+> section. Only the ones listed above are currently available in the Real Time
+> API, the other messages defined in the data format are for internal use in the
+> platform, and are not intended to be used by external services.
 
 #### Metadata
 
 Messages, beside the Protocol Buffers body, include some metadata.
 Some of these metadata are specific to the message type, while others are common
-to all messages.
+to all messages. Common metadata include:
 
-##### DataSet
-
-The following headers are available for messages containing a `DataSet` body:
-
-* `id` (string): id of the `DataSet`
-* `type` (string): always `DataSet`
-* `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
+* `id` (string): id of the message.
+* `type` (string): type of the message. This is used for routing and de-serialization of the messages, and is required in
+  addition to the Protocol Buffers body for de-serialization of the messages.
+* `producerId` (string): the id of the producer (e.g. a PMU) linked to the message.
 * `timestampId` (int64): related measurement Unix msec timestamp (if any)
-* `aligned` (bool, default true): `True` when the `DataSet` is time aligned,
-  e.g. data from PMUs.
-* `latency` (int64): arrival latency in milliseconds between the measurement timestamp and their injection in the platform.
-* `samplingPeriod` (string): optional, used to identify timestamps that match
- `second` or `minute`.
-* `sourceType` (SourceType): the Measurement source type.
-
-#### GridEvent
-
-The following headers are available for messages containing a `Event` body:
-
-* `id` (string): id of the `Event`
-* `type` (string): always `Event` - used for routing.
-* `eventType` (string): the specific type of `GridEvent`, this is required in
-  addition to `type` for de-serialization of the messages.
-* `producerId` (string): the id of the producer (e.g. a PMU) that generated the event
-* `sourceType` (string): the Event source type event.
-* `timestampId` (int64): related measurement Unix msec timestamp (if any)
-
-#### Fault
-
-The following headers are available for messages containing a `Fault` body:
-
-* `id` (string): id of the `Fault`
-* `type` (string): `Fault`, `LineFault` or `EquipmentFault` depending on the
-  type of fault.
-* `producerId` (string): the id of the producer (e.g. a PMU) linked to the notification.
-* `sourceType` (string): the Fault source type.
+* `sourceType` (SourceType): the message source type.
 
 ## How to use the Real Time API
 
