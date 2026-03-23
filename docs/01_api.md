@@ -19,8 +19,6 @@ Real Time API:
 
 - `measurement`: the stream of sensor measurements collected from devices in the
   field (such as PMUs, IEDs, etc.), and the [SCADA](../../../scada) system.
-- `topology`: the stream of topology changes detected by the topology processing
-  service.
 
 The following exchanges[^exchange] are currently used in SynchroGuard and can be bound
 to customer-dedicated queues for the Real Time API:
