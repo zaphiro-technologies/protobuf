@@ -8,8 +8,8 @@ different services part of SynchroGuard Real Time processing layer (i.e., state
 estimation, grid event detection, fault location, topology processing)
 to perform their tasks.
 
-The results of the the Real Time processing layer are stored in data stream as
-well, and consumed by other servoices, and made available to other services
+The results of the Real Time processing layer are stored in data stream as
+well, and made available to other services
 (e.g., the data storing and scada integration services).
 
 The data available in the data stream includes:
@@ -23,7 +23,7 @@ The data available in the data stream includes:
 - Faults: the faults detected (and eventually located) by the fault location
   service.
 - Topology changes: the changes in the grid topology detected by the topology
-  proceessing service.
+  processing service.
 
 Optionally, the data stream can be configured to be consumed by external systems
 as well, to make the data available to third party applications.
@@ -42,6 +42,6 @@ The Real Time API provides the following benefits:
 
 - Reduced latency: the data is exchanged in real time, without the need to store
   it in a database first.
-- Repliabiility: the data is exchanged using a reliable messaging system, which ensures that
+- Repliability: the data is exchanged using a reliable messaging system, which ensures that
   the data is delivered to the consumers even in case of failures (up to 3
   days).
