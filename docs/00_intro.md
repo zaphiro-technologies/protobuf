@@ -16,10 +16,10 @@ well, and made available to other services
 
 The data available in the data stream includes:
 
-- Sensor Measurements: the data collected from devices in the field (such as PMUs,
+- Raw Measurements: the data collected from devices in the field (such as PMUs,
   IEDs, etc.), and the <VersionedSectionLink sourcePluginId="default" targetPluginId="default" targetPath="/integrations/scada/">SCADA</VersionedSectionLink> system.
 - Estimated Measurements: the measurements computed by the state estimation
-  service, for not monitored nodes.
+  service, for any monitored or unmonitored component.
 - Grid Events: the power quality and grid load events detected by the grid event
   detection service.
 - Faults: the faults detected (and eventually located) by the fault location
@@ -44,6 +44,6 @@ The Real Time API provides the following benefits:
 
 - Reduced latency: the data is exchanged in real time, without the need to store
   it in a database first.
-- Repliability: the data is exchanged using a reliable messaging system, which ensures that
-  the data is delivered to the consumers even in case of failures (up to 3
+- Reliability: the data is exchanged using a reliable messaging system, which ensures that
+  the data is delivered to the consumers even in case of failures (by default, up to 3
   days).

@@ -19,7 +19,7 @@ Currently, SynchroGuard relies on both patterns, depending on the use case.
 The following streams are currently used in SynchroGuard and available in the
 Real Time API:
 
-- `measurement`: the stream of sensor measurements collected from devices in the
+- `measurement`: the stream of raw measurements collected from devices in the
   field (such as PMUs, IEDs, etc.), and the <VersionedSectionLink sourcePluginId="default" targetPluginId="default" targetPath="/integrations/scada/">SCADA</VersionedSectionLink> system.
 
 The following exchanges[^exchange] are currently used in SynchroGuard and can be bound
