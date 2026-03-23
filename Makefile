@@ -62,7 +62,7 @@ docs:
 	for file do \
 		echo "Processing $$file..."; \
 		sed "s/^.*<!-- markdownlint-disable -->/<!-- markdownlint-disable -->/" "$$file" > "$$file.tmp" && mv "$$file.tmp" "$$file"; \
-		name=$$(basename "$$file"); \
+		name=$$(basename "$$file" .md); \
 		sed "1s|^# Package: \(.*\)|# $$name\n\n**Package: \1**|" "$$file" > "$$file.tmp" && mv "$$file.tmp" "$$file"; \
 	done' sh {} +
 

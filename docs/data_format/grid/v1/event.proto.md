@@ -1,4 +1,4 @@
-# event.proto.md
+# event.proto
 
 **Package: zaphiro.grid.v1**
 

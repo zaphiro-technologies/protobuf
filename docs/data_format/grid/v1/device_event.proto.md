@@ -1,4 +1,4 @@
-# device_event.proto.md
+# device_event.proto
 
 **Package: zaphiro.grid.v1**
 

@@ -1,4 +1,4 @@
-# data.proto.md
+# data.proto
 
 **Package: zaphiro.grid.v1**
 

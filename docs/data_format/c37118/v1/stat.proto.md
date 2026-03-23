@@ -1,9 +1,13 @@
-# stat.proto.md
+# stat.proto
 
 **Package: zaphiro.c37118.v1**
 
 <!-- markdownlint-disable -->
 Messages to support stat data injection exchange in the platform.
+
+> [!WARNING] 
+> 
+> These messages are only for internal use in the platform and are not intended to be used by external services.
 
 
 

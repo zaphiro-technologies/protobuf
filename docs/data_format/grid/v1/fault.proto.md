@@ -1,4 +1,4 @@
-# fault.proto.md
+# fault.proto
 
 **Package: zaphiro.grid.v1**
 

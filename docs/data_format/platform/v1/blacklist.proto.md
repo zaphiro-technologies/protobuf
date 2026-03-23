@@ -1,9 +1,13 @@
-# blacklist.proto.md
+# blacklist.proto
 
 **Package: zaphiro.platform.v1**
 
 <!-- markdownlint-disable --> 
 Messages to support coordination among processes/services in the platform.
+
+> [!WARNING] 
+> 
+> These messages are only for internal use in the platform and are not intended to be used by external services.
 
 
 
