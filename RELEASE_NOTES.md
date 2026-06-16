@@ -1,9 +1,10 @@
 # ProtoBuf Release Notes
 
-## 0.0.22-dev - 2026-03-23
+## 0.0.22-dev - 2026-06-16
 
 ### Continuous Integration
 
+- Add 3-day Dependabot cooldown (PR #137 by @chicco785)
 - Add scheduled trigger to Project Management workflow (PR #129 by @chicco785)
 
 ### Documentation
