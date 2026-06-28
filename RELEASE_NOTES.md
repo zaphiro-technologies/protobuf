@@ -1,6 +1,6 @@
 # ProtoBuf Release Notes
 
-## 0.0.22-dev - 2026-06-16
+## 0.0.22-dev - 2026-06-28
 
 ### Continuous Integration
 
@@ -13,6 +13,8 @@
 
 ### Dependencies
 
+- Bump actions/checkout from 6 to 7 (PR #139 by @dependabot[bot])
+- Bump actions/setup-go from 6 to 6.4.0 (PR #138 by @dependabot[bot])
 - Bump protobuf from 5.29.5 to 5.29.6 (PR #133 by @dependabot[bot])
 
 ## 0.0.21 - 2026-01-15
