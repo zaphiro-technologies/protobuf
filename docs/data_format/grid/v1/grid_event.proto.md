@@ -24,6 +24,160 @@ Messages to support grid event detection in the platform. Grid events are sub cl
 
 
 
+### zaphiro.grid.v1 Diagram
+
+```mermaid
+classDiagram
+direction LR
+%% Mermaid Diagram for package: zaphiro.grid.v1
+
+%% A grid event.
+%% Headers used in RabbitMQ:
+%% * `id` (string): id of the `Event`
+%% * `type` (string): always `Event` - used for routing.
+%% * `eventType` (string): the specific type of `GridEvent`, this is required in addition 
+%%  to `type` for de-serialization of the messages.
+%% * `sourceId` (string): DEPRECATED: use: producerId. the id of the source (e.g. a PMU) that generated the event
+%% * `producerId` (string): the id of the producer (e.g. a PMU) that generated the event
+%% * `sourceType` (string): the Event source type
+%% event. cf enum EventSourceType
+%% * `timestampId` (int64): related measurement Unix msec timestamp (if any)
+%% 
+
+class GridEvent {
+  + Event event
+  + string componentID
+  + Optional~string~ substationID
+  + double value
+  + double referenceLimit
+  + Optional~double~ probability
+  + Optional~double~ movingAverage
+}
+GridEvent --> `Event`
+
+%% 
+
+class VoltageEvent {
+  + GridEvent event
+  + Optional~PhaseCode~ phaseCode
+}
+VoltageEvent --> `GridEvent`
+VoltageEvent --> `PhaseCode`
+
+%% 
+
+class CurrentEvent {
+  + GridEvent event
+}
+CurrentEvent --> `GridEvent`
+
+%% 
+
+class PhaseEvent {
+  + GridEvent event
+}
+PhaseEvent --> `GridEvent`
+
+%% 
+
+class FrequencyEvent {
+  + GridEvent event
+}
+FrequencyEvent --> `GridEvent`
+
+%% 
+
+class LineCongestion {
+  + CurrentEvent event
+}
+LineCongestion --> `CurrentEvent`
+
+%% 
+
+class TransformerCongestion {
+  + CurrentEvent event
+}
+TransformerCongestion --> `CurrentEvent`
+
+%% 
+
+class VoltageUnbalance {
+  + VoltageEvent event
+}
+VoltageUnbalance --> `VoltageEvent`
+
+%% 
+
+class VoltageDip {
+  + VoltageEvent event
+}
+VoltageDip --> `VoltageEvent`
+
+%% 
+
+class VoltageInterruption {
+  + VoltageEvent event
+}
+VoltageInterruption --> `VoltageEvent`
+
+%% 
+
+class VoltageSwell {
+  + VoltageEvent event
+}
+VoltageSwell --> `VoltageEvent`
+
+%% 
+
+class VoltageLimit {
+  + VoltageEvent event
+}
+VoltageLimit --> `VoltageEvent`
+
+%% 
+
+class VoltageRapidChange {
+  + VoltageEvent event
+}
+VoltageRapidChange --> `VoltageEvent`
+
+%% 
+
+class OverFrequency {
+  + FrequencyEvent event
+}
+OverFrequency --> `FrequencyEvent`
+
+%% 
+
+class UnderFrequency {
+  + FrequencyEvent event
+}
+UnderFrequency --> `FrequencyEvent`
+
+%% 
+
+class FrequencyVariation {
+  + FrequencyEvent event
+}
+FrequencyVariation --> `FrequencyEvent`
+
+%% 
+
+class SteadyOscillation {
+  + PhaseEvent event
+}
+SteadyOscillation --> `PhaseEvent`
+
+%% 
+
+class TransientOscillation {
+  + PhaseEvent event
+}
+TransientOscillation --> `PhaseEvent`
+
+```
+
 
 ### GridEvent Diagram
 
