@@ -66,6 +66,9 @@ message Config {
   uint32 ANNMR = 5; // Number of analog values
   uint32 DGNMR = 6; // Number of digital status words
   string CHNAM = 7; // Phasor and channel names
+  repeated string PHCHNAM = 24; // Phasor channel names
+  repeated string ANCHNAM = 25; // Analog channel names
+  repeated string DGCHNAM = 26; // Digital channel names
   repeated uint32 PHUNIT = 8; // Conversion factor for phasor channels
   repeated uint32 ANUNIT = 9; // Conversion factor for analog channels
   repeated uint32 DIGUNIT = 10; // Mask words for digital status words
