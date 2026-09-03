@@ -161,7 +161,7 @@ async def consume_measurements():
         """Handle received messages."""
         # Decode and parse the protobuf message
         dataset = data_pb2.DataSet()
-        dataset.ParseFromString(msg.body)
+        dataset.ParseFromString(next(msg.get_data()))
         
         # Print measurement details
         for measurement_id, measurement in dataset.data.items():
