@@ -73,40 +73,40 @@ PhaseCode](https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base
 
 enum PhaseCode {
   PHASE_CODE_UNSPECIFIED = 0; // No phases specified.
-  PHASE_CODE_A = 1;           // Phase A.
-  PHASE_CODE_B = 2;           // Phase B.
-  PHASE_CODE_C = 3;           // Phase C.
-  PHASE_CODE_N = 4;           // Neutral phase.
-  PHASE_CODE_AB = 5;          // Phases A and B.
-  PHASE_CODE_AC = 6;          // Phases A and C.
-  PHASE_CODE_BC = 7;          // Phases B and C.
-  PHASE_CODE_AN = 8;          // Phases A and neutral.
-  PHASE_CODE_BN = 9;          // Phases B and neutral.
-  PHASE_CODE_CN = 10;         // Phases C and neutral.
-  PHASE_CODE_ABC = 11;        // Phases A, B, and C.
-  PHASE_CODE_ABN = 12;        // Phases A, B, and neutral.
-  PHASE_CODE_ACN = 13;        // Phases A, C and neutral.
-  PHASE_CODE_BCN = 14;        // Phases B, C, and neutral.
-  PHASE_CODE_ABCN = 15;       // Phases A, B, C, and N.
-  PHASE_CODE_S1N = 16;        // Secondary phase 1 and neutral.
-  PHASE_CODE_S2N = 17;        // Secondary phase 2 and neutral.
-  PHASE_CODE_S12N = 18;       // Secondary phases 1, 2, and neutral.
-  PHASE_CODE_S1 = 19;         // Secondary phase 1.
-  PHASE_CODE_S2 = 20;         // Secondary phase 2.
-  PHASE_CODE_S12 = 21;        // Secondary phase 1 and 2.
-  PHASE_CODE_X = 22;          // Unknown non-neutral phase.
-  PHASE_CODE_XY = 23;         // Two unknown non-neutral phases.
-  PHASE_CODE_XN = 24;         // Unknown non-neutral phase plus neutral.
-  PHASE_CODE_XYN = 25;        // Two unknown non-neutral phases plus neutral.
+  PHASE_CODE_A = 1; // Phase A.
+  PHASE_CODE_B = 2; // Phase B.
+  PHASE_CODE_C = 3; // Phase C.
+  PHASE_CODE_N = 4; // Neutral phase.
+  PHASE_CODE_AB = 5; // Phases A and B.
+  PHASE_CODE_AC = 6; // Phases A and C.
+  PHASE_CODE_BC = 7; // Phases B and C.
+  PHASE_CODE_AN = 8; // Phases A and neutral.
+  PHASE_CODE_BN = 9; // Phases B and neutral.
+  PHASE_CODE_CN = 10; // Phases C and neutral.
+  PHASE_CODE_ABC = 11; // Phases A, B, and C.
+  PHASE_CODE_ABN = 12; // Phases A, B, and neutral.
+  PHASE_CODE_ACN = 13; // Phases A, C and neutral.
+  PHASE_CODE_BCN = 14; // Phases B, C, and neutral.
+  PHASE_CODE_ABCN = 15; // Phases A, B, C, and N.
+  PHASE_CODE_S1N = 16; // Secondary phase 1 and neutral.
+  PHASE_CODE_S2N = 17; // Secondary phase 2 and neutral.
+  PHASE_CODE_S12N = 18; // Secondary phases 1, 2, and neutral.
+  PHASE_CODE_S1 = 19; // Secondary phase 1.
+  PHASE_CODE_S2 = 20; // Secondary phase 2.
+  PHASE_CODE_S12 = 21; // Secondary phase 1 and 2.
+  PHASE_CODE_X = 22; // Unknown non-neutral phase.
+  PHASE_CODE_XY = 23; // Two unknown non-neutral phases.
+  PHASE_CODE_XN = 24; // Unknown non-neutral phase plus neutral.
+  PHASE_CODE_XYN = 25; // Two unknown non-neutral phases plus neutral.
 }
 
 /* The collection of Fault Event Types messages defined so far.*/
 
 enum FaultEventType {
   FAULT_EVENT_TYPE_UNSPECIFIED = 0; // No status defined
-  FAULT_EVENT_TYPE_STARTED = 1;     // Fault started message
-  FAULT_EVENT_TYPE_LOCATED = 2;     // Fault located message
-  FAULT_EVENT_TYPE_ENDED = 3;       // Fault ended message
+  FAULT_EVENT_TYPE_STARTED = 1; // Fault started message
+  FAULT_EVENT_TYPE_LOCATED = 2; // Fault located message
+  FAULT_EVENT_TYPE_ENDED = 3; // Fault ended message
   FAULT_EVENT_TYPE_UNKNOWN = 4; // Information available don't allow us to know if the Fault is active or complete
   FAULT_EVENT_TYPE_UPDATED = 5; // Fault in progress message
   // TODO: rename when SH is deprecated
@@ -135,7 +135,7 @@ message of type `FAULT_EVENT_TYPE_ENDED` is generated. Certain fields of the
 Fault event message may be populated only in case of event type
 `FAULT_EVENT_TYPE_LOCATED` (i.e. `locationProbability`, `measurementTimestamp`).
 
-Headers used in rabbitMQ:
+Headers used in RabbitMQ:
 * `id` (string): id of the `Fault`
 * `type` (string): always `Fault`
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the
@@ -144,7 +144,7 @@ notification.
 */
 
 message Fault {
-  string Id = 1;                    // The textual id of the fault.
+  string Id = 1; // The textual id of the fault.
   optional string description = 2 [deprecated = true];  // The textual description of the fault.
   PhaseConnectedFaultKind kind = 3; // The kind of phase fault.
   PhaseCode phases = 4; // The phases participating in the fault. The fault connections into these phases are further specified by the type of fault.
@@ -171,7 +171,7 @@ Certain fields of the `LineFault` event message may be populated only in case of
 event type `FAULT_EVENT_TYPE_LOCATED` (i.e. `lengthFromTerminal1`,
 `lengthUncertainty`).
 
-Headers used in rabbitMQ:
+Headers used in RabbitMQ:
 * `id` (string): id of the `Fault`
 * `type` (string): always `LineFault`
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the
@@ -198,7 +198,7 @@ feature.
 Certain fields of the `EquipmentFault` event message may be populated only in
 case of event type `FAULT_EVENT_TYPE_LOCATED` (i.e. `terminalID`).
 
-Headers used in rabbitMQ:
+Headers used in RabbitMQ:
 * `id` (string): id of the `Fault`
 * `type` (string): always `EquipmentFault`
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the

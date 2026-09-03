@@ -1,6 +1,8 @@
-# Package: zaphiro.grid.v1
+# event.proto
 
-Copyright 2024 Zaphiro Technologies Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. <!-- markdownlint-disable -->
+**Package: zaphiro.grid.v1**
+
+<!-- markdownlint-disable -->
 Messages to support event detection in the platform.
 The event detected may be originated from different sources: devices (e.g. a
 PMU, RTU), services (e.g. state estimator), or an external service (e.g. SCADA).
@@ -94,7 +96,7 @@ classDiagram
 direction LR
 
 %% A generic event.
-%% Headers used in rabbitMQ (only if not sent as part of `DataSet`):
+%% Headers used in RabbitMQ:
 %% * `id` (string): id of the `Event`
 %% * `type` (string): always `Event` - used for routing.
 %% * `eventType` (string): the specific type of `Event`, this is required in
@@ -125,7 +127,7 @@ Event --> `EventStatus`
 **FQN**: zaphiro.grid.v1.Event
 
 A generic event.
-Headers used in rabbitMQ (only if not sent as part of `DataSet`):
+Headers used in RabbitMQ:
 * `id` (string): id of the `Event`
 * `type` (string): always `Event` - used for routing.
 * `eventType` (string): the specific type of `Event`, this is required in

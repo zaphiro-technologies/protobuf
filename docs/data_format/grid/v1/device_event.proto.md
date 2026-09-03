@@ -1,6 +1,8 @@
-# Package: zaphiro.grid.v1
+# device_event.proto
 
-Copyright 2024 Zaphiro Technologies Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. <!-- markdownlint-disable -->
+**Package: zaphiro.grid.v1**
+
+<!-- markdownlint-disable -->
 Messages to support device event detection in the platform. Device events are sub classes of Events.
 
 
@@ -29,7 +31,7 @@ classDiagram
 direction LR
 
 %% A device event.
-%% Headers used in rabbitMQ:
+%% Headers used in RabbitMQ:
 %% * `id`: id of the `Event`
 %% * `type`: always `Event` - used for routing.
 %% * `eventType`: the specific type of `DeviceEvent`, this is required in addition 
@@ -156,7 +158,7 @@ DataError --> `DeviceEvent`
 **FQN**: zaphiro.grid.v1.DeviceEvent
 
 A device event.
-Headers used in rabbitMQ:
+Headers used in RabbitMQ:
 * `id`: id of the `Event`
 * `type`: always `Event` - used for routing.
 * `eventType`: the specific type of `DeviceEvent`, this is required in addition 

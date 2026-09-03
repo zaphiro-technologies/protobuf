@@ -1,10 +1,16 @@
-# Package: zaphiro.c37118.v1
+# conf.proto
 
-Copyright 2024 Zaphiro Technologies Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. <!-- markdownlint-disable -->
+**Package: zaphiro.c37118.v1**
+
+<!-- markdownlint-disable -->
 Messages describing PMU C37.118 Configurations.
 See
 [C37.118](https://www.typhoon-hil.com/documentation/typhoon-hil-software-manual/References/c37_118_protocol.html)
 protocol.
+
+> [!WARNING] 
+> 
+> These messages are only for internal use in the platform and are not intended to be used by external services.
 
 
 
@@ -67,7 +73,7 @@ classDiagram
 direction LR
 
 %% Configuration frame 2
-%% Headers used in rabbitMQ:
+%% Headers used in RabbitMQ:
 %% * `id`: id of the `ConfFrame`
 %% * `type`: always `ConfFrame`
 %% * `producerId`: the id of the producer (e.g. a PMU) linked to the configuration
@@ -174,7 +180,7 @@ class AnalogScaling {
 **FQN**: zaphiro.c37118.v1.ConfFrame
 
 Configuration frame 2
-Headers used in rabbitMQ:
+Headers used in RabbitMQ:
 * `id`: id of the `ConfFrame`
 * `type`: always `ConfFrame`
 * `producerId`: the id of the producer (e.g. a PMU) linked to the configuration

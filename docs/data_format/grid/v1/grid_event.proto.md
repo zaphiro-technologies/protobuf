@@ -1,6 +1,8 @@
-# Package: zaphiro.grid.v1
+# grid_event.proto
 
-Copyright 2024 Zaphiro Technologies Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. <!-- markdownlint-disable -->
+**Package: zaphiro.grid.v1**
+
+<!-- markdownlint-disable -->
 Messages to support grid event detection in the platform. Grid events are sub classes of Events.
 
 
@@ -30,7 +32,7 @@ classDiagram
 direction LR
 
 %% A grid event.
-%% Headers used in rabbitMQ (only if not sent as part of `DataSet`):
+%% Headers used in RabbitMQ:
 %% * `id` (string): id of the `Event`
 %% * `type` (string): always `Event` - used for routing.
 %% * `eventType` (string): the specific type of `GridEvent`, this is required in addition 
@@ -300,7 +302,7 @@ TransientOscillation --> `PhaseEvent`
 **FQN**: zaphiro.grid.v1.GridEvent
 
 A grid event.
-Headers used in rabbitMQ (only if not sent as part of `DataSet`):
+Headers used in RabbitMQ:
 * `id` (string): id of the `Event`
 * `type` (string): always `Event` - used for routing.
 * `eventType` (string): the specific type of `GridEvent`, this is required in addition 

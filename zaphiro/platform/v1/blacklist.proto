@@ -14,16 +14,19 @@
 
 syntax = "proto3";
 
-/* 
-<!-- markdownlint-disable --> 
+/*  <!-- markdownlint-disable --> 
 Messages to support coordination among processes/services in the platform.
+
+> [!WARNING] 
+> 
+> These messages are only for internal use in the platform and are not intended to be used by external services.
 */
 
 package zaphiro.platform.v1;
 option go_package = "./platform/v1";
 
 /* A Blacklist of measurement to ignore.
-* Headers used in rabbitMQ:
+* Headers used in RabbitMQ:
 * `id` (string): id of the `Blacklist` message (a random uuid).
 * `producerId` (string): the id of the producer of the list.
 * `timestampId` (int64): the creation Unix msec timestamp.

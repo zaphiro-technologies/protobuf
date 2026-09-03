@@ -16,13 +16,17 @@ syntax = "proto3";
 
 /*  <!-- markdownlint-disable -->
 Messages to support stat data injection exchange in the platform.
+
+> [!WARNING] 
+> 
+> These messages are only for internal use in the platform and are not intended to be used by external services.
 */
 
 package zaphiro.c37118.v1;
 option go_package = "./c37118/v1";
 
 /* A Stat of PMU data, check IEEE C37.118 standard for more details.
-Headers used in rabbitMQ:
+Headers used in RabbitMQ:
 * `id` (string): id of the `Stat` message.
 * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
 * `timestampId` (int64): related measurement Unix msec timestamp (if any).
@@ -32,7 +36,7 @@ Headers used in rabbitMQ:
 message Stat {
     int64 measuredAt = 1; // The time of creation of the stat data (Unix msec timestamp).
     uint32 error = 2; // Error code uint8
-	bool sync = 3; // Synchronization status   
+	bool sync = 3; // Synchronization status
 	bool sorting = 4; // Sorting status
 	bool trigger = 5; // Trigger status
 	bool configChange = 6; // Configuration change status
