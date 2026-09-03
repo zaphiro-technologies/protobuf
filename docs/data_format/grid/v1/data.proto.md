@@ -24,110 +24,6 @@ Data are grouped into sets, where each id identifies a specific measurement. The
 
 
 
-### zaphiro.grid.v1 Diagram
-
-```mermaid
-classDiagram
-direction LR
-%% Mermaid Diagram for package: zaphiro.grid.v1
-
-%% A single data.
-%% Headers used in RabbitMQ (only if not sent as part of `DataSet`):
-%% * `id` (string): id of the `Data`
-%% * `type` (string): always `Data`
-%% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
-%% * `timestampId` (int64): related measurement Unix msec timestamp (if any)
-%% * `aligned` (bool, default true): whether the DataSet has to be time-aligned or not.
-%% * `latency` (int64): arrival latency in milliseconds between the measurement timestamp and their injection in the platform.
-%% 
-
-class Data {
-  + DataType dataType
-  + int64 measuredAt
-  + Optional~uint64~ value
-}
-Data --> `DataType`
-
-%% A set of data.
-%% Headers used in RabbitMQ:
-%% * `id` (string): id of the `DataSet`
-%% * `type` (string): always `DataSet`
-%% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
-%% * `timestampId` (int64): related measurement Unix msec timestamp (if any)
-%% * `aligned` (bool, default true): whether the DataSet has to be time-aligned or not.
-%% * `latency` (int64): arrival latency in milliseconds between the measurement timestamp and their injection in the platform.
-%% * `samplingPeriod` (string): optional, used to identify timestamps that match
-%%  `second` or `minute`.
-%% * `sourceType` (SourceType): the [source type](../../constants.md) of the measurement.
-%% 
-
-class DataSet {
-  + string producerId
-  + Map~string,  Data~ data
-}
-DataSet .. ` Data`
-%% The collection of Data Types defined so far. They are useful to map
-%% measurements to their representation. Some of the descriptions are taken from [CIM4NoUtility](https://github.com/3lbits/CIM4NoUtility/blob/main/Telemark-120/docs/MeasurementType.adoc). This is important since all measurements
-%% are any how cast to UINT64 in the real time platform
-
-class DataType{
-  <<enumeration>>
-  DATA_TYPE_UNSPECIFIED
-  DATA_TYPE_ACTIVE_POWER
-  DATA_TYPE_ANGLE
-  DATA_TYPE_AUTOMATIC
-  DATA_TYPE_BOOLEAN
-  DATA_TYPE_CONFIG_CHANGE
-  DATA_TYPE_CURRENT_SEQUENCE_NEGATIVE
-  DATA_TYPE_CURRENT_SEQUENCE_POSITIVE
-  DATA_TYPE_CURRENT_SEQUENCE_ZERO
-  DATA_TYPE_DATA_ERROR
-  DATA_TYPE_DATA_MODIFIED
-  DATA_TYPE_DATA_SORTING
-  DATA_TYPE_ENERGY
-  DATA_TYPE_FREQUENCY
-  DATA_TYPE_LINE_CURRENT
-  DATA_TYPE_LINE_TO_LINE_VOLTAGE
-  DATA_TYPE_LOCAL_OPERATION
-  DATA_TYPE_OPERATION_COUNT
-  DATA_TYPE_PACKET_LATENCY
-  DATA_TYPE_PHASE_VOLTAGE
-  DATA_TYPE_PHASOR_CURRENT
-  DATA_TYPE_PHASOR_VOLTAGE
-  DATA_TYPE_PMU_SYNC
-  DATA_TYPE_PMU_TIME_QUALITY
-  DATA_TYPE_PMU_TRIGGER_DETECTED
-  DATA_TYPE_POWER
-  DATA_TYPE_POWER_FACTOR
-  DATA_TYPE_PRESSURE
-  DATA_TYPE_RATE_OF_CHANGE_OF_FREQUENCY
-  DATA_TYPE_REACTIVE_POWER
-  DATA_TYPE_SWITCH_POSITION
-  DATA_TYPE_TAP_POSITION
-  DATA_TYPE_TEMPERATURE
-  DATA_TYPE_THREE_PHASE_ACTIVE_POWER
-  DATA_TYPE_THREE_PHASE_CURRENT
-  DATA_TYPE_THREE_PHASE_POWER
-  DATA_TYPE_THREE_PHASE_POWER_FACTOR
-  DATA_TYPE_THREE_PHASE_REACTIVE_POWER
-  DATA_TYPE_TRIGGER_REASON
-  DATA_TYPE_UNLOCKED_TIME
-  DATA_TYPE_VOLTAGE_SEQUENCE_NEGATIVE
-  DATA_TYPE_VOLTAGE_SEQUENCE_POSITIVE
-  DATA_TYPE_VOLTAGE_SEQUENCE_ZERO
-  DATA_TYPE_DISCRETE
-  DATA_TYPE_ANALOG
-  DATA_TYPE_NORMALIZED_RESIDUAL
-  DATA_TYPE_OBJECTIVE_FUNCTION
-  DATA_TYPE_SWITCH_POSITION_CHECK
-  DATA_TYPE_TEMPERATURE_ALARM
-  DATA_TYPE_PRESSURE_ALARM
-  DATA_TYPE_DOOR_ALARM
-  DATA_TYPE_ABSOLUTE_RESIDUAL
-}
-
-```
-
 ## Enum: DataType
 
 **FQN**: zaphiro.grid.v1.DataType
@@ -258,7 +154,6 @@ class DataType{
   DATA_TYPE_DOOR_ALARM
   DATA_TYPE_ABSOLUTE_RESIDUAL
 }
-
 ```
 ### Data Diagram
 
