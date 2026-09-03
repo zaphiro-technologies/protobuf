@@ -15,7 +15,7 @@ This example shows how to:
 
 ## Requirements
 
-- Python 3.8 or higher
+- Python 3.9 or higher
 - Docker (for running RabbitMQ)
 - RabbitMQ with AMQP support
 
