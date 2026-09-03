@@ -97,6 +97,14 @@ example-measurements-go:
 example-faults-go:
 	cd examples/go/faults && go run main.go
 
+.PHONY: example-measurements-python
+example-measurements-python:
+	cd examples/python && poetry run python measurements/main.py
+
+.PHONY: example-faults-python
+example-faults-python:
+	cd examples/python && poetry run python faults/main.py
+
 .PHONY: release
 release: validate-tag check-version update-pyproject
 	@echo "✅ Version update completed successfully!"
