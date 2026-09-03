@@ -1,4 +1,5 @@
-# murmur3
+murmur3
+=======
 
 [![Build Status](https://travis-ci.org/spaolacci/murmur3.svg?branch=master)](https://travis-ci.org/spaolacci/murmur3)
 
@@ -8,7 +9,8 @@ MurmurHash3).
 Reference algorithm has been slightly hacked as to support the streaming mode
 required by Go's standard [Hash interface](http://golang.org/pkg/hash/#Hash).
 
-## Benchmarks
+Benchmarks
+----------
 
 Go tip as of 2014-06-12 (i.e almost go1.3), core i7 @ 3.4 Ghz. All runs include
 hasher instantiation and sequence finalization.
