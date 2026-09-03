@@ -43,7 +43,7 @@ direction LR
 %% * `producerId`: the id of the producer (e.g. a PMU) linked to the configuration
 %% frame.
 %% * `timestampId`: related measurement timestamp (if any)
-%%
+%% 
 
 class ConfFrame {
   + ConfHeader header
