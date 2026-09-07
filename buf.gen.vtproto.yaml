@@ -1,0 +1,5 @@
+version: v1
+plugins:
+  - plugin: buf.build/community/planetscale-vtprotobuf:v0.6.0
+    out: go
+    opt: features=unmarshal
