@@ -1,6 +1,10 @@
 # ProtoBuf Release Notes
 
-## 0.0.22-dev - 2026-09-14
+## 0.0.22-dev - 2026-09-07
+
+### Features
+
+- Generate optimized vtprotobuf methods (PR #149 by @tejo)
 
 ### Continuous Integration
 
