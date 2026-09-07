@@ -64,6 +64,20 @@ func TestDataSet(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Equal(t, dataSet.ProducerId, "myDataSet")
 	assert.Equal(t, len(dataSet.Data), 46)
+
+	vtBuf, err := test.MarshalVT()
+	assert.NoError(t, err)
+	assert.Len(t, vtBuf, test.SizeVT())
+
+	vtDataSet := &DataSet{}
+	err = vtDataSet.UnmarshalVT(vtBuf)
+	assert.NoError(t, err)
+	assert.True(t, proto.Equal(dataSet, vtDataSet))
+
+	unsafeVTDataSet := &DataSet{}
+	err = unsafeVTDataSet.UnmarshalVTUnsafe(vtBuf)
+	assert.NoError(t, err)
+	assert.True(t, proto.Equal(dataSet, unsafeVTDataSet))
 }
 
 func BenchmarkDataSerialization(b *testing.B) {

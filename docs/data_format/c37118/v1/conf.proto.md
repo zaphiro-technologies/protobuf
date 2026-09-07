@@ -29,6 +29,100 @@ protocol.
 
 
 
+### zaphiro.c37118.v1 Diagram
+
+```mermaid
+classDiagram
+direction LR
+%% Mermaid Diagram for package: zaphiro.c37118.v1
+
+%% Configuration frame 2
+%% Headers used in RabbitMQ:
+%% * `id`: id of the `ConfFrame`
+%% * `type`: always `ConfFrame`
+%% * `producerId`: the id of the producer (e.g. a PMU) linked to the configuration
+%% frame.
+%% * `timestampId`: related measurement timestamp (if any)
+%% 
+
+class ConfFrame {
+  + ConfHeader header
+  + List~Config~ configs
+  + uint32 DATA_RATE
+}
+ConfFrame --> `ConfHeader`
+ConfFrame --> `Config`
+
+%% Configuration frame header
+
+class ConfHeader {
+  + uint32 SYNC
+  + uint32 FRAMESIZE
+  + uint32 IDCODE
+  + uint32 SOC
+  + uint32 FRACSEC
+  + uint32 TIME_BASE
+  + uint32 NUM_PMU
+  + Optional~uint32~ version
+}
+
+%% Single PMU configuration according to Configuration frame 2 and 3
+
+class Config {
+  + string STN
+  + uint32 IDCODE
+  + uint32 FORMAT
+  + uint32 PHNMR
+  + uint32 ANNMR
+  + uint32 DGNMR
+  + string CHNAM
+  + List~uint32~ PHUNIT
+  + List~uint32~ ANUNIT
+  + List~uint32~ DIGUNIT
+  + uint32 FNOM
+  + uint32 CFGCNT
+  + Optional~bytes~ G_PMU_ID
+  + List~PhasorScaling~ PHSCALE
+  + List~AnalogScaling~ ANSCALE
+  + Optional~float~ PMU_LAT
+  + Optional~float~ PMU_LON
+  + Optional~float~ PMU_ELEV
+  + Optional~string~ SVC_CLASS
+  + Optional~uint32~ WINDOW
+  + Optional~uint32~ GRP_DLY
+}
+Config --> `PhasorScaling`
+Config --> `AnalogScaling`
+
+%% Scaling information structure used in Config Frame 3 for Phasors.
+
+class PhasorScaling {
+  + Optional~uint32~ flags
+  + Optional~float~ scale_factor
+  + Optional~float~ angle_offset
+}
+
+%% Scaling information structure used in Config Frame 3 for Analogs.
+
+class AnalogScaling {
+  + Optional~float~ scale_factor
+  + Optional~float~ offset
+}
+%% Represents the frame type part of the SYNC word (e.g., 0=Data, 1=Header, 2=CFG1, 3=CFG2, 4=CMD, 5=CFG3) These correspond to the 'X' nibble in the SYNC word 0xAAXY.
+
+class FrameType{
+  <<enumeration>>
+  FRAME_TYPE_UNSPECIFIED
+  FRAME_TYPE_DATA
+  FRAME_TYPE_HEADER
+  FRAME_TYPE_CONFIG_1
+  FRAME_TYPE_CONFIG_2
+  FRAME_TYPE_COMMAND
+  FRAME_TYPE_CONFIG_3
+}
+
+```
+
 ## Enum: FrameType
 
 **FQN**: zaphiro.c37118.v1.FrameType
@@ -65,6 +159,7 @@ class FrameType{
   FRAME_TYPE_COMMAND
   FRAME_TYPE_CONFIG_3
 }
+
 ```
 ### ConfFrame Diagram
 
