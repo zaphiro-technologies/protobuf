@@ -50,7 +50,6 @@ cov:
 .PHONY: generate
 generate:
 	buf generate
-	buf generate --template buf.gen.vtproto.yaml --path zaphiro/grid/v1/data.proto
 
 PROTO_FILES := $(shell find zaphiro -type f -name "*.proto")
 
