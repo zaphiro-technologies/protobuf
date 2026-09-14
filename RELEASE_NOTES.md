@@ -1,6 +1,6 @@
 # ProtoBuf Release Notes
 
-## 0.0.22-dev - 2026-06-16
+## 0.0.22-dev - 2026-09-14
 
 ### Continuous Integration
 
@@ -13,6 +13,14 @@
 
 ### Dependencies
 
+- Bump github.com/rabbitmq/amqp091-go from 1.10.0 to 1.13.0 in /examples/go (PR
+  #148 by @dependabot[bot])
+- Bump actions/setup-go from 6 to 7 (PR #142 by @dependabot[bot])
+- Bump golangci/golangci-lint-action from 9.2.1 to 9.3.0 (PR #141 by
+  @dependabot[bot])
+- Bump golangci/golangci-lint-action from 9 to 9.2.1 (PR #140 by
+  @dependabot[bot])
+- Bump actions/checkout from 6 to 7 (PR #139 by @dependabot[bot])
 - Bump protobuf from 5.29.5 to 5.29.6 (PR #133 by @dependabot[bot])
 
 ## 0.0.21 - 2026-01-15
