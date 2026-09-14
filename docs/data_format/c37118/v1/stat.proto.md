@@ -26,6 +26,36 @@ Messages to support stat data injection exchange in the platform.
 
 
 
+### zaphiro.c37118.v1 Diagram
+
+```mermaid
+classDiagram
+direction LR
+%% Mermaid Diagram for package: zaphiro.c37118.v1
+
+%% A Stat of PMU data, check IEEE C37.118 standard for more details.
+%% Headers used in RabbitMQ:
+%% * `id` (string): id of the `Stat` message.
+%% * `producerId` (string): the id of the producer (e.g. a PMU) linked to the dataset.
+%% * `timestampId` (int64): related measurement Unix msec timestamp (if any).
+%% * `latency` (int64): arrival latency in milliseconds between the stat timestamp and their injection in the platform.
+%% 
+
+class Stat {
+  + int64 measuredAt
+  + uint32 error
+  + bool sync
+  + bool sorting
+  + bool trigger
+  + bool configChange
+  + bool dataModified
+  + uint32 timeQuality
+  + uint32 unlockedTime
+  + uint32 triggerReason
+}
+
+```
+
 
 ### Stat Diagram
 

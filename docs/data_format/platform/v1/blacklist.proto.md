@@ -26,6 +26,31 @@ Messages to support coordination among processes/services in the platform.
 
 
 
+### zaphiro.platform.v1 Diagram
+
+```mermaid
+classDiagram
+direction LR
+%% Mermaid Diagram for package: zaphiro.platform.v1
+
+%% A Blacklist of measurement to ignore.
+%% * Headers used in RabbitMQ:
+%% * `id` (string): id of the `Blacklist` message (a random uuid).
+%% * `producerId` (string): the id of the producer of the list.
+%% * `timestampId` (int64): the creation Unix msec timestamp.
+%% 
+
+class Blacklist {
+  + List~string~ common
+  + List~string~ fault_locator
+  + List~string~ event_handler
+  + List~string~ state_estimator
+  + List~string~ topology_processor
+  + List~string~ storer
+}
+
+```
+
 
 ### Blacklist Diagram
 
