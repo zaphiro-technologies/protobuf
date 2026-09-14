@@ -2,6 +2,10 @@
 
 ## 0.0.22-dev - 2026-09-14
 
+### Features
+
+- Generate optimized vtprotobuf methods (PR #149 by @tejo)
+
 ### Continuous Integration
 
 - Add 3-day Dependabot cooldown (PR #137 by @chicco785)
