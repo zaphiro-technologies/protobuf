@@ -17,9 +17,11 @@
 
 ### Dependencies
 
+- Bump google.golang.org/protobuf from 1.36.11 to 1.36.12 (PR #144 by
+  @dependabot[bot])
 - Bump github.com/rabbitmq/amqp091-go from 1.10.0 to 1.13.0 in /examples/go (PR
   #148 by @dependabot[bot])
-- Bump google.golang.org/protobuf from 1.36.11 to 1.36.12 (PR #144 by
+- Bump github.com/stretchr/testify from 1.11.1 to 1.12.1 (PR #145 by
   @dependabot[bot])
 - Bump actions/setup-go from 6 to 7 (PR #142 by @dependabot[bot])
 - Bump golangci/golangci-lint-action from 9.2.1 to 9.3.0 (PR #141 by
