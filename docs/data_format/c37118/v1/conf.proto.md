@@ -75,7 +75,7 @@ class Config {
   + uint32 PHNMR
   + uint32 ANNMR
   + uint32 DGNMR
-  + string CHNAM
+  + string CHNAM [deprecated]
   + List~string~ PHCHNAM
   + List~string~ ANCHNAM
   + List~string~ DGCHNAM
@@ -223,7 +223,7 @@ class Config {
   + uint32 PHNMR
   + uint32 ANNMR
   + uint32 DGNMR
-  + string CHNAM
+  + string CHNAM [deprecated]
   + List~uint32~ PHUNIT
   + List~uint32~ ANUNIT
   + List~uint32~ DIGUNIT
@@ -327,32 +327,32 @@ Configuration frame header
 Single PMU configuration according to Configuration frame 2 and 3
 
 
-| Field       | Ordinal | Type            | Label    | Description                                                                           |
-|-------------|---------|-----------------|----------|---------------------------------------------------------------------------------------|
-| `STN`       | 1       | `string`        |          | Station name                                                                          |
-| `IDCODE`    | 2       | `uint32`        |          | Data source ID number                                                                 |
-| `FORMAT`    | 3       | `uint32`        |          | Data format within data frame                                                         |
-| `PHNMR`     | 4       | `uint32`        |          | Number of phasors                                                                     |
-| `ANNMR`     | 5       | `uint32`        |          | Number of analog values                                                               |
-| `DGNMR`     | 6       | `uint32`        |          | Number of digital status words                                                        |
-| `CHNAM`     | 7       | `string`        |          | Phasor and channel names                                                              |
-| `PHUNIT`    | 8       | `uint32`        | Repeated | Conversion factor for phasor channels                                                 |
-| `ANUNIT`    | 9       | `uint32`        | Repeated | Conversion factor for analog channels                                                 |
-| `DIGUNIT`   | 10      | `uint32`        | Repeated | Mask words for digital status words                                                   |
-| `FNOM`      | 11      | `uint32`        |          | Nominal line frequency code and flags                                                 |
-| `CFGCNT`    | 12      | `uint32`        |          | Configuration change count                                                            |
-| `G_PMU_ID`  | 13      | `bytes`         | Optional | --- Config Frame 3 Specific Fields (Optional) --- 16 bytes. Meaning is user-defined.  |
-| `PHSCALE`   | 16      | `PhasorScaling` | Repeated | Config-3 phasor scaling                                                               |
-| `ANSCALE`   | 17      | `AnalogScaling` | Repeated | Config-3 analog scaling                                                               |
-| `PMU_LAT`   | 18      | `float`         | Optional | Latitude                                                                              |
-| `PMU_LON`   | 19      | `float`         | Optional | Longitude                                                                             |
-| `PMU_ELEV`  | 20      | `float`         | Optional | Elevation                                                                             |
-| `SVC_CLASS` | 21      | `string`        | Optional | Service Class ('M' or 'P')                                                            |
-| `WINDOW`    | 22      | `uint32`        | Optional | Phasor Measurement Window Length                                                      |
-| `GRP_DLY`   | 23      | `uint32`        | Optional | Group Delay                                                                           |
-| `PHCHNAM`   | 24      | `string`        | Repeated | Phasor channel names                                                                  |
-| `ANCHNAM`   | 25      | `string`        | Repeated | Analog channel names                                                                  |
-| `DGCHNAM`   | 26      | `string`        | Repeated | Digital channel names                                                                 |
+| Field       | Ordinal | Type            | Label      | Description                                                                           |
+|-------------|---------|-----------------|------------|---------------------------------------------------------------------------------------|
+| `STN`       | 1       | `string`        |            | Station name                                                                          |
+| `IDCODE`    | 2       | `uint32`        |            | Data source ID number                                                                 |
+| `FORMAT`    | 3       | `uint32`        |            | Data format within data frame                                                         |
+| `PHNMR`     | 4       | `uint32`        |            | Number of phasors                                                                     |
+| `ANNMR`     | 5       | `uint32`        |            | Number of analog values                                                               |
+| `DGNMR`     | 6       | `uint32`        |            | Number of digital status words                                                        |
+| `CHNAM`     | 7       | `string`        | Deprecated | Phasor and channel names                                                              |
+| `PHUNIT`    | 8       | `uint32`        | Repeated   | Conversion factor for phasor channels                                                 |
+| `ANUNIT`    | 9       | `uint32`        | Repeated   | Conversion factor for analog channels                                                 |
+| `DIGUNIT`   | 10      | `uint32`        | Repeated   | Mask words for digital status words                                                   |
+| `FNOM`      | 11      | `uint32`        |            | Nominal line frequency code and flags                                                 |
+| `CFGCNT`    | 12      | `uint32`        |            | Configuration change count                                                            |
+| `G_PMU_ID`  | 13      | `bytes`         | Optional   | --- Config Frame 3 Specific Fields (Optional) --- 16 bytes. Meaning is user-defined.  |
+| `PHSCALE`   | 16      | `PhasorScaling` | Repeated   | Config-3 phasor scaling                                                               |
+| `ANSCALE`   | 17      | `AnalogScaling` | Repeated   | Config-3 analog scaling                                                               |
+| `PMU_LAT`   | 18      | `float`         | Optional   | Latitude                                                                              |
+| `PMU_LON`   | 19      | `float`         | Optional   | Longitude                                                                             |
+| `PMU_ELEV`  | 20      | `float`         | Optional   | Elevation                                                                             |
+| `SVC_CLASS` | 21      | `string`        | Optional   | Service Class ('M' or 'P')                                                            |
+| `WINDOW`    | 22      | `uint32`        | Optional   | Phasor Measurement Window Length                                                      |
+| `GRP_DLY`   | 23      | `uint32`        | Optional   | Group Delay                                                                           |
+| `PHCHNAM`   | 24      | `string`        | Repeated   | Phasor channel names                                                                  |
+| `ANCHNAM`   | 25      | `string`        | Repeated   | Analog channel names                                                                  |
+| `DGCHNAM`   | 26      | `string`        | Repeated   | Digital channel names                                                                 |
 
 
 
