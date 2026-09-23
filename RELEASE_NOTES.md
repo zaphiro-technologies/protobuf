@@ -1,5 +1,11 @@
 # ProtoBuf Release Notes
 
+## 0.0.23-dev - 2026-09-23
+
+### Features
+
+- Add structured C37.118 channel names (PR #147 by @AntonioCeppellini)
+
 ## 0.0.22-dev - 2026-09-14
 
 ### Features
