@@ -6,3 +6,6 @@ plugins:
     out: python
   - plugin: buf.build/protocolbuffers/python:v26.0
     out: python
+  - plugin: buf.build/community/planetscale-vtprotobuf:v0.6.0
+    out: go
+    opt: features=marshal+unmarshal+unmarshal_unsafe+size
