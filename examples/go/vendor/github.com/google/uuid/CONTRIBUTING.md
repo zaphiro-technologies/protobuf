@@ -4,7 +4,8 @@ We definitely welcome patches and contribution to this project!
 
 ### Tips
 
-Commits must be formatted according to the [Conventional Commits Specification](https://www.conventionalcommits.org).
+Commits must be formatted according to the
+[Conventional Commits Specification](https://www.conventionalcommits.org).
 
 Always try to include a test case! If it is not possible or not necessary,
 please explain why in the pull request description.
@@ -12,7 +13,8 @@ please explain why in the pull request description.
 ### Releasing
 
 Commits that would precipitate a SemVer change, as described in the Conventional
-Commits Specification, will trigger [`release-please`](https://github.com/google-github-actions/release-please-action)
+Commits Specification, will trigger
+[`release-please`](https://github.com/google-github-actions/release-please-action)
 to create a release candidate pull request. Once submitted, `release-please`
 will create a release.
 
