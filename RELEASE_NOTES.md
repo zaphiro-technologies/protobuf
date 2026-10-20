@@ -19,6 +19,7 @@
 
 ### Documentation
 
+- Add Python examples (PR #132 by @Copilot)
 - Documentation integration (PR #134 by @chicco785)
 
 ### Dependencies

@@ -70,14 +70,16 @@ go get -v github.com/zaphiro-technologies/protobuf/go@v0.0.7
 
 ## Examples
 
-For your convenience, in the [examples](examples) folder we provide Go code to:
+For your convenience, in the [examples](examples) folder we provide Go and
+Python code to:
 
 - Produce and consume measurements (uses RabbitMQ streams).
 - Produce and consume faults (uses RabbitMQ exchanges).
 
 ### Requirements
 
-- Golang 1.21
+- For Go examples: Golang 1.21
+- For Python examples: Python 3.9 or higher
 - [Docker](https://docs.docker.com/get-docker/)
 
 ### Produce and consume measurements
@@ -108,6 +110,24 @@ consumer name: my_consumer, measurement_id: Dev0000-0008, measurement_time 17206
 consumer name: my_consumer, measurement_id: Dev0000-0007, measurement_time 1720698360980, measurement_type 20, measurement_value 4606916483465028581
 ```
 
+#### Python
+
+1. Set-up the infrastructure using `make docker-start`.
+1. Install Python dependencies: `cd examples/python && poetry install`
+1. Launch the example `make example-measurements-python`
+1. Press Ctrl+C to stop.
+
+```bash
+Getting started with Streaming client for RabbitMQ
+Connecting to RabbitMQ streaming ...
+Sent 10 messages
+Press Ctrl+C to stop
+
+consumer name: my_consumer, measurement_id: Dev0000-0005, measurement_time 1720698360980, measurement_type 20, measurement_value 4592455024224327647
+consumer name: my_consumer, measurement_id: Dev0000-0006, measurement_time 1720698360980, measurement_type 20, measurement_value 4604241342922663796
+...
+```
+
 ### Produce and consume faults
 
 #### Go
@@ -117,11 +137,30 @@ consumer name: my_consumer, measurement_id: Dev0000-0007, measurement_time 17206
 1. Press any key to stop.
 
 ```bash
-Getting started with AMPQ client for RabbitMQ
+Getting started with AMQP client for RabbitMQ
 Connecting to RabbitMQ ...
 Received a fault event message: 1948cd36-f835-4dc5-83c2-ba5a7612362a, event type: FAULT_EVENT_TYPE_STARTED
 Press any key to stop
 
+Received a fault event message: 1948cd36-f835-4dc5-83c2-ba5a7612362a, event type: FAULT_EVENT_TYPE_ENDED
+Received a line fault event message: 1948cd36-f835-4dc5-83c2-ba5a7612362a, event type: FAULT_EVENT_TYPE_LOCATED, faulty line: EQ-1, probability: 0.330000, length from t1: 0.526424
+Received a line fault event message: 1948cd36-f835-4dc5-83c2-ba5a7612362a, event type: FAULT_EVENT_TYPE_LOCATED, faulty line: EQ-2, probability: 0.330000, length from t1: 0.484818
+Received a line fault event message: 1948cd36-f835-4dc5-83c2-ba5a7612362a, event type: FAULT_EVENT_TYPE_LOCATED, faulty line: EQ-3, probability: 0.330000, length from t1: 0.315550
+```
+
+#### Python
+
+1. Set-up the infrastructure using `make docker-start`.
+1. Install Python dependencies: `cd examples/python && poetry install`
+1. Launch the example `make example-faults-python`
+1. Press Ctrl+C to stop.
+
+```bash
+Getting started with AMQP client for RabbitMQ
+Connecting to RabbitMQ ...
+Press Ctrl+C to stop
+
+Received a fault event message: 1948cd36-f835-4dc5-83c2-ba5a7612362a, event type: FAULT_EVENT_TYPE_STARTED
 Received a fault event message: 1948cd36-f835-4dc5-83c2-ba5a7612362a, event type: FAULT_EVENT_TYPE_ENDED
 Received a line fault event message: 1948cd36-f835-4dc5-83c2-ba5a7612362a, event type: FAULT_EVENT_TYPE_LOCATED, faulty line: EQ-1, probability: 0.330000, length from t1: 0.526424
 Received a line fault event message: 1948cd36-f835-4dc5-83c2-ba5a7612362a, event type: FAULT_EVENT_TYPE_LOCATED, faulty line: EQ-2, probability: 0.330000, length from t1: 0.484818
