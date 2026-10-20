@@ -7,8 +7,10 @@
 
 ## Overview
 
-This package provides a streaming interface to [LZ4 data streams](http://fastcompression.blogspot.fr/2013/04/lz4-streaming-format-final.html) as well as low level compress and uncompress functions for LZ4 data blocks.
-The implementation is based on the reference C [one](https://github.com/lz4/lz4).
+This package provides a streaming interface to
+[LZ4 data streams](http://fastcompression.blogspot.fr/2013/04/lz4-streaming-format-final.html)
+as well as low level compress and uncompress functions for LZ4 data blocks. The
+implementation is based on the reference C [one](https://github.com/lz4/lz4).
 
 ## Install
 
@@ -48,7 +50,6 @@ uncompress [arguments] [<file name> ...]
 
 ```
 
-
 ## Example
 
 ```
@@ -83,8 +84,11 @@ Contributions are very welcome for bug fixing, performance improvements...!
 
 ## Contributors
 
-Thanks to all [contributors](https://github.com/pierrec/lz4/graphs/contributors)  so far!
+Thanks to all [contributors](https://github.com/pierrec/lz4/graphs/contributors)
+so far!
 
-Special thanks to [@Zariel](https://github.com/Zariel) for his asm implementation of the decoder.
+Special thanks to [@Zariel](https://github.com/Zariel) for his asm
+implementation of the decoder.
 
-Special thanks to [@klauspost](https://github.com/klauspost) for his work on optimizing the code.
+Special thanks to [@klauspost](https://github.com/klauspost) for his work on
+optimizing the code.
