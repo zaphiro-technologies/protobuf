@@ -8,7 +8,8 @@ performance compression algorithm is implemented. For now focused on speed.
 This package provides [compression](#Compressor) to and
 [decompression](#Decompressor) of Zstandard content.
 
-This package is pure Go and without use of "unsafe".
+This package is pure Go. Use `noasm` and `nounsafe` to disable relevant
+features.
 
 The `zstd` package is provided as open source software using a Go standard
 license.

@@ -1,5 +1,5 @@
-# This is an example goreleaser.yaml file with some sane defaults.
-# Make sure to check the documentation at http://goreleaser.com
+version: 2
+
 before:
   hooks:
     - ./gen.sh
@@ -30,7 +30,11 @@ builds:
       - mips64le
     goarm:
       - 7
-  - id: "s2d"
+    ignore:
+      - goos: windows
+        goarch: arm
+  -
+    id: "s2d"
     binary: s2d
     main: ./s2/cmd/s2d/main.go
     flags:
@@ -55,7 +59,11 @@ builds:
       - mips64le
     goarm:
       - 7
-  - id: "s2sx"
+    ignore:
+      - goos: windows
+        goarch: arm
+  -
+    id: "s2sx"
     binary: s2sx
     main: ./s2/cmd/_s2sx/main.go
     flags:
@@ -81,13 +89,16 @@ builds:
       - mips64le
     goarm:
       - 7
+    ignore:
+      - goos: windows
+        goarch: arm
 
 archives:
   - id: s2-binaries
     name_template: "s2-{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
     format_overrides:
       - goos: windows
-        format: zip
+        formats: ['zip']
     files:
       - unpack/*
       - s2/LICENSE
@@ -95,7 +106,7 @@ archives:
 checksum:
   name_template: "checksums.txt"
 snapshot:
-  name_template: "{{ .Tag }}-next"
+  version_template: "{{ .Tag }}-next"
 changelog:
   sort: asc
   filters:
