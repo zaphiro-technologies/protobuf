@@ -33,8 +33,7 @@ builds:
     ignore:
       - goos: windows
         goarch: arm
-  -
-    id: "s2d"
+  - id: "s2d"
     binary: s2d
     main: ./s2/cmd/s2d/main.go
     flags:
@@ -62,8 +61,7 @@ builds:
     ignore:
       - goos: windows
         goarch: arm
-  -
-    id: "s2sx"
+  - id: "s2sx"
     binary: s2sx
     main: ./s2/cmd/_s2sx/main.go
     flags:
@@ -98,7 +96,7 @@ archives:
     name_template: "s2-{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
     format_overrides:
       - goos: windows
-        formats: ['zip']
+        formats: ["zip"]
     files:
       - unpack/*
       - s2/LICENSE
