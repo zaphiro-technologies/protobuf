@@ -1,6 +1,11 @@
 # ProtoBuf Release Notes
 
-## 0.0.24-dev - 2026-10-23
+## 0.0.24-dev - 2026-11-02
+
+### Features
+
+- Add `Configuration` message to distribute service configurations (PR #150 by
+  @chicco785)
 
 ### Dependencies
 
