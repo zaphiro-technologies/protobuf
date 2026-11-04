@@ -32,7 +32,7 @@ EVENT_SOURCE_EXTERNAL_SERVICE: EventSourceType
 EVENT_SOURCE_TEST_SERVICE: EventSourceType
 
 class Event(_message.Message):
-    __slots__ = ("Id", "sourceId", "sourceType", "occurredAt", "detectedAt", "message", "status")
+    __slots__ = ("Id", "sourceId", "sourceType", "occurredAt", "detectedAt", "message", "status", "eventGroupId")
     ID_FIELD_NUMBER: _ClassVar[int]
     SOURCEID_FIELD_NUMBER: _ClassVar[int]
     SOURCETYPE_FIELD_NUMBER: _ClassVar[int]
@@ -40,6 +40,7 @@ class Event(_message.Message):
     DETECTEDAT_FIELD_NUMBER: _ClassVar[int]
     MESSAGE_FIELD_NUMBER: _ClassVar[int]
     STATUS_FIELD_NUMBER: _ClassVar[int]
+    EVENTGROUPID_FIELD_NUMBER: _ClassVar[int]
     Id: str
     sourceId: str
     sourceType: EventSourceType
@@ -47,4 +48,5 @@ class Event(_message.Message):
     detectedAt: int
     message: str
     status: EventStatus
-    def __init__(self, Id: _Optional[str] = ..., sourceId: _Optional[str] = ..., sourceType: _Optional[_Union[EventSourceType, str]] = ..., occurredAt: _Optional[int] = ..., detectedAt: _Optional[int] = ..., message: _Optional[str] = ..., status: _Optional[_Union[EventStatus, str]] = ...) -> None: ...
+    eventGroupId: str
+    def __init__(self, Id: _Optional[str] = ..., sourceId: _Optional[str] = ..., sourceType: _Optional[_Union[EventSourceType, str]] = ..., occurredAt: _Optional[int] = ..., detectedAt: _Optional[int] = ..., message: _Optional[str] = ..., status: _Optional[_Union[EventStatus, str]] = ..., eventGroupId: _Optional[str] = ...) -> None: ...

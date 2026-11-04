@@ -1,10 +1,26 @@
 from zaphiro.grid.v1 import event_pb2 as _event_pb2
 from zaphiro.grid.v1 import fault_pb2 as _fault_pb2
+from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
+
+class FrequencyVariationThreshold(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    FREQUENCY_VARIATION_THRESHOLD_UNSPECIFIED: _ClassVar[FrequencyVariationThreshold]
+    FREQUENCY_VARIATION_THRESHOLD_EU_STANDARD_RANGE: _ClassVar[FrequencyVariationThreshold]
+    FREQUENCY_VARIATION_THRESHOLD_EU_STEADY_STATE_DEVIATION: _ClassVar[FrequencyVariationThreshold]
+    FREQUENCY_VARIATION_THRESHOLD_EU_INSTANTANEOUS_DEVIATION: _ClassVar[FrequencyVariationThreshold]
+    FREQUENCY_VARIATION_THRESHOLD_EN_NORMAL_RANGE: _ClassVar[FrequencyVariationThreshold]
+    FREQUENCY_VARIATION_THRESHOLD_EN_OUTER_RANGE: _ClassVar[FrequencyVariationThreshold]
+FREQUENCY_VARIATION_THRESHOLD_UNSPECIFIED: FrequencyVariationThreshold
+FREQUENCY_VARIATION_THRESHOLD_EU_STANDARD_RANGE: FrequencyVariationThreshold
+FREQUENCY_VARIATION_THRESHOLD_EU_STEADY_STATE_DEVIATION: FrequencyVariationThreshold
+FREQUENCY_VARIATION_THRESHOLD_EU_INSTANTANEOUS_DEVIATION: FrequencyVariationThreshold
+FREQUENCY_VARIATION_THRESHOLD_EN_NORMAL_RANGE: FrequencyVariationThreshold
+FREQUENCY_VARIATION_THRESHOLD_EN_OUTER_RANGE: FrequencyVariationThreshold
 
 class GridEvent(_message.Message):
     __slots__ = ("event", "componentID", "substationID", "value", "referenceLimit", "probability", "movingAverage")
@@ -98,23 +114,25 @@ class VoltageRapidChange(_message.Message):
     event: VoltageEvent
     def __init__(self, event: _Optional[_Union[VoltageEvent, _Mapping]] = ...) -> None: ...
 
+class FrequencyVariation(_message.Message):
+    __slots__ = ("event", "frequencyVariationThreshold")
+    EVENT_FIELD_NUMBER: _ClassVar[int]
+    FREQUENCYVARIATIONTHRESHOLD_FIELD_NUMBER: _ClassVar[int]
+    event: FrequencyEvent
+    frequencyVariationThreshold: FrequencyVariationThreshold
+    def __init__(self, event: _Optional[_Union[FrequencyEvent, _Mapping]] = ..., frequencyVariationThreshold: _Optional[_Union[FrequencyVariationThreshold, str]] = ...) -> None: ...
+
 class OverFrequency(_message.Message):
     __slots__ = ("event",)
     EVENT_FIELD_NUMBER: _ClassVar[int]
-    event: FrequencyEvent
-    def __init__(self, event: _Optional[_Union[FrequencyEvent, _Mapping]] = ...) -> None: ...
+    event: FrequencyVariation
+    def __init__(self, event: _Optional[_Union[FrequencyVariation, _Mapping]] = ...) -> None: ...
 
 class UnderFrequency(_message.Message):
     __slots__ = ("event",)
     EVENT_FIELD_NUMBER: _ClassVar[int]
-    event: FrequencyEvent
-    def __init__(self, event: _Optional[_Union[FrequencyEvent, _Mapping]] = ...) -> None: ...
-
-class FrequencyVariation(_message.Message):
-    __slots__ = ("event",)
-    EVENT_FIELD_NUMBER: _ClassVar[int]
-    event: FrequencyEvent
-    def __init__(self, event: _Optional[_Union[FrequencyEvent, _Mapping]] = ...) -> None: ...
+    event: FrequencyVariation
+    def __init__(self, event: _Optional[_Union[FrequencyVariation, _Mapping]] = ...) -> None: ...
 
 class SteadyOscillation(_message.Message):
     __slots__ = ("event",)
