@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+/*  <!-- markdownlint-disable --> 
+Messages to distribute configuration to services.
+
+> [!WARNING] 
+> 
+> These messages are only for internal use in the platform and are not intended to be used by external services.
+*/
+
+package zaphiro.platform.v1;
+option go_package = "./platform/v1";
+
+import "google/protobuf/struct.proto";
+
+/* A configuration snapshot distributed to platform services.
+* Headers used in RabbitMQ:
+* `id` (string): id of the `Configuration` message (a random uuid).
+* `producerId` (string): the id of the producer of the message.
+* `timestampId` (int64): the creation Unix msec timestamp.
+*/
+message Configuration {
+	// Configuration key to JSON-compatible settings. Settings may be scalars, lists,
+	// or nested objects.
+	map<string, google.protobuf.Value> settings = 1;
+}
