@@ -74,6 +74,7 @@ class Fault {
   + Optional~int64~ measurementTimestamp
   + Optional~float~ locationProbability
   + Optional~string~ eventGroupId
+  + Optional~bool~ incipient
 }
 Fault --> `PhaseConnectedFaultKind`
 Fault --> `PhaseCode`
@@ -450,6 +451,7 @@ class Fault {
   + Optional~int64~ measurementTimestamp
   + Optional~float~ locationProbability
   + Optional~string~ eventGroupId
+  + Optional~bool~ incipient
 }
 Fault --> `PhaseConnectedFaultKind`
 Fault --> `PhaseCode`
@@ -591,6 +593,7 @@ notification.
 | `measurementTimestamp` | 11      | `int64`                   | Optional             | The timestamp of the measurements used to compute the fault location.                                                       |
 | `locationProbability`  | 12      | `float`                   | Optional             | The probability associated to the location. (This is relevant because multiple locations can be returned for a fault)       |
 | `eventGroupId`         | 13      | `string`                  | Optional             | This allows to track relationship between evolving events.                                                                  |
+| `incipient`            | 14      | `bool`                    | Optional             | Whether the fault is incipient.                                                                                             |
 
 
 

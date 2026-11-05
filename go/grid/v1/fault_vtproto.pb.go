@@ -51,6 +51,16 @@ func (m *Fault) MarshalToSizedBufferVT(dAtA []byte) (int, error) {
 		i -= len(m.unknownFields)
 		copy(dAtA[i:], m.unknownFields)
 	}
+	if m.Incipient != nil {
+		i--
+		if *m.Incipient {
+			dAtA[i] = 1
+		} else {
+			dAtA[i] = 0
+		}
+		i--
+		dAtA[i] = 0x70
+	}
 	if m.EventGroupId != nil {
 		i -= len(*m.EventGroupId)
 		copy(dAtA[i:], *m.EventGroupId)
@@ -349,6 +359,9 @@ func (m *Fault) SizeVT() (n int) {
 	if m.EventGroupId != nil {
 		l = len(*m.EventGroupId)
 		n += 1 + l + protohelpers.SizeOfVarint(uint64(l))
+	}
+	if m.Incipient != nil {
+		n += 2
 	}
 	n += len(m.unknownFields)
 	return n
@@ -755,6 +768,27 @@ func (m *Fault) UnmarshalVT(dAtA []byte) error {
 			s := string(dAtA[iNdEx:postIndex])
 			m.EventGroupId = &s
 			iNdEx = postIndex
+		case 14:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Incipient", wireType)
+			}
+			var v int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protohelpers.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				v |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			b := bool(v != 0)
+			m.Incipient = &b
 		default:
 			iNdEx = preIndex
 			skippy, err := protohelpers.Skip(dAtA[iNdEx:])
@@ -1477,6 +1511,27 @@ func (m *Fault) UnmarshalVTUnsafe(dAtA []byte) error {
 			s := stringValue
 			m.EventGroupId = &s
 			iNdEx = postIndex
+		case 14:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Incipient", wireType)
+			}
+			var v int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protohelpers.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				v |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			b := bool(v != 0)
+			m.Incipient = &b
 		default:
 			iNdEx = preIndex
 			skippy, err := protohelpers.Skip(dAtA[iNdEx:])
