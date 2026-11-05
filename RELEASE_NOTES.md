@@ -1,11 +1,15 @@
 # ProtoBuf Release Notes
 
-## 0.0.24-dev - 2026-11-02
+## 0.0.24-dev - 2026-11-04
 
 ### Features
 
 - Add `Configuration` message to distribute service configurations (PR #150 by
   @chicco785)
+
+### Continuous Integration
+
+- Add Dependabot VEX workflow (PR #153 by @chicco785)
 
 ### Dependencies
 
