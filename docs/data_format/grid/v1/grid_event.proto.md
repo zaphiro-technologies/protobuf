@@ -143,24 +143,26 @@ VoltageRapidChange --> `VoltageEvent`
 
 %% 
 
-class OverFrequency {
+class FrequencyVariation {
   + FrequencyEvent event
+  + FrequencyVariationThreshold frequencyVariationThreshold
 }
-OverFrequency --> `FrequencyEvent`
+FrequencyVariation --> `FrequencyEvent`
+FrequencyVariation --> `FrequencyVariationThreshold`
+
+%% 
+
+class OverFrequency {
+  + FrequencyVariation event
+}
+OverFrequency --> `FrequencyVariation`
 
 %% 
 
 class UnderFrequency {
-  + FrequencyEvent event
+  + FrequencyVariation event
 }
-UnderFrequency --> `FrequencyEvent`
-
-%% 
-
-class FrequencyVariation {
-  + FrequencyEvent event
-}
-FrequencyVariation --> `FrequencyEvent`
+UnderFrequency --> `FrequencyVariation`
 
 %% 
 
@@ -175,10 +177,56 @@ class TransientOscillation {
   + PhaseEvent event
 }
 TransientOscillation --> `PhaseEvent`
+%% The collection of FrequencyVariationThreshold Types defined so far.
+
+class FrequencyVariationThreshold{
+  <<enumeration>>
+  FREQUENCY_VARIATION_THRESHOLD_UNSPECIFIED
+  FREQUENCY_VARIATION_THRESHOLD_EU_STANDARD_RANGE
+  FREQUENCY_VARIATION_THRESHOLD_EU_STEADY_STATE_DEVIATION
+  FREQUENCY_VARIATION_THRESHOLD_EU_INSTANTANEOUS_DEVIATION
+  FREQUENCY_VARIATION_THRESHOLD_EN_NORMAL_RANGE
+  FREQUENCY_VARIATION_THRESHOLD_EN_OUTER_RANGE
+}
 
 ```
 
+## Enum: FrequencyVariationThreshold
 
+**FQN**: zaphiro.grid.v1.FrequencyVariationThreshold
+
+The collection of FrequencyVariationThreshold Types defined so far.
+
+
+| Name                                                       | Ordinal | Description                           |
+|------------------------------------------------------------|---------|---------------------------------------|
+| `FREQUENCY_VARIATION_THRESHOLD_UNSPECIFIED`                | 0       |                                       |
+| `FREQUENCY_VARIATION_THRESHOLD_EU_STANDARD_RANGE`          | 1       | EU 2017/1485 standard range           |
+| `FREQUENCY_VARIATION_THRESHOLD_EU_STEADY_STATE_DEVIATION`  | 2       | EU 2017/1485 steady state deviation   |
+| `FREQUENCY_VARIATION_THRESHOLD_EU_INSTANTANEOUS_DEVIATION` | 3       | EU 2017/1485 instantaneous deviation  |
+| `FREQUENCY_VARIATION_THRESHOLD_EN_NORMAL_RANGE`            | 4       | EN 50160 normal range                 |
+| `FREQUENCY_VARIATION_THRESHOLD_EN_OUTER_RANGE`             | 5       | EN 50160 outer range                  |
+
+
+
+### FrequencyVariationThreshold Diagram
+
+```mermaid
+classDiagram
+direction LR
+%% The collection of FrequencyVariationThreshold Types defined so far.
+
+class FrequencyVariationThreshold{
+  <<enumeration>>
+  FREQUENCY_VARIATION_THRESHOLD_UNSPECIFIED
+  FREQUENCY_VARIATION_THRESHOLD_EU_STANDARD_RANGE
+  FREQUENCY_VARIATION_THRESHOLD_EU_STEADY_STATE_DEVIATION
+  FREQUENCY_VARIATION_THRESHOLD_EU_INSTANTANEOUS_DEVIATION
+  FREQUENCY_VARIATION_THRESHOLD_EN_NORMAL_RANGE
+  FREQUENCY_VARIATION_THRESHOLD_EN_OUTER_RANGE
+}
+
+```
 ### GridEvent Diagram
 
 ```mermaid
@@ -380,6 +428,22 @@ class VoltageRapidChange {
 VoltageRapidChange --> `VoltageEvent`
 
 ```
+### FrequencyVariation Diagram
+
+```mermaid
+classDiagram
+direction LR
+
+%% 
+
+class FrequencyVariation {
+  + FrequencyEvent event
+  + FrequencyVariationThreshold frequencyVariationThreshold
+}
+FrequencyVariation --> `FrequencyEvent`
+FrequencyVariation --> `FrequencyVariationThreshold`
+
+```
 ### OverFrequency Diagram
 
 ```mermaid
@@ -389,9 +453,9 @@ direction LR
 %% 
 
 class OverFrequency {
-  + FrequencyEvent event
+  + FrequencyVariation event
 }
-OverFrequency --> `FrequencyEvent`
+OverFrequency --> `FrequencyVariation`
 
 ```
 ### UnderFrequency Diagram
@@ -403,23 +467,9 @@ direction LR
 %% 
 
 class UnderFrequency {
-  + FrequencyEvent event
+  + FrequencyVariation event
 }
-UnderFrequency --> `FrequencyEvent`
-
-```
-### FrequencyVariation Diagram
-
-```mermaid
-classDiagram
-direction LR
-
-%% 
-
-class FrequencyVariation {
-  + FrequencyEvent event
-}
-FrequencyVariation --> `FrequencyEvent`
+UnderFrequency --> `FrequencyVariation`
 
 ```
 ### SteadyOscillation Diagram
@@ -651,6 +701,21 @@ event. cf enum EventSourceType
 
 
 
+## Message: FrequencyVariation
+
+**FQN**: zaphiro.grid.v1.FrequencyVariation
+
+
+
+
+| Field                         | Ordinal | Type                          | Label | Description                                                     |
+|-------------------------------|---------|-------------------------------|-------|-----------------------------------------------------------------|
+| `event`                       | 1       | `FrequencyEvent`              |       | The base frequency grid event message                           |
+| `frequencyVariationThreshold` | 2       | `FrequencyVariationThreshold` |       | The threshold category that triggered the frequency variation.  |
+
+
+
+
 ## Message: OverFrequency
 
 **FQN**: zaphiro.grid.v1.OverFrequency
@@ -658,9 +723,9 @@ event. cf enum EventSourceType
 
 
 
-| Field   | Ordinal | Type             | Label | Description                            |
-|---------|---------|------------------|-------|----------------------------------------|
-| `event` | 1       | `FrequencyEvent` |       | The base frequency grid event message  |
+| Field   | Ordinal | Type                 | Label | Description                                      |
+|---------|---------|----------------------|-------|--------------------------------------------------|
+| `event` | 1       | `FrequencyVariation` |       | The base frequency variation grid event message  |
 
 
 
@@ -672,23 +737,9 @@ event. cf enum EventSourceType
 
 
 
-| Field   | Ordinal | Type             | Label | Description                            |
-|---------|---------|------------------|-------|----------------------------------------|
-| `event` | 1       | `FrequencyEvent` |       | The base frequency grid event message  |
-
-
-
-
-## Message: FrequencyVariation
-
-**FQN**: zaphiro.grid.v1.FrequencyVariation
-
-
-
-
-| Field   | Ordinal | Type             | Label | Description                            |
-|---------|---------|------------------|-------|----------------------------------------|
-| `event` | 1       | `FrequencyEvent` |       | The base frequency grid event message  |
+| Field   | Ordinal | Type                 | Label | Description                                      |
+|---------|---------|----------------------|-------|--------------------------------------------------|
+| `event` | 1       | `FrequencyVariation` |       | The base frequency variation grid event message  |
 
 
 

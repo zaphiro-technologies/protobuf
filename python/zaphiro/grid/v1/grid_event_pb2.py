@@ -16,7 +16,7 @@ from zaphiro.grid.v1 import event_pb2 as zaphiro_dot_grid_dot_v1_dot_event__pb2
 from zaphiro.grid.v1 import fault_pb2 as zaphiro_dot_grid_dot_v1_dot_fault__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n zaphiro/grid/v1/grid_event.proto\x12\x0fzaphiro.grid.v1\x1a\x1bzaphiro/grid/v1/event.proto\x1a\x1bzaphiro/grid/v1/fault.proto\"\xc7\x02\n\tGridEvent\x12,\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x16.zaphiro.grid.v1.EventR\x05\x65vent\x12 \n\x0b\x63omponentID\x18\x02 \x01(\tR\x0b\x63omponentID\x12\'\n\x0csubstationID\x18\x03 \x01(\tH\x00R\x0csubstationID\x88\x01\x01\x12\x14\n\x05value\x18\x04 \x01(\x01R\x05value\x12&\n\x0ereferenceLimit\x18\x05 \x01(\x01R\x0ereferenceLimit\x12%\n\x0bprobability\x18\x06 \x01(\x01H\x01R\x0bprobability\x88\x01\x01\x12)\n\rmovingAverage\x18\x07 \x01(\x01H\x02R\rmovingAverage\x88\x01\x01\x42\x0f\n\r_substationIDB\x0e\n\x0c_probabilityB\x10\n\x0e_movingAverage\"\x8d\x01\n\x0cVoltageEvent\x12\x30\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1a.zaphiro.grid.v1.GridEventR\x05\x65vent\x12=\n\tphaseCode\x18\x02 \x01(\x0e\x32\x1a.zaphiro.grid.v1.PhaseCodeH\x00R\tphaseCode\x88\x01\x01\x42\x0c\n\n_phaseCode\"@\n\x0c\x43urrentEvent\x12\x30\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1a.zaphiro.grid.v1.GridEventR\x05\x65vent\">\n\nPhaseEvent\x12\x30\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1a.zaphiro.grid.v1.GridEventR\x05\x65vent\"B\n\x0e\x46requencyEvent\x12\x30\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1a.zaphiro.grid.v1.GridEventR\x05\x65vent\"E\n\x0eLineCongestion\x12\x33\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1d.zaphiro.grid.v1.CurrentEventR\x05\x65vent\"L\n\x15TransformerCongestion\x12\x33\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1d.zaphiro.grid.v1.CurrentEventR\x05\x65vent\"G\n\x10VoltageUnbalance\x12\x33\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1d.zaphiro.grid.v1.VoltageEventR\x05\x65vent\"A\n\nVoltageDip\x12\x33\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1d.zaphiro.grid.v1.VoltageEventR\x05\x65vent\"J\n\x13VoltageInterruption\x12\x33\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1d.zaphiro.grid.v1.VoltageEventR\x05\x65vent\"C\n\x0cVoltageSwell\x12\x33\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1d.zaphiro.grid.v1.VoltageEventR\x05\x65vent\"C\n\x0cVoltageLimit\x12\x33\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1d.zaphiro.grid.v1.VoltageEventR\x05\x65vent\"I\n\x12VoltageRapidChange\x12\x33\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1d.zaphiro.grid.v1.VoltageEventR\x05\x65vent\"F\n\rOverFrequency\x12\x35\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1f.zaphiro.grid.v1.FrequencyEventR\x05\x65vent\"G\n\x0eUnderFrequency\x12\x35\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1f.zaphiro.grid.v1.FrequencyEventR\x05\x65vent\"K\n\x12\x46requencyVariation\x12\x35\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1f.zaphiro.grid.v1.FrequencyEventR\x05\x65vent\"F\n\x11SteadyOscillation\x12\x31\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1b.zaphiro.grid.v1.PhaseEventR\x05\x65vent\"I\n\x14TransientOscillation\x12\x31\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1b.zaphiro.grid.v1.PhaseEventR\x05\x65ventB\x0bZ\t./grid/v1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n zaphiro/grid/v1/grid_event.proto\x12\x0fzaphiro.grid.v1\x1a\x1bzaphiro/grid/v1/event.proto\x1a\x1bzaphiro/grid/v1/fault.proto\"\xc7\x02\n\tGridEvent\x12,\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x16.zaphiro.grid.v1.EventR\x05\x65vent\x12 \n\x0b\x63omponentID\x18\x02 \x01(\tR\x0b\x63omponentID\x12\'\n\x0csubstationID\x18\x03 \x01(\tH\x00R\x0csubstationID\x88\x01\x01\x12\x14\n\x05value\x18\x04 \x01(\x01R\x05value\x12&\n\x0ereferenceLimit\x18\x05 \x01(\x01R\x0ereferenceLimit\x12%\n\x0bprobability\x18\x06 \x01(\x01H\x01R\x0bprobability\x88\x01\x01\x12)\n\rmovingAverage\x18\x07 \x01(\x01H\x02R\rmovingAverage\x88\x01\x01\x42\x0f\n\r_substationIDB\x0e\n\x0c_probabilityB\x10\n\x0e_movingAverage\"\x8d\x01\n\x0cVoltageEvent\x12\x30\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1a.zaphiro.grid.v1.GridEventR\x05\x65vent\x12=\n\tphaseCode\x18\x02 \x01(\x0e\x32\x1a.zaphiro.grid.v1.PhaseCodeH\x00R\tphaseCode\x88\x01\x01\x42\x0c\n\n_phaseCode\"@\n\x0c\x43urrentEvent\x12\x30\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1a.zaphiro.grid.v1.GridEventR\x05\x65vent\">\n\nPhaseEvent\x12\x30\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1a.zaphiro.grid.v1.GridEventR\x05\x65vent\"B\n\x0e\x46requencyEvent\x12\x30\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1a.zaphiro.grid.v1.GridEventR\x05\x65vent\"E\n\x0eLineCongestion\x12\x33\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1d.zaphiro.grid.v1.CurrentEventR\x05\x65vent\"L\n\x15TransformerCongestion\x12\x33\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1d.zaphiro.grid.v1.CurrentEventR\x05\x65vent\"G\n\x10VoltageUnbalance\x12\x33\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1d.zaphiro.grid.v1.VoltageEventR\x05\x65vent\"A\n\nVoltageDip\x12\x33\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1d.zaphiro.grid.v1.VoltageEventR\x05\x65vent\"J\n\x13VoltageInterruption\x12\x33\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1d.zaphiro.grid.v1.VoltageEventR\x05\x65vent\"C\n\x0cVoltageSwell\x12\x33\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1d.zaphiro.grid.v1.VoltageEventR\x05\x65vent\"C\n\x0cVoltageLimit\x12\x33\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1d.zaphiro.grid.v1.VoltageEventR\x05\x65vent\"I\n\x12VoltageRapidChange\x12\x33\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1d.zaphiro.grid.v1.VoltageEventR\x05\x65vent\"\xbb\x01\n\x12\x46requencyVariation\x12\x35\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1f.zaphiro.grid.v1.FrequencyEventR\x05\x65vent\x12n\n\x1b\x66requencyVariationThreshold\x18\x02 \x01(\x0e\x32,.zaphiro.grid.v1.FrequencyVariationThresholdR\x1b\x66requencyVariationThreshold\"J\n\rOverFrequency\x12\x39\n\x05\x65vent\x18\x01 \x01(\x0b\x32#.zaphiro.grid.v1.FrequencyVariationR\x05\x65vent\"K\n\x0eUnderFrequency\x12\x39\n\x05\x65vent\x18\x01 \x01(\x0b\x32#.zaphiro.grid.v1.FrequencyVariationR\x05\x65vent\"F\n\x11SteadyOscillation\x12\x31\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1b.zaphiro.grid.v1.PhaseEventR\x05\x65vent\"I\n\x14TransientOscillation\x12\x31\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x1b.zaphiro.grid.v1.PhaseEventR\x05\x65vent*\xe1\x02\n\x1b\x46requencyVariationThreshold\x12-\n)FREQUENCY_VARIATION_THRESHOLD_UNSPECIFIED\x10\x00\x12\x33\n/FREQUENCY_VARIATION_THRESHOLD_EU_STANDARD_RANGE\x10\x01\x12;\n7FREQUENCY_VARIATION_THRESHOLD_EU_STEADY_STATE_DEVIATION\x10\x02\x12<\n8FREQUENCY_VARIATION_THRESHOLD_EU_INSTANTANEOUS_DEVIATION\x10\x03\x12\x31\n-FREQUENCY_VARIATION_THRESHOLD_EN_NORMAL_RANGE\x10\x04\x12\x30\n,FREQUENCY_VARIATION_THRESHOLD_EN_OUTER_RANGE\x10\x05\x42\x0bZ\t./grid/v1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -24,6 +24,8 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'zaphiro.grid.v1.grid_event_
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z\t./grid/v1'
+  _globals['_FREQUENCYVARIATIONTHRESHOLD']._serialized_start=1852
+  _globals['_FREQUENCYVARIATIONTHRESHOLD']._serialized_end=2205
   _globals['_GRIDEVENT']._serialized_start=112
   _globals['_GRIDEVENT']._serialized_end=439
   _globals['_VOLTAGEEVENT']._serialized_start=442
@@ -50,14 +52,14 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_VOLTAGELIMIT']._serialized_end=1284
   _globals['_VOLTAGERAPIDCHANGE']._serialized_start=1286
   _globals['_VOLTAGERAPIDCHANGE']._serialized_end=1359
-  _globals['_OVERFREQUENCY']._serialized_start=1361
-  _globals['_OVERFREQUENCY']._serialized_end=1431
-  _globals['_UNDERFREQUENCY']._serialized_start=1433
-  _globals['_UNDERFREQUENCY']._serialized_end=1504
-  _globals['_FREQUENCYVARIATION']._serialized_start=1506
-  _globals['_FREQUENCYVARIATION']._serialized_end=1581
-  _globals['_STEADYOSCILLATION']._serialized_start=1583
-  _globals['_STEADYOSCILLATION']._serialized_end=1653
-  _globals['_TRANSIENTOSCILLATION']._serialized_start=1655
-  _globals['_TRANSIENTOSCILLATION']._serialized_end=1728
+  _globals['_FREQUENCYVARIATION']._serialized_start=1362
+  _globals['_FREQUENCYVARIATION']._serialized_end=1549
+  _globals['_OVERFREQUENCY']._serialized_start=1551
+  _globals['_OVERFREQUENCY']._serialized_end=1625
+  _globals['_UNDERFREQUENCY']._serialized_start=1627
+  _globals['_UNDERFREQUENCY']._serialized_end=1702
+  _globals['_STEADYOSCILLATION']._serialized_start=1704
+  _globals['_STEADYOSCILLATION']._serialized_end=1774
+  _globals['_TRANSIENTOSCILLATION']._serialized_start=1776
+  _globals['_TRANSIENTOSCILLATION']._serialized_end=1849
 # @@protoc_insertion_point(module_scope)

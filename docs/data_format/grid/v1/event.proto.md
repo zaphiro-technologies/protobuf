@@ -52,6 +52,7 @@ class Event {
   + Optional~int64~ detectedAt
   + string message [deprecated]
   + Optional~EventStatus~ status
+  + Optional~string~ eventGroupId
 }
 Event --> `EventSourceType`
 Event --> `EventStatus`
@@ -172,6 +173,7 @@ class Event {
   + Optional~int64~ detectedAt
   + string message [deprecated]
   + Optional~EventStatus~ status
+  + Optional~string~ eventGroupId
 }
 Event --> `EventSourceType`
 Event --> `EventStatus`
@@ -196,15 +198,16 @@ event.
 
 
 
-| Field        | Ordinal | Type              | Label      | Description                                                                                         |
-|--------------|---------|-------------------|------------|-----------------------------------------------------------------------------------------------------|
-| `Id`         | 1       | `string`          |            | The uuid of the event.                                                                              |
-| `sourceId`   | 2       | `string`          | Deprecated | The id of the source (e.g. a PMU) that generated the event.                                         |
-| `sourceType` | 3       | `EventSourceType` | Deprecated | The type of data see `DataType` enum.                                                               |
-| `occurredAt` | 4       | `int64`           |            | The time of occurency of the event (Unix msec timestamp) usually is the same value as timestampId.  |
-| `detectedAt` | 5       | `int64`           | Optional   | The time of detection of the event (Unix msec timestamp).                                           |
-| `message`    | 6       | `string`          | Deprecated | Event message.                                                                                      |
-| `status`     | 7       | `EventStatus`     | Optional   | The status of the event.                                                                            |
+| Field          | Ordinal | Type              | Label      | Description                                                                                         |
+|----------------|---------|-------------------|------------|-----------------------------------------------------------------------------------------------------|
+| `Id`           | 1       | `string`          |            | The uuid of the event.                                                                              |
+| `sourceId`     | 2       | `string`          | Deprecated | The id of the source (e.g. a PMU) that generated the event.                                         |
+| `sourceType`   | 3       | `EventSourceType` | Deprecated | The type of data see `DataType` enum.                                                               |
+| `occurredAt`   | 4       | `int64`           |            | The time of occurency of the event (Unix msec timestamp) usually is the same value as timestampId.  |
+| `detectedAt`   | 5       | `int64`           | Optional   | The time of detection of the event (Unix msec timestamp).                                           |
+| `message`      | 6       | `string`          | Deprecated | Event message.                                                                                      |
+| `status`       | 7       | `EventStatus`     | Optional   | The status of the event.                                                                            |
+| `eventGroupId` | 8       | `string`          | Optional   | This allows to track relationship between evolving events.                                          |
 
 
 

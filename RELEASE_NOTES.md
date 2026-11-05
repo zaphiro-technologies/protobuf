@@ -1,9 +1,11 @@
 # ProtoBuf Release Notes
 
-## 0.0.24-dev - 2026-11-04
+## 0.0.24-dev - 2026-11-05
 
 ### Features
 
+- `FrequencyVariations`: add `FrequencyVariationThreshold` field to better
+  support EN5160 and EU 2017/1485 (PR #155 by @chicco785)
 - Add `Configuration` message to distribute service configurations (PR #150 by
   @chicco785)
 
