@@ -2,6 +2,10 @@
 
 ## 0.0.25-dev - 2026-11-05
 
+### Features
+
+- Add optional incipient field to fault messages (PR #156 by @tejo)
+
 ### Dependencies
 
 - Update Go version to 1.27.2 (PR #154 by @chicco785)
