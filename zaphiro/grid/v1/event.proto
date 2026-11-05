@@ -62,4 +62,5 @@ message Event {
   optional int64 detectedAt = 5; // The time of detection of the event (Unix msec timestamp).
   string message = 6 [deprecated = true]; // Event message.
   optional EventStatus status = 7; // The status of the event.
+  optional string eventGroupId = 8; // This allows to track relationship between evolving events.
 }

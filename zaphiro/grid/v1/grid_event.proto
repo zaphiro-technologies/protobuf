@@ -48,6 +48,17 @@ message GridEvent {
   optional double movingAverage = 7; //The moving average value of the measurement related to the event.
 }
 
+/* The collection of FrequencyVariationThreshold Types defined so far.*/
+
+enum FrequencyVariationThreshold {
+    FREQUENCY_VARIATION_THRESHOLD_UNSPECIFIED = 0;
+    FREQUENCY_VARIATION_THRESHOLD_EU_STANDARD_RANGE = 1;          // EU 2017/1485 standard range
+    FREQUENCY_VARIATION_THRESHOLD_EU_STEADY_STATE_DEVIATION = 2;  // EU 2017/1485 steady state deviation
+    FREQUENCY_VARIATION_THRESHOLD_EU_INSTANTANEOUS_DEVIATION = 3; // EU 2017/1485 instantaneous deviation
+    FREQUENCY_VARIATION_THRESHOLD_EN_NORMAL_RANGE = 4;           // EN 50160 normal range
+    FREQUENCY_VARIATION_THRESHOLD_EN_OUTER_RANGE = 5;            // EN 50160 outer range
+}
+
 message VoltageEvent {
   GridEvent event = 1; //The base grid event message
   optional PhaseCode phaseCode = 2;  //The phase for which the event occured
@@ -97,17 +108,19 @@ message VoltageRapidChange {
   VoltageEvent event = 1; //The base voltage grid event message
 }
 
-message OverFrequency {
+message FrequencyVariation {
   FrequencyEvent event = 1; //The base frequency grid event message
+  FrequencyVariationThreshold frequencyVariationThreshold = 2; // The threshold category that triggered the frequency variation.
+}
+
+message OverFrequency {
+  FrequencyVariation event = 1; //The base frequency variation grid event message
 }
 
 message UnderFrequency {
-  FrequencyEvent event = 1; //The base frequency grid event message
+  FrequencyVariation event = 1; //The base frequency variation grid event message
 }
 
-message FrequencyVariation {
-  FrequencyEvent event = 1; //The base frequency grid event message
-}
 
 message SteadyOscillation {
   PhaseEvent event = 1; //The base phase grid event message

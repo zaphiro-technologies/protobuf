@@ -37,6 +37,64 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type FrequencyVariationThreshold int32
+
+const (
+	FrequencyVariationThreshold_FREQUENCY_VARIATION_THRESHOLD_UNSPECIFIED                FrequencyVariationThreshold = 0
+	FrequencyVariationThreshold_FREQUENCY_VARIATION_THRESHOLD_EU_STANDARD_RANGE          FrequencyVariationThreshold = 1 // EU 2017/1485 standard range
+	FrequencyVariationThreshold_FREQUENCY_VARIATION_THRESHOLD_EU_STEADY_STATE_DEVIATION  FrequencyVariationThreshold = 2 // EU 2017/1485 steady state deviation
+	FrequencyVariationThreshold_FREQUENCY_VARIATION_THRESHOLD_EU_INSTANTANEOUS_DEVIATION FrequencyVariationThreshold = 3 // EU 2017/1485 instantaneous deviation
+	FrequencyVariationThreshold_FREQUENCY_VARIATION_THRESHOLD_EN_NORMAL_RANGE            FrequencyVariationThreshold = 4 // EN 50160 normal range
+	FrequencyVariationThreshold_FREQUENCY_VARIATION_THRESHOLD_EN_OUTER_RANGE             FrequencyVariationThreshold = 5 // EN 50160 outer range
+)
+
+// Enum value maps for FrequencyVariationThreshold.
+var (
+	FrequencyVariationThreshold_name = map[int32]string{
+		0: "FREQUENCY_VARIATION_THRESHOLD_UNSPECIFIED",
+		1: "FREQUENCY_VARIATION_THRESHOLD_EU_STANDARD_RANGE",
+		2: "FREQUENCY_VARIATION_THRESHOLD_EU_STEADY_STATE_DEVIATION",
+		3: "FREQUENCY_VARIATION_THRESHOLD_EU_INSTANTANEOUS_DEVIATION",
+		4: "FREQUENCY_VARIATION_THRESHOLD_EN_NORMAL_RANGE",
+		5: "FREQUENCY_VARIATION_THRESHOLD_EN_OUTER_RANGE",
+	}
+	FrequencyVariationThreshold_value = map[string]int32{
+		"FREQUENCY_VARIATION_THRESHOLD_UNSPECIFIED":                0,
+		"FREQUENCY_VARIATION_THRESHOLD_EU_STANDARD_RANGE":          1,
+		"FREQUENCY_VARIATION_THRESHOLD_EU_STEADY_STATE_DEVIATION":  2,
+		"FREQUENCY_VARIATION_THRESHOLD_EU_INSTANTANEOUS_DEVIATION": 3,
+		"FREQUENCY_VARIATION_THRESHOLD_EN_NORMAL_RANGE":            4,
+		"FREQUENCY_VARIATION_THRESHOLD_EN_OUTER_RANGE":             5,
+	}
+)
+
+func (x FrequencyVariationThreshold) Enum() *FrequencyVariationThreshold {
+	p := new(FrequencyVariationThreshold)
+	*p = x
+	return p
+}
+
+func (x FrequencyVariationThreshold) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (FrequencyVariationThreshold) Descriptor() protoreflect.EnumDescriptor {
+	return file_zaphiro_grid_v1_grid_event_proto_enumTypes[0].Descriptor()
+}
+
+func (FrequencyVariationThreshold) Type() protoreflect.EnumType {
+	return &file_zaphiro_grid_v1_grid_event_proto_enumTypes[0]
+}
+
+func (x FrequencyVariationThreshold) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use FrequencyVariationThreshold.Descriptor instead.
+func (FrequencyVariationThreshold) EnumDescriptor() ([]byte, []int) {
+	return file_zaphiro_grid_v1_grid_event_proto_rawDescGZIP(), []int{0}
+}
+
 type GridEvent struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -704,112 +762,19 @@ func (x *VoltageRapidChange) GetEvent() *VoltageEvent {
 	return nil
 }
 
-type OverFrequency struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Event *FrequencyEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"` //The base frequency grid event message
-}
-
-func (x *OverFrequency) Reset() {
-	*x = OverFrequency{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_zaphiro_grid_v1_grid_event_proto_msgTypes[13]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *OverFrequency) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OverFrequency) ProtoMessage() {}
-
-func (x *OverFrequency) ProtoReflect() protoreflect.Message {
-	mi := &file_zaphiro_grid_v1_grid_event_proto_msgTypes[13]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OverFrequency.ProtoReflect.Descriptor instead.
-func (*OverFrequency) Descriptor() ([]byte, []int) {
-	return file_zaphiro_grid_v1_grid_event_proto_rawDescGZIP(), []int{13}
-}
-
-func (x *OverFrequency) GetEvent() *FrequencyEvent {
-	if x != nil {
-		return x.Event
-	}
-	return nil
-}
-
-type UnderFrequency struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Event *FrequencyEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"` //The base frequency grid event message
-}
-
-func (x *UnderFrequency) Reset() {
-	*x = UnderFrequency{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_zaphiro_grid_v1_grid_event_proto_msgTypes[14]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UnderFrequency) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UnderFrequency) ProtoMessage() {}
-
-func (x *UnderFrequency) ProtoReflect() protoreflect.Message {
-	mi := &file_zaphiro_grid_v1_grid_event_proto_msgTypes[14]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UnderFrequency.ProtoReflect.Descriptor instead.
-func (*UnderFrequency) Descriptor() ([]byte, []int) {
-	return file_zaphiro_grid_v1_grid_event_proto_rawDescGZIP(), []int{14}
-}
-
-func (x *UnderFrequency) GetEvent() *FrequencyEvent {
-	if x != nil {
-		return x.Event
-	}
-	return nil
-}
-
 type FrequencyVariation struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Event *FrequencyEvent `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"` //The base frequency grid event message
+	Event                       *FrequencyEvent             `protobuf:"bytes,1,opt,name=event,proto3"                                                                         json:"event,omitempty"`                       //The base frequency grid event message
+	FrequencyVariationThreshold FrequencyVariationThreshold `protobuf:"varint,2,opt,name=frequencyVariationThreshold,proto3,enum=zaphiro.grid.v1.FrequencyVariationThreshold" json:"frequencyVariationThreshold,omitempty"` // The threshold category that triggered the frequency variation.
 }
 
 func (x *FrequencyVariation) Reset() {
 	*x = FrequencyVariation{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_zaphiro_grid_v1_grid_event_proto_msgTypes[15]
+		mi := &file_zaphiro_grid_v1_grid_event_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -822,7 +787,7 @@ func (x *FrequencyVariation) String() string {
 func (*FrequencyVariation) ProtoMessage() {}
 
 func (x *FrequencyVariation) ProtoReflect() protoreflect.Message {
-	mi := &file_zaphiro_grid_v1_grid_event_proto_msgTypes[15]
+	mi := &file_zaphiro_grid_v1_grid_event_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -835,10 +800,111 @@ func (x *FrequencyVariation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FrequencyVariation.ProtoReflect.Descriptor instead.
 func (*FrequencyVariation) Descriptor() ([]byte, []int) {
-	return file_zaphiro_grid_v1_grid_event_proto_rawDescGZIP(), []int{15}
+	return file_zaphiro_grid_v1_grid_event_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *FrequencyVariation) GetEvent() *FrequencyEvent {
+	if x != nil {
+		return x.Event
+	}
+	return nil
+}
+
+func (x *FrequencyVariation) GetFrequencyVariationThreshold() FrequencyVariationThreshold {
+	if x != nil {
+		return x.FrequencyVariationThreshold
+	}
+	return FrequencyVariationThreshold_FREQUENCY_VARIATION_THRESHOLD_UNSPECIFIED
+}
+
+type OverFrequency struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Event *FrequencyVariation `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"` //The base frequency variation grid event message
+}
+
+func (x *OverFrequency) Reset() {
+	*x = OverFrequency{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_zaphiro_grid_v1_grid_event_proto_msgTypes[14]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *OverFrequency) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OverFrequency) ProtoMessage() {}
+
+func (x *OverFrequency) ProtoReflect() protoreflect.Message {
+	mi := &file_zaphiro_grid_v1_grid_event_proto_msgTypes[14]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OverFrequency.ProtoReflect.Descriptor instead.
+func (*OverFrequency) Descriptor() ([]byte, []int) {
+	return file_zaphiro_grid_v1_grid_event_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *OverFrequency) GetEvent() *FrequencyVariation {
+	if x != nil {
+		return x.Event
+	}
+	return nil
+}
+
+type UnderFrequency struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Event *FrequencyVariation `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"` //The base frequency variation grid event message
+}
+
+func (x *UnderFrequency) Reset() {
+	*x = UnderFrequency{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_zaphiro_grid_v1_grid_event_proto_msgTypes[15]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UnderFrequency) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnderFrequency) ProtoMessage() {}
+
+func (x *UnderFrequency) ProtoReflect() protoreflect.Message {
+	mi := &file_zaphiro_grid_v1_grid_event_proto_msgTypes[15]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnderFrequency.ProtoReflect.Descriptor instead.
+func (*UnderFrequency) Descriptor() ([]byte, []int) {
+	return file_zaphiro_grid_v1_grid_event_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *UnderFrequency) GetEvent() *FrequencyVariation {
 	if x != nil {
 		return x.Event
 	}
@@ -1027,31 +1093,61 @@ var file_zaphiro_grid_v1_grid_event_proto_rawDesc = []byte{
 	0x65, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1d, 0x2e, 0x7a, 0x61, 0x70, 0x68,
 	0x69, 0x72, 0x6f, 0x2e, 0x67, 0x72, 0x69, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x56, 0x6f, 0x6c, 0x74,
 	0x61, 0x67, 0x65, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x52, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x22,
-	0x46, 0x0a, 0x0d, 0x4f, 0x76, 0x65, 0x72, 0x46, 0x72, 0x65, 0x71, 0x75, 0x65, 0x6e, 0x63, 0x79,
-	0x12, 0x35, 0x0a, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32,
-	0x1f, 0x2e, 0x7a, 0x61, 0x70, 0x68, 0x69, 0x72, 0x6f, 0x2e, 0x67, 0x72, 0x69, 0x64, 0x2e, 0x76,
-	0x31, 0x2e, 0x46, 0x72, 0x65, 0x71, 0x75, 0x65, 0x6e, 0x63, 0x79, 0x45, 0x76, 0x65, 0x6e, 0x74,
-	0x52, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x22, 0x47, 0x0a, 0x0e, 0x55, 0x6e, 0x64, 0x65, 0x72,
-	0x46, 0x72, 0x65, 0x71, 0x75, 0x65, 0x6e, 0x63, 0x79, 0x12, 0x35, 0x0a, 0x05, 0x65, 0x76, 0x65,
-	0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1f, 0x2e, 0x7a, 0x61, 0x70, 0x68, 0x69,
-	0x72, 0x6f, 0x2e, 0x67, 0x72, 0x69, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x46, 0x72, 0x65, 0x71, 0x75,
-	0x65, 0x6e, 0x63, 0x79, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x52, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74,
-	0x22, 0x4b, 0x0a, 0x12, 0x46, 0x72, 0x65, 0x71, 0x75, 0x65, 0x6e, 0x63, 0x79, 0x56, 0x61, 0x72,
+	0xbb, 0x01, 0x0a, 0x12, 0x46, 0x72, 0x65, 0x71, 0x75, 0x65, 0x6e, 0x63, 0x79, 0x56, 0x61, 0x72,
 	0x69, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x35, 0x0a, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x18,
 	0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1f, 0x2e, 0x7a, 0x61, 0x70, 0x68, 0x69, 0x72, 0x6f, 0x2e,
 	0x67, 0x72, 0x69, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x46, 0x72, 0x65, 0x71, 0x75, 0x65, 0x6e, 0x63,
-	0x79, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x52, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x22, 0x46, 0x0a,
-	0x11, 0x53, 0x74, 0x65, 0x61, 0x64, 0x79, 0x4f, 0x73, 0x63, 0x69, 0x6c, 0x6c, 0x61, 0x74, 0x69,
-	0x6f, 0x6e, 0x12, 0x31, 0x0a, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x0b, 0x32, 0x1b, 0x2e, 0x7a, 0x61, 0x70, 0x68, 0x69, 0x72, 0x6f, 0x2e, 0x67, 0x72, 0x69, 0x64,
-	0x2e, 0x76, 0x31, 0x2e, 0x50, 0x68, 0x61, 0x73, 0x65, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x52, 0x05,
-	0x65, 0x76, 0x65, 0x6e, 0x74, 0x22, 0x49, 0x0a, 0x14, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x69, 0x65,
-	0x6e, 0x74, 0x4f, 0x73, 0x63, 0x69, 0x6c, 0x6c, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x31, 0x0a,
-	0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1b, 0x2e, 0x7a,
-	0x61, 0x70, 0x68, 0x69, 0x72, 0x6f, 0x2e, 0x67, 0x72, 0x69, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x50,
-	0x68, 0x61, 0x73, 0x65, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x52, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74,
-	0x42, 0x0b, 0x5a, 0x09, 0x2e, 0x2f, 0x67, 0x72, 0x69, 0x64, 0x2f, 0x76, 0x31, 0x62, 0x06, 0x70,
-	0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x79, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x52, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x12, 0x6e, 0x0a,
+	0x1b, 0x66, 0x72, 0x65, 0x71, 0x75, 0x65, 0x6e, 0x63, 0x79, 0x56, 0x61, 0x72, 0x69, 0x61, 0x74,
+	0x69, 0x6f, 0x6e, 0x54, 0x68, 0x72, 0x65, 0x73, 0x68, 0x6f, 0x6c, 0x64, 0x18, 0x02, 0x20, 0x01,
+	0x28, 0x0e, 0x32, 0x2c, 0x2e, 0x7a, 0x61, 0x70, 0x68, 0x69, 0x72, 0x6f, 0x2e, 0x67, 0x72, 0x69,
+	0x64, 0x2e, 0x76, 0x31, 0x2e, 0x46, 0x72, 0x65, 0x71, 0x75, 0x65, 0x6e, 0x63, 0x79, 0x56, 0x61,
+	0x72, 0x69, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x54, 0x68, 0x72, 0x65, 0x73, 0x68, 0x6f, 0x6c, 0x64,
+	0x52, 0x1b, 0x66, 0x72, 0x65, 0x71, 0x75, 0x65, 0x6e, 0x63, 0x79, 0x56, 0x61, 0x72, 0x69, 0x61,
+	0x74, 0x69, 0x6f, 0x6e, 0x54, 0x68, 0x72, 0x65, 0x73, 0x68, 0x6f, 0x6c, 0x64, 0x22, 0x4a, 0x0a,
+	0x0d, 0x4f, 0x76, 0x65, 0x72, 0x46, 0x72, 0x65, 0x71, 0x75, 0x65, 0x6e, 0x63, 0x79, 0x12, 0x39,
+	0x0a, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x23, 0x2e,
+	0x7a, 0x61, 0x70, 0x68, 0x69, 0x72, 0x6f, 0x2e, 0x67, 0x72, 0x69, 0x64, 0x2e, 0x76, 0x31, 0x2e,
+	0x46, 0x72, 0x65, 0x71, 0x75, 0x65, 0x6e, 0x63, 0x79, 0x56, 0x61, 0x72, 0x69, 0x61, 0x74, 0x69,
+	0x6f, 0x6e, 0x52, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x22, 0x4b, 0x0a, 0x0e, 0x55, 0x6e, 0x64,
+	0x65, 0x72, 0x46, 0x72, 0x65, 0x71, 0x75, 0x65, 0x6e, 0x63, 0x79, 0x12, 0x39, 0x0a, 0x05, 0x65,
+	0x76, 0x65, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x23, 0x2e, 0x7a, 0x61, 0x70,
+	0x68, 0x69, 0x72, 0x6f, 0x2e, 0x67, 0x72, 0x69, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x46, 0x72, 0x65,
+	0x71, 0x75, 0x65, 0x6e, 0x63, 0x79, 0x56, 0x61, 0x72, 0x69, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52,
+	0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x22, 0x46, 0x0a, 0x11, 0x53, 0x74, 0x65, 0x61, 0x64, 0x79,
+	0x4f, 0x73, 0x63, 0x69, 0x6c, 0x6c, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x31, 0x0a, 0x05, 0x65,
+	0x76, 0x65, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1b, 0x2e, 0x7a, 0x61, 0x70,
+	0x68, 0x69, 0x72, 0x6f, 0x2e, 0x67, 0x72, 0x69, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x50, 0x68, 0x61,
+	0x73, 0x65, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x52, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x22, 0x49,
+	0x0a, 0x14, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x69, 0x65, 0x6e, 0x74, 0x4f, 0x73, 0x63, 0x69, 0x6c,
+	0x6c, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x31, 0x0a, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1b, 0x2e, 0x7a, 0x61, 0x70, 0x68, 0x69, 0x72, 0x6f, 0x2e,
+	0x67, 0x72, 0x69, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x50, 0x68, 0x61, 0x73, 0x65, 0x45, 0x76, 0x65,
+	0x6e, 0x74, 0x52, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x2a, 0xe1, 0x02, 0x0a, 0x1b, 0x46, 0x72,
+	0x65, 0x71, 0x75, 0x65, 0x6e, 0x63, 0x79, 0x56, 0x61, 0x72, 0x69, 0x61, 0x74, 0x69, 0x6f, 0x6e,
+	0x54, 0x68, 0x72, 0x65, 0x73, 0x68, 0x6f, 0x6c, 0x64, 0x12, 0x2d, 0x0a, 0x29, 0x46, 0x52, 0x45,
+	0x51, 0x55, 0x45, 0x4e, 0x43, 0x59, 0x5f, 0x56, 0x41, 0x52, 0x49, 0x41, 0x54, 0x49, 0x4f, 0x4e,
+	0x5f, 0x54, 0x48, 0x52, 0x45, 0x53, 0x48, 0x4f, 0x4c, 0x44, 0x5f, 0x55, 0x4e, 0x53, 0x50, 0x45,
+	0x43, 0x49, 0x46, 0x49, 0x45, 0x44, 0x10, 0x00, 0x12, 0x33, 0x0a, 0x2f, 0x46, 0x52, 0x45, 0x51,
+	0x55, 0x45, 0x4e, 0x43, 0x59, 0x5f, 0x56, 0x41, 0x52, 0x49, 0x41, 0x54, 0x49, 0x4f, 0x4e, 0x5f,
+	0x54, 0x48, 0x52, 0x45, 0x53, 0x48, 0x4f, 0x4c, 0x44, 0x5f, 0x45, 0x55, 0x5f, 0x53, 0x54, 0x41,
+	0x4e, 0x44, 0x41, 0x52, 0x44, 0x5f, 0x52, 0x41, 0x4e, 0x47, 0x45, 0x10, 0x01, 0x12, 0x3b, 0x0a,
+	0x37, 0x46, 0x52, 0x45, 0x51, 0x55, 0x45, 0x4e, 0x43, 0x59, 0x5f, 0x56, 0x41, 0x52, 0x49, 0x41,
+	0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x54, 0x48, 0x52, 0x45, 0x53, 0x48, 0x4f, 0x4c, 0x44, 0x5f, 0x45,
+	0x55, 0x5f, 0x53, 0x54, 0x45, 0x41, 0x44, 0x59, 0x5f, 0x53, 0x54, 0x41, 0x54, 0x45, 0x5f, 0x44,
+	0x45, 0x56, 0x49, 0x41, 0x54, 0x49, 0x4f, 0x4e, 0x10, 0x02, 0x12, 0x3c, 0x0a, 0x38, 0x46, 0x52,
+	0x45, 0x51, 0x55, 0x45, 0x4e, 0x43, 0x59, 0x5f, 0x56, 0x41, 0x52, 0x49, 0x41, 0x54, 0x49, 0x4f,
+	0x4e, 0x5f, 0x54, 0x48, 0x52, 0x45, 0x53, 0x48, 0x4f, 0x4c, 0x44, 0x5f, 0x45, 0x55, 0x5f, 0x49,
+	0x4e, 0x53, 0x54, 0x41, 0x4e, 0x54, 0x41, 0x4e, 0x45, 0x4f, 0x55, 0x53, 0x5f, 0x44, 0x45, 0x56,
+	0x49, 0x41, 0x54, 0x49, 0x4f, 0x4e, 0x10, 0x03, 0x12, 0x31, 0x0a, 0x2d, 0x46, 0x52, 0x45, 0x51,
+	0x55, 0x45, 0x4e, 0x43, 0x59, 0x5f, 0x56, 0x41, 0x52, 0x49, 0x41, 0x54, 0x49, 0x4f, 0x4e, 0x5f,
+	0x54, 0x48, 0x52, 0x45, 0x53, 0x48, 0x4f, 0x4c, 0x44, 0x5f, 0x45, 0x4e, 0x5f, 0x4e, 0x4f, 0x52,
+	0x4d, 0x41, 0x4c, 0x5f, 0x52, 0x41, 0x4e, 0x47, 0x45, 0x10, 0x04, 0x12, 0x30, 0x0a, 0x2c, 0x46,
+	0x52, 0x45, 0x51, 0x55, 0x45, 0x4e, 0x43, 0x59, 0x5f, 0x56, 0x41, 0x52, 0x49, 0x41, 0x54, 0x49,
+	0x4f, 0x4e, 0x5f, 0x54, 0x48, 0x52, 0x45, 0x53, 0x48, 0x4f, 0x4c, 0x44, 0x5f, 0x45, 0x4e, 0x5f,
+	0x4f, 0x55, 0x54, 0x45, 0x52, 0x5f, 0x52, 0x41, 0x4e, 0x47, 0x45, 0x10, 0x05, 0x42, 0x0b, 0x5a,
+	0x09, 0x2e, 0x2f, 0x67, 0x72, 0x69, 0x64, 0x2f, 0x76, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x33,
 }
 
 var (
@@ -1068,54 +1164,57 @@ func file_zaphiro_grid_v1_grid_event_proto_rawDescGZIP() []byte {
 	return file_zaphiro_grid_v1_grid_event_proto_rawDescData
 }
 
+var file_zaphiro_grid_v1_grid_event_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_zaphiro_grid_v1_grid_event_proto_msgTypes = make([]protoimpl.MessageInfo, 18)
 var file_zaphiro_grid_v1_grid_event_proto_goTypes = []interface{}{
-	(*GridEvent)(nil),             // 0: zaphiro.grid.v1.GridEvent
-	(*VoltageEvent)(nil),          // 1: zaphiro.grid.v1.VoltageEvent
-	(*CurrentEvent)(nil),          // 2: zaphiro.grid.v1.CurrentEvent
-	(*PhaseEvent)(nil),            // 3: zaphiro.grid.v1.PhaseEvent
-	(*FrequencyEvent)(nil),        // 4: zaphiro.grid.v1.FrequencyEvent
-	(*LineCongestion)(nil),        // 5: zaphiro.grid.v1.LineCongestion
-	(*TransformerCongestion)(nil), // 6: zaphiro.grid.v1.TransformerCongestion
-	(*VoltageUnbalance)(nil),      // 7: zaphiro.grid.v1.VoltageUnbalance
-	(*VoltageDip)(nil),            // 8: zaphiro.grid.v1.VoltageDip
-	(*VoltageInterruption)(nil),   // 9: zaphiro.grid.v1.VoltageInterruption
-	(*VoltageSwell)(nil),          // 10: zaphiro.grid.v1.VoltageSwell
-	(*VoltageLimit)(nil),          // 11: zaphiro.grid.v1.VoltageLimit
-	(*VoltageRapidChange)(nil),    // 12: zaphiro.grid.v1.VoltageRapidChange
-	(*OverFrequency)(nil),         // 13: zaphiro.grid.v1.OverFrequency
-	(*UnderFrequency)(nil),        // 14: zaphiro.grid.v1.UnderFrequency
-	(*FrequencyVariation)(nil),    // 15: zaphiro.grid.v1.FrequencyVariation
-	(*SteadyOscillation)(nil),     // 16: zaphiro.grid.v1.SteadyOscillation
-	(*TransientOscillation)(nil),  // 17: zaphiro.grid.v1.TransientOscillation
-	(*Event)(nil),                 // 18: zaphiro.grid.v1.Event
-	(PhaseCode)(0),                // 19: zaphiro.grid.v1.PhaseCode
+	(FrequencyVariationThreshold)(0), // 0: zaphiro.grid.v1.FrequencyVariationThreshold
+	(*GridEvent)(nil),                // 1: zaphiro.grid.v1.GridEvent
+	(*VoltageEvent)(nil),             // 2: zaphiro.grid.v1.VoltageEvent
+	(*CurrentEvent)(nil),             // 3: zaphiro.grid.v1.CurrentEvent
+	(*PhaseEvent)(nil),               // 4: zaphiro.grid.v1.PhaseEvent
+	(*FrequencyEvent)(nil),           // 5: zaphiro.grid.v1.FrequencyEvent
+	(*LineCongestion)(nil),           // 6: zaphiro.grid.v1.LineCongestion
+	(*TransformerCongestion)(nil),    // 7: zaphiro.grid.v1.TransformerCongestion
+	(*VoltageUnbalance)(nil),         // 8: zaphiro.grid.v1.VoltageUnbalance
+	(*VoltageDip)(nil),               // 9: zaphiro.grid.v1.VoltageDip
+	(*VoltageInterruption)(nil),      // 10: zaphiro.grid.v1.VoltageInterruption
+	(*VoltageSwell)(nil),             // 11: zaphiro.grid.v1.VoltageSwell
+	(*VoltageLimit)(nil),             // 12: zaphiro.grid.v1.VoltageLimit
+	(*VoltageRapidChange)(nil),       // 13: zaphiro.grid.v1.VoltageRapidChange
+	(*FrequencyVariation)(nil),       // 14: zaphiro.grid.v1.FrequencyVariation
+	(*OverFrequency)(nil),            // 15: zaphiro.grid.v1.OverFrequency
+	(*UnderFrequency)(nil),           // 16: zaphiro.grid.v1.UnderFrequency
+	(*SteadyOscillation)(nil),        // 17: zaphiro.grid.v1.SteadyOscillation
+	(*TransientOscillation)(nil),     // 18: zaphiro.grid.v1.TransientOscillation
+	(*Event)(nil),                    // 19: zaphiro.grid.v1.Event
+	(PhaseCode)(0),                   // 20: zaphiro.grid.v1.PhaseCode
 }
 var file_zaphiro_grid_v1_grid_event_proto_depIdxs = []int32{
-	18, // 0: zaphiro.grid.v1.GridEvent.event:type_name -> zaphiro.grid.v1.Event
-	0,  // 1: zaphiro.grid.v1.VoltageEvent.event:type_name -> zaphiro.grid.v1.GridEvent
-	19, // 2: zaphiro.grid.v1.VoltageEvent.phaseCode:type_name -> zaphiro.grid.v1.PhaseCode
-	0,  // 3: zaphiro.grid.v1.CurrentEvent.event:type_name -> zaphiro.grid.v1.GridEvent
-	0,  // 4: zaphiro.grid.v1.PhaseEvent.event:type_name -> zaphiro.grid.v1.GridEvent
-	0,  // 5: zaphiro.grid.v1.FrequencyEvent.event:type_name -> zaphiro.grid.v1.GridEvent
-	2,  // 6: zaphiro.grid.v1.LineCongestion.event:type_name -> zaphiro.grid.v1.CurrentEvent
-	2,  // 7: zaphiro.grid.v1.TransformerCongestion.event:type_name -> zaphiro.grid.v1.CurrentEvent
-	1,  // 8: zaphiro.grid.v1.VoltageUnbalance.event:type_name -> zaphiro.grid.v1.VoltageEvent
-	1,  // 9: zaphiro.grid.v1.VoltageDip.event:type_name -> zaphiro.grid.v1.VoltageEvent
-	1,  // 10: zaphiro.grid.v1.VoltageInterruption.event:type_name -> zaphiro.grid.v1.VoltageEvent
-	1,  // 11: zaphiro.grid.v1.VoltageSwell.event:type_name -> zaphiro.grid.v1.VoltageEvent
-	1,  // 12: zaphiro.grid.v1.VoltageLimit.event:type_name -> zaphiro.grid.v1.VoltageEvent
-	1,  // 13: zaphiro.grid.v1.VoltageRapidChange.event:type_name -> zaphiro.grid.v1.VoltageEvent
-	4,  // 14: zaphiro.grid.v1.OverFrequency.event:type_name -> zaphiro.grid.v1.FrequencyEvent
-	4,  // 15: zaphiro.grid.v1.UnderFrequency.event:type_name -> zaphiro.grid.v1.FrequencyEvent
-	4,  // 16: zaphiro.grid.v1.FrequencyVariation.event:type_name -> zaphiro.grid.v1.FrequencyEvent
-	3,  // 17: zaphiro.grid.v1.SteadyOscillation.event:type_name -> zaphiro.grid.v1.PhaseEvent
-	3,  // 18: zaphiro.grid.v1.TransientOscillation.event:type_name -> zaphiro.grid.v1.PhaseEvent
-	19, // [19:19] is the sub-list for method output_type
-	19, // [19:19] is the sub-list for method input_type
-	19, // [19:19] is the sub-list for extension type_name
-	19, // [19:19] is the sub-list for extension extendee
-	0,  // [0:19] is the sub-list for field type_name
+	19, // 0: zaphiro.grid.v1.GridEvent.event:type_name -> zaphiro.grid.v1.Event
+	1,  // 1: zaphiro.grid.v1.VoltageEvent.event:type_name -> zaphiro.grid.v1.GridEvent
+	20, // 2: zaphiro.grid.v1.VoltageEvent.phaseCode:type_name -> zaphiro.grid.v1.PhaseCode
+	1,  // 3: zaphiro.grid.v1.CurrentEvent.event:type_name -> zaphiro.grid.v1.GridEvent
+	1,  // 4: zaphiro.grid.v1.PhaseEvent.event:type_name -> zaphiro.grid.v1.GridEvent
+	1,  // 5: zaphiro.grid.v1.FrequencyEvent.event:type_name -> zaphiro.grid.v1.GridEvent
+	3,  // 6: zaphiro.grid.v1.LineCongestion.event:type_name -> zaphiro.grid.v1.CurrentEvent
+	3,  // 7: zaphiro.grid.v1.TransformerCongestion.event:type_name -> zaphiro.grid.v1.CurrentEvent
+	2,  // 8: zaphiro.grid.v1.VoltageUnbalance.event:type_name -> zaphiro.grid.v1.VoltageEvent
+	2,  // 9: zaphiro.grid.v1.VoltageDip.event:type_name -> zaphiro.grid.v1.VoltageEvent
+	2,  // 10: zaphiro.grid.v1.VoltageInterruption.event:type_name -> zaphiro.grid.v1.VoltageEvent
+	2,  // 11: zaphiro.grid.v1.VoltageSwell.event:type_name -> zaphiro.grid.v1.VoltageEvent
+	2,  // 12: zaphiro.grid.v1.VoltageLimit.event:type_name -> zaphiro.grid.v1.VoltageEvent
+	2,  // 13: zaphiro.grid.v1.VoltageRapidChange.event:type_name -> zaphiro.grid.v1.VoltageEvent
+	5,  // 14: zaphiro.grid.v1.FrequencyVariation.event:type_name -> zaphiro.grid.v1.FrequencyEvent
+	0,  // 15: zaphiro.grid.v1.FrequencyVariation.frequencyVariationThreshold:type_name -> zaphiro.grid.v1.FrequencyVariationThreshold
+	14, // 16: zaphiro.grid.v1.OverFrequency.event:type_name -> zaphiro.grid.v1.FrequencyVariation
+	14, // 17: zaphiro.grid.v1.UnderFrequency.event:type_name -> zaphiro.grid.v1.FrequencyVariation
+	4,  // 18: zaphiro.grid.v1.SteadyOscillation.event:type_name -> zaphiro.grid.v1.PhaseEvent
+	4,  // 19: zaphiro.grid.v1.TransientOscillation.event:type_name -> zaphiro.grid.v1.PhaseEvent
+	20, // [20:20] is the sub-list for method output_type
+	20, // [20:20] is the sub-list for method input_type
+	20, // [20:20] is the sub-list for extension type_name
+	20, // [20:20] is the sub-list for extension extendee
+	0,  // [0:20] is the sub-list for field type_name
 }
 
 func init() { file_zaphiro_grid_v1_grid_event_proto_init() }
@@ -1283,7 +1382,7 @@ func file_zaphiro_grid_v1_grid_event_proto_init() {
 			}
 		}
 		file_zaphiro_grid_v1_grid_event_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*OverFrequency); i {
+			switch v := v.(*FrequencyVariation); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1295,7 +1394,7 @@ func file_zaphiro_grid_v1_grid_event_proto_init() {
 			}
 		}
 		file_zaphiro_grid_v1_grid_event_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UnderFrequency); i {
+			switch v := v.(*OverFrequency); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1307,7 +1406,7 @@ func file_zaphiro_grid_v1_grid_event_proto_init() {
 			}
 		}
 		file_zaphiro_grid_v1_grid_event_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*FrequencyVariation); i {
+			switch v := v.(*UnderFrequency); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1350,13 +1449,14 @@ func file_zaphiro_grid_v1_grid_event_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_zaphiro_grid_v1_grid_event_proto_rawDesc,
-			NumEnums:      0,
+			NumEnums:      1,
 			NumMessages:   18,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_zaphiro_grid_v1_grid_event_proto_goTypes,
 		DependencyIndexes: file_zaphiro_grid_v1_grid_event_proto_depIdxs,
+		EnumInfos:         file_zaphiro_grid_v1_grid_event_proto_enumTypes,
 		MessageInfos:      file_zaphiro_grid_v1_grid_event_proto_msgTypes,
 	}.Build()
 	File_zaphiro_grid_v1_grid_event_proto = out.File
