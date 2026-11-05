@@ -1,5 +1,11 @@
 # ProtoBuf Release Notes
 
+## 0.0.25-dev - 2026-11-05
+
+### Dependencies
+
+- Update Go version to 1.27.2 (PR #154 by @chicco785)
+
 ## 0.0.24-dev - 2026-11-05
 
 ### Features
