@@ -66,6 +66,39 @@ func TestFault(t *testing.T) {
 	}
 }
 
+func TestFaultIncipient(t *testing.T) {
+	tests := []struct {
+		name      string
+		incipient *bool
+	}{
+		{name: "unset"},
+		{name: "false", incipient: proto.Bool(false)},
+		{name: "true", incipient: proto.Bool(true)},
+	}
+
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			fault := &Fault{Incipient: test.incipient}
+			buf, err := proto.Marshal(fault)
+			assert.NoError(t, err)
+
+			data := &Fault{}
+			assert.NoError(t, proto.Unmarshal(buf, data))
+			assert.Equal(t, test.incipient, data.Incipient)
+			assert.Equal(t, fault.GetIncipient(), data.GetIncipient())
+
+			vtBuf, err := fault.MarshalVT()
+			assert.NoError(t, err)
+			assert.Equal(t, buf, vtBuf)
+			assert.Equal(t, len(vtBuf), fault.SizeVT())
+
+			vtData := &Fault{}
+			assert.NoError(t, vtData.UnmarshalVT(vtBuf))
+			assert.Equal(t, test.incipient, vtData.Incipient)
+		})
+	}
+}
+
 func BenchmarkFaultSerialization(b *testing.B) {
 	randFaultKind, err := safecast.Convert[int32](rand.Intn(4))
 	if err != nil {
